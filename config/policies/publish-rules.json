@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "topics": {
+    "tech-news": {
+      "wordpress": {
+        "mode": "draft",
+        "enabled": true
+      },
+      "note": {
+        "mode": "generate-only",
+        "enabled": true
+      },
+      "x": {
+        "mode": "review",
+        "enabled": true
+      },
+      "image": {
+        "mode": "generate-only",
+        "enabled": true
+      }
+    }
+  }
+}

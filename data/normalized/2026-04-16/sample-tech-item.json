@@ -1,0 +1,18 @@
+{
+  "id": "sha256:sample-tech-item",
+  "source_type": "rss",
+  "topic": "tech-news",
+  "title": "OpenAI launches a new developer platform update",
+  "url": "https://example.com/openai-platform-update",
+  "canonical_url": "https://example.com/openai-platform-update",
+  "published_at": "2026-04-16T09:00:00Z",
+  "collected_at": "2026-04-16T09:05:00Z",
+  "language": "en",
+  "author": "Example Reporter",
+  "summary": "A short raw summary from the feed.",
+  "content_text": "OpenAI announced a new developer platform update with improved APIs, tooling, and pricing controls.",
+  "metadata": {
+    "site_name": "Example",
+    "tags": ["ai", "developer-tools"]
+  }
+}

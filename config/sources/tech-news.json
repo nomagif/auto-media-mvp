@@ -1,0 +1,37 @@
+{
+  "topic": "tech-news",
+  "enabled": true,
+  "defaults": {
+    "language": "en",
+    "collectEveryMinutes": 60,
+    "maxItemsPerRun": 10,
+    "dedupe": {
+      "useCanonicalUrl": true,
+      "useTitleSimilarity": true,
+      "titleSimilarityThreshold": 0.92
+    }
+  },
+  "sources": [
+    {
+      "id": "techcrunch-startups",
+      "name": "TechCrunch Startups",
+      "type": "rss",
+      "url": "https://techcrunch.com/category/startups/feed/",
+      "tags": ["startups", "tech"]
+    },
+    {
+      "id": "verge-tech",
+      "name": "The Verge Tech",
+      "type": "rss",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "tags": ["consumer-tech", "platform"]
+    }
+  ],
+  "output": {
+    "rawDir": "data/raw",
+    "normalizedDir": "data/normalized",
+    "stateDir": "data/state/collectors/tech-news",
+    "generatedDir": "data/generated",
+    "logFile": "data/publish-log/tech-news.jsonl"
+  }
+}
