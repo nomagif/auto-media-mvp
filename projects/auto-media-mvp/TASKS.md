@@ -38,6 +38,10 @@
 - [x] Phase A worker fixture 計画
 - [x] run_summary_worker.js の Phase A `--raw-file` 対応
 - [x] manual summary worker runbook
+- [x] title / x post IO spec たたき台
+- [x] title_generation scaffold
+- [x] title response normalization helper
+- [x] title worker の最小版 scaffold
 - [ ] article prompt適用
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成

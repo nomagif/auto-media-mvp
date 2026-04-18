@@ -48,6 +48,14 @@
 - `WORKER_INTEGRATION_PLAN.md`: worker に正規化アダプタを組み込む実装計画
 - `PHASE_A_WORKER_FIXTURE_PLAN.md`: raw response fixture を使った疑似統合計画
 - `MANUAL_SUMMARY_WORKER_RUNBOOK.md`: summary worker の手動運用手順
+- `TITLE_XPOST_IO_SPEC.md`: title candidates / X post 生成の入出力仕様
+- `prompts/title_candidates.md`: title candidates 生成用プロンプト
+- `scripts/generate/lib_title.js`: title request/response helper
+- `scripts/generate/lib_title_response.js`: title 応答の parse / normalize helper
+- `scripts/generate/build_title_requests.js`: enriched summary から title request を作る scaffold
+- `scripts/generate/run_title_worker.js`: title worker の最小版
+- `scripts/generate/apply_title_response.js`: title response を enriched に反映
+- `TITLE_RESPONSE_NORMALIZATION.md`: title 応答正規化ルール
 - `fixtures/summary-responses/`: worker 正規化テスト用 fixture
 - `package.json`: 最低限の実行スクリプト
 
