@@ -40,6 +40,7 @@
 - `state/summary_queue.json`: summary request の処理状態管理に使用
 - `SUMMARY_IO_SPEC.md`: OpenClaw / Codex に summary 生成を委譲するための入出力仕様
 - `OPENCLAW_SUMMARY_WORKER_SPEC.md`: OpenClaw worker turn 側の処理仕様
+- `DATA_POLICY.md`: 実行生成物・state・サンプルデータの運用方針
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例

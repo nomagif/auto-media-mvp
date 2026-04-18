@@ -1,0 +1,29 @@
+# Runtime data
+/data/raw/**
+/data/normalized/**
+/data/candidates/**
+/data/processed/**
+/drafts/**
+/output/**
+/logs/**
+
+# State files
+/state/*.json
+
+# Keep directory structure
+!/data/raw/.gitkeep
+!/data/normalized/.gitkeep
+!/data/candidates/.gitkeep
+!/data/processed/.gitkeep
+!/data/processed/requests/.gitkeep
+!/data/processed/responses/.gitkeep
+!/drafts/markdown/.gitkeep
+!/drafts/note/.gitkeep
+!/drafts/wordpress/.gitkeep
+!/drafts/x/.gitkeep
+!/output/daily/.gitkeep
+!/output/weekly/.gitkeep
+!/logs/.gitkeep
+
+# Keep selected seed state examples only when explicitly added
+!/state/.gitkeep
