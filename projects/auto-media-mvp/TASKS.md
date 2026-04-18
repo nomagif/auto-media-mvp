@@ -26,6 +26,7 @@
 - [x] normalized + draft を入力にした enrich 構造の土台
 - [x] summary 生成アダプタ分離（LLM差し替え準備）
 - [x] OpenClaw / Codex summary 委譲の入出力仕様書
+- [x] summary request/response 保存スケルトン
 - [ ] article prompt適用
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成

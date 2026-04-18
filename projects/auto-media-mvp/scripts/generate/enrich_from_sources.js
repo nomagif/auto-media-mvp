@@ -5,12 +5,14 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const PROCESSED_DIR = path.join(ROOT, 'data', 'processed');
+const REQUESTS_DIR = path.join(PROCESSED_DIR, 'requests');
+const RESPONSES_DIR = path.join(PROCESSED_DIR, 'responses');
 const NORMALIZED_DIR = path.join(ROOT, 'data', 'normalized');
 const DRAFT_DIR = path.join(ROOT, 'drafts', 'markdown');
 const STATE_DIR = path.join(ROOT, 'state');
 const LAST_RUN_FILE = path.join(STATE_DIR, 'last_run.json');
 const ENRICHED_MANIFESTS_FILE = path.join(STATE_DIR, 'enriched_manifests.json');
-const { buildSummaryInput, generateSummary } = require('./lib_summary');
+const { buildSummaryInput, buildSummaryRequest, generateSummary } = require('./lib_summary');
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -77,7 +79,13 @@ async function buildEnrichedEntry(bundle) {
   const body = bundle.normalized?.body || '';
   const bodyShort = body.slice(0, 280);
   const summaryInput = buildSummaryInput(bundle);
-  const summary = await generateSummary(summaryInput);
+  const summaryRequest = buildSummaryRequest(summaryInput);
+  const summaryResponse = await generateSummary(summaryRequest);
+
+  const requestFile = path.join(REQUESTS_DIR, `${bundle.id}-summary-request.json`);
+  const responseFile = path.join(RESPONSES_DIR, `${bundle.id}-summary-response.json`);
+  fs.writeFileSync(requestFile, JSON.stringify(summaryRequest, null, 2) + '\n', 'utf8');
+  fs.writeFileSync(responseFile, JSON.stringify(summaryResponse, null, 2) + '\n', 'utf8');
 
   return {
     id: bundle.id,
@@ -86,7 +94,18 @@ async function buildEnrichedEntry(bundle) {
     source_type: bundle.normalized?.source_type || null,
     input: bundle,
     outputs: {
-      summary,
+      summary: {
+        ...summaryResponse.summary,
+        meta: {
+          prompt_version: summaryResponse.version,
+          model: summaryResponse.model,
+          generated_at: summaryResponse.generated_at,
+          raw_response: summaryResponse.meta?.raw_response ?? null,
+          status: summaryResponse.meta?.status ?? 'unknown',
+          request_file: path.join('data', 'processed', 'requests', `${bundle.id}-summary-request.json`),
+          response_file: path.join('data', 'processed', 'responses', `${bundle.id}-summary-response.json`)
+        }
+      },
       titles: {
         title_candidates: [
           `${title} を3分で把握`,
@@ -125,6 +144,8 @@ async function buildEnrichedEntry(bundle) {
 
 async function main() {
   ensureDir(PROCESSED_DIR);
+  ensureDir(REQUESTS_DIR);
+  ensureDir(RESPONSES_DIR);
   ensureDir(STATE_DIR);
 
   const lastRun = readJson(LAST_RUN_FILE, {});

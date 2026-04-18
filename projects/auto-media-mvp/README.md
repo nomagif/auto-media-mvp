@@ -61,6 +61,7 @@ npm run run:mvp
 - `data/normalized/` に共通スキーマJSONが保存される
 - `drafts/markdown/` に下書きMarkdownが生成される
 - `data/processed/` に draft manifest と enriched JSON が生成される
+- `data/processed/requests/` と `data/processed/responses/` に summary request/response JSON が保存される
 - `output/daily/` に review digest が生成される
 - `state/seen_urls.json` `state/publish_queue.json` `state/last_run.json` `state/enriched_manifests.json` が更新される
 
@@ -68,7 +69,7 @@ npm run run:mvp
 - ネットワーク到達性がないと collect が失敗する
 - 同じURLが既出なら normalized の新規件数は 0 になる
 - `generate:drafts` は未処理 normalized がないと新規draftを作らない
-- `generate:enrich` は現時点ではプレースホルダ生成だが、summary 生成を分離してあり、本番LLM連携へ段階的に差し替えやすい構造にしてある
+- `generate:enrich` は現時点ではプレースホルダ生成だが、summary request/response を保存するので、本番LLM連携時の監査や再処理に繋げやすい
 - 将来的には API rate limit と retry 方針を入れる
 
 ## 運用方針
