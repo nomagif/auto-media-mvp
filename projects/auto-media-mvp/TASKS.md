@@ -22,12 +22,16 @@
 - [ ] candidates保存
 
 ## Phase 3: 生成
-- [ ] summarize prompt適用
+- [x] summarize / title / x_post / image_prompt の雛形出力
+- [x] normalized + draft を入力にした enrich 構造の土台
+- [x] summary 生成アダプタ分離（LLM差し替え準備）
+- [x] OpenClaw / Codex summary 委譲の入出力仕様書
 - [ ] article prompt適用
-- [ ] x_post prompt適用
-- [ ] image_prompt prompt適用
-- [ ] processed保存
-- [ ] markdown/note/wordpress/x へ下書き出力
+- [ ] x_post の本生成
+- [ ] image_prompt の本生成
+- [x] processed保存
+- [x] markdown へ下書き出力
+- [ ] note/wordpress/x へ下書き出力
 
 ## Phase 4: レビュー
 - [x] pending一覧生成の土台（publish_queue.json）

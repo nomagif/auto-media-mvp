@@ -1,1 +1,31 @@
-{}
+{
+  "techcrunch_collect": {
+    "ran_at": "2026-04-18T12:36:21.447Z",
+    "raw_file": "data/raw/tech/2026-04-18T12-36-21-573Z-techcrunch-feed.xml",
+    "normalized_file": "data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json",
+    "new_items": 20
+  },
+  "hackernews_collect": {
+    "ran_at": "2026-04-18T12:36:21.723Z",
+    "raw_file": "data/raw/tech/2026-04-18T12-36-26-081Z-hackernews-topstories.json",
+    "normalized_file": "data/normalized/2026-04-18T12-36-26-085Z-hackernews-normalized.json",
+    "new_items": 20
+  },
+  "generate_drafts": {
+    "ran_at": "2026-04-18T12:36:26.270Z",
+    "normalized_inputs": [
+      "data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json",
+      "data/normalized/2026-04-18T12-36-26-085Z-hackernews-normalized.json"
+    ],
+    "processed_manifests": [
+      "data/processed/2026-04-18T12-36-21-574Z-techcrunch-draft-manifest.json",
+      "data/processed/2026-04-18T12-36-26-085Z-hackernews-draft-manifest.json"
+    ],
+    "draft_count": 6
+  },
+  "review_digest": {
+    "ran_at": "2026-04-18T12:36:26.406Z",
+    "output_file": "output/daily/2026-04-18T12-36-26-406Z-review-digest.md",
+    "pending_count": 6
+  }
+}

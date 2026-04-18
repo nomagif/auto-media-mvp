@@ -1,0 +1,362 @@
+[
+  {
+    "id": "techcrunch-2026-04-18-001",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/",
+    "title": "Once close enough for an acquisition, Stripe and Airwallex are now going after each other",
+    "body": "For most of its life, Airwallex and Stripe have mostly operated in different geographies, selling to different buyers. That's changing.",
+    "author": "Connie Loizos",
+    "published_at": "2026-04-18T05:20:11.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 1,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-002",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/",
+    "title": "Sam Altman&#8217;s project World looks to scale its human verification empire. First stop: Tinder.",
+    "body": "World, which has raised eyebrows (but also a lot of interest) with its Orb-centered anonymous verification project, is looking to expand its influence via a bevy of new partnerships.",
+    "author": "Lucas Ropek",
+    "published_at": "2026-04-17T22:34:02.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 2,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-003",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/",
+    "title": "Kevin Weil and Bill Peebles exit OpenAI as company continues to shed &#8216;side quests&#8217;",
+    "body": "Kevin Weil and Bill Peebles are leaving OpenAI as the company shuts down Sora and folds its science team, signaling a sharp pivot away from consumer moonshots toward enterprise AI.",
+    "author": "Rebecca Bellan",
+    "published_at": "2026-04-17T20:38:17.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 3,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-004",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/man-who-hacked-us-supreme-court-filing-system-sentenced-to-probation/",
+    "title": "Man who hacked US Supreme Court filing system sentenced to probation",
+    "body": "Nicholas Moore hacked into three U.S. government networks using stolen credentials, and then bragged about it and posted victims' personal data on Instagram under the handle @ihackedthegovernment.",
+    "author": "Lorenzo Franceschi-Bicchierai",
+    "published_at": "2026-04-17T20:16:13.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 4,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-005",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/",
+    "title": "Sources: Cursor in talks to raise $2B+ at $50B valuation as enterprise growth surges",
+    "body": "Returning backers a16z and Thrive are expected to lead the round.",
+    "author": "Marina Temkin",
+    "published_at": "2026-04-17T19:17:26.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 5,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-006",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/",
+    "title": "&#8216;Tokenmaxxing&#8217; is making developers less productive than they think",
+    "body": "There's a lot more code — but it's a lot more expensive and requires a lot more rewriting.",
+    "author": "Tim Fernholz",
+    "published_at": "2026-04-17T18:42:45.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 6,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-007",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/",
+    "title": "Hackers are abusing unpatched Windows security flaws to hack into organizations",
+    "body": "A security researcher published details of three security vulnerabilities in Windows Defender, and the code used to exploit them. Now, hackers are taking advantage of the vulnerabilities in real-life attacks, according to a cybersecurity firm.",
+    "author": "Lorenzo Franceschi-Bicchierai",
+    "published_at": "2026-04-17T17:48:46.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 7,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-008",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/",
+    "title": "Zoom teams up with World to verify humans in meetings",
+    "body": "Meeting platform Zoom has announced a partnership with World, Sam Altman's human ID verification company, to ensure that the people attending meetings are actually human and not AI-generated imposters. Zoom will show a badge on verified participants' tile.",
+    "author": "Ivan Mehta",
+    "published_at": "2026-04-17T17:15:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 8,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-009",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/",
+    "title": "Gigs turns your concert history into a personal live music archive",
+    "body": "New iPhone app Gigs uses AI to turn old tickets, screenshots, and emails into a personal concert archive with stats, memories, and more.",
+    "author": "Sarah Perez",
+    "published_at": "2026-04-17T16:55:45.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 9,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-010",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/chef-robotics-escaped-the-robot-cooking-graveyard-and-says-its-thriving-heres-why/",
+    "title": "Chef Robotics escaped the robot cooking graveyard and says it&#8217;s thriving &#8212; here&#8217;s why",
+    "body": "The company, which deploys AI-guided robot arms for food production, says it is looking to expand its services to provide for a broader array of customers.",
+    "author": "Lucas Ropek",
+    "published_at": "2026-04-17T16:15:50.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 10,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-011",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/uber-will-now-pick-up-your-returns-from-your-doorstep/",
+    "title": "Uber will now pick up your returns from your doorstep",
+    "body": "The new returns feature is the company's latest effort to become an everything app. There are limitations to the new service, and there is, of course, a courier fee.",
+    "author": "Kirsten Korosec",
+    "published_at": "2026-04-17T15:02:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 11,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-012",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/",
+    "title": "Anthropic launches Claude Design, a new product for creating quick visuals",
+    "body": "The company says Claude Design is intended to help people like founders and product managers without a design background share their ideas more easily.",
+    "author": "Aisha Malik",
+    "published_at": "2026-04-17T15:00:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 12,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-013",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/",
+    "title": "With US spy laws set to expire, lawmakers are split over protecting Americans from warrantless surveillance",
+    "body": "Some lawmakers are calling for widespread reforms following years of surveillance scandals and abuses across successive U.S. administrations. But even if the spy law known as Section 702 expires in April, the government's spy powers will not automatically lapse.",
+    "author": "Zack Whittaker",
+    "published_at": "2026-04-17T14:00:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 13,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-014",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/googles-ai-mode-can-now-help-you-find-products-in-stock-nearby/",
+    "title": "Google&#8217;s AI Mode can now help you find products in stock nearby",
+    "body": "Although you can already track hotel prices at the city level, the new update lets you do so for a specific hotel that you're interested in.",
+    "author": "Aisha Malik",
+    "published_at": "2026-04-17T14:00:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 14,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-015",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/its-not-just-you-bluesky-is-sorta-down/",
+    "title": "Bluesky confirms DDoS attack is cause of continued app outages",
+    "body": "Bluesky has been experiencing ongoing service disruptions since just before 3 a.m. ET on April 15.",
+    "author": "Sarah Perez",
+    "published_at": "2026-04-17T13:22:04.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 15,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-016",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/",
+    "title": "Netflix plans to add a vertical video feed, use AI for recommendations",
+    "body": "Netflix is going to launch a TikTok-like vertical video feed within its apps this month, and plans to use AI broadly for content creation and recommendations.",
+    "author": "Ivan Mehta",
+    "published_at": "2026-04-17T13:17:18.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 16,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-017",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/sayso-is-a-new-short-form-video-app-that-aims-to-restore-users-trust-in-news/",
+    "title": "SaySo is a new short-form video app that aims to restore users&#8217; trust in news",
+    "body": "Users are fed up with misinformation and AI slop cluttering their feeds. SaySo is a new short-form video app that delivers news from vetted creators and journalists.",
+    "author": "Lauren Forristal",
+    "published_at": "2026-04-17T13:00:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 17,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-018",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/17/loop-raises-95m-to-build-supply-chain-ai-that-predicts-disruptions/",
+    "title": "Loop raises $95M to build supply chain AI that predicts disruptions",
+    "body": "The San Francisco startup closed a Series C funding round led by Antonio Gracias' firm Valor, which is a major backer of xAI.",
+    "author": "Sean O'Kane",
+    "published_at": "2026-04-17T13:00:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 18,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-019",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/",
+    "title": "Are we tokenmaxxing our way to nowhere?",
+    "body": "The gap between AI insiders and everyone else&#160;is widening, and the spending, suspicion, and even new vocabulary are starting to show it. While OpenAI is busy buying up everything from&#160;finance apps&#160;to&#160;talk shows, a certain shoe company just&#160;rebranded as an AI infrastructure play, and Anthropic unveiled a model it says is&#160;too powerful to release publicly&#160;&#8230;but&#160;apparently not&#160;too [&#8230;]",
+    "author": "Theresa Loconsolo",
+    "published_at": "2026-04-17T13:00:00.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 19,
+      "score": null,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "techcrunch-2026-04-18-020",
+    "source_type": "tech",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/",
+    "title": "New leaders, new fund: Sequoia has raised $7B to expand its AI bets",
+    "body": "The fundraise is the first major capital raise under Sequoia's new leadership, with Alfred Lin and Pat Grady now serving as co-stewards of the 54-year-old firm.",
+    "author": "Connie Loizos",
+    "published_at": "2026-04-17T02:55:06.000Z",
+    "collected_at": "2026-04-18T12:36:21.447Z",
+    "language": "en",
+    "tags": [],
+    "metrics": {
+      "rank": 20,
+      "score": null,
+      "price_change_24h": null
+    }
+  }
+]

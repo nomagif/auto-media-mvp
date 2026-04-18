@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>TechCrunch</title>
+	<atom:link href="https://techcrunch.com/feed/" rel="self" type="application/rss+xml" />
+	<link>https://techcrunch.com/</link>
+	<description>Startup and Technology News</description>
+	<lastBuildDate>Sat, 18 Apr 2026 05:20:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.9.4</generator>
+
+<image>
+	<url>https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=32</url>
+	<title>TechCrunch</title>
+	<link>https://techcrunch.com/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Once close enough for an acquisition, Stripe and Airwallex are now going after each other</title>
+		<link>https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/</link>
+		
+		<dc:creator><![CDATA[Connie Loizos]]></dc:creator>
+		<pubDate>Sat, 18 Apr 2026 05:20:11 +0000</pubDate>
+				<category><![CDATA[Fintech]]></category>
+		<category><![CDATA[TC]]></category>
+		<category><![CDATA[Airwallex]]></category>
+		<category><![CDATA[Greenoaks Capital]]></category>
+		<category><![CDATA[HongShan]]></category>
+		<category><![CDATA[Jack Zhang]]></category>
+		<category><![CDATA[Michael Moritz]]></category>
+		<category><![CDATA[Sequoia Capital]]></category>
+		<category><![CDATA[stripe]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113962</guid>
+
+					<description><![CDATA[For most of its life, Airwallex and Stripe have mostly operated in different geographies, selling to different buyers. That's changing.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Sam Altman&#8217;s project World looks to scale its human verification empire. First stop: Tinder.</title>
+		<link>https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/</link>
+		
+		<dc:creator><![CDATA[Lucas Ropek]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 22:34:02 +0000</pubDate>
+				<category><![CDATA[AI]]></category>
+		<category><![CDATA[DocuSign]]></category>
+		<category><![CDATA[sam altman]]></category>
+		<category><![CDATA[Tinder]]></category>
+		<category><![CDATA[World]]></category>
+		<category><![CDATA[Worldcoin]]></category>
+		<category><![CDATA[zoom]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113492</guid>
+
+					<description><![CDATA[World, which has raised eyebrows (but also a lot of interest) with its Orb-centered anonymous verification project, is looking to expand its influence via a bevy of new partnerships. ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Kevin Weil and Bill Peebles exit OpenAI as company continues to shed &#8216;side quests&#8217;</title>
+		<link>https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/</link>
+		
+		<dc:creator><![CDATA[Rebecca Bellan]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 20:38:17 +0000</pubDate>
+				<category><![CDATA[AI]]></category>
+		<category><![CDATA[Kevin Weil]]></category>
+		<category><![CDATA[OpenAI]]></category>
+		<category><![CDATA[sora]]></category>
+		<category><![CDATA[OpenAI For Science]]></category>
+		<category><![CDATA[bill peebles]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113889</guid>
+
+					<description><![CDATA[Kevin Weil and Bill Peebles are leaving OpenAI as the company shuts down Sora and folds its science team, signaling a sharp pivot away from consumer moonshots toward enterprise AI.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Man who hacked US Supreme Court filing system sentenced to probation</title>
+		<link>https://techcrunch.com/2026/04/17/man-who-hacked-us-supreme-court-filing-system-sentenced-to-probation/</link>
+		
+		<dc:creator><![CDATA[Lorenzo Franceschi-Bicchierai]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 20:16:13 +0000</pubDate>
+				<category><![CDATA[Security]]></category>
+		<category><![CDATA[AmeriCorps]]></category>
+		<category><![CDATA[cybercrime]]></category>
+		<category><![CDATA[cybersecurity]]></category>
+		<category><![CDATA[Department of Veteran Affairs]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[In Brief]]></category>
+		<category><![CDATA[infosec]]></category>
+		<category><![CDATA[U.S. Department of Justice]]></category>
+		<category><![CDATA[U.S. Supreme Court]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113890</guid>
+
+					<description><![CDATA[Nicholas Moore hacked into three U.S. government networks using stolen credentials, and then bragged about it and posted victims' personal data on Instagram under the handle @ihackedthegovernment.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Sources: Cursor in talks to raise $2B+ at $50B valuation as enterprise growth surges</title>
+		<link>https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/</link>
+		
+		<dc:creator><![CDATA[Marina Temkin]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 19:17:26 +0000</pubDate>
+				<category><![CDATA[Startups]]></category>
+		<category><![CDATA[AI]]></category>
+		<category><![CDATA[ai coding]]></category>
+		<category><![CDATA[Andreessen Horowitz]]></category>
+		<category><![CDATA[cursor]]></category>
+		<category><![CDATA[Exclusive]]></category>
+		<category><![CDATA[Thrive]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113763</guid>
+
+					<description><![CDATA[Returning backers a16z and Thrive are expected to lead the round.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>&#8216;Tokenmaxxing&#8217; is making developers less productive than they think</title>
+		<link>https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/</link>
+		
+		<dc:creator><![CDATA[Tim Fernholz]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 18:42:45 +0000</pubDate>
+				<category><![CDATA[AI]]></category>
+		<category><![CDATA[developers]]></category>
+		<category><![CDATA[tokenmaxxing]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113711</guid>
+
+					<description><![CDATA[There's a lot more code — but it's a lot more expensive and requires a lot more rewriting. ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Hackers are abusing unpatched Windows security flaws to hack into organizations</title>
+		<link>https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/</link>
+		
+		<dc:creator><![CDATA[Lorenzo Franceschi-Bicchierai]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 17:48:46 +0000</pubDate>
+				<category><![CDATA[Security]]></category>
+		<category><![CDATA[Microsoft]]></category>
+		<category><![CDATA[Windows]]></category>
+		<category><![CDATA[bugs]]></category>
+		<category><![CDATA[Vulnerabilities]]></category>
+		<category><![CDATA[cybersecurity]]></category>
+		<category><![CDATA[infosec]]></category>
+		<category><![CDATA[Zero-days]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113765</guid>
+
+					<description><![CDATA[A security researcher published details of three security vulnerabilities in Windows Defender, and the code used to exploit them. Now, hackers are taking advantage of the vulnerabilities in real-life attacks, according to a cybersecurity firm. ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Zoom teams up with World to verify humans in meetings</title>
+		<link>https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/</link>
+		
+		<dc:creator><![CDATA[Ivan Mehta]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 17:15:00 +0000</pubDate>
+				<category><![CDATA[Apps]]></category>
+		<category><![CDATA[zoom]]></category>
+		<category><![CDATA[World]]></category>
+		<category><![CDATA[meetings]]></category>
+		<category><![CDATA[sam altman]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113609</guid>
+
+					<description><![CDATA[Meeting platform Zoom has announced a partnership with World, Sam Altman's human ID verification company, to ensure that the people attending meetings are actually human and not AI-generated imposters. Zoom will show a badge on verified participants' tile.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Gigs turns your concert history into a personal live music archive</title>
+		<link>https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/</link>
+		
+		<dc:creator><![CDATA[Sarah Perez]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 16:55:45 +0000</pubDate>
+				<category><![CDATA[Apps]]></category>
+		<category><![CDATA[concerts]]></category>
+		<category><![CDATA[iOS apps]]></category>
+		<category><![CDATA[Music]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113715</guid>
+
+					<description><![CDATA[New iPhone app Gigs uses AI to turn old tickets, screenshots, and emails into a personal concert archive with stats, memories, and more.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Chef Robotics escaped the robot cooking graveyard and says it&#8217;s thriving &#8212; here&#8217;s why</title>
+		<link>https://techcrunch.com/2026/04/17/chef-robotics-escaped-the-robot-cooking-graveyard-and-says-its-thriving-heres-why/</link>
+		
+		<dc:creator><![CDATA[Lucas Ropek]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 16:15:50 +0000</pubDate>
+				<category><![CDATA[Robotics]]></category>
+		<category><![CDATA[Chef Robotics]]></category>
+		<category><![CDATA[cooking robots]]></category>
+		<category><![CDATA[DoorDash]]></category>
+		<category><![CDATA[robots]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113014</guid>
+
+					<description><![CDATA[The company, which deploys AI-guided robot arms for food production, says it is looking to expand its services to provide for a broader array of customers. ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Uber will now pick up your returns from your doorstep</title>
+		<link>https://techcrunch.com/2026/04/17/uber-will-now-pick-up-your-returns-from-your-doorstep/</link>
+		
+		<dc:creator><![CDATA[Kirsten Korosec]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 15:02:00 +0000</pubDate>
+				<category><![CDATA[Apps]]></category>
+		<category><![CDATA[Commerce]]></category>
+		<category><![CDATA[Transportation]]></category>
+		<category><![CDATA[eCommerce]]></category>
+		<category><![CDATA[Uber]]></category>
+		<category><![CDATA[commerce]]></category>
+		<category><![CDATA[gig economy]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113679</guid>
+
+					<description><![CDATA[The new returns feature is the company's latest effort to become an everything app. There are limitations to the new service, and there is, of course, a courier fee.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Anthropic launches Claude Design, a new product for creating quick visuals</title>
+		<link>https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/</link>
+		
+		<dc:creator><![CDATA[Aisha Malik]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[AI]]></category>
+		<category><![CDATA[Apps]]></category>
+		<category><![CDATA[Enterprise]]></category>
+		<category><![CDATA[Anthropic]]></category>
+		<category><![CDATA[Claude]]></category>
+		<category><![CDATA[claude design]]></category>
+		<category><![CDATA[design]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113618</guid>
+
+					<description><![CDATA[The company says Claude Design is intended to help people like founders and product managers without a design background share their ideas more easily. ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>With US spy laws set to expire, lawmakers are split over protecting Americans from warrantless surveillance</title>
+		<link>https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/</link>
+		
+		<dc:creator><![CDATA[Zack Whittaker]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 14:00:00 +0000</pubDate>
+				<category><![CDATA[Government & Policy]]></category>
+		<category><![CDATA[Security]]></category>
+		<category><![CDATA[surveillance]]></category>
+		<category><![CDATA[fisa]]></category>
+		<category><![CDATA[cybersecurity]]></category>
+		<category><![CDATA[location data]]></category>
+		<category><![CDATA[data brokers]]></category>
+		<category><![CDATA[Trump Administration]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113610</guid>
+
+					<description><![CDATA[Some lawmakers are calling for widespread reforms following years of surveillance scandals and abuses across successive U.S. administrations. But even if the spy law known as Section 702 expires in April, the government's spy powers will not automatically lapse.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Google&#8217;s AI Mode can now help you find products in stock nearby</title>
+		<link>https://techcrunch.com/2026/04/17/googles-ai-mode-can-now-help-you-find-products-in-stock-nearby/</link>
+		
+		<dc:creator><![CDATA[Aisha Malik]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 14:00:00 +0000</pubDate>
+				<category><![CDATA[Apps]]></category>
+		<category><![CDATA[ai mode]]></category>
+		<category><![CDATA[Google]]></category>
+		<category><![CDATA[Google Search]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113625</guid>
+
+					<description><![CDATA[Although you can already track hotel prices at the city level, the new update lets you do so for a specific hotel that you're interested in.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Bluesky confirms DDoS attack is cause of continued app outages</title>
+		<link>https://techcrunch.com/2026/04/17/its-not-just-you-bluesky-is-sorta-down/</link>
+		
+		<dc:creator><![CDATA[Sarah Perez]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 13:22:04 +0000</pubDate>
+				<category><![CDATA[Security]]></category>
+		<category><![CDATA[Social]]></category>
+		<category><![CDATA[Bluesky]]></category>
+		<category><![CDATA[cybersecurity]]></category>
+		<category><![CDATA[denial of service]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113243</guid>
+
+					<description><![CDATA[Bluesky has been experiencing ongoing service disruptions since just before 3 a.m. ET on April 15.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Netflix plans to add a vertical video feed, use AI for recommendations</title>
+		<link>https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/</link>
+		
+		<dc:creator><![CDATA[Ivan Mehta]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 13:17:18 +0000</pubDate>
+				<category><![CDATA[Media & Entertainment]]></category>
+		<category><![CDATA[Netflix]]></category>
+		<category><![CDATA[content discovery]]></category>
+		<category><![CDATA[Vertical Video]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113607</guid>
+
+					<description><![CDATA[Netflix is going to launch a TikTok-like vertical video feed within its apps this month, and plans to use AI broadly for content creation and recommendations.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>SaySo is a new short-form video app that aims to restore users&#8217; trust in news</title>
+		<link>https://techcrunch.com/2026/04/17/sayso-is-a-new-short-form-video-app-that-aims-to-restore-users-trust-in-news/</link>
+		
+		<dc:creator><![CDATA[Lauren Forristal]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 13:00:00 +0000</pubDate>
+				<category><![CDATA[Apps]]></category>
+		<category><![CDATA[Social]]></category>
+		<category><![CDATA[Startups]]></category>
+		<category><![CDATA[social media]]></category>
+		<category><![CDATA[content creators]]></category>
+		<category><![CDATA[short form video app]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113248</guid>
+
+					<description><![CDATA[Users are fed up with misinformation and AI slop cluttering their feeds. SaySo is a new short-form video app that delivers news from vetted creators and journalists.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Loop raises $95M to build supply chain AI that predicts disruptions</title>
+		<link>https://techcrunch.com/2026/04/17/loop-raises-95m-to-build-supply-chain-ai-that-predicts-disruptions/</link>
+		
+		<dc:creator><![CDATA[Sean O'Kane]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 13:00:00 +0000</pubDate>
+				<category><![CDATA[Fundraising]]></category>
+		<category><![CDATA[Startups]]></category>
+		<category><![CDATA[artificial intelligence]]></category>
+		<category><![CDATA[Exclusive]]></category>
+		<category><![CDATA[Loop]]></category>
+		<category><![CDATA[supply chain]]></category>
+		<category><![CDATA[supply chain ai]]></category>
+		<category><![CDATA[valor]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113338</guid>
+
+					<description><![CDATA[The San Francisco startup closed a Series C funding round led by Antonio Gracias' firm Valor, which is a major backer of xAI.]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Are we tokenmaxxing our way to nowhere?</title>
+		<link>https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/</link>
+		
+		<dc:creator><![CDATA[Theresa Loconsolo]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 13:00:00 +0000</pubDate>
+				<category><![CDATA[AI]]></category>
+		<category><![CDATA[Startups]]></category>
+		<category><![CDATA[acquisition]]></category>
+		<category><![CDATA[AI data center]]></category>
+		<category><![CDATA[ai infrastructure]]></category>
+		<category><![CDATA[allbirds]]></category>
+		<category><![CDATA[Equity Video]]></category>
+		<category><![CDATA[hiro]]></category>
+		<category><![CDATA[Mythos]]></category>
+		<category><![CDATA[openai anthropic]]></category>
+		<category><![CDATA[podcast]]></category>
+		<category><![CDATA[tokenmaxxing]]></category>
+		<category><![CDATA[wayve]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?post_type=tc_video&#038;p=3113713</guid>
+
+					<description><![CDATA[The gap between AI insiders and everyone else&#160;is widening, and the spending, suspicion, and even new vocabulary are starting to show it. While OpenAI is busy buying up everything from&#160;finance apps&#160;to&#160;talk shows, a certain shoe company just&#160;rebranded as an AI infrastructure play, and Anthropic unveiled a model it says is&#160;too powerful to release publicly&#160;&#8230;but&#160;apparently not&#160;too [&#8230;]]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>New leaders, new fund: Sequoia has raised $7B to expand its AI bets</title>
+		<link>https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/</link>
+		
+		<dc:creator><![CDATA[Connie Loizos]]></dc:creator>
+		<pubDate>Fri, 17 Apr 2026 02:55:06 +0000</pubDate>
+				<category><![CDATA[Venture]]></category>
+		<category><![CDATA[alfred lin]]></category>
+		<category><![CDATA[factory]]></category>
+		<category><![CDATA[In Brief]]></category>
+		<category><![CDATA[Pat Grady]]></category>
+		<category><![CDATA[Physical Intelligence]]></category>
+		<category><![CDATA[Sequoia Capital]]></category>
+		<guid isPermaLink="false">https://techcrunch.com/?p=3113573</guid>
+
+					<description><![CDATA[The fundraise is the first major capital raise under Sequoia's new leadership, with Alfred Lin and Pat Grady now serving as co-stewards of the 54-year-old firm.]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>

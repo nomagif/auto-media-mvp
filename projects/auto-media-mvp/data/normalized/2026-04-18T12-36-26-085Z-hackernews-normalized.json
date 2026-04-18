@@ -1,0 +1,402 @@
+[
+  {
+    "id": "hn-2026-04-18-001",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://abuseofnotation.github.io/category-theory-illustrated/04_order/",
+    "title": "Category Theory Illustrated – Orders",
+    "body": "",
+    "author": "boris_m",
+    "published_at": "2026-04-18T06:40:47.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 1,
+      "score": 126,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-002",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://en.wikipedia.org/wiki/Michael_O._Rabin",
+    "title": "Michael Rabin Has Died",
+    "body": "",
+    "author": "tkhattra",
+    "published_at": "2026-04-15T18:07:46.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 2,
+      "score": 153,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-003",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://kdenlive.org/news/2026/state-2026/",
+    "title": "State of Kdenlive",
+    "body": "",
+    "author": "f_r_d",
+    "published_at": "2026-04-18T11:42:37.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 3,
+      "score": 19,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-004",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://amiga.lychesis.net/",
+    "title": "Amiga Graphics",
+    "body": "",
+    "author": "sph",
+    "published_at": "2026-04-18T06:20:04.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 4,
+      "score": 134,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-005",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://lisyarus.github.io/blog/posts/its-ok-to-compare-floating-points-for-equality.html",
+    "title": "It's OK to compare floating-points for equality",
+    "body": "",
+    "author": "coinfused",
+    "published_at": "2026-04-14T16:00:49.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 5,
+      "score": 42,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-006",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://www.anthropic.com/news/claude-design-anthropic-labs",
+    "title": "Claude Design",
+    "body": "Related: <a href=\"https:&#x2F;&#x2F;x.com&#x2F;flomerboy&#x2F;status&#x2F;2045162321589252458\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;flomerboy&#x2F;status&#x2F;2045162321589252458</a> (<a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;flomerboy&#x2F;status&#x2F;2045162321589252458\" rel=\"nofollow\">https:&#x2F;&#x2F;xcancel.com&#x2F;flomerboy&#x2F;status&#x2F;2045162321589252458</a>)",
+    "author": "meetpateltech",
+    "published_at": "2026-04-17T15:04:09.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 6,
+      "score": 1082,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-007",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://victorpoughon.github.io/interval-calculator/",
+    "title": "Show HN: I made a calculator that works over disjoint sets of intervals",
+    "body": "I&#x27;ve been studying interval arithmetic for the past few weeks and it&#x27;s a really interesting field because while there is a ton of super interesting research published over the past decades, it has never really gotten the recognition that it deserves, IMO.<p>One reason for this is that standard interval arithmetic has really poor handling of division by intervals containing zero. If you compute 1 &#x2F; [-1, 2] in regular interval arithmetic, you get either [-∞, +∞], or you have to say that the operation is undefined. Both solutions are virtually useless. The real answer of course is [-∞, -1] U [0.5, +∞]: i.e. a union of two disjoint intervals.<p>This is useful because you can confidently exclude a non empty set of the real numbers ([-1, 0.5]) from the set of possible values that you can get by dividing 1 by a number between -1 and 2.<p>But this definition of interval division yields a value that is not an interval. This is a problem if you want to define a closed arithmetic system, where you can build and evaluate arbitrary expression over interval values.<p>(This behavior extends to any non continuous function like tan() for example, which is implemented in my project - not without difficulties!)<p>Well the obvious solution is to define your arithmetic over disjoint unions of intervals. This is the subject of a 2017 paper called &quot;Interval Unions&quot; by by Schichl, H., Domes, F., Montanher, T. and Kofler, K..<p>This open-source project I made implements interval union arithmetic in TypeScript in the form of a simple interactive calculator, so you can try it out for yourself! The underlying TypeScript library is dependency free and implements interval union arithmetic over IEEE 754 double precision floats (JS native number type) with outward rounding. This guarantees accuracy of interval results in the presence of rounding issue inherent to floating point.",
+    "author": "fouronnes3",
+    "published_at": "2026-04-18T01:15:43.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 7,
+      "score": 192,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-008",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://www.claudecodecamp.com/p/i-measured-claude-4-7-s-new-tokenizer-here-s-what-it-costs-you",
+    "title": "Measuring Claude 4.7's tokenizer costs",
+    "body": "",
+    "author": "aray07",
+    "published_at": "2026-04-17T15:29:36.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 8,
+      "score": 625,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-009",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://eshelyaron.com/posts/2026-04-15-towards-trust-in-emacs.html",
+    "title": "Towards trust in Emacs",
+    "body": "",
+    "author": "eshelyaron",
+    "published_at": "2026-04-15T13:49:15.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 9,
+      "score": 134,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-010",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/The_toxic_side_of_the_Moon",
+    "title": "All 12 moonwalkers had \"lunar hay fever\" from dust smelling like gunpowder (2018)",
+    "body": "",
+    "author": "cybermango",
+    "published_at": "2026-04-17T18:17:01.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 10,
+      "score": 357,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-011",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://miguelconner.substack.com/p/im-coding-by-hand",
+    "title": "Spending 3 months coding by hand",
+    "body": "",
+    "author": "evakhoury",
+    "published_at": "2026-04-17T16:19:53.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 11,
+      "score": 234,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-012",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://runxiyu.org/comp/doubleslash/",
+    "title": "It is incorrect to \"normalize\" // in HTTP URL paths",
+    "body": "",
+    "author": "pabs3",
+    "published_at": "2026-04-18T05:47:10.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 12,
+      "score": 51,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-013",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://lindbakk.com/blog/introducing-brunost",
+    "title": "Brunost: The Nynorsk Programming Language",
+    "body": "",
+    "author": "atomfinger",
+    "published_at": "2026-04-13T18:49:55.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 13,
+      "score": 89,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-014",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://amitlimaye1.substack.com/p/rewriting-every-syscall-in-a-linux",
+    "title": "Rewriting Every Syscall in a Linux Binary at Load Time",
+    "body": "",
+    "author": "riteshnoronha16",
+    "published_at": "2026-04-14T01:26:06.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 14,
+      "score": 61,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-015",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://www.tobyord.com/writing/hourly-costs-for-ai-agents",
+    "title": "Are the costs of AI agents also rising exponentially? (2025)",
+    "body": "",
+    "author": "louiereederson",
+    "published_at": "2026-04-15T13:47:58.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 15,
+      "score": 230,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-016",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://www.corsix.org/content/simplified-model-of-fil-c",
+    "title": "A simplified model of Fil-C",
+    "body": "",
+    "author": "aw1621107",
+    "published_at": "2026-04-17T21:38:20.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 16,
+      "score": 180,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-017",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://github.com/smol-machines/smolvm",
+    "title": "Show HN: Smol machines – subsecond coldstart, portable virtual machines",
+    "body": "",
+    "author": "binsquare",
+    "published_at": "2026-04-17T17:18:58.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 17,
+      "score": 355,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-018",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://sandboxspirit.com/blog/simple-geometry-of-roads/",
+    "title": "The simple geometry behind any road",
+    "body": "",
+    "author": "azhenley",
+    "published_at": "2026-04-16T03:09:50.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 18,
+      "score": 56,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-019",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://news.ycombinator.com/item?id=47814832",
+    "title": "Claude Code Opus 4.7 keeps checking on malware",
+    "body": "So during development, at every task I start, I see a line like this:<p>`Own bug file — not malware.`<p>It seems that it&#x27;s obsessively checking if it&#x27;s working on malware production.<p>In another situation where I was working on a parser of a HTML document with JS, it refused because it believed that I was bypassing security measurements.<p>I believe AI has to be supportive in the work that I&#x27;m doing. When it&#x27;s obsessively checking me if I am doing anything wrong or abusing the system, I have the feeling it is controlling me. I understand that we do have guardrails and I also understand that it&#x27;s very important that people do not abuse this new tech for bad stuff.<p>I pay $200 per month for a max subscription. They already know who I am. Claude knows I work in scraper tech, and it also knows that our clients are the companies we scrape.<p>Now with Opus 4.7, I&#x27;ve had a situation that it refused to continue because I asked to automate the cookie creation with a Chrome extension.<p>In a situation where someone is abusing the system, let&#x27;s say create malware or hacking stuff with bad intentions. I can imagine there will be some signal system or algorithm that can form an opinion about the intentions that someone has. But now that the AI is limiting me in my work, I feel a little bit disrupted. Who the hell does this system think he is to limit me?<p>Am I going to accept this in the future? That a system will tell me that I cannot continue because I don&#x27;t have sufficient rights or beliefs that I&#x27;m doing anything wrong.<p>I can work fine on the local AI on my Blackwell GPU. But of course, I want to use the latest tech, the latest AI and the best models available. Is this the beginning of a split? Where good people and naughty people make different choices? Am I the bad guy now?<p>Last year I passed 40. I grew up reading, talking about Kevin Mitnick. I was a member of a local computer club. Hacking stuff as a 14-year-old kid who did not have intentions to break anything but to outsmart systems. Is that area gone now? Is the newer generation going to accept that they have to please the AI?",
+    "author": "decide1000",
+    "published_at": "2026-04-18T10:46:17.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 19,
+      "score": 34,
+      "price_change_24h": null
+    }
+  },
+  {
+    "id": "hn-2026-04-18-020",
+    "source_type": "tech",
+    "source_name": "HackerNews",
+    "source_url": "https://blog.calif.io/p/mad-bugs-even-cat-readmetxt-is-not",
+    "title": "\"cat readme.txt\" is not safe if you use iTerm2",
+    "body": "",
+    "author": "arkadiyt",
+    "published_at": "2026-04-17T18:43:32.000Z",
+    "collected_at": "2026-04-18T12:36:21.723Z",
+    "language": "en",
+    "tags": [
+      "Hacker News"
+    ],
+    "metrics": {
+      "rank": 20,
+      "score": 211,
+      "price_change_24h": null
+    }
+  }
+]

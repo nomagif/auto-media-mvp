@@ -30,10 +30,14 @@
 - `scripts/collect/techcrunch_rss.js`: TechCrunch RSS を取得して raw / normalized 保存
 - `scripts/collect/hackernews_topstories.js`: Hacker News Top Stories を取得して raw / normalized 保存
 - `scripts/generate/normalize_to_draft.js`: 未処理の normalized JSON 複数ファイルから draft Markdown を生成し、publish queue を更新
+- `scripts/generate/enrich_from_sources.js`: manifest + normalized + draft を束ねて enrich し、summary は生成アダプタ経由で出力
+- `scripts/generate/lib_summary.js`: summary 生成アダプタ。将来のLLM呼び出し差し替えポイント
 - `state/seen_urls.json`: URL重複除外に使用
 - `state/last_run.json`: 実行状態の記録に使用
 - `state/publish_queue.json`: 承認待ち候補のキューに使用
 - `state/generated_manifests.json`: draft 化済み normalized ファイルの記録に使用
+- `state/enriched_manifests.json`: enrich 済み manifest の記録に使用
+- `SUMMARY_IO_SPEC.md`: OpenClaw / Codex に summary 生成を委譲するための入出力仕様
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例
@@ -42,6 +46,7 @@ cd projects/auto-media-mvp
 npm run collect:techcrunch
 npm run collect:hackernews
 npm run generate:drafts
+npm run generate:enrich
 npm run generate:review-digest
 ```
 
@@ -55,14 +60,15 @@ npm run run:mvp
 - `data/raw/tech/` に TechCrunch / Hacker News の取得結果が保存される
 - `data/normalized/` に共通スキーマJSONが保存される
 - `drafts/markdown/` に下書きMarkdownが生成される
-- `data/processed/` に draft manifest が生成される
+- `data/processed/` に draft manifest と enriched JSON が生成される
 - `output/daily/` に review digest が生成される
-- `state/seen_urls.json` `state/publish_queue.json` `state/last_run.json` が更新される
+- `state/seen_urls.json` `state/publish_queue.json` `state/last_run.json` `state/enriched_manifests.json` が更新される
 
 ## 失敗しやすいポイント
 - ネットワーク到達性がないと collect が失敗する
 - 同じURLが既出なら normalized の新規件数は 0 になる
 - `generate:drafts` は未処理 normalized がないと新規draftを作らない
+- `generate:enrich` は現時点ではプレースホルダ生成だが、summary 生成を分離してあり、本番LLM連携へ段階的に差し替えやすい構造にしてある
 - 将来的には API rate limit と retry 方針を入れる
 
 ## 運用方針
