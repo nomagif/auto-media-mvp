@@ -40,9 +40,30 @@
 ```bash
 cd projects/auto-media-mvp
 npm run collect:techcrunch
+npm run collect:hackernews
 npm run generate:drafts
 npm run generate:review-digest
 ```
+
+または一括実行:
+```bash
+cd projects/auto-media-mvp
+npm run run:mvp
+```
+
+## 動作確認ポイント
+- `data/raw/tech/` に TechCrunch / Hacker News の取得結果が保存される
+- `data/normalized/` に共通スキーマJSONが保存される
+- `drafts/markdown/` に下書きMarkdownが生成される
+- `data/processed/` に draft manifest が生成される
+- `output/daily/` に review digest が生成される
+- `state/seen_urls.json` `state/publish_queue.json` `state/last_run.json` が更新される
+
+## 失敗しやすいポイント
+- ネットワーク到達性がないと collect が失敗する
+- 同じURLが既出なら normalized の新規件数は 0 になる
+- `generate:drafts` は未処理 normalized がないと新規draftを作らない
+- 将来的には API rate limit と retry 方針を入れる
 
 ## 運用方針
 - まずは投稿自動化しない
