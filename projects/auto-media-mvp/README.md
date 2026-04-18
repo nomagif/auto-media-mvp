@@ -28,10 +28,12 @@
 
 ## いま入っている雛形
 - `scripts/collect/techcrunch_rss.js`: TechCrunch RSS を取得して raw / normalized 保存
-- `scripts/generate/normalize_to_draft.js`: normalized JSON から draft Markdown を生成し、publish queue を更新
+- `scripts/collect/hackernews_topstories.js`: Hacker News Top Stories を取得して raw / normalized 保存
+- `scripts/generate/normalize_to_draft.js`: 未処理の normalized JSON 複数ファイルから draft Markdown を生成し、publish queue を更新
 - `state/seen_urls.json`: URL重複除外に使用
 - `state/last_run.json`: 実行状態の記録に使用
 - `state/publish_queue.json`: 承認待ち候補のキューに使用
+- `state/generated_manifests.json`: draft 化済み normalized ファイルの記録に使用
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例

@@ -10,10 +10,13 @@ const PROCESSED_DIR = path.join(ROOT, 'data', 'processed');
 const STATE_DIR = path.join(ROOT, 'state');
 const LAST_RUN_FILE = path.join(STATE_DIR, 'last_run.json');
 const PUBLISH_QUEUE_FILE = path.join(STATE_DIR, 'publish_queue.json');
+const GENERATED_MANIFESTS_FILE = path.join(STATE_DIR, 'generated_manifests.json');
 
-function latestJsonFile(dir) {
-  const files = fs.readdirSync(dir).filter((name) => name.endsWith('.json')).sort();
-  return files.length ? path.join(dir, files[files.length - 1]) : null;
+function listJsonFiles(dir) {
+  return fs.readdirSync(dir)
+    .filter((name) => name.endsWith('.json'))
+    .sort()
+    .map((name) => path.join(dir, name));
 }
 
 function ensureDir(dir) {
@@ -51,51 +54,75 @@ function main() {
 
   const lastRun = readJson(LAST_RUN_FILE, {});
   const queue = readJson(PUBLISH_QUEUE_FILE, []);
+  const generatedManifests = readJson(GENERATED_MANIFESTS_FILE, []);
   const queueById = new Map(queue.map((item) => [item.id, item]));
+  const processedSet = new Set(generatedManifests);
 
-  const latest = latestJsonFile(NORMALIZED_DIR);
-  if (!latest) {
-    throw new Error('No normalized JSON found. Run collect script first.');
+  const files = listJsonFiles(NORMALIZED_DIR);
+  const targets = files.filter((file) => !processedSet.has(path.basename(file)));
+  if (targets.length === 0) {
+    writeJson(LAST_RUN_FILE, {
+      ...lastRun,
+      generate_drafts: {
+        ran_at: new Date().toISOString(),
+        normalized_inputs: [],
+        processed_manifests: [],
+        draft_count: 0
+      }
+    });
+
+    console.log(JSON.stringify({ ok: true, normalized_inputs: [], drafts: 0, publish_queue_size: queue.length }, null, 2));
+    return;
   }
 
-  const items = JSON.parse(fs.readFileSync(latest, 'utf8'));
-  const selected = items.slice(0, 3);
-  const manifest = [];
+  const processedManifestFiles = [];
+  let draftCount = 0;
 
-  for (const item of selected) {
-    const name = `${item.id}-${slugify(item.title)}.md`;
-    const draftPath = path.join(DRAFT_DIR, name);
-    fs.writeFileSync(draftPath, buildDraft(item), 'utf8');
+  for (const file of targets) {
+    const items = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const selected = items.slice(0, 3);
+    const manifest = [];
 
-    const entry = {
-      id: item.id,
-      source_url: item.source_url,
-      draft_file: path.join('drafts', 'markdown', name),
-      review_status: 'draft',
-      publish_status: 'pending'
-    };
+    for (const item of selected) {
+      const name = `${item.id}-${slugify(item.title)}.md`;
+      const draftPath = path.join(DRAFT_DIR, name);
+      fs.writeFileSync(draftPath, buildDraft(item), 'utf8');
 
-    manifest.push(entry);
-    queueById.set(item.id, entry);
+      const entry = {
+        id: item.id,
+        source_url: item.source_url,
+        draft_file: path.join('drafts', 'markdown', name),
+        review_status: 'draft',
+        publish_status: 'pending'
+      };
+
+      manifest.push(entry);
+      queueById.set(item.id, entry);
+      draftCount += 1;
+    }
+
+    const outName = path.basename(file).replace('-normalized.json', '-draft-manifest.json');
+    fs.writeFileSync(path.join(PROCESSED_DIR, outName), JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+    processedManifestFiles.push(path.join('data', 'processed', outName));
+    processedSet.add(path.basename(file));
   }
 
-  const outName = path.basename(latest).replace('-normalized.json', '-draft-manifest.json');
-  fs.writeFileSync(path.join(PROCESSED_DIR, outName), JSON.stringify(manifest, null, 2) + '\n', 'utf8');
   writeJson(PUBLISH_QUEUE_FILE, [...queueById.values()]);
+  writeJson(GENERATED_MANIFESTS_FILE, [...processedSet]);
   writeJson(LAST_RUN_FILE, {
     ...lastRun,
     generate_drafts: {
       ran_at: new Date().toISOString(),
-      normalized_input: path.relative(ROOT, latest),
-      processed_manifest: path.join('data', 'processed', outName),
-      draft_count: manifest.length
+      normalized_inputs: targets.map((file) => path.relative(ROOT, file)),
+      processed_manifests: processedManifestFiles,
+      draft_count: draftCount
     }
   });
 
   console.log(JSON.stringify({
     ok: true,
-    normalized_input: latest,
-    drafts: manifest.length,
+    normalized_inputs: targets.map((file) => path.relative(ROOT, file)),
+    drafts: draftCount,
     publish_queue_size: [...queueById.values()].length
   }, null, 2));
 }
