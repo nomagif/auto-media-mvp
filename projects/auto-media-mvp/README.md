@@ -26,6 +26,20 @@
 2. generate: 候補抽出し、要約・下書き・X文・画像プロンプトを生成
 3. review: pending を人が確認しやすくまとめる
 
+## いま入っている雛形
+- `scripts/collect/techcrunch_rss.js`: TechCrunch RSS を取得して raw / normalized 保存
+- `scripts/generate/normalize_to_draft.js`: normalized JSON から draft Markdown を生成
+- `state/seen_urls.json`: URL重複除外に使用
+- `state/last_run.json`: 実行状態の記録に使用
+- `package.json`: 最低限の実行スクリプト
+
+## 実行例
+```bash
+cd projects/auto-media-mvp
+npm run collect:techcrunch
+npm run generate:drafts
+```
+
 ## 運用方針
 - まずは投稿自動化しない
 - rawデータを必ず残す

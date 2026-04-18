@@ -1,0 +1,10 @@
+{
+  "name": "auto-media-mvp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "MVP scaffold for automated media collection and draft generation",
+  "scripts": {
+    "collect:techcrunch": "node scripts/collect/techcrunch_rss.js",
+    "generate:drafts": "node scripts/generate/normalize_to_draft.js"
+  }
+}
