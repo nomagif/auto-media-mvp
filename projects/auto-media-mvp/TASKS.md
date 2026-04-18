@@ -30,8 +30,8 @@
 - [ ] markdown/note/wordpress/x へ下書き出力
 
 ## Phase 4: レビュー
-- [ ] pending一覧生成
-- [ ] 人間確認用サマリ生成
+- [x] pending一覧生成の土台（publish_queue.json）
+- [x] 人間確認用サマリ生成の雛形（review digest）
 - [ ] review_status更新
 
 ## Phase 5: cron

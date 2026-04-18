@@ -28,9 +28,10 @@
 
 ## いま入っている雛形
 - `scripts/collect/techcrunch_rss.js`: TechCrunch RSS を取得して raw / normalized 保存
-- `scripts/generate/normalize_to_draft.js`: normalized JSON から draft Markdown を生成
+- `scripts/generate/normalize_to_draft.js`: normalized JSON から draft Markdown を生成し、publish queue を更新
 - `state/seen_urls.json`: URL重複除外に使用
 - `state/last_run.json`: 実行状態の記録に使用
+- `state/publish_queue.json`: 承認待ち候補のキューに使用
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例
@@ -38,6 +39,7 @@
 cd projects/auto-media-mvp
 npm run collect:techcrunch
 npm run generate:drafts
+npm run generate:review-digest
 ```
 
 ## 運用方針
