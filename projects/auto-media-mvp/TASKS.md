@@ -27,6 +27,10 @@
 - [x] summary 生成アダプタ分離（LLM差し替え準備）
 - [x] OpenClaw / Codex summary 委譲の入出力仕様書
 - [x] summary request/response 保存スケルトン
+- [x] summary_queue.json と enqueue_summary_requests.js
+- [x] run_summary_worker.js の雛形
+- [x] apply_summary_response.js の雛形
+- [x] OpenClaw summary worker turn 用の処理仕様書
 - [ ] article prompt適用
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成

@@ -37,7 +37,9 @@
 - `state/publish_queue.json`: 承認待ち候補のキューに使用
 - `state/generated_manifests.json`: draft 化済み normalized ファイルの記録に使用
 - `state/enriched_manifests.json`: enrich 済み manifest の記録に使用
+- `state/summary_queue.json`: summary request の処理状態管理に使用
 - `SUMMARY_IO_SPEC.md`: OpenClaw / Codex に summary 生成を委譲するための入出力仕様
+- `OPENCLAW_SUMMARY_WORKER_SPEC.md`: OpenClaw worker turn 側の処理仕様
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例
@@ -47,6 +49,9 @@ npm run collect:techcrunch
 npm run collect:hackernews
 npm run generate:drafts
 npm run generate:enrich
+npm run summary:enqueue
+npm run summary:worker
+npm run summary:apply
 npm run generate:review-digest
 ```
 
@@ -63,12 +68,14 @@ npm run run:mvp
 - `data/processed/` に draft manifest と enriched JSON が生成される
 - `data/processed/requests/` と `data/processed/responses/` に summary request/response JSON が保存される
 - `output/daily/` に review digest が生成される
-- `state/seen_urls.json` `state/publish_queue.json` `state/last_run.json` `state/enriched_manifests.json` が更新される
+- `state/seen_urls.json` `state/publish_queue.json` `state/last_run.json` `state/enriched_manifests.json` `state/summary_queue.json` が更新される
 
 ## 失敗しやすいポイント
 - ネットワーク到達性がないと collect が失敗する
 - 同じURLが既出なら normalized の新規件数は 0 になる
 - `generate:drafts` は未処理 normalized がないと新規draftを作らない
+- `summary:worker` は今は NOT_IMPLEMENTED の placeholder worker。次に OpenClaw isolated 実行へ差し替える前提
+- `summary:apply` は success response を enriched JSON に反映する
 - `generate:enrich` は現時点ではプレースホルダ生成だが、summary request/response を保存するので、本番LLM連携時の監査や再処理に繋げやすい
 - 将来的には API rate limit と retry 方針を入れる
 
