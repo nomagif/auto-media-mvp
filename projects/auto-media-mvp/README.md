@@ -47,6 +47,7 @@
 - `scripts/generate/lib_summary_response.js`: summary 応答の parse / normalize helper
 - `WORKER_INTEGRATION_PLAN.md`: worker に正規化アダプタを組み込む実装計画
 - `PHASE_A_WORKER_FIXTURE_PLAN.md`: raw response fixture を使った疑似統合計画
+- `MANUAL_SUMMARY_WORKER_RUNBOOK.md`: summary worker の手動運用手順
 - `fixtures/summary-responses/`: worker 正規化テスト用 fixture
 - `package.json`: 最低限の実行スクリプト
 
