@@ -55,8 +55,16 @@
 - `scripts/generate/build_title_requests.js`: enriched summary から title request を作る scaffold
 - `scripts/generate/run_title_worker.js`: title worker の最小版
 - `scripts/generate/apply_title_response.js`: title response を enriched に反映
+- `scripts/generate/lib_xpost.js`: X post request/response helper
+- `scripts/generate/lib_xpost_response.js`: X post 応答の parse / normalize helper
+- `scripts/generate/build_xpost_requests.js`: enriched summary から X post request を作る scaffold
+- `scripts/generate/run_xpost_worker.js`: X post worker の最小版
+- `scripts/generate/apply_xpost_response.js`: X post response を enriched に反映
 - `TITLE_RESPONSE_NORMALIZATION.md`: title 応答正規化ルール
+- `XPOST_RESPONSE_NORMALIZATION.md`: X post 応答正規化ルール
 - `fixtures/summary-responses/`: worker 正規化テスト用 fixture
+- `fixtures/title-responses/`: title worker 用 fixture
+- `fixtures/xpost-responses/`: X post worker 用 fixture
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例
