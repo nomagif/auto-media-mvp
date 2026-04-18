@@ -72,7 +72,15 @@
 - `scripts/generate/apply_article_response.js`: article response を enriched に反映
 - `ARTICLE_RESPONSE_NORMALIZATION.md`: article 応答正規化ルール
 - `fixtures/xpost-responses/`: X post worker 用 fixture
+- `IMAGE_PROMPT_IO_SPEC.md`: image prompt generation の入出力仕様
+- `scripts/generate/lib_image_prompt.js`: image prompt request/response helper
+- `scripts/generate/build_image_prompt_requests.js`: enriched data から image prompt request を作る scaffold
+- `scripts/generate/lib_image_prompt_response.js`: image prompt 応答の parse / normalize helper
+- `scripts/generate/run_image_prompt_worker.js`: image prompt worker の最小版
+- `scripts/generate/apply_image_prompt_response.js`: image prompt response を enriched に反映
+- `IMAGE_PROMPT_RESPONSE_NORMALIZATION.md`: image prompt 応答正規化ルール
 - `fixtures/article-responses/`: article worker 用 fixture
+- `fixtures/image-prompt-responses/`: image prompt worker 用 fixture
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例
