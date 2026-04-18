@@ -43,6 +43,11 @@
 - `DATA_POLICY.md`: 実行生成物・state・サンプルデータの運用方針
 - `OPENCLAW_SUMMARY_SUBAGENT_PROMPT.md`: OpenClaw worker が subagent に渡す task テンプレ
 - `prompts/summary_worker_task.md`: subagent 実行時の厳格な JSON-only 指示
+- `SUMMARY_RESPONSE_NORMALIZATION.md`: summary 応答を spec 形式へ正規化するルール
+- `scripts/generate/lib_summary_response.js`: summary 応答の parse / normalize helper
+- `WORKER_INTEGRATION_PLAN.md`: worker に正規化アダプタを組み込む実装計画
+- `PHASE_A_WORKER_FIXTURE_PLAN.md`: raw response fixture を使った疑似統合計画
+- `fixtures/summary-responses/`: worker 正規化テスト用 fixture
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例
@@ -77,7 +82,7 @@ npm run run:mvp
 - ネットワーク到達性がないと collect が失敗する
 - 同じURLが既出なら normalized の新規件数は 0 になる
 - `generate:drafts` は未処理 normalized がないと新規draftを作らない
-- `summary:worker` は今は NOT_IMPLEMENTED の placeholder worker。次に OpenClaw isolated 実行へ差し替える前提
+- `summary:worker` は Phase A として `--raw-file` で raw response fixture を読める。次に OpenClaw isolated 実行へ差し替える前提
 - `summary:apply` は success response を enriched JSON に反映する
 - `generate:enrich` は現時点ではプレースホルダ生成だが、summary request/response を保存するので、本番LLM連携時の監査や再処理に繋げやすい
 - 将来的には API rate limit と retry 方針を入れる

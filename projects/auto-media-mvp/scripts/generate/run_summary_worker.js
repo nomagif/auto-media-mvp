@@ -8,6 +8,7 @@ const STATE_DIR = path.join(ROOT, 'state');
 const QUEUE_FILE = path.join(STATE_DIR, 'summary_queue.json');
 const LAST_RUN_FILE = path.join(STATE_DIR, 'last_run.json');
 const RESPONSES_DIR = path.join(ROOT, 'data', 'processed', 'responses');
+const { normalizeSummaryResponse, buildSummaryErrorResponse } = require('./lib_summary_response');
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -29,28 +30,22 @@ function now() {
   return new Date().toISOString();
 }
 
-function buildPlaceholderError(itemId, code, message, retryable = true) {
-  return {
-    ok: false,
-    version: 'v0.1',
-    item_id: itemId,
-    generated_at: now(),
-    error: {
-      code,
-      message,
-      retryable
-    },
-    meta: {
-      prompt_file: 'prompts/summarize.md',
-      status: 'error'
+function parseArgs(argv) {
+  const args = { rawFile: null };
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--raw-file' && argv[i + 1]) {
+      args.rawFile = argv[i + 1];
+      i += 1;
     }
-  };
+  }
+  return args;
 }
 
 function main() {
   ensureDir(STATE_DIR);
   ensureDir(RESPONSES_DIR);
 
+  const args = parseArgs(process.argv.slice(2));
   const queue = readJson(QUEUE_FILE, []);
   const lastRun = readJson(LAST_RUN_FILE, {});
   const target = queue.find((item) => item.status === 'pending');
@@ -75,21 +70,31 @@ function main() {
   writeJson(QUEUE_FILE, queue);
 
   const responsePath = path.join(ROOT, 'data', 'processed', 'responses', `${target.item_id}-summary-response.json`);
+  const requestPath = path.join(ROOT, target.request_file);
 
   try {
-    const response = buildPlaceholderError(
-      target.item_id,
-      'NOT_IMPLEMENTED',
-      'OpenClaw isolated execution is not wired yet.',
-      true
-    );
+    const request = readJson(requestPath, null);
+    let response;
+
+    if (args.rawFile) {
+      const rawText = fs.readFileSync(path.resolve(args.rawFile), 'utf8');
+      response = normalizeSummaryResponse(rawText, request);
+    } else {
+      response = buildSummaryErrorResponse(
+        request,
+        'NOT_IMPLEMENTED',
+        'OpenClaw isolated execution is not wired yet and no --raw-file was provided.',
+        null,
+        true
+      );
+    }
 
     fs.writeFileSync(responsePath, JSON.stringify(response, null, 2) + '\n', 'utf8');
 
-    target.status = 'error';
+    target.status = response.ok ? 'success' : 'error';
     target.updated_at = now();
     target.response_file = path.relative(ROOT, responsePath);
-    target.last_error = response.error;
+    target.last_error = response.ok ? null : response.error;
 
     writeJson(QUEUE_FILE, queue);
     writeJson(LAST_RUN_FILE, {
@@ -97,17 +102,18 @@ function main() {
       summary_worker: {
         ran_at: now(),
         processed_item: target.item_id,
-        status: 'error',
-        response_file: path.relative(ROOT, responsePath)
+        status: target.status,
+        response_file: path.relative(ROOT, responsePath),
+        raw_file: args.rawFile || null
       }
     });
 
     console.log(JSON.stringify({
       ok: true,
-      status: 'error',
+      status: target.status,
       processed_item: target.item_id,
       response_file: path.relative(ROOT, responsePath),
-      message: 'Placeholder worker wrote NOT_IMPLEMENTED response'
+      raw_file: args.rawFile || null
     }, null, 2));
   } catch (error) {
     target.status = 'error';

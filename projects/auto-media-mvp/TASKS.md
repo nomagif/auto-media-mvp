@@ -33,6 +33,10 @@
 - [x] OpenClaw summary worker turn 用の処理仕様書
 - [x] .gitignore とデータ運用方針
 - [x] OpenClaw worker 実行プロンプト雛形
+- [x] summary 応答正規化アダプタのたたき台
+- [x] worker 正規化統合の実装計画
+- [x] Phase A worker fixture 計画
+- [x] run_summary_worker.js の Phase A `--raw-file` 対応
 - [ ] article prompt適用
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成
