@@ -45,6 +45,7 @@
 - [x] x post generation scaffold
 - [x] article generation scaffold
 - [x] image prompt generation scaffold
+- [x] 現状整理ロードマップ
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成
 - [x] processed保存
