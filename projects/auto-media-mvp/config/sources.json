@@ -1,0 +1,32 @@
+{
+  "tech": [
+    {
+      "name": "TechCrunch",
+      "type": "rss",
+      "url": "https://techcrunch.com/feed/",
+      "enabled": true
+    },
+    {
+      "name": "HackerNews",
+      "type": "hn",
+      "url": "https://news.ycombinator.com/",
+      "enabled": true
+    }
+  ],
+  "crypto": [
+    {
+      "name": "CoinGecko",
+      "type": "api",
+      "coins": ["bitcoin", "ethereum", "solana"],
+      "enabled": true
+    }
+  ],
+  "social": [
+    {
+      "name": "ProductHunt",
+      "type": "web",
+      "url": "https://www.producthunt.com/",
+      "enabled": true
+    }
+  ]
+}

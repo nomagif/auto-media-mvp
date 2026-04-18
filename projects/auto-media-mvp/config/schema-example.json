@@ -1,0 +1,18 @@
+{
+  "id": "techcrunch-2026-04-18-001",
+  "source_type": "tech",
+  "source_name": "TechCrunch",
+  "source_url": "https://example.com/article",
+  "title": "Original title",
+  "body": "Raw body or excerpt",
+  "author": "Author name",
+  "published_at": "2026-04-18T20:40:00+09:00",
+  "collected_at": "2026-04-18T21:00:00+09:00",
+  "language": "en",
+  "tags": ["AI", "startup"],
+  "metrics": {
+    "rank": 1,
+    "score": 920,
+    "price_change_24h": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "crypto": {
+    "price_change_24h_percent": 5,
+    "volume_spike_ratio": 1.5
+  },
+  "tech": {
+    "max_candidates_per_run": 5
+  },
+  "social": {
+    "min_rank_score": 0.7
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "priority_topics": [
+    "AI",
+    "developer tools",
+    "startups",
+    "security",
+    "crypto",
+    "open source"
+  ],
+  "exclude_topics": [
+    "celebrity gossip",
+    "sports"
+  ]
+}

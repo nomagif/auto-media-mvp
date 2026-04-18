@@ -1,0 +1,12 @@
+{
+  "x": {
+    "max_chars": 280,
+    "tone": "short, sharp, informative"
+  },
+  "note": {
+    "tone": "readable, explanatory"
+  },
+  "wordpress": {
+    "tone": "structured, SEO-aware"
+  }
+}
