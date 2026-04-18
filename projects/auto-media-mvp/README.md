@@ -64,7 +64,15 @@
 - `XPOST_RESPONSE_NORMALIZATION.md`: X post 応答正規化ルール
 - `fixtures/summary-responses/`: worker 正規化テスト用 fixture
 - `fixtures/title-responses/`: title worker 用 fixture
+- `ARTICLE_IO_SPEC.md`: article generation の入出力仕様
+- `scripts/generate/lib_article.js`: article request/response helper
+- `scripts/generate/build_article_requests.js`: enriched summary から article request を作る scaffold
+- `scripts/generate/lib_article_response.js`: article 応答の parse / normalize helper
+- `scripts/generate/run_article_worker.js`: article worker の最小版
+- `scripts/generate/apply_article_response.js`: article response を enriched に反映
+- `ARTICLE_RESPONSE_NORMALIZATION.md`: article 応答正規化ルール
 - `fixtures/xpost-responses/`: X post worker 用 fixture
+- `fixtures/article-responses/`: article worker 用 fixture
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例

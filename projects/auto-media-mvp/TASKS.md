@@ -43,7 +43,8 @@
 - [x] title response normalization helper
 - [x] title worker の最小版 scaffold
 - [x] x post generation scaffold
-- [ ] article prompt適用
+- [x] article generation scaffold
+- [ ] image prompt generation scaffold
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成
 - [x] processed保存
