@@ -11,6 +11,7 @@ publish queue と投稿結果の最小スキーマ。
   "draft_file": "drafts/x/hn-2026-04-18-002.txt",
   "created_at": "2026-04-19T03:00:00+09:00",
   "updated_at": "2026-04-19T03:00:00+09:00",
+  "approved_at": null,
   "published_at": null,
   "external_post_id": null,
   "last_error": null

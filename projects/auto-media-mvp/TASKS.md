@@ -47,6 +47,8 @@
 - [x] image prompt generation scaffold
 - [x] 現状整理ロードマップ
 - [x] publish 設計と IO spec
+- [x] publish queue scaffold
+- [x] publish 承認フロー最小版
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成
 - [x] processed保存
