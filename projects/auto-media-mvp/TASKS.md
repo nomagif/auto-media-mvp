@@ -32,6 +32,7 @@
 - [x] apply_summary_response.js の雛形
 - [x] OpenClaw summary worker turn 用の処理仕様書
 - [x] .gitignore とデータ運用方針
+- [x] OpenClaw worker 実行プロンプト雛形
 - [ ] article prompt適用
 - [ ] x_post の本生成
 - [ ] image_prompt の本生成

@@ -41,6 +41,8 @@
 - `SUMMARY_IO_SPEC.md`: OpenClaw / Codex に summary 生成を委譲するための入出力仕様
 - `OPENCLAW_SUMMARY_WORKER_SPEC.md`: OpenClaw worker turn 側の処理仕様
 - `DATA_POLICY.md`: 実行生成物・state・サンプルデータの運用方針
+- `OPENCLAW_SUMMARY_SUBAGENT_PROMPT.md`: OpenClaw worker が subagent に渡す task テンプレ
+- `prompts/summary_worker_task.md`: subagent 実行時の厳格な JSON-only 指示
 - `package.json`: 最低限の実行スクリプト
 
 ## 実行例
