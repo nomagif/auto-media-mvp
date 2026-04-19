@@ -172,6 +172,26 @@ async function createXPostRequest(input, auth) {
 async function sendXPost(input, auth) {
   const request = await createXPostRequest(input, auth);
 
+  if (process.env.X_REQUEST_SHAPE_ONLY === '1') {
+    return {
+      ok: false,
+      item_id: input.item_id,
+      platform: 'x',
+      status: 'error',
+      published_at: null,
+      external_post_id: null,
+      error: {
+        message: 'x request shape only mode',
+        code: 'REQUEST_SHAPE_ONLY',
+        retryable: false
+      },
+      meta: {
+        dry_run: false,
+        request
+      }
+    };
+  }
+
   try {
     const response = await fetch(request.url, {
       method: request.method,

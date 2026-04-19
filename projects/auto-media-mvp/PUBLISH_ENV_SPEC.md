@@ -24,6 +24,8 @@
   - sandbox / mock / proxy 差し替え用
 - `X_DRY_RUN_FORCE`
   - 強制的に dry-run にする安全弁
+- `X_REQUEST_SHAPE_ONLY`
+  - 実送信せず request shape だけ確認する安全モード
 
 ### adapter 側の責務
 - 必要な env が足りないとき、`status=error` で返す
