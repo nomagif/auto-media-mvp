@@ -88,6 +88,29 @@ function extractExcerpt(markdown, maxLength = 140) {
   return `${text.slice(0, maxLength).trim()}…`;
 }
 
+function buildMissingEnvError(platform, itemId, vars) {
+  return {
+    ok: false,
+    item_id: itemId,
+    platform,
+    status: 'error',
+    published_at: null,
+    external_post_id: null,
+    error: {
+      message: `missing required env for ${platform} publish: ${vars.join(', ')}`,
+      code: 'MISSING_ENV',
+      retryable: false
+    },
+    meta: {
+      dry_run: false
+    }
+  };
+}
+
+function getMissingEnvVars(names) {
+  return names.filter((name) => !process.env[name]);
+}
+
 function buildXPublishInput(queueItem) {
   return {
     item_id: queueItem.item_id,
@@ -134,6 +157,15 @@ function buildNotePublishInput(queueItem) {
 async function publishToX(input) {
   const text = (input.text || '').trim();
   const maxChars = 280;
+  const forceDryRun = process.env.PUBLISH_DRY_RUN_FORCE === '1' || process.env.X_DRY_RUN_FORCE === '1';
+  const effectiveDryRun = input.dry_run === true || forceDryRun;
+
+  if (!effectiveDryRun) {
+    const missingEnv = getMissingEnvVars(['X_API_KEY', 'X_API_SECRET', 'X_ACCESS_TOKEN', 'X_ACCESS_TOKEN_SECRET']);
+    if (missingEnv.length > 0) {
+      return buildMissingEnvError('x', input.item_id, missingEnv);
+    }
+  }
 
   if (!text) {
     return {
@@ -149,7 +181,7 @@ async function publishToX(input) {
         retryable: false
       },
       meta: {
-        dry_run: input.dry_run === true,
+        dry_run: effectiveDryRun,
         raw_status: 400
       }
     };
@@ -169,7 +201,7 @@ async function publishToX(input) {
         retryable: false
       },
       meta: {
-        dry_run: input.dry_run === true,
+        dry_run: effectiveDryRun,
         raw_status: 400,
         text_length: text.length,
         max_chars: maxChars
@@ -191,7 +223,7 @@ async function publishToX(input) {
         retryable: false
       },
       meta: {
-        dry_run: input.dry_run === true,
+        dry_run: effectiveDryRun,
         raw_status: 400
       }
     };
@@ -206,7 +238,7 @@ async function publishToX(input) {
     external_post_id: `dryrun-x-${input.item_id}`,
     error: null,
     meta: {
-      dry_run: input.dry_run === true,
+      dry_run: effectiveDryRun,
       media_count: Array.isArray(input.media) ? input.media.length : 0,
       text_length: text.length,
       input
@@ -215,6 +247,16 @@ async function publishToX(input) {
 }
 
 async function publishToWordPress(input) {
+  const forceDryRun = process.env.PUBLISH_DRY_RUN_FORCE === '1' || process.env.WP_DRY_RUN_FORCE === '1';
+  const effectiveDryRun = input.dry_run === true || forceDryRun;
+
+  if (!effectiveDryRun) {
+    const missingEnv = getMissingEnvVars(['WP_BASE_URL', 'WP_USERNAME', 'WP_APP_PASSWORD']);
+    if (missingEnv.length > 0) {
+      return buildMissingEnvError('wordpress', input.item_id, missingEnv);
+    }
+  }
+
   return {
     ok: true,
     item_id: input.item_id,
@@ -224,7 +266,7 @@ async function publishToWordPress(input) {
     external_post_id: `dryrun-wp-${input.item_id}`,
     error: null,
     meta: {
-      dry_run: true,
+      dry_run: effectiveDryRun,
       wp_status: input.status || 'draft',
       input,
       draft_payload: {
@@ -240,6 +282,8 @@ async function publishToWordPress(input) {
 }
 
 async function publishToNote(input) {
+  const forceDryRun = process.env.PUBLISH_DRY_RUN_FORCE === '1' || process.env.NOTE_DRY_RUN_FORCE === '1';
+  const effectiveDryRun = input.dry_run === true || forceDryRun;
   const outputDir = path.join(ROOT, 'outputs', 'note');
   ensureDir(outputDir);
   const exportRelativeFile = `outputs/note/${input.item_id}.md`;
@@ -258,7 +302,7 @@ async function publishToNote(input) {
     external_post_id: `dryrun-note-${input.item_id}`,
     error: null,
     meta: {
-      dry_run: true,
+      dry_run: effectiveDryRun,
       mode: input.publish_mode || 'export',
       exported_file: exportRelativeFile,
       input

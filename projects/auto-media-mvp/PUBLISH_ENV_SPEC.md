@@ -29,6 +29,7 @@
 - 必要な env が足りないとき、`status=error` で返す
 - `error.code` は例: `MISSING_ENV`
 - `dry_run=true` なら env 未設定でも通してよい
+- scaffold 実装ではこの contract を先に反映済み
 
 ## 3. WordPress adapter
 対象: `publishToWordPress(input)` / `scripts/publish/publish-wordpress.js`
@@ -49,6 +50,7 @@
 - 実 POST 先 URL を組み立てる
 - 認証方式を adapter 内に閉じ込める
 - `content_html` を優先し、なければ `content_markdown` を fallback にする
+- scaffold 実装では `MISSING_ENV` contract を先に反映済み
 
 ## 4. note adapter
 対象: `publishToNote(input)` / `scripts/publish/publish-note.js`

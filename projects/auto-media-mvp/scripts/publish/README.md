@@ -20,6 +20,7 @@ MVP段階では本番投稿より、投稿フォーマットの整形と publish
 - note は現状 `outputs/note/*.md` へ export を書き出す
 - X は最小の入力バリデーション（空文字・280字超過・media型）を先に行う
 - WordPress は Markdown から最小 HTML と excerpt を組み立てる
+- dry-run でない場合、X / WordPress は必要 env がなければ `MISSING_ENV` を返す
 - `--include-pending` を付けると、開発中だけ `pending_review` も dry-run 対象にできる
 
 ## 例
