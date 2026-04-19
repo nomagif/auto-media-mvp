@@ -31,10 +31,12 @@ npm run publish:run -- --item-id hn-2026-04-18-002 --platform x
 npm run publish:run -- --dry-run --include-pending --item-id hn-2026-04-18-002 --platform note
 npm run publish:run -- --dry-run --include-pending --item-id hn-2026-04-18-002 --platform wordpress
 node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input.json
+node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-live.json
 node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-too-long.json
 node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-empty.json
 node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-invalid-media.json
 node ../../scripts/publish/publish-wordpress.js fixtures/publish/wordpress-publish-input.json
+node ../../scripts/publish/publish-wordpress.js fixtures/publish/wordpress-publish-input-live.json
 node ../../scripts/publish/publish-note.js fixtures/publish/note-publish-input.json
 ```
 
@@ -44,7 +46,9 @@ node ../../scripts/publish/publish-note.js fixtures/publish/note-publish-input.j
 - `fixtures/publish/expected/x-publish-output-empty.json`
 - `fixtures/publish/expected/x-publish-output-invalid-media.json`
 - `fixtures/publish/expected/wordpress-publish-output-success.json`
+- `fixtures/publish/expected/wordpress-publish-output-missing-env.json`
 - `fixtures/publish/expected/note-publish-output-success.json`
+- `fixtures/publish/expected/x-publish-output-missing-env.json`
 
 `published_at` や `text_length` のような動的値はプレースホルダで表している。
 
@@ -58,5 +62,9 @@ npm run publish:check-fixture -- --command ../../scripts/publish/publish-x.js --
 npm run publish:check-fixture -- --command ../../scripts/publish/publish-x.js --input fixtures/publish/x-publish-input-invalid-media.json --expected fixtures/publish/expected/x-publish-output-invalid-media.json
 npm run publish:check-fixture -- --command ../../scripts/publish/publish-wordpress.js --input fixtures/publish/wordpress-publish-input.json --expected fixtures/publish/expected/wordpress-publish-output-success.json
 npm run publish:check-fixture -- --command ../../scripts/publish/publish-note.js --input fixtures/publish/note-publish-input.json --expected fixtures/publish/expected/note-publish-output-success.json
+
+# missing env contract check examples
+env -u X_API_KEY -u X_API_SECRET -u X_ACCESS_TOKEN -u X_ACCESS_TOKEN_SECRET node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input.json
+env -u WP_BASE_URL -u WP_USERNAME -u WP_APP_PASSWORD node ../../scripts/publish/publish-wordpress.js fixtures/publish/wordpress-publish-input.json
 ```
 ``````

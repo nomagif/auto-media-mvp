@@ -1,0 +1,16 @@
+{
+  "ok": false,
+  "item_id": "hn-2026-04-18-002",
+  "platform": "x",
+  "status": "error",
+  "published_at": null,
+  "external_post_id": null,
+  "error": {
+    "message": "missing required env for x publish: X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET",
+    "code": "MISSING_ENV",
+    "retryable": false
+  },
+  "meta": {
+    "dry_run": false
+  }
+}

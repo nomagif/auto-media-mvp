@@ -1,0 +1,12 @@
+{
+  "item_id": "hn-2026-04-18-002",
+  "platform": "x",
+  "text": "計算機科学者マイケル・O・ラビン氏の訃報がHacker Newsで共有された。オートマトン理論や計算複雑性、乱択アルゴリズムに大きく貢献し、1976年にはダナ・スコット氏とともにチューリング賞を受賞。計算機科学の土台を築いた一人の足跡を振り返りたい。",
+  "idempotency_key": "hn-2026-04-18-002:x:live",
+  "dry_run": false,
+  "meta": {
+    "draft_file": "drafts/x/hn-2026-04-18-002.txt",
+    "source_url": "https://en.wikipedia.org/wiki/Michael_O._Rabin",
+    "title": "Michael Rabin Has Died"
+  }
+}
