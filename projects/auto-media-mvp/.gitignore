@@ -1,4 +1,5 @@
 # Runtime data
+/node_modules/
 /data/raw/**
 /data/normalized/**
 /data/candidates/**
