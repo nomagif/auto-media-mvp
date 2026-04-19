@@ -30,6 +30,7 @@
 - `error.code` は例: `MISSING_ENV`
 - `dry_run=true` なら env 未設定でも通してよい
 - scaffold 実装ではこの contract を先に反映済み
+- non-dry-run 側は `buildXAuthConfig()` / `createXPostRequest()` / `sendXPost()` を差し替え点にする
 
 ## 3. WordPress adapter
 対象: `publishToWordPress(input)` / `scripts/publish/publish-wordpress.js`

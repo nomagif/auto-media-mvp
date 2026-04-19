@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { ROOT, now } = require('./lib_publish_queue');
 
+const X_CREATE_POST_URL = 'https://api.twitter.com/2/tweets';
+
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
 }
@@ -109,6 +111,53 @@ function buildMissingEnvError(platform, itemId, vars) {
 
 function getMissingEnvVars(names) {
   return names.filter((name) => !process.env[name]);
+}
+
+function buildXAuthConfig() {
+  return {
+    apiKey: process.env.X_API_KEY,
+    apiSecret: process.env.X_API_SECRET,
+    accessToken: process.env.X_ACCESS_TOKEN,
+    accessTokenSecret: process.env.X_ACCESS_TOKEN_SECRET,
+    baseUrl: process.env.X_API_BASE_URL || X_CREATE_POST_URL
+  };
+}
+
+async function createXPostRequest(input, auth) {
+  return {
+    url: auth.baseUrl,
+    method: 'POST',
+    headers: {
+      Authorization: 'OAuth <not-implemented>',
+      'Content-Type': 'application/json'
+    },
+    body: {
+      text: input.text,
+      reply: input.reply_to_post_id ? { in_reply_to_tweet_id: input.reply_to_post_id } : undefined
+    }
+  };
+}
+
+async function sendXPost(input, auth) {
+  const request = await createXPostRequest(input, auth);
+
+  return {
+    ok: false,
+    item_id: input.item_id,
+    platform: 'x',
+    status: 'error',
+    published_at: null,
+    external_post_id: null,
+    error: {
+      message: 'real X publish not implemented yet',
+      code: 'NOT_IMPLEMENTED',
+      retryable: false
+    },
+    meta: {
+      dry_run: false,
+      request
+    }
+  };
 }
 
 function buildXPublishInput(queueItem) {
@@ -227,6 +276,11 @@ async function publishToX(input) {
         raw_status: 400
       }
     };
+  }
+
+  if (!effectiveDryRun) {
+    const auth = buildXAuthConfig();
+    return sendXPost(input, auth);
   }
 
   return {

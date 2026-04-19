@@ -119,5 +119,6 @@ X adapter は thin に保つのがいい。
 - `lib_publish_adapters.js` の `publishToX(input)` が関数の本体
 - `run_publish_ready.js` が queue item から `XPublishInput` を組み立てて呼ぶ
 - workspace 直下の `scripts/publish/publish-x.js` は `XPublishInput JSON -> XPublishOutput JSON` の CLI 入口
+- non-dry-run 時は `buildXAuthConfig()` / `createXPostRequest()` / `sendXPost()` が差し替え点
 
 この構造なら、後で本物の X API 呼び出しに差し替えても orchestration 側をほぼ触らずに済む。
