@@ -48,8 +48,13 @@ node ../../scripts/publish/publish-note.js fixtures/publish/note-publish-input.j
 `published_at` や `text_length` のような動的値はプレースホルダで表している。
 
 ## Fixture check script
+1本ずつ実行するのがおすすめ。長い `&&` 連結より、どこでズレたか追いやすい。
+
 ```bash
 npm run publish:check-fixture -- --command ../../scripts/publish/publish-x.js --input fixtures/publish/x-publish-input.json --expected fixtures/publish/expected/x-publish-output-success.json
+npm run publish:check-fixture -- --command ../../scripts/publish/publish-x.js --input fixtures/publish/x-publish-input-too-long.json --expected fixtures/publish/expected/x-publish-output-too-long.json
+npm run publish:check-fixture -- --command ../../scripts/publish/publish-x.js --input fixtures/publish/x-publish-input-empty.json --expected fixtures/publish/expected/x-publish-output-empty.json
+npm run publish:check-fixture -- --command ../../scripts/publish/publish-x.js --input fixtures/publish/x-publish-input-invalid-media.json --expected fixtures/publish/expected/x-publish-output-invalid-media.json
 npm run publish:check-fixture -- --command ../../scripts/publish/publish-wordpress.js --input fixtures/publish/wordpress-publish-input.json --expected fixtures/publish/expected/wordpress-publish-output-success.json
 npm run publish:check-fixture -- --command ../../scripts/publish/publish-note.js --input fixtures/publish/note-publish-input.json --expected fixtures/publish/expected/note-publish-output-success.json
 ```

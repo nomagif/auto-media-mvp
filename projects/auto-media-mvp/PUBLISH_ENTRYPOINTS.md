@@ -127,6 +127,17 @@ type NotePublishOutput = {
 - 実 API が使えない間は export でもよい
 - export でも `PublishResult` に写像できるようにする
 
+### note アカウントが不要な範囲
+- `NotePublishInput` を作る
+- `publish-note.js` を通す
+- `outputs/note/<item_id>.md` へ export する
+- queue / fixture / checker の整合を確認する
+
+### note アカウントが必要な範囲
+- note へ実際にログインして投稿する
+- note の draft / publish API 相当を使う
+- 実 URL や実 post id を返す
+
 ### MVPのおすすめ
 note は最初に `publish` を無理にやらず、
 - `export`: note 用 Markdown/HTML を出力
