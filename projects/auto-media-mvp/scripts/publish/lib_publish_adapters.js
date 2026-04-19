@@ -1,7 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
-const OAuth = require('oauth-1.0a');
 const { ROOT, now } = require('./lib_publish_queue');
 
 const X_CREATE_POST_URL = 'https://api.twitter.com/2/tweets';
@@ -117,39 +115,16 @@ function getMissingEnvVars(names) {
 
 function buildXAuthConfig() {
   return {
-    apiKey: process.env.X_API_KEY,
-    apiSecret: process.env.X_API_SECRET,
+    clientId: process.env.X_CLIENT_ID,
+    clientSecret: process.env.X_CLIENT_SECRET,
     accessToken: process.env.X_ACCESS_TOKEN,
-    accessTokenSecret: process.env.X_ACCESS_TOKEN_SECRET,
+    refreshToken: process.env.X_REFRESH_TOKEN,
     baseUrl: process.env.X_API_BASE_URL || X_CREATE_POST_URL
   };
 }
 
-function buildXOAuth1Header(auth, request) {
-  const oauth = new OAuth({
-    consumer: {
-      key: auth.apiKey,
-      secret: auth.apiSecret
-    },
-    signature_method: 'HMAC-SHA1',
-    hash_function(baseString, key) {
-      return crypto.createHmac('sha1', key).update(baseString).digest('base64');
-    }
-  });
-
-  const authData = oauth.authorize(
-    {
-      url: request.url,
-      method: request.method,
-      data: request.body || {}
-    },
-    {
-      key: auth.accessToken,
-      secret: auth.accessTokenSecret
-    }
-  );
-
-  return oauth.toHeader(authData).Authorization;
+function buildXBearerHeader(auth) {
+  return `Bearer ${auth.accessToken || '<missing>'}`;
 }
 
 async function createXPostRequest(input, auth) {
@@ -165,7 +140,7 @@ async function createXPostRequest(input, auth) {
     }
   };
 
-  request.headers.Authorization = buildXOAuth1Header(auth, request);
+  request.headers.Authorization = buildXBearerHeader(auth);
   return request;
 }
 
@@ -446,7 +421,7 @@ async function publishToX(input) {
   const effectiveDryRun = input.dry_run === true || forceDryRun;
 
   if (!effectiveDryRun && !requestShapeOnly) {
-    const missingEnv = getMissingEnvVars(['X_API_KEY', 'X_API_SECRET', 'X_ACCESS_TOKEN', 'X_ACCESS_TOKEN_SECRET']);
+    const missingEnv = getMissingEnvVars(['X_CLIENT_ID', 'X_CLIENT_SECRET', 'X_ACCESS_TOKEN']);
     if (missingEnv.length > 0) {
       return buildMissingEnvError('x', input.item_id, missingEnv);
     }
@@ -641,8 +616,11 @@ module.exports = {
   buildXPublishInput,
   buildWordPressPublishInput,
   buildNotePublishInput,
+  buildXAuthConfig,
+  buildXBearerHeader,
+  createXPostRequest,
+  sendXPost,
   publishToX,
-  buildXOAuth1Header,
   publishToWordPress,
   buildWordPressAuthConfig,
   createWordPressPostRequest,
