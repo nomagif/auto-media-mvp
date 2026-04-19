@@ -79,6 +79,8 @@ type WordPressPublishOutput = {
 ### MVPのおすすめ
 最初は `status='draft'` をデフォルトにして、公開ではなく下書き作成から始める。
 
+現状の scaffold では Markdown draft から最小の `content_html` と `excerpt` を組み立てる。
+
 ## 4. note 入口
 note は API 制約が読みにくいので、最初から「実投稿」と「下書きエクスポート」を分けて考えるのが安全。
 

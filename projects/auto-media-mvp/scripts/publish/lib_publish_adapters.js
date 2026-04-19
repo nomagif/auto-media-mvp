@@ -15,6 +15,79 @@ function extractMarkdownTitle(content) {
   return (titleLine || '# Untitled').replace(/^#\s+/, '').trim() || 'Untitled';
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function markdownToHtml(markdown) {
+  const lines = String(markdown || '').split('\n');
+  const html = [];
+  let paragraph = [];
+
+  function flushParagraph() {
+    if (paragraph.length === 0) return;
+    html.push(`<p>${escapeHtml(paragraph.join(' '))}</p>`);
+    paragraph = [];
+  }
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+
+    if (!line) {
+      flushParagraph();
+      continue;
+    }
+
+    if (line.startsWith('# ')) {
+      flushParagraph();
+      html.push(`<h1>${escapeHtml(line.replace(/^#\s+/, ''))}</h1>`);
+      continue;
+    }
+
+    if (line.startsWith('## ')) {
+      flushParagraph();
+      html.push(`<h2>${escapeHtml(line.replace(/^##\s+/, ''))}</h2>`);
+      continue;
+    }
+
+    if (line.startsWith('### ')) {
+      flushParagraph();
+      html.push(`<h3>${escapeHtml(line.replace(/^###\s+/, ''))}</h3>`);
+      continue;
+    }
+
+    if (line.startsWith('- ')) {
+      flushParagraph();
+      html.push(`<li>${escapeHtml(line.replace(/^-\s+/, ''))}</li>`);
+      continue;
+    }
+
+    paragraph.push(line);
+  }
+
+  flushParagraph();
+
+  return html
+    .join('\n')
+    .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>\n${match.trim()}\n</ul>`);
+}
+
+function extractExcerpt(markdown, maxLength = 140) {
+  const lines = String(markdown || '')
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'));
+
+  const text = lines.join(' ');
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength).trim()}…`;
+}
+
 function buildXPublishInput(queueItem) {
   return {
     item_id: queueItem.item_id,
@@ -35,6 +108,8 @@ function buildWordPressPublishInput(queueItem) {
     platform: 'wordpress',
     title: extractMarkdownTitle(content),
     content_markdown: content,
+    content_html: markdownToHtml(content),
+    excerpt: extractExcerpt(content),
     status: 'draft',
     meta: {
       draft_file: queueItem.draft_file
