@@ -172,23 +172,78 @@ async function createXPostRequest(input, auth) {
 async function sendXPost(input, auth) {
   const request = await createXPostRequest(input, auth);
 
-  return {
-    ok: false,
-    item_id: input.item_id,
-    platform: 'x',
-    status: 'error',
-    published_at: null,
-    external_post_id: null,
-    error: {
-      message: 'real X publish not implemented yet',
-      code: 'NOT_IMPLEMENTED',
-      retryable: false
-    },
-    meta: {
-      dry_run: false,
-      request
+  try {
+    const response = await fetch(request.url, {
+      method: request.method,
+      headers: request.headers,
+      body: JSON.stringify(request.body)
+    });
+
+    const rawText = await response.text();
+    let json = null;
+    try {
+      json = rawText ? JSON.parse(rawText) : null;
+    } catch {
+      json = null;
     }
-  };
+
+    if (!response.ok) {
+      return {
+        ok: false,
+        item_id: input.item_id,
+        platform: 'x',
+        status: 'error',
+        published_at: null,
+        external_post_id: null,
+        error: {
+          message: json?.detail || json?.title || `x publish failed with status ${response.status}`,
+          code: `HTTP_${response.status}`,
+          retryable: response.status >= 500 || response.status === 429
+        },
+        meta: {
+          dry_run: false,
+          raw_status: response.status,
+          request,
+          response: json || rawText
+        }
+      };
+    }
+
+    const externalPostId = json?.data?.id || null;
+    return {
+      ok: true,
+      item_id: input.item_id,
+      platform: 'x',
+      status: 'published',
+      published_at: now(),
+      external_post_id: externalPostId,
+      error: null,
+      meta: {
+        dry_run: false,
+        raw_status: response.status,
+        request,
+        response: json
+      }
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      item_id: input.item_id,
+      platform: 'x',
+      status: 'error',
+      published_at: null,
+      external_post_id: null,
+      error: {
+        message: error.message || 'network error',
+        code: 'NETWORK_ERROR',
+        retryable: true
+      },
+      meta: {
+        dry_run: false,
+        request
+      }
+    };
+  }
 }
 
 function buildXPublishInput(queueItem) {
