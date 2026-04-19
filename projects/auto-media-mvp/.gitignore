@@ -26,6 +26,7 @@
 !/output/weekly/.gitkeep
 !/outputs/.gitkeep
 !/outputs/note/
+/outputs/note/*.md
 !/outputs/note/.gitkeep
 !/logs/.gitkeep
 

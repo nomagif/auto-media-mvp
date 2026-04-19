@@ -75,6 +75,7 @@
 - `XPOST_RESPONSE_NORMALIZATION.md`: X post 応答正規化ルール
 - `fixtures/summary-responses/`: worker 正規化テスト用 fixture
 - `fixtures/title-responses/`: title worker 用 fixture
+- `fixtures/publish/`: X / WordPress / note publish input fixture
 - `ARTICLE_IO_SPEC.md`: article generation の入出力仕様
 - `scripts/generate/lib_article.js`: article request/response helper
 - `scripts/generate/build_article_requests.js`: enriched summary から article request を作る scaffold
