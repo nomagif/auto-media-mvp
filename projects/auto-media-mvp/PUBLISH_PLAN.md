@@ -111,6 +111,7 @@ publish result の最小更新対象は次の4つで十分。
 - `PUBLISH_IO_SPEC.md`: queue/result の最小スキーマ
 - `X_PUBLISH_INTERFACE.md`: X 実投稿 interface
 - `PUBLISH_ENTRYPOINTS.md`: WordPress / note publish 入口
+- `PUBLISH_ENV_SPEC.md`: 実 API 連携時の env / secret interface
 
 X が一番軽く、検証しやすい。
 
