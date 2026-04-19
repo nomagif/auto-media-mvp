@@ -114,6 +114,8 @@ X adapter は thin に保つのがいい。
 文章整形・承認・queue 更新まで混ぜると、後で WordPress / note に横展開しづらくなる。
 
 ## 9. 現在の scaffold 反映
+認証方針の詳細は `X_AUTH_PLAN.md` を参照。
+
 現状は次の役割分担になっている。
 
 - `lib_publish_adapters.js` の `publishToX(input)` が関数の本体
