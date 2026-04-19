@@ -309,6 +309,79 @@ function buildNotePublishInput(queueItem) {
   };
 }
 
+function buildWordPressAuthConfig() {
+  return {
+    baseUrl: process.env.WP_BASE_URL,
+    username: process.env.WP_USERNAME,
+    appPassword: process.env.WP_APP_PASSWORD,
+    apiBasePath: process.env.WP_API_BASE_PATH || '/wp-json/wp/v2',
+    defaultStatus: process.env.WP_DEFAULT_STATUS || 'draft'
+  };
+}
+
+function createWordPressPostRequest(input, auth) {
+  const baseUrl = (auth.baseUrl || '').replace(/\/$/, '');
+  const apiBasePath = auth.apiBasePath.startsWith('/') ? auth.apiBasePath : `/${auth.apiBasePath}`;
+  const token = Buffer.from(`${auth.username || ''}:${auth.appPassword || ''}`).toString('base64');
+
+  return {
+    url: `${baseUrl}${apiBasePath}/posts`,
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${token}`,
+      'Content-Type': 'application/json'
+    },
+    body: {
+      status: input.status || auth.defaultStatus || 'draft',
+      title: input.title,
+      content: input.content_html || input.content_markdown || '',
+      excerpt: input.excerpt || ''
+    }
+  };
+}
+
+async function sendWordPressPost(input, auth) {
+  const request = createWordPressPostRequest(input, auth);
+
+  if (process.env.WP_REQUEST_SHAPE_ONLY === '1') {
+    return {
+      ok: false,
+      item_id: input.item_id,
+      platform: 'wordpress',
+      status: 'error',
+      published_at: null,
+      external_post_id: null,
+      error: {
+        message: 'wordpress request shape only mode',
+        code: 'REQUEST_SHAPE_ONLY',
+        retryable: false
+      },
+      meta: {
+        dry_run: false,
+        request
+      }
+    };
+  }
+
+  return {
+    ok: false,
+    item_id: input.item_id,
+    platform: 'wordpress',
+    status: 'error',
+    published_at: null,
+    external_post_id: null,
+    error: {
+      message: 'real WordPress publish not implemented yet',
+      code: 'NOT_IMPLEMENTED',
+      retryable: false
+    },
+    meta: {
+      dry_run: false,
+      request
+    }
+  };
+}
+
 async function publishToX(input) {
   const text = (input.text || '').trim();
   const maxChars = 280;
@@ -409,13 +482,19 @@ async function publishToX(input) {
 
 async function publishToWordPress(input) {
   const forceDryRun = process.env.PUBLISH_DRY_RUN_FORCE === '1' || process.env.WP_DRY_RUN_FORCE === '1';
+  const requestShapeOnly = process.env.WP_REQUEST_SHAPE_ONLY === '1';
   const effectiveDryRun = input.dry_run === true || forceDryRun;
 
-  if (!effectiveDryRun) {
+  if (!effectiveDryRun && !requestShapeOnly) {
     const missingEnv = getMissingEnvVars(['WP_BASE_URL', 'WP_USERNAME', 'WP_APP_PASSWORD']);
     if (missingEnv.length > 0) {
       return buildMissingEnvError('wordpress', input.item_id, missingEnv);
     }
+  }
+
+  if (!effectiveDryRun || requestShapeOnly) {
+    const auth = buildWordPressAuthConfig();
+    return sendWordPressPost(input, auth);
   }
 
   return {
@@ -509,6 +588,9 @@ module.exports = {
   publishToX,
   buildXOAuth1Header,
   publishToWordPress,
+  buildWordPressAuthConfig,
+  createWordPressPostRequest,
+  sendWordPressPost,
   publishToNote,
   runPublishForQueueItem
 };

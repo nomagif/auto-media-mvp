@@ -27,6 +27,8 @@ MVP では **WordPress REST API で draft post を作成** するところまで
 - `sendWordPressPost()`
 - `normalizeWordPressPostResponse()`
 
+現状は `buildWordPressAuthConfig()` / `createWordPressPostRequest()` / `sendWordPressPost()` の seam までコード化済み。
+
 ## 4. 想定 endpoint
 - `POST {WP_BASE_URL}/wp-json/wp/v2/posts`
 
@@ -62,6 +64,7 @@ MVP は **Application Password + Basic Auth** 前提。
 ## 9. 安全策
 - 初期値は `draft`
 - `WP_DRY_RUN_FORCE=1` があれば送信しない
+- `WP_REQUEST_SHAPE_ONLY=1` なら実送信せず request shape だけ確認する
 - 最初は categories / tags / media を未対応でよい
 
 ## 10. 率直なおすすめ

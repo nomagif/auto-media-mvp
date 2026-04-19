@@ -48,6 +48,8 @@
 - `WP_API_BASE_PATH`
   - 例: `/wp-json/wp/v2`
 - `WP_DRY_RUN_FORCE`
+- `WP_REQUEST_SHAPE_ONLY`
+  - 実送信せず request shape だけ確認する安全モード
 
 ### adapter 側の責務
 - 実 POST 先 URL を組み立てる
