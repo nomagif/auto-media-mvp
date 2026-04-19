@@ -55,6 +55,7 @@
 - `PUBLISH_ENTRYPOINTS.md`: WordPress / note 用 publish 入口設計
 - `PUBLISH_ENV_SPEC.md`: 実 API 連携時の env / secret interface
 - `X_AUTH_PLAN.md`: X 実投稿 adapter の認証方針
+- `X_OAUTH_LIBRARY_PLAN.md`: OAuth 1.0a helper の導入方針
 - `scripts/publish/build_publish_queue.js`: enriched data から publish queue と platform 別 draft を作る scaffold
 - `scripts/publish/approve_publish_items.js`: publish queue の pending_review を approved にする最小承認フロー
 - `scripts/publish/list_publish_ready.js`: approved 済み投稿候補の一覧を出す

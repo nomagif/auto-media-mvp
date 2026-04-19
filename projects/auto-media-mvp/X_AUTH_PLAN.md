@@ -102,6 +102,8 @@ API 応答から最低限ほしいもの:
 
 の方が安全。
 
+依存追加方針の詳細は `X_OAUTH_LIBRARY_PLAN.md` を参照。
+
 もし依存追加が許されるなら、次は
 - OAuth 1.0a helper 導入
 - `sendXPost()` の実 HTTP 化
