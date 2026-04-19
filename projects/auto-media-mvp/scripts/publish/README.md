@@ -17,10 +17,13 @@ MVP段階では本番投稿より、投稿フォーマットの整形と publish
 - まずは `PublishResult` を queue に反映する共通導線を固める
 - `x / wordpress / note` で input 形を揃える
 - 実 API 呼び出しは adapter 差し替えで対応する
+- note は現状 `outputs/note/*.md` へ export を書き出す
+- X は最小の入力バリデーション（空文字・280字超過・media型）を先に行う
 
 ## 例
 ```bash
 npm run publish:list-ready
 npm run publish:run -- --dry-run
 npm run publish:run -- --item-id hn-2026-04-18-002 --platform x
+npm run publish:run -- --item-id hn-2026-04-18-002 --platform note
 ```

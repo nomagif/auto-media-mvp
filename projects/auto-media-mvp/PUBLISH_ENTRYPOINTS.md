@@ -132,6 +132,8 @@ note は最初に `publish` を無理にやらず、
 
 の二段構えにする。
 
+現状の scaffold では `export` として `outputs/note/<item_id>.md` を書き出す。
+
 ## 5. publish result への写像
 WordPress / note / X は最終的にこれへ揃える。
 

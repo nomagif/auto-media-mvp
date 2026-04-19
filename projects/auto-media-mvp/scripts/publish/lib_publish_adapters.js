@@ -2,6 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const { ROOT, now } = require('./lib_publish_queue');
 
+function ensureDir(dir) {
+  fs.mkdirSync(dir, { recursive: true });
+}
+
 function readText(relativePath) {
   return fs.readFileSync(path.join(ROOT, relativePath), 'utf8').trim();
 }
@@ -53,6 +57,71 @@ function buildNotePublishInput(queueItem) {
 }
 
 async function publishToX(input) {
+  const text = (input.text || '').trim();
+  const maxChars = 280;
+
+  if (!text) {
+    return {
+      ok: false,
+      item_id: input.item_id,
+      platform: 'x',
+      status: 'error',
+      published_at: null,
+      external_post_id: null,
+      error: {
+        message: 'text is empty',
+        code: 'EMPTY_TEXT',
+        retryable: false
+      },
+      meta: {
+        dry_run: input.dry_run === true,
+        raw_status: 400
+      }
+    };
+  }
+
+  if (text.length > maxChars) {
+    return {
+      ok: false,
+      item_id: input.item_id,
+      platform: 'x',
+      status: 'error',
+      published_at: null,
+      external_post_id: null,
+      error: {
+        message: `text exceeds ${maxChars} characters`,
+        code: 'TEXT_TOO_LONG',
+        retryable: false
+      },
+      meta: {
+        dry_run: input.dry_run === true,
+        raw_status: 400,
+        text_length: text.length,
+        max_chars: maxChars
+      }
+    };
+  }
+
+  if (input.media && !Array.isArray(input.media)) {
+    return {
+      ok: false,
+      item_id: input.item_id,
+      platform: 'x',
+      status: 'error',
+      published_at: null,
+      external_post_id: null,
+      error: {
+        message: 'media must be an array',
+        code: 'INVALID_MEDIA',
+        retryable: false
+      },
+      meta: {
+        dry_run: input.dry_run === true,
+        raw_status: 400
+      }
+    };
+  }
+
   return {
     ok: true,
     item_id: input.item_id,
@@ -63,6 +132,8 @@ async function publishToX(input) {
     error: null,
     meta: {
       dry_run: input.dry_run === true,
+      media_count: Array.isArray(input.media) ? input.media.length : 0,
+      text_length: text.length,
       input
     }
   };
@@ -94,7 +165,15 @@ async function publishToWordPress(input) {
 }
 
 async function publishToNote(input) {
-  const exportFile = `outputs/note/${input.item_id}.md`;
+  const outputDir = path.join(ROOT, 'outputs', 'note');
+  ensureDir(outputDir);
+  const exportRelativeFile = `outputs/note/${input.item_id}.md`;
+  const exportFile = path.join(ROOT, exportRelativeFile);
+  const title = (input.title || 'Untitled').trim();
+  const body = (input.body_markdown || '').trim();
+  const content = `# ${title}\n\n${body}\n`;
+  fs.writeFileSync(exportFile, content, 'utf8');
+
   return {
     ok: true,
     item_id: input.item_id,
@@ -106,7 +185,7 @@ async function publishToNote(input) {
     meta: {
       dry_run: true,
       mode: input.publish_mode || 'export',
-      exported_file: exportFile,
+      exported_file: exportRelativeFile,
       input
     }
   };

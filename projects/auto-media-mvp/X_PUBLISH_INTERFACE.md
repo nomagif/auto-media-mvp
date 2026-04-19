@@ -52,6 +52,7 @@ type XPublishInput = {
 - `media` は任意。MVP は 0 or 1 枚想定で十分
 - `idempotency_key` は二重投稿防止の補助
 - `dry_run=true` のときは外部投稿せず、検証結果だけ返してよい
+- scaffold 段階でも `text` 空文字 / 280字超過 / `media` 型不正は error を返す
 
 ## 4. 出力 I/O
 ```ts
