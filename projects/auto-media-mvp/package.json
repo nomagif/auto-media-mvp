@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "description": "MVP scaffold for automated media collection and draft generation",
+  "dependencies": {
+    "oauth-1.0a": "^2.2.6"
+  },
   "scripts": {
     "collect:techcrunch": "node scripts/collect/techcrunch_rss.js",
     "collect:hackernews": "node scripts/collect/hackernews_topstories.js",
