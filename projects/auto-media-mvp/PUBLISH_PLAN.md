@@ -70,7 +70,7 @@ WordPress / note / X への配信設計。
 
 ## 5. 失敗時の扱い
 - 投稿失敗は `error` にする
-- `last_error` を残す
+- `error` を残す
 - 再試行可能かを記録する
 - 同一アイテムの二重投稿を防ぐ
 
@@ -89,17 +89,28 @@ WordPress / note / X への配信設計。
 - `platform`
 - `status`
 - `published_at`
-- `external_post_id`（将来）
-- `last_error`
+- `external_post_id`
+- `error`
+
+publish result の最小更新対象は次の4つで十分。
+- `status`（approved -> published / error）
+- `published_at`
+- `external_post_id`
+- `error`
 
 ---
 
 ## 8. 実装順のおすすめ
 1. X publish queue
-2. WordPress publish queue
-3. note publish queue
+2. X 実投稿 interface 固定
+3. WordPress / note publish 入口固定
 4. 承認フロー
 5. 実投稿連携
+
+関連ドキュメント:
+- `PUBLISH_IO_SPEC.md`: queue/result の最小スキーマ
+- `X_PUBLISH_INTERFACE.md`: X 実投稿 interface
+- `PUBLISH_ENTRYPOINTS.md`: WordPress / note publish 入口
 
 X が一番軽く、検証しやすい。
 
