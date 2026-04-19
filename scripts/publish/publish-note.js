@@ -1,30 +1,30 @@
 #!/usr/bin/env node
 
 /**
- * X adapter placeholder.
+ * note adapter placeholder.
  *
  * Current behavior:
- * - reads XPublishInput JSON
- * - returns XPublishOutput-compatible JSON
+ * - reads NotePublishInput JSON
+ * - returns NotePublishOutput-compatible JSON
  *
  * Production integration point:
- * - add authenticated post create call using X API credentials
+ * - replace export/dry-run behavior with real note integration when available
  */
 
 const fs = require('fs');
 const path = require('path');
-const { publishToX } = require(path.resolve(__dirname, '../../projects/auto-media-mvp/scripts/publish/lib_publish_adapters'));
+const { publishToNote } = require(path.resolve(__dirname, '../../projects/auto-media-mvp/scripts/publish/lib_publish_adapters'));
 
 async function main() {
   const inputPath = process.argv[2];
 
   if (!inputPath) {
-    console.error('Usage: node scripts/publish/publish-x.js <x-publish-input.json>');
+    console.error('Usage: node scripts/publish/publish-note.js <note-publish-input.json>');
     process.exit(1);
   }
 
   const input = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
-  const output = await publishToX(input);
+  const output = await publishToNote(input);
   console.log(JSON.stringify(output, null, 2));
 }
 

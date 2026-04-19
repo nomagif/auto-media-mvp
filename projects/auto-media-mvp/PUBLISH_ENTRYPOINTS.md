@@ -176,3 +176,12 @@ async function publishByPlatform(queueItem: PublishQueueEntry): Promise<PublishR
 - note export は `published` ではなく、将来 `exported` を増やしたくなる
 
 ただし今の最小 status を増やしたくないなら、note export は queue 外で扱うほうがきれい。
+
+## 8. 現在の scaffold 方針
+- `run_publish_ready.js` が orchestration を担当
+- `lib_publish_adapters.js` が platform adapter を担当
+- workspace 直下の `scripts/publish/publish-x.js` / `publish-wordpress.js` / `publish-note.js` は CLI 入口として薄く保つ
+
+この分離にしておくと、
+- project 内では関数として再利用しやすい
+- 外側からは JSON file ベースで単体実行しやすい

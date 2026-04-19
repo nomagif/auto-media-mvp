@@ -80,12 +80,21 @@ async function publishToWordPress(input) {
     meta: {
       dry_run: true,
       wp_status: input.status || 'draft',
-      input
+      input,
+      draft_payload: {
+        status: input.status || 'draft',
+        title: input.title,
+        content_markdown: input.content_markdown || null,
+        content_html: input.content_html || null,
+        excerpt: input.excerpt || '',
+        meta: input.meta || {}
+      }
     }
   };
 }
 
 async function publishToNote(input) {
+  const exportFile = `outputs/note/${input.item_id}.md`;
   return {
     ok: true,
     item_id: input.item_id,
@@ -97,6 +106,7 @@ async function publishToNote(input) {
     meta: {
       dry_run: true,
       mode: input.publish_mode || 'export',
+      exported_file: exportFile,
       input
     }
   };
