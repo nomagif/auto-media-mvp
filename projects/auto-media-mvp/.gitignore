@@ -5,6 +5,7 @@
 /data/processed/**
 /drafts/**
 /output/**
+/outputs/*
 /logs/**
 
 # State files
@@ -23,6 +24,9 @@
 !/drafts/x/.gitkeep
 !/output/daily/.gitkeep
 !/output/weekly/.gitkeep
+!/outputs/.gitkeep
+!/outputs/note/
+!/outputs/note/.gitkeep
 !/logs/.gitkeep
 
 # Keep selected seed state examples only when explicitly added
