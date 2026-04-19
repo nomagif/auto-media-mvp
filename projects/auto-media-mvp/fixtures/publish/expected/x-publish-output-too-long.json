@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "item_id": "hn-2026-04-18-002",
+  "platform": "x",
+  "status": "error",
+  "published_at": null,
+  "external_post_id": null,
+  "error": {
+    "message": "text exceeds 280 characters",
+    "code": "TEXT_TOO_LONG",
+    "retryable": false
+  },
+  "meta": {
+    "dry_run": true,
+    "raw_status": 400,
+    "text_length": "<number>",
+    "max_chars": 280
+  }
+}

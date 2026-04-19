@@ -1,0 +1,17 @@
+{
+  "ok": false,
+  "item_id": "hn-2026-04-18-002",
+  "platform": "x",
+  "status": "error",
+  "published_at": null,
+  "external_post_id": null,
+  "error": {
+    "message": "media must be an array",
+    "code": "INVALID_MEDIA",
+    "retryable": false
+  },
+  "meta": {
+    "dry_run": true,
+    "raw_status": 400
+  }
+}

@@ -31,6 +31,17 @@ npm run publish:run -- --dry-run --include-pending --item-id hn-2026-04-18-002 -
 npm run publish:run -- --dry-run --include-pending --item-id hn-2026-04-18-002 --platform wordpress
 node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input.json
 node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-too-long.json
+node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-empty.json
+node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-invalid-media.json
 node ../../scripts/publish/publish-wordpress.js fixtures/publish/wordpress-publish-input.json
 node ../../scripts/publish/publish-note.js fixtures/publish/note-publish-input.json
 ```
+
+## Expected output fixtures
+- `fixtures/publish/expected/x-publish-output-success.json`
+- `fixtures/publish/expected/x-publish-output-too-long.json`
+- `fixtures/publish/expected/x-publish-output-empty.json`
+- `fixtures/publish/expected/x-publish-output-invalid-media.json`
+
+`published_at` や `text_length` のような動的値はプレースホルダで表している。
+``````

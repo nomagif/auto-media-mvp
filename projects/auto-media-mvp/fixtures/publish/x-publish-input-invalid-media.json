@@ -1,0 +1,13 @@
+{
+  "item_id": "hn-2026-04-18-002",
+  "platform": "x",
+  "text": "短い確認用ポストです。",
+  "media": {
+    "file_path": "outputs/images/sample.png"
+  },
+  "idempotency_key": "hn-2026-04-18-002:x:invalid-media",
+  "dry_run": true,
+  "meta": {
+    "draft_file": "drafts/x/hn-2026-04-18-002.txt"
+  }
+}

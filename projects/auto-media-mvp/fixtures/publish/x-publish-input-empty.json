@@ -1,0 +1,10 @@
+{
+  "item_id": "hn-2026-04-18-002",
+  "platform": "x",
+  "text": "",
+  "idempotency_key": "hn-2026-04-18-002:x:empty",
+  "dry_run": true,
+  "meta": {
+    "draft_file": "drafts/x/hn-2026-04-18-002.txt"
+  }
+}
