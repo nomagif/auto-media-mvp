@@ -65,10 +65,12 @@ function applyPublishResult(queue, result) {
   return item;
 }
 
-function getApprovedQueueItems(queue, filters = {}) {
-  const { itemId = null, platform = null } = filters;
+function getQueueItemsByStatus(queue, filters = {}) {
+  const { itemId = null, platform = null, statuses = ['approved'] } = filters;
+  const allowedStatuses = new Set(statuses);
+
   return queue.filter((item) => {
-    if (item.status !== 'approved') return false;
+    if (!allowedStatuses.has(item.status)) return false;
     if (itemId && item.item_id !== itemId) return false;
     if (platform && item.platform !== platform) return false;
     return true;
@@ -82,7 +84,7 @@ module.exports = {
   savePublishQueue,
   findQueueItem,
   applyPublishResult,
-  getApprovedQueueItems,
+  getQueueItemsByStatus,
   normalizeError,
   now
 };

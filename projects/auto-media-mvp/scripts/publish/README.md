@@ -19,11 +19,13 @@ MVP段階では本番投稿より、投稿フォーマットの整形と publish
 - 実 API 呼び出しは adapter 差し替えで対応する
 - note は現状 `outputs/note/*.md` へ export を書き出す
 - X は最小の入力バリデーション（空文字・280字超過・media型）を先に行う
+- `--include-pending` を付けると、開発中だけ `pending_review` も dry-run 対象にできる
 
 ## 例
 ```bash
 npm run publish:list-ready
 npm run publish:run -- --dry-run
 npm run publish:run -- --item-id hn-2026-04-18-002 --platform x
-npm run publish:run -- --item-id hn-2026-04-18-002 --platform note
+npm run publish:run -- --dry-run --include-pending --item-id hn-2026-04-18-002 --platform note
+npm run publish:run -- --dry-run --include-pending --item-id hn-2026-04-18-002 --platform wordpress
 ```
