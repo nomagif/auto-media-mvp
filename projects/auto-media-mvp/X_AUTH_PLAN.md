@@ -3,37 +3,34 @@
 X 実投稿 adapter に入れる認証方針の最小設計。
 
 ## 1. 結論
-MVP では **OAuth 1.0a user context** を前提にする。
+MVP では **OAuth 2.0 user context** を前提にする。
 
-使う env:
-- `X_API_KEY`
-- `X_API_SECRET`
+使う env の候補:
+- `X_CLIENT_ID`
+- `X_CLIENT_SECRET`
 - `X_ACCESS_TOKEN`
-- `X_ACCESS_TOKEN_SECRET`
+- `X_REFRESH_TOKEN`
 
 理由:
-- すでに env spec と adapter contract がこの4点を前提にしている
-- user context での投稿はこの形がいちばん素直
-- OAuth 2 user context / PKCE を今ここで混ぜると実装が重くなる
+- X portal が OAuth 2.0 user authentication を前面に出している
+- OAuth 1.0a を無理に追うより、現行 portal に合わせた方が自然
+- 今後の user context 運用も OAuth 2.0 の方が筋がいい
 
 ## 2. 実装方針
 ### まずやること
 - `sendXPost()` 内で HTTP POST を行う
-- 認証ヘッダ生成は専用 helper に閉じ込める
+- Authorization は `Bearer <access token>` を使う
 - request body は Twitter API v2 の `/2/tweets` に合わせる
 
 ### 分離する関数
 - `buildXAuthConfig()`
 - `createXPostRequest()`
-- `buildXOAuth1Header()`
+- `buildXBearerHeader()`
 - `sendXPost()`
 - `normalizeXPostResponse()`
 
-現状は `buildXOAuth1Header()` の stub までコード化済み。
-
 ## 3. 今回やらないこと
-- OAuth 2.0 PKCE フロー
-- refresh token 管理
+- refresh token 自動更新の本実装
 - media upload の本実装
 - reply thread の高度な制御
 - rate limit retry の本格実装
@@ -96,16 +93,5 @@ API 応答から最低限ほしいもの:
 ```
 
 ## 7. 率直なおすすめ
-ここでは external library を増やしすぎない方がいい。
-ただし OAuth 1.0a 署名は自前実装より、
-- 小さい実績あるライブラリを使う
-
-の方が安全。
-
-依存追加方針の詳細は `X_OAUTH_LIBRARY_PLAN.md` を参照。
-
-もし依存追加が許されるなら、次は
-- OAuth 1.0a helper 導入
-- `sendXPost()` の実 HTTP 化
-
-の順がいい。
+X 側は portal に寄せる方がいい。
+OAuth 1.0a に固執するより、OAuth 2.0 user context に設計変更した方が進めやすい。

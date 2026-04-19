@@ -14,12 +14,12 @@
 対象: `publishToX(input)` / `scripts/publish/publish-x.js`
 
 ### 必須候補
-- `X_API_KEY`
-- `X_API_SECRET`
+- `X_CLIENT_ID`
+- `X_CLIENT_SECRET`
 - `X_ACCESS_TOKEN`
-- `X_ACCESS_TOKEN_SECRET`
 
 ### 任意候補
+- `X_REFRESH_TOKEN`
 - `X_API_BASE_URL`
   - sandbox / mock / proxy 差し替え用
 - `X_DRY_RUN_FORCE`

@@ -3,10 +3,12 @@
 X 実投稿 adapter 用の env 設定手順メモ。
 
 ## 1. 必要な env
-- `X_API_KEY`
-- `X_API_SECRET`
+- `X_CLIENT_ID`
+- `X_CLIENT_SECRET`
 - `X_ACCESS_TOKEN`
-- `X_ACCESS_TOKEN_SECRET`
+
+任意:
+- `X_REFRESH_TOKEN`
 
 ## 2. 方針
 - 値そのものはリポジトリに保存しない
@@ -16,17 +18,17 @@ X 実投稿 adapter 用の env 設定手順メモ。
 ## 3. 最小の投入方法例
 ### 一時的に shell へ入れる
 ```bash
-export X_API_KEY='...'
-export X_API_SECRET='...'
+export X_CLIENT_ID='...'
+export X_CLIENT_SECRET='...'
 export X_ACCESS_TOKEN='...'
-export X_ACCESS_TOKEN_SECRET='...'
+export X_REFRESH_TOKEN='...'
 ```
 
 ### 確認
 ```bash
 python3 - <<'PY'
 import os
-keys = ['X_API_KEY','X_API_SECRET','X_ACCESS_TOKEN','X_ACCESS_TOKEN_SECRET']
+keys = ['X_CLIENT_ID','X_CLIENT_SECRET','X_ACCESS_TOKEN','X_REFRESH_TOKEN']
 print({k: bool(os.environ.get(k)) for k in keys})
 PY
 ```
