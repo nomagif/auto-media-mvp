@@ -3,7 +3,9 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const STATE_DIR = path.join(ROOT, 'state');
+const LOGS_DIR = path.join(ROOT, 'logs');
 const PUBLISH_QUEUE_FILE = path.join(STATE_DIR, 'publish_queue.json');
+const PUBLISH_RESULT_LOG_FILE = path.join(LOGS_DIR, 'publish_results.jsonl');
 
 function readJson(file, fallback) {
   try {
@@ -19,6 +21,10 @@ function writeJson(file, value) {
 
 function now() {
   return new Date().toISOString();
+}
+
+function ensureDir(dir) {
+  fs.mkdirSync(dir, { recursive: true });
 }
 
 function isPublishQueueEntry(item) {
@@ -45,6 +51,22 @@ function normalizeError(error) {
     code: error.code || undefined,
     retryable: typeof error.retryable === 'boolean' ? error.retryable : undefined
   };
+}
+
+function appendPublishResultLog(result, meta = {}) {
+  ensureDir(LOGS_DIR);
+  const record = {
+    logged_at: now(),
+    item_id: result.item_id,
+    platform: result.platform,
+    status: result.status,
+    published_at: result.published_at || null,
+    external_post_id: result.external_post_id || null,
+    error: normalizeError(result.error),
+    meta
+  };
+  fs.appendFileSync(PUBLISH_RESULT_LOG_FILE, JSON.stringify(record) + '\n', 'utf8');
+  return record;
 }
 
 function applyPublishResult(queue, result) {
@@ -84,7 +106,9 @@ module.exports = {
   savePublishQueue,
   findQueueItem,
   applyPublishResult,
+  appendPublishResultLog,
   getQueueItemsByStatus,
   normalizeError,
-  now
+  now,
+  PUBLISH_RESULT_LOG_FILE
 };

@@ -4,6 +4,7 @@ const {
   loadPublishQueue,
   savePublishQueue,
   applyPublishResult,
+  appendPublishResultLog,
   getQueueItemsByStatus
 } = require('./lib_publish_queue');
 const { runPublishForQueueItem } = require('./lib_publish_adapters');
@@ -43,6 +44,11 @@ async function main() {
     const result = await runPublishForQueueItem(item);
     if (!args.dryRun) {
       applyPublishResult(queue, result);
+      appendPublishResultLog(result, {
+        runner: 'run_publish_ready.js',
+        source_statuses: statuses,
+        dry_run: false
+      });
     }
     results.push(result);
   }
