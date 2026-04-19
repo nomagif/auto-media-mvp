@@ -36,13 +36,15 @@ npm run run:mvp
 - `state/publish_queue.json` の形式を確認
 
 ## 5. publish 周りの確認結果
-2026-04-19 時点で、fixture checker で次を確認済み。
+2026-04-19 時点で、fixture checker / 実行確認で次を確認済み。
 - X success
 - X too long
 - X empty
 - X invalid media
 - WordPress success
 - note success
+- X missing env (`MISSING_ENV`)
+- WordPress missing env (`MISSING_ENV`)
 
 確認コマンドは `scripts/publish/README.md` を参照。
 

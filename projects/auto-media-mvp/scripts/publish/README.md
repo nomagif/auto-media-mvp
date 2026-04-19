@@ -64,7 +64,9 @@ npm run publish:check-fixture -- --command ../../scripts/publish/publish-wordpre
 npm run publish:check-fixture -- --command ../../scripts/publish/publish-note.js --input fixtures/publish/note-publish-input.json --expected fixtures/publish/expected/note-publish-output-success.json
 
 # missing env contract check examples
-env -u X_API_KEY -u X_API_SECRET -u X_ACCESS_TOKEN -u X_ACCESS_TOKEN_SECRET node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input.json
-env -u WP_BASE_URL -u WP_USERNAME -u WP_APP_PASSWORD node ../../scripts/publish/publish-wordpress.js fixtures/publish/wordpress-publish-input.json
+env -u X_API_KEY -u X_API_SECRET -u X_ACCESS_TOKEN -u X_ACCESS_TOKEN_SECRET node ../../scripts/publish/publish-x.js fixtures/publish/x-publish-input-live.json
+env -u WP_BASE_URL -u WP_USERNAME -u WP_APP_PASSWORD node ../../scripts/publish/publish-wordpress.js fixtures/publish/wordpress-publish-input-live.json
+
+2026-04-19 時点では、X / WordPress ともに `MISSING_ENV` の実出力確認済み。
 ```
 ``````
