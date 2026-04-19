@@ -123,12 +123,15 @@ function buildXAuthConfig() {
   };
 }
 
+function buildXOAuth1Header(auth, request) {
+  return `OAuth oauth_consumer_key="${auth.apiKey || '<missing>'}", oauth_signature_method="HMAC-SHA1", oauth_version="1.0", oauth_token="${auth.accessToken || '<missing>'}", oauth_signature="<not-implemented>"`;
+}
+
 async function createXPostRequest(input, auth) {
-  return {
+  const request = {
     url: auth.baseUrl,
     method: 'POST',
     headers: {
-      Authorization: 'OAuth <not-implemented>',
       'Content-Type': 'application/json'
     },
     body: {
@@ -136,6 +139,9 @@ async function createXPostRequest(input, auth) {
       reply: input.reply_to_post_id ? { in_reply_to_tweet_id: input.reply_to_post_id } : undefined
     }
   };
+
+  request.headers.Authorization = buildXOAuth1Header(auth, request);
+  return request;
 }
 
 async function sendXPost(input, auth) {
@@ -400,6 +406,7 @@ module.exports = {
   buildWordPressPublishInput,
   buildNotePublishInput,
   publishToX,
+  buildXOAuth1Header,
   publishToWordPress,
   publishToNote,
   runPublishForQueueItem

@@ -29,6 +29,8 @@ MVP では **OAuth 1.0a user context** を前提にする。
 - `sendXPost()`
 - `normalizeXPostResponse()`
 
+現状は `buildXOAuth1Header()` の stub までコード化済み。
+
 ## 3. 今回やらないこと
 - OAuth 2.0 PKCE フロー
 - refresh token 管理
