@@ -313,9 +313,10 @@ async function publishToX(input) {
   const text = (input.text || '').trim();
   const maxChars = 280;
   const forceDryRun = process.env.PUBLISH_DRY_RUN_FORCE === '1' || process.env.X_DRY_RUN_FORCE === '1';
+  const requestShapeOnly = process.env.X_REQUEST_SHAPE_ONLY === '1';
   const effectiveDryRun = input.dry_run === true || forceDryRun;
 
-  if (!effectiveDryRun) {
+  if (!effectiveDryRun && !requestShapeOnly) {
     const missingEnv = getMissingEnvVars(['X_API_KEY', 'X_API_SECRET', 'X_ACCESS_TOKEN', 'X_ACCESS_TOKEN_SECRET']);
     if (missingEnv.length > 0) {
       return buildMissingEnvError('x', input.item_id, missingEnv);
@@ -384,7 +385,7 @@ async function publishToX(input) {
     };
   }
 
-  if (!effectiveDryRun) {
+  if (!effectiveDryRun || requestShapeOnly) {
     const auth = buildXAuthConfig();
     return sendXPost(input, auth);
   }
