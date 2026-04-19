@@ -58,6 +58,8 @@
 - `X_OAUTH_LIBRARY_PLAN.md`: OAuth 1.0a helper の導入方針
 - `X_ENV_SETUP.md`: X 実投稿 adapter 用の env 設定手順
 - `WORDPRESS_API_PLAN.md`: WordPress draft 作成 API 化の設計
+- `WORDPRESS_ENV_SETUP.md`: WordPress adapter 用の env 設定手順
+- `PUBLISH_PRECHECKLIST.md`: 実送信前の最小チェックリスト
 - `scripts/publish/build_publish_queue.js`: enriched data から publish queue と platform 別 draft を作る scaffold
 - `scripts/publish/approve_publish_items.js`: publish queue の pending_review を approved にする最小承認フロー
 - `scripts/publish/list_publish_ready.js`: approved 済み投稿候補の一覧を出す
