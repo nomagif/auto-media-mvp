@@ -1,19 +1,12 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
 const {
-  ROOT,
   loadPublishQueue,
   savePublishQueue,
   applyPublishResult,
-  getApprovedQueueItems,
-  now
+  getApprovedQueueItems
 } = require('./lib_publish_queue');
-
-function readText(file) {
-  return fs.readFileSync(file, 'utf8');
-}
+const { runPublishForQueueItem } = require('./lib_publish_adapters');
 
 function parseArgs(argv) {
   const args = { itemId: null, platform: null, dryRun: false };
@@ -31,119 +24,8 @@ function parseArgs(argv) {
   return args;
 }
 
-function buildXInput(queueItem) {
-  const draftPath = path.join(ROOT, queueItem.draft_file);
-  return {
-    item_id: queueItem.item_id,
-    platform: 'x',
-    text: readText(draftPath).trim(),
-    idempotency_key: `${queueItem.item_id}:x`,
-    dry_run: true,
-    meta: {
-      draft_file: queueItem.draft_file
-    }
-  };
-}
 
-function buildWordPressInput(queueItem) {
-  const draftPath = path.join(ROOT, queueItem.draft_file);
-  const content = readText(draftPath).trim();
-  const titleLine = content.split('\n').find((line) => line.startsWith('# ')) || '# Untitled';
-  return {
-    item_id: queueItem.item_id,
-    platform: 'wordpress',
-    title: titleLine.replace(/^#\s+/, '').trim() || 'Untitled',
-    content_markdown: content,
-    status: 'draft',
-    meta: {
-      draft_file: queueItem.draft_file
-    }
-  };
-}
-
-function buildNoteInput(queueItem) {
-  const draftPath = path.join(ROOT, queueItem.draft_file);
-  const content = readText(draftPath).trim();
-  const titleLine = content.split('\n').find((line) => line.startsWith('# ')) || '# Untitled';
-  return {
-    item_id: queueItem.item_id,
-    platform: 'note',
-    title: titleLine.replace(/^#\s+/, '').trim() || 'Untitled',
-    body_markdown: content,
-    publish_mode: 'export',
-    meta: {
-      draft_file: queueItem.draft_file
-    }
-  };
-}
-
-function simulatePublish(queueItem) {
-  const publishedAt = now();
-
-  if (queueItem.platform === 'x') {
-    return {
-      ok: true,
-      item_id: queueItem.item_id,
-      platform: 'x',
-      status: 'published',
-      published_at: publishedAt,
-      external_post_id: `dryrun-x-${queueItem.item_id}`,
-      error: null,
-      meta: {
-        dry_run: true,
-        input: buildXInput(queueItem)
-      }
-    };
-  }
-
-  if (queueItem.platform === 'wordpress') {
-    return {
-      ok: true,
-      item_id: queueItem.item_id,
-      platform: 'wordpress',
-      status: 'published',
-      published_at: publishedAt,
-      external_post_id: `dryrun-wp-${queueItem.item_id}`,
-      error: null,
-      meta: {
-        dry_run: true,
-        input: buildWordPressInput(queueItem)
-      }
-    };
-  }
-
-  if (queueItem.platform === 'note') {
-    return {
-      ok: true,
-      item_id: queueItem.item_id,
-      platform: 'note',
-      status: 'published',
-      published_at: publishedAt,
-      external_post_id: `dryrun-note-${queueItem.item_id}`,
-      error: null,
-      meta: {
-        dry_run: true,
-        input: buildNoteInput(queueItem)
-      }
-    };
-  }
-
-  return {
-    ok: false,
-    item_id: queueItem.item_id,
-    platform: queueItem.platform,
-    status: 'error',
-    published_at: null,
-    external_post_id: null,
-    error: {
-      message: `unsupported platform: ${queueItem.platform}`,
-      code: 'UNSUPPORTED_PLATFORM',
-      retryable: false
-    }
-  };
-}
-
-function main() {
+async function main() {
   const args = parseArgs(process.argv.slice(2));
   const queue = loadPublishQueue();
   const targets = getApprovedQueueItems(queue, { itemId: args.itemId, platform: args.platform });
@@ -155,7 +37,7 @@ function main() {
 
   const results = [];
   for (const item of targets) {
-    const result = simulatePublish(item);
+    const result = await runPublishForQueueItem(item);
     if (!args.dryRun) {
       applyPublishResult(queue, result);
     }

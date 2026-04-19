@@ -56,6 +56,9 @@
 - `scripts/publish/build_publish_queue.js`: enriched data から publish queue と platform 別 draft を作る scaffold
 - `scripts/publish/approve_publish_items.js`: publish queue の pending_review を approved にする最小承認フロー
 - `scripts/publish/list_publish_ready.js`: approved 済み投稿候補の一覧を出す
+- `scripts/publish/lib_publish_queue.js`: publish queue 更新の共通関数
+- `scripts/publish/lib_publish_adapters.js`: x / wordpress / note の publish adapter
+- `scripts/publish/run_publish_ready.js`: approved item を platform adapter 経由で処理する runner
 - `TITLE_XPOST_IO_SPEC.md`: title candidates / X post 生成の入出力仕様
 - `prompts/title_candidates.md`: title candidates 生成用プロンプト
 - `scripts/generate/lib_title.js`: title request/response helper

@@ -9,12 +9,14 @@ MVP段階では本番投稿より、投稿フォーマットの整形と publish
 - `approve_publish_items.js`: `pending_review -> approved` の最小承認
 - `list_publish_ready.js`: `approved` 一覧を出す
 - `lib_publish_queue.js`: queue 読み書きと publish result 反映の共通関数
-- `run_publish_ready.js`: `approved` を対象に platform ごとの publish input を組み立て、最小の publish result を queue に反映する dry-run ベースの runner
+- `lib_publish_adapters.js`: x / wordpress / note の publish input/output adapter
+- `run_publish_ready.js`: `approved` を対象に adapter を呼び、publish result を queue に反映する runner
 
 ## run_publish_ready.js の位置づけ
 - まだ外部 API 投稿はしない
 - まずは `PublishResult` を queue に反映する共通導線を固める
 - `x / wordpress / note` で input 形を揃える
+- 実 API 呼び出しは adapter 差し替えで対応する
 
 ## 例
 ```bash
