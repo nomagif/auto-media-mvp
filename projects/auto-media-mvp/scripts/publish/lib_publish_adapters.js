@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const OAuth = require('oauth-1.0a');
 const { ROOT, now } = require('./lib_publish_queue');
 
 const X_CREATE_POST_URL = 'https://api.twitter.com/2/tweets';
@@ -124,7 +126,30 @@ function buildXAuthConfig() {
 }
 
 function buildXOAuth1Header(auth, request) {
-  return `OAuth oauth_consumer_key="${auth.apiKey || '<missing>'}", oauth_signature_method="HMAC-SHA1", oauth_version="1.0", oauth_token="${auth.accessToken || '<missing>'}", oauth_signature="<not-implemented>"`;
+  const oauth = new OAuth({
+    consumer: {
+      key: auth.apiKey,
+      secret: auth.apiSecret
+    },
+    signature_method: 'HMAC-SHA1',
+    hash_function(baseString, key) {
+      return crypto.createHmac('sha1', key).update(baseString).digest('base64');
+    }
+  });
+
+  const authData = oauth.authorize(
+    {
+      url: request.url,
+      method: request.method,
+      data: request.body || {}
+    },
+    {
+      key: auth.accessToken,
+      secret: auth.accessTokenSecret
+    }
+  );
+
+  return oauth.toHeader(authData).Authorization;
 }
 
 async function createXPostRequest(input, auth) {

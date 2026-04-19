@@ -3,7 +3,7 @@
 X 実投稿 adapter に組み込む OAuth 1.0a ライブラリ方針。
 
 ## 1. 結論
-MVP では **OAuth 1.0a 専用の小さいライブラリ**を使う前提で進める。
+MVP では **`oauth-1.0a`** を使う前提で進める。
 
 理由:
 - 自前署名実装は事故りやすい
@@ -37,6 +37,8 @@ MVP では **OAuth 1.0a 専用の小さいライブラリ**を使う前提で進
 - `buildXOAuth1Header()` で本物の header を返す
 - `sendXPost()` で `fetch` or `https` による POST を行う
 - レスポンスを `XPublishOutput` へ正規化する
+
+現状は `oauth-1.0a` 前提で `buildXOAuth1Header()` の実装まで反映済み。
 
 ## 5. 安全策
 - `dry_run` が false でも、env がない場合は `MISSING_ENV`
