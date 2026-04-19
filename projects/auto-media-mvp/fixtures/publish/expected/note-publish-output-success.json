@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "item_id": "hn-2026-04-18-002",
+  "platform": "note",
+  "status": "published",
+  "published_at": "<iso8601>",
+  "external_post_id": "dryrun-note-hn-2026-04-18-002",
+  "error": null,
+  "meta": {
+    "dry_run": true,
+    "mode": "export",
+    "exported_file": "outputs/note/hn-2026-04-18-002.md",
+    "input": "<omitted>"
+  }
+}

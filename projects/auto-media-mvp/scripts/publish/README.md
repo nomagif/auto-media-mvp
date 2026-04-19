@@ -42,6 +42,15 @@ node ../../scripts/publish/publish-note.js fixtures/publish/note-publish-input.j
 - `fixtures/publish/expected/x-publish-output-too-long.json`
 - `fixtures/publish/expected/x-publish-output-empty.json`
 - `fixtures/publish/expected/x-publish-output-invalid-media.json`
+- `fixtures/publish/expected/wordpress-publish-output-success.json`
+- `fixtures/publish/expected/note-publish-output-success.json`
 
 `published_at` や `text_length` のような動的値はプレースホルダで表している。
+
+## Fixture check script
+```bash
+npm run publish:check-fixture -- --command ../../scripts/publish/publish-x.js --input fixtures/publish/x-publish-input.json --expected fixtures/publish/expected/x-publish-output-success.json
+npm run publish:check-fixture -- --command ../../scripts/publish/publish-wordpress.js --input fixtures/publish/wordpress-publish-input.json --expected fixtures/publish/expected/wordpress-publish-output-success.json
+npm run publish:check-fixture -- --command ../../scripts/publish/publish-note.js --input fixtures/publish/note-publish-input.json --expected fixtures/publish/expected/note-publish-output-success.json
+```
 ``````

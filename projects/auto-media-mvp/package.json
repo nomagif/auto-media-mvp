@@ -24,6 +24,7 @@
     "publish:approve": "node scripts/publish/approve_publish_items.js",
     "publish:list-ready": "node scripts/publish/list_publish_ready.js",
     "publish:run": "node scripts/publish/run_publish_ready.js",
+    "publish:check-fixture": "node scripts/publish/check_publish_fixture.js",
     "summary:enqueue": "node scripts/generate/enqueue_summary_requests.js",
     "summary:worker": "node scripts/generate/run_summary_worker.js",
     "summary:apply": "node scripts/generate/apply_summary_response.js",

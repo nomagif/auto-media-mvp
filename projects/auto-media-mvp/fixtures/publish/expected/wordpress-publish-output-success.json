@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "item_id": "hn-2026-04-18-002",
+  "platform": "wordpress",
+  "status": "published",
+  "published_at": "<iso8601>",
+  "external_post_id": "dryrun-wp-hn-2026-04-18-002",
+  "error": null,
+  "meta": {
+    "dry_run": true,
+    "wp_status": "draft",
+    "input": "<omitted>",
+    "draft_payload": "<omitted>"
+  }
+}
