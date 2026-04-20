@@ -7,6 +7,7 @@
     "oauth-1.0a": "^2.2.6"
   },
   "scripts": {
+    "test": "node --test tests/publish/lib_publish_adapters.test.js",
     "collect:techcrunch": "node scripts/collect/techcrunch_rss.js",
     "collect:hackernews": "node scripts/collect/hackernews_topstories.js",
     "generate:drafts": "node scripts/generate/normalize_to_draft.js",

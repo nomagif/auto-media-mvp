@@ -140,8 +140,7 @@ function buildXOAuth1Header(auth, request) {
   const authData = oauth.authorize(
     {
       url: request.url,
-      method: request.method,
-      data: request.body || {}
+      method: request.method
     },
     {
       key: auth.accessToken,
@@ -150,6 +149,26 @@ function buildXOAuth1Header(auth, request) {
   );
 
   return oauth.toHeader(authData).Authorization;
+}
+
+function maskOAuthAuthorizationHeader(value) {
+  if (!value || typeof value !== 'string' || !value.startsWith('OAuth ')) {
+    return value;
+  }
+
+  return value.replace(/(oauth_(?:consumer_key|token|signature)="?)([^"]+)("?)/g, '$1***redacted***$3');
+}
+
+function sanitizeRequestForLogs(request) {
+  if (!request) return request;
+
+  return {
+    ...request,
+    headers: {
+      ...(request.headers || {}),
+      Authorization: maskOAuthAuthorizationHeader(request.headers?.Authorization)
+    }
+  };
 }
 
 async function createXPostRequest(input, auth) {
@@ -171,6 +190,7 @@ async function createXPostRequest(input, auth) {
 
 async function sendXPost(input, auth) {
   const request = await createXPostRequest(input, auth);
+  const requestForLogs = sanitizeRequestForLogs(request);
 
   if (process.env.X_REQUEST_SHAPE_ONLY === '1') {
     return {
@@ -187,7 +207,7 @@ async function sendXPost(input, auth) {
       },
       meta: {
         dry_run: false,
-        request
+        request: requestForLogs
       }
     };
   }
@@ -223,7 +243,7 @@ async function sendXPost(input, auth) {
         meta: {
           dry_run: false,
           raw_status: response.status,
-          request,
+          request: requestForLogs,
           response: json || rawText
         }
       };
@@ -241,7 +261,7 @@ async function sendXPost(input, auth) {
       meta: {
         dry_run: false,
         raw_status: response.status,
-        request,
+        request: requestForLogs,
         response: json
       }
     };
@@ -260,7 +280,7 @@ async function sendXPost(input, auth) {
       },
       meta: {
         dry_run: false,
-        request
+        request: requestForLogs
       }
     };
   }
