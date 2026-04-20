@@ -159,6 +159,14 @@ function maskOAuthAuthorizationHeader(value) {
   return value.replace(/(oauth_(?:consumer_key|token|signature)="?)([^"]+)("?)/g, '$1***redacted***$3');
 }
 
+function maskBasicAuthorizationHeader(value) {
+  if (!value || typeof value !== 'string' || !value.startsWith('Basic ')) {
+    return value;
+  }
+
+  return 'Basic ***redacted***';
+}
+
 function sanitizeRequestForLogs(request) {
   if (!request) return request;
 
@@ -166,7 +174,9 @@ function sanitizeRequestForLogs(request) {
     ...request,
     headers: {
       ...(request.headers || {}),
-      Authorization: maskOAuthAuthorizationHeader(request.headers?.Authorization)
+      Authorization: maskBasicAuthorizationHeader(
+        maskOAuthAuthorizationHeader(request.headers?.Authorization)
+      )
     }
   };
 }
@@ -362,6 +372,7 @@ function createWordPressPostRequest(input, auth) {
 
 async function sendWordPressPost(input, auth) {
   const request = createWordPressPostRequest(input, auth);
+  const requestForLogs = sanitizeRequestForLogs(request);
 
   if (process.env.WP_REQUEST_SHAPE_ONLY === '1') {
     return {
@@ -378,7 +389,7 @@ async function sendWordPressPost(input, auth) {
       },
       meta: {
         dry_run: false,
-        request
+        request: requestForLogs
       }
     };
   }
@@ -414,7 +425,7 @@ async function sendWordPressPost(input, auth) {
         meta: {
           dry_run: false,
           raw_status: response.status,
-          request,
+          request: requestForLogs,
           response: json || rawText
         }
       };
@@ -433,7 +444,7 @@ async function sendWordPressPost(input, auth) {
         raw_status: response.status,
         url: json?.link || null,
         wp_status: json?.status || request.body.status,
-        request,
+        request: requestForLogs,
         response: json
       }
     };
@@ -452,7 +463,7 @@ async function sendWordPressPost(input, auth) {
       },
       meta: {
         dry_run: false,
-        request
+        request: requestForLogs
       }
     };
   }
