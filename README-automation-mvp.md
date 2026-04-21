@@ -30,6 +30,14 @@
 - 以前 `data: request.body` を署名側へ渡していて、X 側で `401 Unauthorized` になった
 - 修正後は live post で `201 Created` を確認済み
 
+### WordPress (medianews.jp)
+- XServer VPS 上に Ubuntu 24.04 + Nginx + MariaDB + PHP-FPM + WordPress を構築済み
+- `medianews.jp` / `www.medianews.jp` は VPS (`162.43.36.33`) に向ける
+- Let's Encrypt により HTTPS 有効化済み
+- WordPress REST API + Application Password で draft 投稿の live test に成功済み
+- live test では `POST /wp-json/wp/v2/posts` に対して `201 Created` を確認済み
+- live test の下書き投稿 URL: `https://medianews.jp/?p=6`
+
 ### ログ上の認証情報
 - X の OAuth Authorization ヘッダはログ返却前にマスクする
 - WordPress の Basic Authorization ヘッダもログ返却前にマスクする
@@ -51,6 +59,35 @@ node scripts/transform/run-transformer.js data/normalized/2026-04-16/sample-tech
 node scripts/transform/run-transformer.js data/normalized/2026-04-16/sample-tech-item.json > /tmp/artifact.json
 node scripts/publish/publish-wordpress.js /tmp/artifact.json
 ```
+
+### 3.1 WordPress 実投稿スモークテスト（draft）
+```bash
+cat >/tmp/wp-live-test.json <<'JSON'
+{
+  "item_id": "wp-live-test-001",
+  "platform": "wordpress",
+  "title": "Clawdy WordPress live test",
+  "content_markdown": "# Clawdy WordPress live test\n\nThis is a live publish path check.",
+  "content_html": "<h1>Clawdy WordPress live test</h1><p>This is a live publish path check.</p>",
+  "excerpt": "This is a live publish path check.",
+  "status": "draft",
+  "dry_run": false
+}
+JSON
+
+export WP_BASE_URL='https://medianews.jp'
+export WP_USERNAME='...'
+export WP_APP_PASSWORD='...'
+
+cd projects/auto-media-mvp
+node ../../scripts/publish/publish-wordpress.js /tmp/wp-live-test.json
+```
+
+期待値:
+- 成功時は `ok: true`
+- `raw_status: 201`
+- `wp_status: draft`
+- `external_post_id` が返る
 
 ### 4. X投稿payloadを確認
 ```bash
@@ -86,5 +123,6 @@ node ../../scripts/publish/publish-x.js /tmp/x-live-test.json
 ## 次の実装候補
 - ACP経由の transformer 本接続
 - JSON schema validation の追加
-- WordPress / X API 接続
+- WordPress 投稿のカテゴリ・タグ・アイキャッチ連携
+- WordPress / X 投稿の本番運用ルール整備（draft→review→publish）
 - cronジョブ化
