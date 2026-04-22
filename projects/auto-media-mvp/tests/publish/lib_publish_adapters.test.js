@@ -104,15 +104,15 @@ test('buildWordPressPublishInput strips h1 and appends source url metadata', () 
   const input = buildWordPressPublishInput({
     item_id: 'test-item',
     draft_file: draftRel,
-    source_url: 'https://example.com/source',
+    source_url: 'https://news.ycombinator.com/item?id=1',
     platform: 'wordpress'
   });
 
   assert.equal(input.title, '見出し');
   assert.equal(input.content_html.includes('<h1>'), false);
   assert.equal(input.content_html.includes('<h2>背景</h2>'), true);
-  assert.equal(input.content_html.includes('https://example.com/source'), true);
-  assert.deepEqual(input.categories, [2]);
+  assert.equal(input.content_html.includes('https://news.ycombinator.com/item?id=1'), true);
+  assert.deepEqual(input.categories, [7]);
   assert.equal(Array.isArray(input.tags), true);
 });
 

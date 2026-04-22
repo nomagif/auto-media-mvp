@@ -81,13 +81,16 @@ function markdownToHtml(markdown) {
 }
 
 function guessWordPressCategoryId(queueItem, markdown) {
-  const text = `${queueItem?.item_id || ''}\n${queueItem?.draft_file || ''}\n${markdown || ''}`.toLowerCase();
+  const title = extractMarkdownTitle(markdown).toLowerCase();
+  const body = String(markdown || '').toLowerCase();
+  const sourceUrl = String(queueItem?.source_url || '').toLowerCase();
+  const signalText = `${queueItem?.item_id || ''}\n${queueItem?.draft_file || ''}\n${title}\n${sourceUrl}`.toLowerCase();
 
-  if (/bitcoin|ethereum|crypto|btc|eth|sol|暗号資産|仮想通貨/.test(text)) return 4;
-  if (/cpi|gdp|雇用統計|景気指標|政府統計/.test(text)) return 6;
-  if (/規制|policy|regulation|政府|法案|当局/.test(text)) return 5;
-  if (/ai|llm|openai|anthropic|gemini|claude|生成ai/.test(text)) return 3;
-  if (/x|twitter|reddit|youtube|tiktok|hacker news|sns/.test(text)) return 7;
+  if (/bitcoin|ethereum|crypto|btc|eth|sol|暗号資産|仮想通貨/.test(signalText) || /bitcoin|ethereum|crypto|btc|eth|sol|暗号資産|仮想通貨/.test(body)) return 4;
+  if (/cpi|gdp|雇用統計|景気指標|政府統計/.test(signalText) || /cpi|gdp|雇用統計|景気指標|政府統計/.test(body)) return 6;
+  if (/規制|policy|regulation|政府|法案|当局/.test(signalText) || /規制|policy|regulation|政府|法案|当局/.test(body)) return 5;
+  if (/x\.com|twitter\.com|reddit\.com|youtube\.com|tiktok\.com|hacker news|news\.ycombinator\.com|sns/.test(signalText)) return 7;
+  if (/\bai\b|llm|openai|anthropic|gemini|claude|生成ai/.test(signalText)) return 3;
   return 2;
 }
 
