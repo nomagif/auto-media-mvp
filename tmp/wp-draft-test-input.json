@@ -1,0 +1,7 @@
+{
+  "item_id": "wp-draft-test-20260422-2129",
+  "title": "WordPress draft 投稿テスト",
+  "content_html": "<h1>WordPress draft 投稿テスト</h1><p>これは OpenClaw / auto-media-mvp 連携確認のためのテスト下書きです。</p><p>カテゴリやタグの本格連携前に、REST API で draft 作成できるかを確認しています。</p>",
+  "excerpt": "OpenClaw / auto-media-mvp 連携確認用のテスト下書き",
+  "status": "draft"
+}

@@ -5,7 +5,8 @@ const {
   createXPostRequest,
   createWordPressPostRequest,
   sendXPost,
-  sendWordPressPost
+  sendWordPressPost,
+  buildWordPressPublishInput
 } = require('../../scripts/publish/lib_publish_adapters');
 
 test('createXPostRequest builds OAuth header for JSON tweet posts', async () => {
@@ -90,6 +91,29 @@ test('createWordPressPostRequest uses Basic auth for JSON posts', () => {
   assert.equal(request.method, 'POST');
   assert.match(request.headers.Authorization, /^Basic /);
   assert.equal(request.headers['Content-Type'], 'application/json');
+});
+
+test('buildWordPressPublishInput strips h1 and appends source url metadata', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const draftRel = 'drafts/wordpress/test-wordpress-input.md';
+  const draftAbs = path.resolve(__dirname, '../../', draftRel);
+  fs.mkdirSync(path.dirname(draftAbs), { recursive: true });
+  fs.writeFileSync(draftAbs, '# 見出し\n\n本文です。\n\n## 背景\n\n補足です。', 'utf8');
+
+  const input = buildWordPressPublishInput({
+    item_id: 'test-item',
+    draft_file: draftRel,
+    source_url: 'https://example.com/source',
+    platform: 'wordpress'
+  });
+
+  assert.equal(input.title, '見出し');
+  assert.equal(input.content_html.includes('<h1>'), false);
+  assert.equal(input.content_html.includes('<h2>背景</h2>'), true);
+  assert.equal(input.content_html.includes('https://example.com/source'), true);
+  assert.deepEqual(input.categories, [2]);
+  assert.equal(Array.isArray(input.tags), true);
 });
 
 test('sendWordPressPost masks Basic auth credentials in error meta request logs', async () => {

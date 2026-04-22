@@ -49,7 +49,6 @@ function markdownToHtml(markdown) {
 
     if (line.startsWith('# ')) {
       flushParagraph();
-      html.push(`<h1>${escapeHtml(line.replace(/^#\s+/, ''))}</h1>`);
       continue;
     }
 
@@ -79,6 +78,40 @@ function markdownToHtml(markdown) {
   return html
     .join('\n')
     .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>\n${match.trim()}\n</ul>`);
+}
+
+function guessWordPressCategoryId(queueItem, markdown) {
+  const text = `${queueItem?.item_id || ''}\n${queueItem?.draft_file || ''}\n${markdown || ''}`.toLowerCase();
+
+  if (/bitcoin|ethereum|crypto|btc|eth|sol|暗号資産|仮想通貨/.test(text)) return 4;
+  if (/cpi|gdp|雇用統計|景気指標|政府統計/.test(text)) return 6;
+  if (/規制|policy|regulation|政府|法案|当局/.test(text)) return 5;
+  if (/ai|llm|openai|anthropic|gemini|claude|生成ai/.test(text)) return 3;
+  if (/x|twitter|reddit|youtube|tiktok|hacker news|sns/.test(text)) return 7;
+  return 2;
+}
+
+function guessWordPressTagIds(queueItem, markdown) {
+  const text = `${queueItem?.item_id || ''}\n${queueItem?.draft_file || ''}\n${markdown || ''}`.toLowerCase();
+  const tagIds = new Set();
+
+  tagIds.add(10);
+
+  if (/hacker news|wikipedia|techcrunch|reddit|x|twitter|youtube|tiktok/.test(text)) tagIds.add(23);
+  if (/official|公式|発表/.test(text)) tagIds.add(20);
+  if (/cpi|gdp|雇用統計|統計/.test(text)) tagIds.add(21);
+  if (/important|訃報|死去|速報|breaking/.test(text)) tagIds.add(12);
+  if (/us|u\.s\.|united states|米国|openai|techcrunch|hacker news/.test(text)) tagIds.add(15);
+  if (/btc|bitcoin/.test(text)) tagIds.add(25);
+  if (/eth|ethereum/.test(text)) tagIds.add(26);
+  if (/sol|solana/.test(text)) tagIds.add(27);
+
+  return Array.from(tagIds);
+}
+
+function appendSourceHtml(contentHtml, queueItem) {
+  if (!queueItem?.source_url) return contentHtml;
+  return `${contentHtml}\n<hr />\n<p><strong>Source:</strong> <a href="${escapeHtml(queueItem.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(queueItem.source_url)}</a></p>`;
 }
 
 function extractExcerpt(markdown, maxLength = 140) {
@@ -311,16 +344,20 @@ function buildXPublishInput(queueItem) {
 
 function buildWordPressPublishInput(queueItem) {
   const content = readText(queueItem.draft_file);
+  const contentHtml = appendSourceHtml(markdownToHtml(content), queueItem);
   return {
     item_id: queueItem.item_id,
     platform: 'wordpress',
     title: extractMarkdownTitle(content),
     content_markdown: content,
-    content_html: markdownToHtml(content),
+    content_html: contentHtml,
     excerpt: extractExcerpt(content),
     status: 'draft',
+    categories: [guessWordPressCategoryId(queueItem, content)],
+    tags: guessWordPressTagIds(queueItem, content),
     meta: {
-      draft_file: queueItem.draft_file
+      draft_file: queueItem.draft_file,
+      source_url: queueItem.source_url || null
     }
   };
 }
@@ -365,7 +402,10 @@ function createWordPressPostRequest(input, auth) {
       status: input.status || auth.defaultStatus || 'draft',
       title: input.title,
       content: input.content_html || input.content_markdown || '',
-      excerpt: input.excerpt || ''
+      excerpt: input.excerpt || '',
+      categories: Array.isArray(input.categories) ? input.categories : undefined,
+      tags: Array.isArray(input.tags) ? input.tags : undefined,
+      slug: input.slug || undefined
     }
   };
 }
