@@ -6,6 +6,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..', '..');
 const NORMALIZED_DIR = path.join(ROOT, 'data', 'normalized');
 const OUTPUT_DIR = path.join(ROOT, 'data', 'rankings');
+const HISTORY_DIR = path.join(OUTPUT_DIR, 'history');
 const STATE_DIR = path.join(ROOT, 'state');
 const LAST_RUN_FILE = path.join(STATE_DIR, 'last_run.json');
 
@@ -40,43 +41,57 @@ function safeLower(value) {
   return String(value || '').toLowerCase();
 }
 
+function isForumItem(item) {
+  return /hacker news/i.test(String(item.source_name || '')) || /news\.ycombinator\.com/.test(String(item.source_url || ''));
+}
+
 function guessCategory(item) {
-  const text = [item.title, item.body, item.source_name].map(safeLower).join('\n');
-  if (/openai|anthropic|gemini|claude|llm|artificial intelligence|生成ai|ai\b/.test(text)) return 'ai';
-  if (/bitcoin|ethereum|crypto|token|blockchain|etf|btc|eth/.test(text)) return 'crypto';
-  if (/regulation|regulator|government|law|policy|antitrust|commission/.test(text)) return 'policy';
-  if (/military|missile|navy|army|defense|war/.test(text)) return 'defense';
-  if (/cpi|gdp|inflation|jobs|employment|central bank|interest rate/.test(text)) return 'macro';
-  if (/startup|funding|seed|series a|series b|venture/.test(text)) return 'startups';
-  if (/breach|hack|security|vulnerability|cyber/.test(text)) return 'security';
+  const title = safeLower(item.title);
+  const body = safeLower(item.body);
+  const text = [title, body, item.source_name].map(safeLower).join('\n');
+
+  if (/openai|anthropic|gemini|claude|llm|artificial intelligence|生成ai|\bai\b|model|inference|agentic/.test(text)) return 'ai';
+  if (/bitcoin|ethereum|crypto|token|blockchain|etf|btc|eth|solana|stablecoin/.test(text)) return 'crypto';
+  if (/regulation|regulator|government|law|policy|antitrust|commission|surveillance|court|supreme court/.test(text)) return 'policy';
+  if (/military|missile|navy|army|defense|war|weapon/.test(text)) return 'defense';
+  if (/cpi|gdp|inflation|jobs|employment|central bank|interest rate|fed\b|ecb\b/.test(text)) return 'macro';
+  if (/startup|funding|seed|series a|series b|venture|valuation|raises \$|raised \$/.test(text)) return 'startups';
+  if (/breach|hack|security flaw|vulnerability|cyber|exploit|malware|patched windows/.test(text)) return 'security';
   if (/semiconductor|chip|tsmc|nvidia|intel|gpu/.test(text)) return 'semiconductors';
-  if (/x\.com|twitter|reddit|tiktok|instagram|youtube|social/.test(text)) return 'social';
+  if (/x\.com|twitter|reddit|tiktok|instagram|youtube|social|meeting|video feed/.test(text)) return 'social';
+  if (isForumItem(item)) return 'general';
   return 'general';
 }
 
 function guessRegion(item) {
-  const text = [item.title, item.body, item.source_url, item.source_name].map(safeLower).join('\n');
-  if (/united states|u\.s\.| us |america|american|techcrunch|ycombinator/.test(` ${text} `)) return 'us';
-  if (/european union|europe|eu\b|brussels|germany|france/.test(text)) return 'eu';
-  if (/united kingdom|u\.k\.| uk |britain|british|london/.test(` ${text} `)) return 'uk';
+  const url = safeLower(item.source_url);
+  const title = safeLower(item.title);
+  const body = safeLower(item.body);
+  const text = [title, body, url, item.source_name].map(safeLower).join('\n');
+
+  if (/techcrunch|news\.ycombinator\.com|united states|u\.s\.|america|american|supreme court/.test(text)) return 'us';
+  if (/european union|europe|\beu\b|brussels|germany|france/.test(text)) return 'eu';
+  if (/united kingdom|u\.k\.|britain|british|london/.test(text)) return 'uk';
   if (/china|chinese|beijing|shanghai/.test(text)) return 'china';
   if (/japan|japanese|tokyo/.test(text)) return 'japan';
   if (/asia|singapore|india|korea|taiwan/.test(text)) return 'asia';
+  if (isForumItem(item)) return 'global';
   return 'global';
 }
 
 function guessTopics(item) {
   const text = [item.title, item.body].map(safeLower).join('\n');
   const topics = [];
-  if (/funding|raised|series a|series b|investment/.test(text)) topics.push('funding');
+  if (/funding|raised|series a|series b|investment|valuation|raises \$|raised \$/.test(text)) topics.push('funding');
   if (/acquisition|acquire|acquired|merger|m&a/.test(text)) topics.push('acquisition');
-  if (/launch|released|release|introduce|debut/.test(text)) topics.push('product-launch');
-  if (/regulation|regulator|policy|law|antitrust/.test(text)) topics.push('regulation');
+  if (/launch|launched|released|release|introduce|debut|roll out/.test(text)) topics.push('product-launch');
+  if (/regulation|regulator|policy|law|antitrust|surveillance/.test(text)) topics.push('regulation');
   if (/earnings|revenue|profit|quarter/.test(text)) topics.push('earnings');
-  if (/security|breach|hack|cyber/.test(text)) topics.push('security-incident');
-  if (/partnership|partner|deal with/.test(text)) topics.push('partnership');
-  if (/research|paper|study/.test(text)) topics.push('research');
+  if (/security|breach|hack|cyber|exploit|vulnerability/.test(text)) topics.push('security-incident');
+  if (/partnership|partner|teams up|deal with|integrates with/.test(text)) topics.push('partnership');
+  if (/research|paper|study/.test(text) && !isForumItem(item)) topics.push('research');
   if (/chip|gpu|semiconductor/.test(text)) topics.push('chips');
+  if (/layoff|laid off|job cuts/.test(text)) topics.push('layoffs');
   return topics.length > 0 ? topics : ['general'];
 }
 
@@ -122,31 +137,51 @@ function pushRanking(map, key, kind, label, item) {
   if (item.source_url && row.sample_urls.length < 3) row.sample_urls.push(item.source_url);
 }
 
-function finalizeRows(map, updatedAt) {
+function buildPreviousRowMap(previousRows = []) {
+  return new Map((previousRows || []).map((row) => [row.key, row]));
+}
+
+function computeStreakDays(previousRow, mentionCount) {
+  if (!previousRow || !mentionCount) return mentionCount > 0 ? 1 : 0;
+  return previousRow.mention_count > 0 && mentionCount > 0 ? (previousRow.streak_days || 1) + 1 : 1;
+}
+
+function finalizeRows(map, updatedAt, previousRows = []) {
+  const previousRowMap = buildPreviousRowMap(previousRows);
+
   return [...map.values()]
-    .map((row) => ({
-      key: row.key,
-      kind: row.kind,
-      label: row.label,
-      window: row.window,
-      mention_count: row.mention_count,
-      source_count: row.source_set.size,
-      region_mix: [...row.region_set],
-      category_mix: [...row.category_set],
-      delta_vs_prev: 0,
-      delta_ratio: 0,
-      streak_days: 1,
-      sample_item_ids: row.sample_item_ids,
-      sample_urls: row.sample_urls,
-      updated_at: updatedAt
-    }))
-    .sort((a, b) => b.mention_count - a.mention_count || a.label.localeCompare(b.label));
+    .map((row) => {
+      const previous = previousRowMap.get(row.key);
+      const prevCount = previous?.mention_count || 0;
+      const delta = row.mention_count - prevCount;
+      const ratio = prevCount > 0 ? Number((delta / prevCount).toFixed(3)) : (row.mention_count > 0 ? 1 : 0);
+
+      return {
+        key: row.key,
+        kind: row.kind,
+        label: row.label,
+        window: row.window,
+        mention_count: row.mention_count,
+        source_count: row.source_set.size,
+        region_mix: [...row.region_set],
+        category_mix: [...row.category_set],
+        delta_vs_prev: delta,
+        delta_ratio: ratio,
+        streak_days: computeStreakDays(previous, row.mention_count),
+        sample_item_ids: row.sample_item_ids,
+        sample_urls: row.sample_urls,
+        updated_at: updatedAt
+      };
+    })
+    .sort((a, b) => b.mention_count - a.mention_count || b.delta_vs_prev - a.delta_vs_prev || a.label.localeCompare(b.label));
 }
 
 function main() {
   ensureDir(OUTPUT_DIR);
+  ensureDir(HISTORY_DIR);
   ensureDir(STATE_DIR);
 
+  const previousOutput = readJson(path.join(OUTPUT_DIR, 'latest.json'), null);
   const files = listJsonFiles(NORMALIZED_DIR);
   const allItems = files.flatMap((file) => readJson(file, []));
   const items = allItems.filter((item) => item && typeof item === 'object').map(normalizeItem);
@@ -181,13 +216,15 @@ function main() {
       categories: categoryMap.size
     },
     rankings: {
-      topics: finalizeRows(topicMap, updatedAt),
-      companies: finalizeRows(companyMap, updatedAt),
-      regions: finalizeRows(regionMap, updatedAt),
-      categories: finalizeRows(categoryMap, updatedAt)
+      topics: finalizeRows(topicMap, updatedAt, previousOutput?.rankings?.topics || []),
+      companies: finalizeRows(companyMap, updatedAt, previousOutput?.rankings?.companies || []),
+      regions: finalizeRows(regionMap, updatedAt, previousOutput?.rankings?.regions || []),
+      categories: finalizeRows(categoryMap, updatedAt, previousOutput?.rankings?.categories || [])
     }
   };
 
+  const historyName = `${updatedAt.replace(/[:.]/g, '-')}-rankings.json`;
+  writeJson(path.join(HISTORY_DIR, historyName), output);
   writeJson(path.join(OUTPUT_DIR, 'latest.json'), output);
 
   const lastRun = readJson(LAST_RUN_FILE, {});
@@ -197,6 +234,7 @@ function main() {
       ran_at: updatedAt,
       inputs: output.inputs,
       output_file: path.join('data', 'rankings', 'latest.json'),
+      history_file: path.join('data', 'rankings', 'history', historyName),
       item_count: items.length
     }
   });
