@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>News Trend Observatory</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; background: #0b1020; color: #e5e7eb; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
+    a { color: #7dd3fc; }
+    h1, h2, h3 { color: #fff; }
+    h1 { font-size: 2rem; margin-top: 0; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #243041; padding-bottom: .4rem; }
+    h3 { margin-top: 1.4rem; }
+    p, li { line-height: 1.65; }
+    code { background: #111827; padding: .1rem .35rem; border-radius: 6px; }
+    ul { padding-left: 1.2rem; }
+    .nav { margin-bottom: 1.5rem; }
+    .nav a { margin-right: 1rem; }
+    .card { background: #111827; border: 1px solid #243041; border-radius: 12px; padding: 20px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/latest.html">Latest</a>
+    </div>
+    <div class="card">
+<h1>News Trend Observatory</h1>
+<p>Auto-generated landing page for the ranking outputs.</p>
+<h2>Focus</h2>
+<ul>
+<li>Primary genres: <strong>AI / Technology</strong></li>
+<li>Primary genres: <strong>Finance / Economics (Investing / Macro)</strong></li>
+<li>Supporting lenses: policy, crypto, semiconductors, security</li>
+</ul>
+<h2>Start here</h2>
+<ul>
+<li><a href="latest.html">Latest Ranking Summary</a></li>
+</ul>
+<h2>What this observatory tracks</h2>
+<ul>
+<li>AI / software / infrastructure / chips</li>
+<li>macro / rates / central bank / regulation</li>
+<li>crypto / market-data / market-move signals</li>
+<li>company, topic, region, and category shifts over time</li>
+</ul>
+<h2>Browse by view</h2>
+<ul>
+<li><a href="pages/topics/">Topic Pages</a></li>
+<li><a href="pages/companies/">Company Pages</a></li>
+<li><a href="pages/regions/">Region Pages</a></li>
+<li><a href="pages/categories/">Category Pages</a></li>
+</ul>
+<h2>Recommended reading order</h2>
+<p>1. <code>latest.md</code></p>
+<p>2. AI / Technology Focus</p>
+<p>3. Finance / Macro Focus</p>
+<p>4. Market / Policy Topics</p>
+<p>5. topic / company / category pages</p>
+<h2>Current operating model</h2>
+<ul>
+<li>collect refresh runs on a recurring cron job</li>
+<li>ranking refresh runs on a separate recurring cron job</li>
+<li>source types currently include <code>tech</code>, <code>official</code>, and <code>market-data</code></li>
+<li>this separation makes failures easier to diagnose</li>
+</ul>
+<h2>Current state</h2>
+<p>This is an MVP observatory surface.</p>
+<p>The project is now intentionally centered on:</p>
+<ul>
+<li>AI・テクノロジー</li>
+<li>金融・経済（投資・マクロ）</li>
+</ul>
+<p>Classification quality, topic coverage, and source breadth will improve over time.</p>
+<h2>Related docs</h2>
+<ul>
+<li><code>../../README.md</code></li>
+<li><code>../../ROADMAP.md</code></li>
+<li><code>../../TREND_RANKING_SCHEMA.md</code></li>
+<li><code>../../TREND_CLASSIFICATION_RULES.md</code></li>
+<li><code>../../RANKING_CRON_RUNBOOK.md</code></li>
+<li><code>../../COLLECT_AND_RANK_CRON_PLAN.md</code></li>
+</ul>
+    </div>
+  </div>
+</body>
+</html>
