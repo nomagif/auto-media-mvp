@@ -1,11 +1,11 @@
 # general
 - key: topic:general
 - kind: topic
-- mentions: 43
+- mentions: 30
 - sources: 4
-- delta vs prev: +20
-- delta ratio: 0.87
-- streak days: 9
+- delta vs prev: -13
+- delta ratio: -0.302
+- streak days: 10
 - regions: us, global
 - categories: ai, crypto, general, security, macro
 ## Sample item IDs

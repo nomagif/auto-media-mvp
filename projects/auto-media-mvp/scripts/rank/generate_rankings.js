@@ -46,7 +46,11 @@ function isForumItem(item) {
 }
 
 function isOfficialItem(item) {
-  return /federal reserve/i.test(String(item.source_name || '')) || /federalreserve\.gov/.test(String(item.source_url || '')) || String(item.source_type || '') === 'official';
+  return /federal reserve|openai/i.test(String(item.source_name || '')) || /federalreserve\.gov|openai\.com/.test(String(item.source_url || '')) || String(item.source_type || '') === 'official';
+}
+
+function isOpenAIItem(item) {
+  return /openai/i.test(String(item.source_name || '')) || /openai\.com/.test(String(item.source_url || ''));
 }
 
 function guessCategory(item) {
@@ -55,6 +59,7 @@ function guessCategory(item) {
   const text = [title, body, item.source_name].map(safeLower).join('\n');
 
   if (/openai|anthropic|gemini|claude|llm|artificial intelligence|生成ai|\bai\b|model|inference|agentic|copilot|developer tool|coding assistant|gpu cloud/.test(text)) return 'ai';
+  if (isOpenAIItem(item)) return 'ai';
   if (/cpi|gdp|inflation|jobs|employment|central bank|interest rate|fed\b|ecb\b|fomc|monetary policy|federal reserve|treasury|bond market|yield|tariff|macro/.test(text)) return 'macro';
   if (/regulation|regulator|government|law|policy|antitrust|commission|surveillance|court|supreme court|enforcement|supervision|rulemaking/.test(text)) return 'policy';
   if (/bitcoin|ethereum|crypto|token|blockchain|etf|btc|eth|solana|stablecoin/.test(text)) return 'crypto';
@@ -99,6 +104,9 @@ function guessTopics(item) {
   if (isOfficialItem(item) && /fomc|federal reserve|monetary policy|interest rate|balance sheet/.test(text)) topics.push('policy-announcement');
   if (isOfficialItem(item) && /inflation|employment|labor|growth|economic|market|yield|treasury/.test(text)) topics.push('market-move');
   if (String(item.source_type || '') === 'market-data') topics.push('market-move');
+  if (isOpenAIItem(item) && /release|launch|introducing|introduce|new|gpt|chatgpt|api|product/.test(text)) topics.push('product-launch');
+  if (isOpenAIItem(item) && /research|study|paper|reasoning|benchmark|evaluation/.test(text)) topics.push('research');
+  if (isOpenAIItem(item) && /engineering|developer|api|platform|infrastructure|agent sdk|responses api|tooling/.test(text)) topics.push('infrastructure');
   if (/funding|raised|series a|series b|investment|valuation|raises \$|raised \$/.test(text)) topics.push('funding');
   if (/acquisition|acquire|acquired|merger|m&a/.test(text)) topics.push('acquisition');
   if (/launch|launched|released|release|introduce|debut|roll out/.test(text)) topics.push('product-launch');
@@ -118,7 +126,7 @@ function guessTopics(item) {
 
 function guessEntities(item) {
   const text = `${item.title || ''} ${item.body || ''}`;
-  const known = ['OpenAI', 'Anthropic', 'Google', 'Meta', 'Microsoft', 'Apple', 'Amazon', 'Nvidia', 'TSMC', 'Intel', 'Stripe', 'Airwallex', 'World', 'Tinder', 'Bitcoin', 'Ethereum', 'Solana', 'XRP', 'BNB'];
+  const known = ['OpenAI', 'Anthropic', 'Google', 'Meta', 'Microsoft', 'Apple', 'Amazon', 'Nvidia', 'TSMC', 'Intel', 'Stripe', 'Airwallex', 'World', 'Tinder', 'Bitcoin', 'Ethereum', 'Solana', 'XRP', 'BNB', 'ChatGPT', 'Sora'];
   return known.filter((name) => new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(text));
 }
 
