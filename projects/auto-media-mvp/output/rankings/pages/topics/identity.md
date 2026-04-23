@@ -1,0 +1,16 @@
+# identity
+- key: topic:identity
+- kind: topic
+- mentions: 2
+- sources: 1
+- delta vs prev: +2
+- delta ratio: 1
+- streak days: 1
+- regions: us
+- categories: general, ai
+## Sample item IDs
+- techcrunch-2026-04-18-002
+- techcrunch-2026-04-18-008
+## Sample links
+- https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
+- https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
