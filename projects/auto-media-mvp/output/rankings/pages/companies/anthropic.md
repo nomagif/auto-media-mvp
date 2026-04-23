@@ -1,16 +1,18 @@
 # Anthropic
 - key: company:anthropic
 - kind: company
-- mentions: 2
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 11
+- mentions: 22
+- sources: 2
+- delta vs prev: +20
+- delta ratio: 10
+- streak days: 12
 - regions: us
 - categories: ai
 ## Sample item IDs
 - techcrunch-2026-04-18-012
 - techcrunch-2026-04-18-019
+- anthropic-2026-04-23-001
 ## Sample links
 - https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/
 - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
+- https://www.anthropic.com/claude/haiku

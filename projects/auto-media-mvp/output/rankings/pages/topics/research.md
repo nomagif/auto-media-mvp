@@ -1,16 +1,18 @@
 # research
 - key: topic:research
 - kind: topic
-- mentions: 2
-- sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 11
+- mentions: 3
+- sources: 3
+- delta vs prev: +1
+- delta ratio: 0.5
+- streak days: 12
 - regions: us, global
-- categories: policy, macro
+- categories: policy, macro, ai
 ## Sample item IDs
 - techcrunch-2026-04-18-007
 - hn-2026-04-18-007
+- anthropic-2026-04-23-006
 ## Sample links
 - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
 - https://victorpoughon.github.io/interval-calculator/
+- https://www.anthropic.com/engineering/AI-resistant-technical-evaluations

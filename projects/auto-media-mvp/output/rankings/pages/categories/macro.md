@@ -3,9 +3,9 @@
 - kind: category
 - mentions: 22
 - sources: 3
-- delta vs prev: +1
-- delta ratio: 0.048
-- streak days: 7
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 8
 - regions: global, us, china
 - categories: macro
 ## Sample item IDs
