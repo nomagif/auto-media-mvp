@@ -133,7 +133,7 @@ function renderHighlights(rankings) {
     <section class="highlights">
       <div class="highlights-header">
         <h2>Current Highlights</h2>
-        <p>Generated at ${escapeHtml(generatedAt)}</p>
+        <p>Generated at ${escapeHtml(generatedAt)} · metrics view only</p>
       </div>
       <div class="highlight-grid">
         ${block('Top Topics', topTopics, 'topics')}
@@ -176,7 +176,7 @@ function renderSourceTypePage(rankings) {
     return `
       <div class="highlight-block">
         <h3>${escapeHtml(type)}</h3>
-        <p class="meta">Current source type in the observatory mix.</p>
+        <p class="meta">Current source type in the observatory mix, shown as a structural signal rather than commentary.</p>
         <ul>${relatedTopics}</ul>
       </div>`;
   }).join('');
@@ -308,7 +308,7 @@ function wrapHtml(title, body, options = {}) {
     <div class="hero">
       <div class="eyebrow">AI / Macro Observatory</div>
       <h1>${escapeHtml(title)}</h1>
-      <p class="subtitle">A minimal static view of the ranking outputs for AI / Technology and Finance / Economics.</p>
+      <p class="subtitle">A minimal static view of signals, counts, rankings, and changes for AI / Technology and Finance / Economics.</p>
     </div>
     <div class="nav">
       <a href="/index.html">Home</a>
@@ -324,7 +324,7 @@ function wrapHtml(title, body, options = {}) {
     <div class="card">
 ${body}
     </div>
-    <div class="footer">Generated from <code>output/rankings</code> via the minimal static renderer.</div>
+    <div class="footer">Generated from <code>output/rankings</code> via the minimal static renderer. This surface is intended to show metrics and observed changes, not narrative analysis.</div>
   </div>
 </body>
 </html>
