@@ -1,12 +1,12 @@
 # general
 - key: category:general
 - kind: category
-- mentions: 4
-- sources: 1
-- delta vs prev: -17
-- delta ratio: -0.81
-- streak days: 5
-- regions: us
+- mentions: 18
+- sources: 2
+- delta vs prev: +14
+- delta ratio: 3.5
+- streak days: 6
+- regions: us, global
 - categories: general
 ## Sample item IDs
 - techcrunch-2026-04-18-001

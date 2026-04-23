@@ -5,7 +5,7 @@
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 5
+- streak days: 6
 - regions: us
 - categories: policy, ai
 ## Sample item IDs

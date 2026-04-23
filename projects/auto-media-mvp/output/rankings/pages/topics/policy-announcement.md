@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 17
 - sources: 1
-- delta vs prev: +17
-- delta ratio: 1
-- streak days: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 2
 - regions: us, china
 - categories: policy, macro
 ## Sample item IDs

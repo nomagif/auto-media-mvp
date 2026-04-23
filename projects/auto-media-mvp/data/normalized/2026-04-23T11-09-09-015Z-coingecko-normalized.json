@@ -1,0 +1,442 @@
+[
+  {
+    "id": "coingecko-2026-04-23-001",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/bitcoin",
+    "title": "Bitcoin market snapshot",
+    "body": "BTC market cap 1551421379434, current price 77460, 24h change -0.9667830390212125%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:46.531Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "BTC"
+    ],
+    "metrics": {
+      "rank": 1,
+      "score": 1,
+      "price_change_24h": -0.9667830390212125
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-002",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/ethereum",
+    "title": "Ethereum market snapshot",
+    "body": "ETH market cap 279747309616, current price 2317.29, 24h change -3.0468073406430274%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:36.798Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "ETH"
+    ],
+    "metrics": {
+      "rank": 2,
+      "score": 2,
+      "price_change_24h": -3.0468073406430274
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-003",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/tether",
+    "title": "Tether market snapshot",
+    "body": "USDT market cap 188839038136, current price 1, 24h change 0.015107570475834874%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:37.247Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "USDT"
+    ],
+    "metrics": {
+      "rank": 3,
+      "score": 3,
+      "price_change_24h": 0.015107570475834874
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-004",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/ripple",
+    "title": "XRP market snapshot",
+    "body": "XRP market cap 86920442047, current price 1.41, 24h change -2.7581116305484903%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:36.503Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "XRP"
+    ],
+    "metrics": {
+      "rank": 4,
+      "score": 4,
+      "price_change_24h": -2.7581116305484903
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-005",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/binancecoin",
+    "title": "BNB market snapshot",
+    "body": "BNB market cap 85180617071, current price 631.71, 24h change -1.5702037348916391%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:37.028Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "BNB"
+    ],
+    "metrics": {
+      "rank": 5,
+      "score": 5,
+      "price_change_24h": -1.5702037348916391
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-006",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/usd-coin",
+    "title": "USDC market snapshot",
+    "body": "USDC market cap 78205069374, current price 0.999736, 24h change 0.038783727634903904%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:37.023Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "USDC"
+    ],
+    "metrics": {
+      "rank": 6,
+      "score": 6,
+      "price_change_24h": 0.038783727634903904
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-007",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/solana",
+    "title": "Solana market snapshot",
+    "body": "SOL market cap 49198970881, current price 85.46, 24h change -3.2922733812753293%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:36.146Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "SOL"
+    ],
+    "metrics": {
+      "rank": 7,
+      "score": 7,
+      "price_change_24h": -3.2922733812753293
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-008",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/tron",
+    "title": "TRON market snapshot",
+    "body": "TRX market cap 31104914291, current price 0.328242, 24h change -1.5802600254359893%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:46.614Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "TRX"
+    ],
+    "metrics": {
+      "rank": 8,
+      "score": 8,
+      "price_change_24h": -1.5802600254359893
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-009",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/figure-heloc",
+    "title": "Figure Heloc market snapshot",
+    "body": "FIGR_HELOC market cap 17606412621, current price 1.036, 24h change 0.1701178333089012%.",
+    "author": null,
+    "published_at": "2026-04-23T06:21:51.062Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "FIGR_HELOC"
+    ],
+    "metrics": {
+      "rank": 9,
+      "score": 9,
+      "price_change_24h": 0.1701178333089012
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-010",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/dogecoin",
+    "title": "Dogecoin market snapshot",
+    "body": "DOGE market cap 14751750853, current price 0.095821, 24h change -2.4737947104967106%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:32.902Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "DOGE"
+    ],
+    "metrics": {
+      "rank": 10,
+      "score": 10,
+      "price_change_24h": -2.4737947104967106
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-011",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/whitebit",
+    "title": "WhiteBIT Coin market snapshot",
+    "body": "WBT market cap 11697507047, current price 54.81, 24h change -2.529819148832081%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:29.062Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "WBT"
+    ],
+    "metrics": {
+      "rank": 11,
+      "score": 11,
+      "price_change_24h": -2.529819148832081
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-012",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/usds",
+    "title": "USDS market snapshot",
+    "body": "USDS market cap 10950800743, current price 0.999976, 24h change 0.030826733026154705%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:29.529Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "USDS"
+    ],
+    "metrics": {
+      "rank": 12,
+      "score": 12,
+      "price_change_24h": 0.030826733026154705
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-013",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/hyperliquid",
+    "title": "Hyperliquid market snapshot",
+    "body": "HYPE market cap 9743987008, current price 40.88, 24h change -0.3919041997738049%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:25.973Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "HYPE"
+    ],
+    "metrics": {
+      "rank": 13,
+      "score": 13,
+      "price_change_24h": -0.3919041997738049
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-014",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/leo-token",
+    "title": "LEO Token market snapshot",
+    "body": "LEO market cap 9461597353, current price 10.29, 24h change -0.8256241989405064%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:28.089Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "LEO"
+    ],
+    "metrics": {
+      "rank": 14,
+      "score": 14,
+      "price_change_24h": -0.8256241989405064
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-015",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/bitcoin-cash",
+    "title": "Bitcoin Cash market snapshot",
+    "body": "BCH market cap 9094947981, current price 454.22, 24h change -3.3095635716449%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:28.243Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "BCH"
+    ],
+    "metrics": {
+      "rank": 15,
+      "score": 16,
+      "price_change_24h": -3.3095635716449
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-016",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/cardano",
+    "title": "Cardano market snapshot",
+    "body": "ADA market cap 9094604785, current price 0.246017, 24h change -3.882916213316359%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:36.076Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "ADA"
+    ],
+    "metrics": {
+      "rank": 16,
+      "score": 15,
+      "price_change_24h": -3.882916213316359
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-017",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/monero",
+    "title": "Monero market snapshot",
+    "body": "XMR market cap 6922087187, current price 374.76, 24h change -1.2127767120128534%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:27.515Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "XMR"
+    ],
+    "metrics": {
+      "rank": 17,
+      "score": 17,
+      "price_change_24h": -1.2127767120128534
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-018",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/chainlink",
+    "title": "Chainlink market snapshot",
+    "body": "LINK market cap 6680793587, current price 9.19, 24h change -3.4356043451636564%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:32.196Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "LINK"
+    ],
+    "metrics": {
+      "rank": 18,
+      "score": 18,
+      "price_change_24h": -3.4356043451636564
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-019",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/memecore",
+    "title": "MemeCore market snapshot",
+    "body": "M market cap 5949064929, current price 4.6, 24h change 5.990682742952576%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:27.590Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "M"
+    ],
+    "metrics": {
+      "rank": 19,
+      "score": 19,
+      "price_change_24h": 5.990682742952576
+    }
+  },
+  {
+    "id": "coingecko-2026-04-23-020",
+    "source_type": "market-data",
+    "source_name": "CoinGecko",
+    "source_url": "https://www.coingecko.com/en/coins/stellar",
+    "title": "Stellar market snapshot",
+    "body": "XLM market cap 5837458761, current price 0.175365, 24h change -2.3312726258389116%.",
+    "author": null,
+    "published_at": "2026-04-23T11:08:46.218Z",
+    "collected_at": "2026-04-23T11:09:08.709Z",
+    "language": "en",
+    "tags": [
+      "crypto",
+      "market-data",
+      "XLM"
+    ],
+    "metrics": {
+      "rank": 20,
+      "score": 20,
+      "price_change_24h": -2.3312726258389116
+    }
+  }
+]
