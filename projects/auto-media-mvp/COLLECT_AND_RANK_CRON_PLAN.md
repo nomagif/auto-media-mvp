@@ -22,6 +22,7 @@ ranking refresh と collect を別ジョブに分ける。
 - collect:hackernews
 - collect:fed
 - collect:coingecko
+- collect:openai
 - 必要なら将来他ソース追加
 
 ## 将来の拡張
