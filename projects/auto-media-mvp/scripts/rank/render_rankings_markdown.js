@@ -31,6 +31,8 @@ function pageLinkForRow(row) {
   if (!row?.kind || !row?.label) return null;
   if (row.kind === 'topic') return `pages/topics/${slugify(row.label)}.md`;
   if (row.kind === 'company') return `pages/companies/${slugify(row.label)}.md`;
+  if (row.kind === 'region') return `pages/regions/${slugify(row.label)}.md`;
+  if (row.kind === 'category') return `pages/categories/${slugify(row.label)}.md`;
   return null;
 }
 

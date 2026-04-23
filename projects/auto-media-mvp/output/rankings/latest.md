@@ -278,6 +278,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general, ai, policy, startups, crypto
+- details: pages/regions/us.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
@@ -290,6 +291,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: global
 - categories: security, ai, defense
+- details: pages/regions/global.md
 - sample links:
   - https://abuseofnotation.github.io/category-theory-illustrated/04_order/
   - https://en.wikipedia.org/wiki/Michael_O._Rabin
@@ -304,6 +306,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us, global
 - categories: ai
+- details: pages/categories/ai.md
 - sample links:
   - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
@@ -316,6 +319,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: global
 - categories: security
+- details: pages/categories/security.md
 - sample links:
   - https://abuseofnotation.github.io/category-theory-illustrated/04_order/
   - https://en.wikipedia.org/wiki/Michael_O._Rabin
@@ -328,6 +332,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general
+- details: pages/categories/general.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
@@ -340,6 +345,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: policy
+- details: pages/categories/policy.md
 - sample links:
   - https://techcrunch.com/2026/04/17/man-who-hacked-us-supreme-court-filing-system-sentenced-to-probation/
   - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
@@ -352,6 +358,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: global
 - categories: defense
+- details: pages/categories/defense.md
 - sample links:
   - https://victorpoughon.github.io/interval-calculator/
   - https://eshelyaron.com/posts/2026-04-15-towards-trust-in-emacs.html
@@ -364,6 +371,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: crypto
+- details: pages/categories/crypto.md
 - sample links:
   - https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
 
@@ -375,6 +383,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 2
 - regions: us
 - categories: startups
+- details: pages/categories/startups.md
 - sample links:
   - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
 

@@ -78,13 +78,17 @@ function main() {
 
   writePages(rankings.rankings?.topics || [], 'topics');
   writePages(rankings.rankings?.companies || [], 'companies');
+  writePages(rankings.rankings?.regions || [], 'regions');
+  writePages(rankings.rankings?.categories || [], 'categories');
 
   console.log(JSON.stringify({
     ok: true,
     input_file: 'data/rankings/latest.json',
     output_dir: 'output/rankings/pages',
     topic_pages: (rankings.rankings?.topics || []).length,
-    company_pages: (rankings.rankings?.companies || []).length
+    company_pages: (rankings.rankings?.companies || []).length,
+    region_pages: (rankings.rankings?.regions || []).length,
+    category_pages: (rankings.rankings?.categories || []).length
   }, null, 2));
 }
 
