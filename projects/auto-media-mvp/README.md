@@ -146,23 +146,44 @@ npm run site:serve
 - 現在の想定公開URLは <https://nomagif.github.io/auto-media-mvp/>
 - 詳細は `DEPLOY_STATIC_SITE.md`
 
+## 封じている将来ルート
+現フェーズでは、以下は **公開導線から外した上で npm script レベルでもブロック** している。
+
+- summary
+- article
+- xpost
+- image prompt
+- publish
+- review digest
+
+誤実行した場合は guard が落とす。
+内部検証として一時的に通す場合のみ:
+
+```bash
+ALLOW_PROSE_ROUTES=1 npm run summary:worker
+```
+
 ## 実行例
+公開面として想定する基本操作はこれ。
+
+```bash
+cd projects/auto-media-mvp
+npm run rank:generate
+npm run site:build
+npm run site:serve
+```
+
+補助資産の collect は引き続き利用可能。
+
 ```bash
 cd projects/auto-media-mvp
 npm run collect:techcrunch
 npm run collect:hackernews
-npm run generate:drafts
-npm run generate:enrich
-npm run summary:enqueue
-npm run summary:worker
-npm run summary:apply
-npm run generate:review-digest
-```
-
-または一括実行:
-```bash
-cd projects/auto-media-mvp
-npm run run:mvp
+npm run collect:fed
+npm run collect:openai
+npm run collect:anthropic
+npm run collect:bls
+npm run collect:coingecko
 ```
 
 ## 動作確認ポイント
@@ -200,6 +221,8 @@ npm run run:mvp
 - deploy 導線は summary / article / prose を前提にしない
 - GitHub Pages のような軽量 hosting で出せる形を優先する
 - 将来 WordPress や digest を足しても、公開の一次面は metrics-first を保つ
+- summary / article / xpost / image prompt / publish 系の npm scripts は、現フェーズでは **guard で明示ブロック** する
+- どうしても内部検証で使う場合だけ `ALLOW_PROSE_ROUTES=1` を明示して override する
 
 ## 方針転換メモ
 - 旧方針の「日本語記事化・WordPress/note/X 自動投稿」は補助機能へ後退

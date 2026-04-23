@@ -73,6 +73,8 @@
 必要最小限の補助要約
 - 要点だけ短く出す
 - 長文記事生成は後回し
+- ただし現フェーズでは public path に接続しない
+- summary / prose 系は内部検証用 override があるときだけ触る
 
 ### 優先5
 配信面の再整理
@@ -126,3 +128,5 @@ YES が多いものを優先する。
 - 政治的・戦争ニュースを断定口調で発信しない
 - 複数国の価値観を混在させない
 - ニュースを語らない。数字だけを出す
+- summary / article / xpost / publish を public deploy path に再接続しない
+- override なしで prose route を実行できる状態に戻さない
