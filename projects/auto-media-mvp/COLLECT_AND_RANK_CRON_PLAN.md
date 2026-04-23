@@ -21,6 +21,7 @@ ranking refresh と collect を別ジョブに分ける。
 - collect:techcrunch
 - collect:hackernews
 - collect:fed
+- collect:coingecko
 - 必要なら将来他ソース追加
 
 ## 将来の拡張
