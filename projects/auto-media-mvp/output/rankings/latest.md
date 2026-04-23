@@ -112,6 +112,20 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - sample links:
   - https://news.ycombinator.com/item?id=47814832
 
+## Rising Topics
+
+### 1. funding
+- mentions: 4
+- sources: 1
+- delta vs prev: +1
+- delta ratio: 0.333
+- streak days: 2
+- regions: us
+- categories: general, startups, ai
+- sample links:
+  - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
+  - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
+
 ## Top Companies
 
 ### 1. Anthropic
@@ -193,6 +207,10 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - categories: general
 - sample links:
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
+
+## Rising Companies
+
+(no rising items yet)
 
 ## Top Regions
 
@@ -303,3 +321,28 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - categories: crypto
 - sample links:
   - https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
+
+## Rising Categories
+
+### 1. startups
+- mentions: 1
+- sources: 1
+- delta vs prev: +1
+- delta ratio: 1
+- streak days: 1
+- regions: us
+- categories: startups
+- sample links:
+  - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
+
+### 2. ai
+- mentions: 16
+- sources: 2
+- delta vs prev: +1
+- delta ratio: 0.067
+- streak days: 2
+- regions: us, global
+- categories: ai
+- sample links:
+  - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
+  - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/

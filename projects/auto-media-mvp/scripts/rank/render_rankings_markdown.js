@@ -46,6 +46,22 @@ function renderSection(title, rows, limit = 10) {
   return `## ${title}\n\n${selected.map((row, index) => formatRow(row, index)).join('\n\n')}`;
 }
 
+function pickRisingRows(rows, limit = 5) {
+  return (rows || [])
+    .filter((row) => (row.delta_vs_prev || 0) > 0)
+    .sort((a, b) => (b.delta_vs_prev - a.delta_vs_prev) || (b.delta_ratio - a.delta_ratio) || (b.mention_count - a.mention_count))
+    .slice(0, limit);
+}
+
+function renderRisingSection(title, rows, limit = 5) {
+  const selected = pickRisingRows(rows, limit);
+  if (selected.length === 0) {
+    return `## ${title}\n\n(no rising items yet)`;
+  }
+
+  return `## ${title}\n\n${selected.map((row, index) => formatRow(row, index)).join('\n\n')}`;
+}
+
 function main() {
   ensureDir(OUTPUT_DIR);
 
@@ -63,11 +79,17 @@ function main() {
     '',
     renderSection('Top Topics', rankings.rankings?.topics, 10),
     '',
+    renderRisingSection('Rising Topics', rankings.rankings?.topics, 5),
+    '',
     renderSection('Top Companies', rankings.rankings?.companies, 10),
+    '',
+    renderRisingSection('Rising Companies', rankings.rankings?.companies, 5),
     '',
     renderSection('Top Regions', rankings.rankings?.regions, 10),
     '',
     renderSection('Top Categories', rankings.rankings?.categories, 10),
+    '',
+    renderRisingSection('Rising Categories', rankings.rankings?.categories, 5),
     ''
   ].join('\n');
 
