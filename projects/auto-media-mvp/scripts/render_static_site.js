@@ -164,6 +164,30 @@ function renderListPage(title, rows, kind) {
   `;
 }
 
+function renderSourceTypePage(rankings) {
+  const sourceTypes = rankings?.source_types || [];
+  const cards = sourceTypes.map((type) => {
+    const relatedTopics = (rankings.rankings?.topics || [])
+      .filter((row) => (row.category_mix || []).length > 0)
+      .slice(0, 5)
+      .map((row) => `<li><a href="/pages/topics/${slugify(row.label)}.html">${escapeHtml(row.label)}</a> <span class="meta">${row.mention_count}</span></li>`)
+      .join('');
+
+    return `
+      <div class="highlight-block">
+        <h3>${escapeHtml(type)}</h3>
+        <p class="meta">Current source type in the observatory mix.</p>
+        <ul>${relatedTopics}</ul>
+      </div>`;
+  }).join('');
+
+  return `
+    <h1>Browse Source Types</h1>
+    <p class="meta">Current source mix across the observatory.</p>
+    <div class="highlight-grid">${cards}</div>
+  `;
+}
+
 function wrapHtml(title, body, options = {}) {
   return `<!doctype html>
 <html lang="en">
@@ -294,6 +318,7 @@ function wrapHtml(title, body, options = {}) {
       <a href="/pages/topics/market-move.html">Market Move</a>
       <a href="/browse/topics.html">Browse Topics</a>
       <a href="/browse/companies.html">Browse Companies</a>
+      <a href="/browse/source-types.html">Source Types</a>
     </div>
     ${options.highlights || ''}
     <div class="card">
@@ -317,6 +342,7 @@ function main() {
     fs.writeFileSync(path.join(DIST_DIR, 'browse', 'companies.html'), wrapHtml('Browse Companies', renderListPage('Browse Companies', rankings.rankings?.companies || [], 'companies')), 'utf8');
     fs.writeFileSync(path.join(DIST_DIR, 'browse', 'categories.html'), wrapHtml('Browse Categories', renderListPage('Browse Categories', rankings.rankings?.categories || [], 'categories')), 'utf8');
     fs.writeFileSync(path.join(DIST_DIR, 'browse', 'regions.html'), wrapHtml('Browse Regions', renderListPage('Browse Regions', rankings.rankings?.regions || [], 'regions')), 'utf8');
+    fs.writeFileSync(path.join(DIST_DIR, 'browse', 'source-types.html'), wrapHtml('Browse Source Types', renderSourceTypePage(rankings)), 'utf8');
   }
 
   for (const file of files) {
