@@ -129,9 +129,9 @@ function renderDashboard(rankings) {
 function renderHighlights(rankings) {
   if (!rankings) return '';
 
-  const topTopics = (rankings.rankings?.topics || []).slice(0, 3);
-  const topCompanies = (rankings.rankings?.companies || []).slice(0, 3);
-  const topCategories = (rankings.rankings?.categories || []).slice(0, 3);
+  const topTopics = visibleRows(rankings.rankings?.topics || []).slice(0, 3);
+  const topCompanies = visibleRows(rankings.rankings?.companies || []).slice(0, 3);
+  const topCategories = visibleRows(rankings.rankings?.categories || []).slice(0, 3);
   const generatedAt = rankings.generated_at || 'unknown';
 
   const block = (title, rows, kind) => `
@@ -146,7 +146,7 @@ function renderHighlights(rankings) {
     <section class="highlights">
       <div class="highlights-header">
         <h2>Current Highlights</h2>
-        <p>Generated at ${escapeHtml(generatedAt)} · metrics view only</p>
+        <p>Generated at ${escapeHtml(generatedAt)} · metrics view only · sensitive policy / conflict-adjacent rows are de-emphasized on the public UI</p>
       </div>
       <div class="highlight-grid">
         ${block('Top Topics', topTopics, 'topics')}
@@ -164,15 +164,44 @@ function slugify(value) {
     .replace(/^-+|-+$/g, '');
 }
 
-function renderListPage(title, rows, kind) {
-  const items = (rows || []).map((row) => `
+function isSensitiveRow(row) {
+  const label = String(row?.label || '').toLowerCase();
+  const key = String(row?.key || '').toLowerCase();
+  const categories = (row?.category_mix || []).map((value) => String(value).toLowerCase());
+  const sensitiveTerms = [
+    'policy',
+    'regulation',
+    'security-incident',
+    'surveillance',
+    'war',
+    'conflict',
+    'defense',
+    'military'
+  ];
+
+  return sensitiveTerms.some((term) => label.includes(term) || key.includes(term) || categories.includes(term));
+}
+
+function visibleRows(rows, options = {}) {
+  const { includeSensitive = false } = options;
+  return (rows || []).filter((row) => includeSensitive || !isSensitiveRow(row));
+}
+
+function renderListPage(title, rows, kind, options = {}) {
+  const filteredRows = visibleRows(rows, options);
+  const items = filteredRows.map((row) => `
     <li>
       <a href="${sitePath(`/pages/${kind}/${slugify(row.label)}.html`)}">${escapeHtml(row.label)}</a>
       <span class="meta">${row.mention_count} mentions · ${row.source_count} sources</span>
     </li>`).join('');
 
+  const note = options.includeSensitive
+    ? '<p class="meta">This index includes sensitive rows.</p>'
+    : '<p class="meta">Sensitive policy / conflict-adjacent rows are omitted from this public browse view.</p>';
+
   return `
     <h1>${escapeHtml(title)}</h1>
+    ${note}
     <ul>${items}</ul>
   `;
 }
@@ -180,7 +209,7 @@ function renderListPage(title, rows, kind) {
 function renderSourceTypePage(rankings) {
   const sourceTypes = rankings?.source_types || [];
   const cards = sourceTypes.map((type) => {
-    const relatedTopics = (rankings.rankings?.topics || [])
+    const relatedTopics = visibleRows(rankings.rankings?.topics || [])
       .filter((row) => (row.category_mix || []).length > 0)
       .slice(0, 5)
       .map((row) => `<li><a href="${sitePath(`/pages/topics/${slugify(row.label)}.html`)}">${escapeHtml(row.label)}</a> <span class="meta">${row.mention_count}</span></li>`)

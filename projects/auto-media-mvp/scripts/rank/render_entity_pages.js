@@ -27,10 +27,19 @@ function slugify(value) {
     .slice(0, 80);
 }
 
+function isSensitiveRow(row) {
+  const label = String(row?.label || '').toLowerCase();
+  const key = String(row?.key || '').toLowerCase();
+  const categories = (row?.category_mix || []).map((value) => String(value).toLowerCase());
+  const sensitiveTerms = ['policy', 'regulation', 'security-incident', 'surveillance', 'war', 'conflict', 'defense', 'military'];
+  return sensitiveTerms.some((term) => label.includes(term) || key.includes(term) || categories.includes(term));
+}
+
 function renderPage(row) {
   const delta = row.delta_vs_prev > 0 ? `+${row.delta_vs_prev}` : `${row.delta_vs_prev}`;
   const links = (row.sample_urls || []).map((url) => `- ${url}`).join('\n');
   const itemIds = (row.sample_item_ids || []).map((id) => `- ${id}`).join('\n');
+  const sensitive = isSensitiveRow(row);
 
   return [
     `# ${row.label}`,
@@ -44,6 +53,7 @@ function renderPage(row) {
     `- streak days: ${row.streak_days}`,
     row.region_mix?.length ? `- regions: ${row.region_mix.join(', ')}` : '',
     row.category_mix?.length ? `- categories: ${row.category_mix.join(', ')}` : '',
+    sensitive ? '- public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first' : '',
     '',
     '## Sample item IDs',
     '',
