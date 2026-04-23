@@ -14,6 +14,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us, global
 - categories: ai, crypto, general, security, defense
+- details: pages/topics/general.md
 - sample links:
   - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
   - https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
@@ -26,6 +27,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general, startups, ai
+- details: pages/topics/funding.md
 - sample links:
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
   - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
@@ -38,6 +40,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 1
 - regions: us
 - categories: ai
+- details: pages/topics/consumer-apps.md
 - sample links:
   - https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
@@ -50,6 +53,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: ai
+- details: pages/topics/product-launch.md
 - sample links:
   - https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
@@ -62,6 +66,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: policy, ai
+- details: pages/topics/security-incident.md
 - sample links:
   - https://techcrunch.com/2026/04/17/man-who-hacked-us-supreme-court-filing-system-sentenced-to-probation/
   - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
@@ -74,6 +79,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 1
 - regions: us
 - categories: general, ai
+- details: pages/topics/identity.md
 - sample links:
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
@@ -86,6 +92,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general, ai
+- details: pages/topics/partnership.md
 - sample links:
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
@@ -98,6 +105,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: policy
+- details: pages/topics/regulation.md
 - sample links:
   - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
   - https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/
@@ -110,6 +118,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us, global
 - categories: policy, defense
+- details: pages/topics/research.md
 - sample links:
   - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
   - https://victorpoughon.github.io/interval-calculator/
@@ -122,6 +131,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 1
 - regions: us
 - categories: general
+- details: pages/topics/competition.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
 
@@ -135,6 +145,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 1
 - regions: us
 - categories: ai
+- details: pages/topics/consumer-apps.md
 - sample links:
   - https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
@@ -147,6 +158,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 1
 - regions: us
 - categories: general, ai
+- details: pages/topics/identity.md
 - sample links:
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
@@ -159,6 +171,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 1
 - regions: us
 - categories: general
+- details: pages/topics/competition.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
 
@@ -172,6 +185,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: ai
+- details: pages/companies/anthropic.md
 - sample links:
   - https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/
   - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
@@ -184,6 +198,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: ai
+- details: pages/companies/openai.md
 - sample links:
   - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
   - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
@@ -196,6 +211,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general, ai
+- details: pages/companies/world.md
 - sample links:
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
@@ -208,6 +224,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general
+- details: pages/companies/airwallex.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
 
@@ -219,6 +236,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: ai
+- details: pages/companies/google.md
 - sample links:
   - https://techcrunch.com/2026/04/17/googles-ai-mode-can-now-help-you-find-products-in-stock-nearby/
 
@@ -230,6 +248,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general
+- details: pages/companies/stripe.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
 
@@ -241,6 +260,7 @@ Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, dat
 - streak days: 3
 - regions: us
 - categories: general
+- details: pages/companies/tinder.md
 - sample links:
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
 

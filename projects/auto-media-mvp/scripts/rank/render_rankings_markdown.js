@@ -19,10 +19,26 @@ function readJson(file, fallback) {
   }
 }
 
+function slugify(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80);
+}
+
+function pageLinkForRow(row) {
+  if (!row?.kind || !row?.label) return null;
+  if (row.kind === 'topic') return `pages/topics/${slugify(row.label)}.md`;
+  if (row.kind === 'company') return `pages/companies/${slugify(row.label)}.md`;
+  return null;
+}
+
 function formatRow(row, index) {
   const delta = row.delta_vs_prev > 0 ? `+${row.delta_vs_prev}` : `${row.delta_vs_prev}`;
   const ratio = typeof row.delta_ratio === 'number' ? row.delta_ratio : 0;
   const links = (row.sample_urls || []).slice(0, 2).map((url) => `  - ${url}`).join('\n');
+  const pageLink = pageLinkForRow(row);
 
   return [
     `### ${index + 1}. ${row.label}`,
@@ -33,6 +49,7 @@ function formatRow(row, index) {
     `- streak days: ${row.streak_days}`,
     row.region_mix?.length ? `- regions: ${row.region_mix.join(', ')}` : '',
     row.category_mix?.length ? `- categories: ${row.category_mix.join(', ')}` : '',
+    pageLink ? `- details: ${pageLink}` : '',
     links ? `- sample links:\n${links}` : ''
   ].filter(Boolean).join('\n');
 }
