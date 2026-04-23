@@ -23,6 +23,7 @@ ranking refresh と collect を別ジョブに分ける。
 - collect:fed
 - collect:coingecko
 - collect:openai
+- collect:anthropic
 - collect:bls
 - 必要なら将来他ソース追加
 
