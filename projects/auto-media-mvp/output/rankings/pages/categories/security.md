@@ -5,7 +5,7 @@
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 4
+- streak days: 5
 - regions: global
 - categories: security
 ## Sample item IDs

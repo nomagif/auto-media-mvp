@@ -3,11 +3,11 @@
 - kind: region
 - mentions: 1
 - sources: 1
-- delta vs prev: +1
-- delta ratio: 1
-- streak days: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 2
 - regions: china
-- categories: general
+- categories: policy
 ## Sample item IDs
 - fed-2026-04-23-019
 ## Sample links

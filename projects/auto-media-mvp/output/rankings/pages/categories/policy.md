@@ -1,12 +1,12 @@
 # policy
 - key: category:policy
 - kind: category
-- mentions: 4
+- mentions: 11
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 0.333
-- streak days: 4
-- regions: us, global
+- delta vs prev: +7
+- delta ratio: 1.75
+- streak days: 5
+- regions: us, china
 - categories: policy
 ## Sample item IDs
 - techcrunch-2026-04-18-004

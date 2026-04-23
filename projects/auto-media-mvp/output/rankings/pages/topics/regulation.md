@@ -3,10 +3,10 @@
 - kind: topic
 - mentions: 3
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 0.5
-- streak days: 4
-- regions: us, global
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 5
+- regions: us
 - categories: policy
 ## Sample item IDs
 - techcrunch-2026-04-18-007

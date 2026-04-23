@@ -45,6 +45,10 @@ function isForumItem(item) {
   return /hacker news/i.test(String(item.source_name || '')) || /news\.ycombinator\.com/.test(String(item.source_url || ''));
 }
 
+function isOfficialItem(item) {
+  return /federal reserve/i.test(String(item.source_name || '')) || /federalreserve\.gov/.test(String(item.source_url || '')) || String(item.source_type || '') === 'official';
+}
+
 function guessCategory(item) {
   const title = safeLower(item.title);
   const body = safeLower(item.body);
@@ -52,13 +56,15 @@ function guessCategory(item) {
 
   if (/openai|anthropic|gemini|claude|llm|artificial intelligence|生成ai|\bai\b|model|inference|agentic/.test(text)) return 'ai';
   if (/bitcoin|ethereum|crypto|token|blockchain|etf|btc|eth|solana|stablecoin/.test(text)) return 'crypto';
-  if (/regulation|regulator|government|law|policy|antitrust|commission|surveillance|court|supreme court/.test(text)) return 'policy';
+  if (/regulation|regulator|government|law|policy|antitrust|commission|surveillance|court|supreme court|enforcement|supervision/.test(text)) return 'policy';
   if (/military|missile|navy|army|defense|war|weapon/.test(text)) return 'defense';
-  if (/cpi|gdp|inflation|jobs|employment|central bank|interest rate|fed\b|ecb\b/.test(text)) return 'macro';
+  if (/cpi|gdp|inflation|jobs|employment|central bank|interest rate|fed\b|ecb\b|fomc|monetary policy|federal reserve/.test(text)) return 'macro';
   if (/startup|funding|seed|series a|series b|venture|valuation|raises \$|raised \$/.test(text)) return 'startups';
   if (/breach|hack|security flaw|vulnerability|cyber|exploit|malware|patched windows/.test(text)) return 'security';
   if (/semiconductor|chip|tsmc|nvidia|intel|gpu/.test(text)) return 'semiconductors';
   if (/x\.com|twitter|reddit|tiktok|instagram|youtube|social|meeting|video feed|dating app|music archive/.test(text)) return 'social';
+  if (isOfficialItem(item) && /monetary policy|fomc|federal reserve|federal open market committee|interest rate|balance sheet|reserve bank/.test(text)) return 'macro';
+  if (isOfficialItem(item) && /enforcement|banking|supervision|proposal|rule|board action|statement/.test(text)) return 'policy';
   if (/uber|airwallex|stripe|fintech|payments|meeting|consumer|app|platform/.test(text)) return 'general';
   if (isForumItem(item)) return 'general';
   return 'general';
@@ -69,6 +75,11 @@ function guessRegion(item) {
   const title = safeLower(item.title);
   const body = safeLower(item.body);
   const text = [title, body, url, item.source_name].map(safeLower).join('\n');
+
+  if (isOfficialItem(item)) {
+    if (/china|chinese|prc/.test(text)) return 'china';
+    return 'us';
+  }
 
   if (/techcrunch|news\.ycombinator\.com|united states|u\.s\.|america|american|supreme court/.test(text)) return 'us';
   if (/european union|europe|\beu\b|brussels|germany|france/.test(text)) return 'eu';
@@ -83,6 +94,9 @@ function guessRegion(item) {
 function guessTopics(item) {
   const text = [item.title, item.body].map(safeLower).join('\n');
   const topics = [];
+
+  if (isOfficialItem(item) && /fomc|federal reserve|monetary policy|interest rate|balance sheet/.test(text)) topics.push('policy-announcement');
+  if (isOfficialItem(item) && /inflation|employment|labor|growth|economic|market/.test(text)) topics.push('market-move');
   if (/funding|raised|series a|series b|investment|valuation|raises \$|raised \$/.test(text)) topics.push('funding');
   if (/acquisition|acquire|acquired|merger|m&a/.test(text)) topics.push('acquisition');
   if (/launch|launched|released|release|introduce|debut|roll out/.test(text)) topics.push('product-launch');

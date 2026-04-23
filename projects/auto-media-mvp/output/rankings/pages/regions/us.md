@@ -1,13 +1,13 @@
 # us
 - key: region:us
 - kind: region
-- mentions: 22
+- mentions: 40
 - sources: 3
-- delta vs prev: +1
-- delta ratio: 0.048
-- streak days: 4
+- delta vs prev: +18
+- delta ratio: 0.818
+- streak days: 5
 - regions: us
-- categories: general, ai, policy, startups, crypto
+- categories: general, ai, policy, startups, crypto, macro
 ## Sample item IDs
 - techcrunch-2026-04-18-001
 - techcrunch-2026-04-18-002
