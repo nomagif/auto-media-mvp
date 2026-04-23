@@ -42,6 +42,8 @@ The project is now intentionally centered on:
 - AI・テクノロジー
 - 金融・経済（投資・マクロ）
 
+This surface is designed to show signals, counts, rankings, and changes — not strong narrative commentary.
+
 Classification quality, topic coverage, and source breadth will improve over time.
 
 ## Related docs
