@@ -9,27 +9,31 @@
 - 安定して毎日回ること
 - ざっくりでも比較可能であること
 - topic / region / category / company の軸が取れること
+- **AI・テクノロジー** と **金融・経済（投資・マクロ）** の観測に強いこと
 
 ## 2. category の最小セット
 MVP では以下で始める。
 
+主軸カテゴリ:
 - `ai`
-- `crypto`
-- `policy`
-- `defense`
 - `macro`
-- `startups`
+- `policy`
+- `crypto`
 - `security`
 - `semiconductors`
-- `social`
+- `startups`
+
+補助カテゴリ:
 - `general`
+- `defense`
+- `social`
 
 ### 例
-- OpenAI / Anthropic / Gemini / LLM → `ai`
-- Bitcoin / Ethereum / ETF / token → `crypto`
-- regulation / law / government / antitrust → `policy`
-- military / missile / navy / defense ministry → `defense`
-- CPI / GDP / jobs / inflation / central bank → `macro`
+- OpenAI / Anthropic / Gemini / LLM / inference / copilots → `ai`
+- Bitcoin / Ethereum / ETF / token / stablecoin → `crypto`
+- regulation / law / government / antitrust / supervision → `policy`
+- CPI / GDP / jobs / inflation / central bank / rates / FOMC → `macro`
+- chips / TSMC / Nvidia / semiconductor supply chain → `semiconductors`
 
 ## 3. region の最小セット
 - `us`
@@ -146,5 +150,6 @@ MVP では固定語彙で始める。
 - 毎日同じルールで処理されること
 - 昨日比 / 先週比が出せること
 - ランキングが継続的に更新されること
+- AI・テクノロジー / 金融・経済（投資・マクロ）の主軸が崩れないこと
 
 「完璧な分類」より「継続して動く分類」を優先する。
