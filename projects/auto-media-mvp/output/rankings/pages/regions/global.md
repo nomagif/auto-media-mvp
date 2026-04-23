@@ -1,13 +1,13 @@
 # global
 - key: region:global
 - kind: region
-- mentions: 19
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 3
+- mentions: 37
+- sources: 2
+- delta vs prev: +18
+- delta ratio: 0.947
+- streak days: 4
 - regions: global
-- categories: security, ai, defense
+- categories: security, ai, defense, general, social, policy
 ## Sample item IDs
 - hn-2026-04-18-001
 - hn-2026-04-18-002

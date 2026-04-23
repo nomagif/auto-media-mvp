@@ -1,12 +1,12 @@
 # funding
 - key: topic:funding
 - kind: topic
-- mentions: 4
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 3
-- regions: us
+- mentions: 5
+- sources: 2
+- delta vs prev: +1
+- delta ratio: 0.25
+- streak days: 4
+- regions: us, global
 - categories: general, startups, ai
 ## Sample item IDs
 - techcrunch-2026-04-18-002

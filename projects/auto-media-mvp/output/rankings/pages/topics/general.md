@@ -1,13 +1,13 @@
 # general
 - key: topic:general
 - kind: topic
-- mentions: 24
-- sources: 2
-- delta vs prev: -2
-- delta ratio: -0.077
-- streak days: 3
-- regions: us, global
-- categories: ai, crypto, general, security, defense
+- mentions: 40
+- sources: 3
+- delta vs prev: +16
+- delta ratio: 0.667
+- streak days: 4
+- regions: us, global, china
+- categories: ai, crypto, general, security, defense, social
 ## Sample item IDs
 - techcrunch-2026-04-18-003
 - techcrunch-2026-04-18-006
