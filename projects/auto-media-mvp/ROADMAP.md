@@ -1,107 +1,111 @@
 # ROADMAP
 
-`auto-media-mvp` の現状整理と今後の優先順位。
+`auto-media-mvp` の新方針と今後の優先順位。
 
 ## 1. 現在地
-このプロジェクトは、海外テックニュース等を収集し、日本語向けに再構成する自動メディアパイプラインの MVP。
+このプロジェクトは、従来の「海外ニュースを日本語記事・投稿素材へ変換する自動メディアMVP」から、
+**海外ニュースの観測・集約・ランキング可視化基盤** へ方向転換する。
 
-現時点で、主要な生成レイヤーは scaffold + fixture flow まで一周している。
+旧方針の実装資産は残すが、今後の優先順位は入れ替える。
 
 ---
 
-## 2. 現在あるレイヤー
-### 収集
-- TechCrunch RSS
-- Hacker News Top Stories
+## 2. 新しい中心価値
+### A. リンク集約
+- 海外ニュースをテーマ別・地域別に集約する
+- 言語依存の強い記事生成より軽量に展開できる
+- 海外向けUIに寄せやすい
 
-### 下流データ
-- raw 保存
-- normalized 保存
-- draft Markdown 生成
-- review digest 生成
+### B. ランキング / トレンド可視化
+- 話題量
+- 増加率
+- 継続日数
+- 企業 / キーワード / テーマ / 地域の変化
 
-### 生成レイヤー
+この B を主軸にする。
+
+---
+
+## 3. 既存資産の扱い
+### そのまま活かすもの
+- collect
+- raw / normalized 保存
+- queue / state 管理
+- review / logging
+- 一部 publish 基盤
+
+### 補助機能へ下げるもの
 - summary
-- title candidates
-- X post
 - article
+- xpost
 - image prompt
+- WordPress / note / X への配信
+
+### いったん主役から外すもの
+- 日本語記事本文の量産
+- 複数プラットフォームへの全面自動投稿
 
 ---
 
-## 3. 実装状態の区分
-### A. 実データで通ったもの
-- collect
-- normalized
-- draft
-- summary subagent 実行（少なくとも複数件で確認）
-
-### B. fixture flow で通ったもの
-- summary worker/apply
-- title worker/apply
-- xpost worker/apply
-- article worker/apply
-- image prompt worker/apply
-
-### C. まだ本実装でないもの
-- title subagent 実働
-- xpost subagent 実働
-- article subagent 実働
-- image prompt subagent 実働
-- publish 連携
-
----
-
-## 4. fixture / manual / real の区別
-### real
-- collect
-- queue 生成
-- 一部 summary subagent 実行
-
-### manual
-- summary worker の手動運用
-- raw response 保存
-- apply 実行
-
-### fixture
-- title / xpost / article / image prompt の raw response 検証
-
----
-
-## 5. 未実装ポイント
-- OpenClaw worker の完全自動化
-- title/xpost/article/image の実 subagent 実行
-- publish queue の本格運用
-- WordPress / note / X への実投稿連携
-- retry / timeout / priority 制御
-- samples ディレクトリの整理
-
----
-
-## 6. 次の優先順位
+## 4. 新しい優先順位
 ### 優先1
-OpenClaw 実働 worker を summary 以外にも広げる
+ニュース観測モデルの定義
+- 何を topic として扱うか
+- entity / region / source の正規化方針
+- trend score の最小式を決める
 
 ### 優先2
-manual runbook を title/xpost/article/image にも横展開する
+ランキング出力の MVP を作る
+- Top topics
+- Most mentioned companies
+- Region / theme 別ランキング
+- 増加率ランキング
 
 ### 優先3
-publish 系の IO spec と queue 設計
+リンク集約ページを作る
+- source links
+- topic clusters
+- region/theme landing pages
 
 ### 優先4
-cron 化と定期運用設計
+必要最小限の補助要約
+- 要点だけ短く出す
+- 長文記事生成は後回し
+
+### 優先5
+配信面の再整理
+- WordPress は主戦場ではなく補助面
+- 必要なら digest / recap 用に使う
 
 ---
 
-## 7. 実運用までの道筋
-1. summary の実働 worker を安定化
-2. title/xpost/article/image でも subagent 実行を通す
-3. publish 用データ構造を確定
-4. 承認付き投稿フローを作る
-5. 最後に一部を自動化する
+## 5. 実装の次ステップ
+1. normalized データから trend 集計に必要な軸を洗い出す
+2. ranking 用の最小スキーマを作る
+3. topic / company / region の集計スクリプトを作る
+4. markdown / json どちらでも読めるランキング出力を作る
+5. その後に軽い UI / 配信面を考える
 
 ---
 
-## 8. 率直な評価
-現状でも「設計と試作の土台」としてはかなり強い。
-次に価値が高いのは、fixture を減らして real execution を増やすこと。
+## 6. 率直な評価
+この方向転換はかなり合理的。
+
+理由:
+- 記事量産より言語依存が低い
+- 海外展開しやすい
+- B2B 的な価値にも伸ばしやすい
+- “観測データ” は自動化と相性が良い
+- 完全放置運用にも向いている
+
+---
+
+## 7. 当面の判断基準
+これから追加する機能は、まず以下で判断する。
+
+- これはニュース観測価値を増やすか？
+- ランキング / 集約に直結するか？
+- 記事本文がなくても成立するか？
+- 海外向けにそのまま出しやすいか？
+
+YES が多いものを優先する。
