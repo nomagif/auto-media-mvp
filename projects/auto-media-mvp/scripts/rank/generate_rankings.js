@@ -54,18 +54,19 @@ function guessCategory(item) {
   const body = safeLower(item.body);
   const text = [title, body, item.source_name].map(safeLower).join('\n');
 
-  if (/openai|anthropic|gemini|claude|llm|artificial intelligence|生成ai|\bai\b|model|inference|agentic/.test(text)) return 'ai';
+  if (/openai|anthropic|gemini|claude|llm|artificial intelligence|生成ai|\bai\b|model|inference|agentic|copilot|developer tool|coding assistant|gpu cloud/.test(text)) return 'ai';
+  if (/cpi|gdp|inflation|jobs|employment|central bank|interest rate|fed\b|ecb\b|fomc|monetary policy|federal reserve|treasury|bond market|yield|tariff|macro/.test(text)) return 'macro';
+  if (/regulation|regulator|government|law|policy|antitrust|commission|surveillance|court|supreme court|enforcement|supervision|rulemaking/.test(text)) return 'policy';
   if (/bitcoin|ethereum|crypto|token|blockchain|etf|btc|eth|solana|stablecoin/.test(text)) return 'crypto';
-  if (/regulation|regulator|government|law|policy|antitrust|commission|surveillance|court|supreme court|enforcement|supervision/.test(text)) return 'policy';
-  if (/military|missile|navy|army|defense|war|weapon/.test(text)) return 'defense';
-  if (/cpi|gdp|inflation|jobs|employment|central bank|interest rate|fed\b|ecb\b|fomc|monetary policy|federal reserve/.test(text)) return 'macro';
-  if (/startup|funding|seed|series a|series b|venture|valuation|raises \$|raised \$/.test(text)) return 'startups';
   if (/breach|hack|security flaw|vulnerability|cyber|exploit|malware|patched windows/.test(text)) return 'security';
-  if (/semiconductor|chip|tsmc|nvidia|intel|gpu/.test(text)) return 'semiconductors';
-  if (/x\.com|twitter|reddit|tiktok|instagram|youtube|social|meeting|video feed|dating app|music archive/.test(text)) return 'social';
+  if (/semiconductor|chip|chips|tsmc|nvidia|intel|gpu|foundry/.test(text)) return 'semiconductors';
+  if (/startup|funding|seed|series a|series b|venture|valuation|raises \$|raised \$/.test(text)) return 'startups';
   if (isOfficialItem(item) && /monetary policy|fomc|federal reserve|federal open market committee|interest rate|balance sheet|reserve bank/.test(text)) return 'macro';
   if (isOfficialItem(item) && /enforcement|banking|supervision|proposal|rule|board action|statement/.test(text)) return 'policy';
-  if (/uber|airwallex|stripe|fintech|payments|meeting|consumer|app|platform/.test(text)) return 'general';
+  if (/military|missile|navy|army|defense|war|weapon/.test(text)) return 'defense';
+  if (/x\.com|twitter|reddit|tiktok|instagram|youtube|social|meeting|video feed|dating app|music archive/.test(text)) return 'social';
+  if (/uber|airwallex|stripe|fintech|payments|consumer|app|platform/.test(text)) return 'general';
+  if (isForumItem(item) && /open source|database|compiler|linux|programming|developer|infrastructure|security|chip|ai/.test(text)) return 'ai';
   if (isForumItem(item)) return 'general';
   return 'general';
 }
@@ -96,26 +97,28 @@ function guessTopics(item) {
   const topics = [];
 
   if (isOfficialItem(item) && /fomc|federal reserve|monetary policy|interest rate|balance sheet/.test(text)) topics.push('policy-announcement');
-  if (isOfficialItem(item) && /inflation|employment|labor|growth|economic|market/.test(text)) topics.push('market-move');
+  if (isOfficialItem(item) && /inflation|employment|labor|growth|economic|market|yield|treasury/.test(text)) topics.push('market-move');
+  if (String(item.source_type || '') === 'market-data') topics.push('market-move');
   if (/funding|raised|series a|series b|investment|valuation|raises \$|raised \$/.test(text)) topics.push('funding');
   if (/acquisition|acquire|acquired|merger|m&a/.test(text)) topics.push('acquisition');
   if (/launch|launched|released|release|introduce|debut|roll out/.test(text)) topics.push('product-launch');
-  if (/regulation|regulator|policy|law|antitrust|surveillance/.test(text)) topics.push('regulation');
+  if (/regulation|regulator|policy|law|antitrust|surveillance|supervision|enforcement/.test(text)) topics.push('regulation');
   if (/earnings|revenue|profit|quarter/.test(text)) topics.push('earnings');
   if (/security|breach|hack|cyber|exploit|vulnerability/.test(text)) topics.push('security-incident');
   if (/partnership|partner|teams up|deal with|integrates with/.test(text)) topics.push('partnership');
   if (/research|paper|study/.test(text) && !isForumItem(item)) topics.push('research');
-  if (/chip|gpu|semiconductor/.test(text)) topics.push('chips');
+  if (/chip|gpu|semiconductor|foundry/.test(text)) topics.push('chips');
   if (/layoff|laid off|job cuts/.test(text)) topics.push('layoffs');
   if (/competition|compete|rival|going after each other/.test(text)) topics.push('competition');
   if (/verification|identity|human verification|orb/.test(text)) topics.push('identity');
   if (/recommendation|discovery|feed|archive/.test(text)) topics.push('consumer-apps');
-  return topics.length > 0 ? topics : ['general'];
+  if (/developer tool|programming|open source|database|compiler|linux|infrastructure|cloud/.test(text) && !isOfficialItem(item)) topics.push('infrastructure');
+  return [...new Set(topics)].length > 0 ? [...new Set(topics)] : ['general'];
 }
 
 function guessEntities(item) {
   const text = `${item.title || ''} ${item.body || ''}`;
-  const known = ['OpenAI', 'Anthropic', 'Google', 'Meta', 'Microsoft', 'Apple', 'Amazon', 'Nvidia', 'Stripe', 'Airwallex', 'World', 'Tinder', 'Bitcoin', 'Ethereum'];
+  const known = ['OpenAI', 'Anthropic', 'Google', 'Meta', 'Microsoft', 'Apple', 'Amazon', 'Nvidia', 'TSMC', 'Intel', 'Stripe', 'Airwallex', 'World', 'Tinder', 'Bitcoin', 'Ethereum', 'Solana', 'XRP', 'BNB'];
   return known.filter((name) => new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(text));
 }
 

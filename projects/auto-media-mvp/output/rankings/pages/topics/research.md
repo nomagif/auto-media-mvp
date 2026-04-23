@@ -5,9 +5,9 @@
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 6
+- streak days: 7
 - regions: us, global
-- categories: policy, defense
+- categories: policy, macro
 ## Sample item IDs
 - techcrunch-2026-04-18-007
 - hn-2026-04-18-007

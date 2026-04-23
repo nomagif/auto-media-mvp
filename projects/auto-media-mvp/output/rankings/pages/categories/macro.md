@@ -1,18 +1,18 @@
 # macro
 - key: category:macro
 - kind: category
-- mentions: 12
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 2
-- regions: us
+- mentions: 21
+- sources: 2
+- delta vs prev: +9
+- delta ratio: 0.75
+- streak days: 3
+- regions: global, us, china
 - categories: macro
 ## Sample item IDs
-- fed-2026-04-23-003
-- fed-2026-04-23-004
-- fed-2026-04-23-006
+- hn-2026-04-18-007
+- fed-2026-04-23-001
+- fed-2026-04-23-002
 ## Sample links
-- https://www.federalreserve.gov/newsevents/pressreleases/monetary20260414a.htm
-- https://www.federalreserve.gov/newsevents/pressreleases/orders20260410a.htm
-- https://www.federalreserve.gov/newsevents/pressreleases/monetary20260408a.htm
+- https://victorpoughon.github.io/interval-calculator/
+- https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260422a.htm
+- https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm

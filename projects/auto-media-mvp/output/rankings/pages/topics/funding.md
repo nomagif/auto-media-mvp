@@ -5,9 +5,9 @@
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 6
+- streak days: 7
 - regions: us
-- categories: general, startups, ai, policy
+- categories: general, startups, ai, macro
 ## Sample item IDs
 - techcrunch-2026-04-18-002
 - techcrunch-2026-04-18-005

@@ -5,9 +5,9 @@
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 2
+- streak days: 3
 - regions: us, china
-- categories: policy, macro
+- categories: macro
 ## Sample item IDs
 - fed-2026-04-23-001
 - fed-2026-04-23-002
