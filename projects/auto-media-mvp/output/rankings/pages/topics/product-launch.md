@@ -3,10 +3,10 @@
 - kind: topic
 - mentions: 23
 - sources: 6
-- delta vs prev: +5
-- delta ratio: 0.278
-- streak days: 12
-- regions: us, global
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 13
+- regions: us
 - categories: ai, macro
 ## Sample item IDs
 - techcrunch-2026-04-18-012

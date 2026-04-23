@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 3
 - sources: 3
-- delta vs prev: +1
-- delta ratio: 0.5
-- streak days: 12
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 13
 - regions: us, global
 - categories: policy, macro, ai
 ## Sample item IDs

@@ -3,16 +3,16 @@
 - kind: topic
 - mentions: 41
 - sources: 5
-- delta vs prev: +11
-- delta ratio: 0.367
-- streak days: 12
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 13
 - regions: us, global
-- categories: ai, crypto, general, security, macro
+- categories: ai, general, security, macro
 ## Sample item IDs
 - techcrunch-2026-04-18-003
-- techcrunch-2026-04-18-006
 - techcrunch-2026-04-18-010
+- techcrunch-2026-04-18-011
 ## Sample links
 - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
-- https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
 - https://techcrunch.com/2026/04/17/chef-robotics-escaped-the-robot-cooking-graveyard-and-says-its-thriving-heres-why/
+- https://techcrunch.com/2026/04/17/uber-will-now-pick-up-your-returns-from-your-doorstep/

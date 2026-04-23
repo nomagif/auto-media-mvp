@@ -46,7 +46,7 @@ function isForumItem(item) {
 }
 
 function isOfficialItem(item) {
-  return /federal reserve|openai/i.test(String(item.source_name || '')) || /federalreserve\.gov|openai\.com/.test(String(item.source_url || '')) || String(item.source_type || '') === 'official';
+  return /federal reserve|openai|anthropic|bls/i.test(String(item.source_name || '')) || /federalreserve\.gov|openai\.com|anthropic\.com|bls\.gov/.test(String(item.source_url || '')) || String(item.source_type || '') === 'official';
 }
 
 function isOpenAIItem(item) {
@@ -106,15 +106,16 @@ function guessTopics(item) {
   const topics = [];
 
   if (isOfficialItem(item) && /fomc|federal reserve|monetary policy|interest rate|balance sheet/.test(text)) topics.push('policy-announcement');
-  if (isOfficialItem(item) && /inflation|consumer price index|ppi|unemployment|jobs|jobless|payroll|employment|labor|hourly earnings|growth|economic|market|yield|treasury/.test(text)) topics.push('market-move');
-  if (isOfficialItem(item) && /inflation|consumer price index|ppi|price index/.test(text)) topics.push('inflation');
-  if (isOfficialItem(item) && /jobs|jobless|unemployment|payroll|employment|hourly earnings|labor market/.test(text)) topics.push('jobs');
-  if (isOfficialItem(item) && /interest rate|rates|yield|treasury|fomc|monetary policy/.test(text)) topics.push('rates');
+  if ((/federal reserve|bls/i.test(String(item.source_name || '')) || /federalreserve\.gov|bls\.gov/.test(String(item.source_url || ''))) && /inflation|consumer price index|ppi|unemployment|jobs|jobless|payroll|employment|labor|hourly earnings|growth|economic|market|yield|treasury/.test(text)) topics.push('market-move');
+  if ((/federal reserve|bls/i.test(String(item.source_name || '')) || /federalreserve\.gov|bls\.gov/.test(String(item.source_url || ''))) && /inflation|consumer price index|ppi|price index/.test(text)) topics.push('inflation');
+  if ((/federal reserve|bls/i.test(String(item.source_name || '')) || /federalreserve\.gov|bls\.gov/.test(String(item.source_url || ''))) && /jobs|jobless|unemployment|payroll|employment|hourly earnings|labor market/.test(text)) topics.push('jobs');
+  if ((/federal reserve|bls/i.test(String(item.source_name || '')) || /federalreserve\.gov|bls\.gov/.test(String(item.source_url || ''))) && /interest rate|rates|yield|treasury|fomc|monetary policy/.test(text)) topics.push('rates');
   if (String(item.source_type || '') === 'market-data') topics.push('market-move');
   if ((isOpenAIItem(item) || isAnthropicItem(item)) && /release|launch|introducing|introduce|new|gpt|claude|chatgpt|api|product/.test(text)) topics.push('product-launch');
   if ((isOpenAIItem(item) || isAnthropicItem(item)) && /research|study|paper|reasoning|benchmark|evaluation|alignment|safety/.test(text)) topics.push('research');
   if ((isOpenAIItem(item) || isAnthropicItem(item)) && /engineering|developer|api|platform|infrastructure|agent sdk|responses api|tooling|model context protocol/.test(text)) topics.push('infrastructure');
   if (/funding|raised|series a|series b|investment|valuation|raises \$|raised \$/.test(text)) topics.push('funding');
+  if (/bitcoin|ethereum|crypto|token|blockchain|etf|btc|eth|solana|stablecoin/.test(text) && String(item.source_type || '') !== 'market-data') topics.push('market-move');
   if (/acquisition|acquire|acquired|merger|m&a/.test(text)) topics.push('acquisition');
   if (/launch|launched|released|release|introduce|debut|roll out/.test(text)) topics.push('product-launch');
   if (/regulation|regulator|policy|law|antitrust|surveillance|supervision|enforcement/.test(text)) topics.push('regulation');
@@ -128,7 +129,10 @@ function guessTopics(item) {
   if (/verification|identity|human verification|orb/.test(text)) topics.push('identity');
   if (/recommendation|discovery|feed|archive/.test(text)) topics.push('consumer-apps');
   if (/developer tool|programming|open source|database|compiler|linux|infrastructure|cloud/.test(text) && !isOfficialItem(item)) topics.push('infrastructure');
-  return [...new Set(topics)].length > 0 ? [...new Set(topics)] : ['general'];
+  const uniqueTopics = [...new Set(topics)];
+  if (uniqueTopics.length > 0) return uniqueTopics;
+  if (item.category && item.category !== 'general') return [item.category];
+  return ['general'];
 }
 
 function guessEntities(item) {

@@ -1,18 +1,18 @@
 # market-move
 - key: topic:market-move
 - kind: topic
-- mentions: 25
+- mentions: 27
 - sources: 5
 - delta vs prev: +2
-- delta ratio: 0.087
-- streak days: 8
+- delta ratio: 0.08
+- streak days: 9
 - regions: us, global
-- categories: macro, crypto, general, ai
+- categories: crypto, ai, macro, general
 ## Sample item IDs
-- fed-2026-04-23-006
-- fed-2026-04-23-014
-- coingecko-2026-04-23-001
+- techcrunch-2026-04-18-006
+- techcrunch-2026-04-18-016
+- techcrunch-2026-04-18-019
 ## Sample links
-- https://www.federalreserve.gov/newsevents/pressreleases/monetary20260408a.htm
-- https://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm
-- https://www.coingecko.com/en/coins/bitcoin
+- https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
+- https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
+- https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/

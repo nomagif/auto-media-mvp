@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 1
 - sources: 1
-- delta vs prev: +1
-- delta ratio: 1
-- streak days: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 2
 - regions: us
 - categories: macro
 ## Sample item IDs
