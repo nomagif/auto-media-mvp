@@ -129,6 +129,26 @@ function renderHighlights(rankings) {
   `;
 }
 
+function slugify(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function renderListPage(title, rows, kind) {
+  const items = (rows || []).map((row) => `
+    <li>
+      <a href="/pages/${kind}/${slugify(row.label)}.html">${escapeHtml(row.label)}</a>
+      <span class="meta">${row.mention_count} mentions · ${row.source_count} sources</span>
+    </li>`).join('');
+
+  return `
+    <h1>${escapeHtml(title)}</h1>
+    <ul>${items}</ul>
+  `;
+}
+
 function wrapHtml(title, body, options = {}) {
   return `<!doctype html>
 <html lang="en">
@@ -241,6 +261,8 @@ function wrapHtml(title, body, options = {}) {
       <a href="/pages/categories/ai.html">AI</a>
       <a href="/pages/categories/macro.html">Macro</a>
       <a href="/pages/topics/market-move.html">Market Move</a>
+      <a href="/browse/topics.html">Browse Topics</a>
+      <a href="/browse/companies.html">Browse Companies</a>
     </div>
     ${options.highlights || ''}
     <div class="card">
@@ -257,6 +279,14 @@ function main() {
   ensureDir(DIST_DIR);
   const files = listMarkdownFiles(SRC_DIR);
   const rankings = readJson(RANKINGS_FILE, null);
+
+  if (rankings) {
+    ensureDir(path.join(DIST_DIR, 'browse'));
+    fs.writeFileSync(path.join(DIST_DIR, 'browse', 'topics.html'), wrapHtml('Browse Topics', renderListPage('Browse Topics', rankings.rankings?.topics || [], 'topics')), 'utf8');
+    fs.writeFileSync(path.join(DIST_DIR, 'browse', 'companies.html'), wrapHtml('Browse Companies', renderListPage('Browse Companies', rankings.rankings?.companies || [], 'companies')), 'utf8');
+    fs.writeFileSync(path.join(DIST_DIR, 'browse', 'categories.html'), wrapHtml('Browse Categories', renderListPage('Browse Categories', rankings.rankings?.categories || [], 'categories')), 'utf8');
+    fs.writeFileSync(path.join(DIST_DIR, 'browse', 'regions.html'), wrapHtml('Browse Regions', renderListPage('Browse Regions', rankings.rankings?.regions || [], 'regions')), 'utf8');
+  }
 
   for (const file of files) {
     const rel = path.relative(SRC_DIR, file);
