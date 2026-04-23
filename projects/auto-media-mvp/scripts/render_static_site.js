@@ -98,6 +98,21 @@ function readJson(file, fallback) {
   }
 }
 
+function renderDashboard(rankings) {
+  if (!rankings) return '';
+  const counts = rankings.counts || {};
+  const sourceTypes = (rankings.source_types || []).join(', ');
+  return `
+    <section class="dashboard">
+      <div class="metric"><div class="metric-label">Items</div><div class="metric-value">${counts.items || 0}</div></div>
+      <div class="metric"><div class="metric-label">Topics</div><div class="metric-value">${counts.topics || 0}</div></div>
+      <div class="metric"><div class="metric-label">Companies</div><div class="metric-value">${counts.companies || 0}</div></div>
+      <div class="metric"><div class="metric-label">Categories</div><div class="metric-value">${counts.categories || 0}</div></div>
+      <div class="metric wide"><div class="metric-label">Source Types</div><div class="metric-value small">${escapeHtml(sourceTypes || 'n/a')}</div></div>
+    </section>
+  `;
+}
+
 function renderHighlights(rankings) {
   if (!rankings) return '';
 
@@ -221,6 +236,22 @@ function wrapHtml(title, body, options = {}) {
       box-shadow: 0 20px 60px rgba(0,0,0,.18);
       backdrop-filter: blur(8px);
     }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin: 0 0 1.2rem;
+    }
+    .metric {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .metric.wide { grid-column: span 2; }
+    .metric-label { color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+    .metric-value { color: #fff; font-size: 1.8rem; font-weight: 700; margin-top: .35rem; }
+    .metric-value.small { font-size: 1rem; font-weight: 600; line-height: 1.4; }
     .highlights {
       margin: 0 0 1.2rem;
       background: var(--panel-2);
@@ -297,7 +328,7 @@ function main() {
     const firstHeading = (markdown.match(/^#\s+(.+)$/m) || [])[1] || 'Observatory';
     const isLanding = rel === 'index.md' || rel === 'latest.md';
     const html = wrapHtml(firstHeading, markdownToHtml(markdown), {
-      highlights: isLanding ? renderHighlights(rankings) : ''
+      highlights: isLanding ? `${renderDashboard(rankings)}${renderHighlights(rankings)}` : ''
     });
     fs.writeFileSync(dest, html, 'utf8');
   }

@@ -69,6 +69,22 @@
       box-shadow: 0 20px 60px rgba(0,0,0,.18);
       backdrop-filter: blur(8px);
     }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin: 0 0 1.2rem;
+    }
+    .metric {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .metric.wide { grid-column: span 2; }
+    .metric-label { color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+    .metric-value { color: #fff; font-size: 1.8rem; font-weight: 700; margin-top: .35rem; }
+    .metric-value.small { font-size: 1rem; font-weight: 600; line-height: 1.4; }
     .highlights {
       margin: 0 0 1.2rem;
       background: var(--panel-2);
@@ -113,6 +129,14 @@
       <a href="/browse/companies.html">Browse Companies</a>
     </div>
     
+    <section class="dashboard">
+      <div class="metric"><div class="metric-label">Items</div><div class="metric-value">121</div></div>
+      <div class="metric"><div class="metric-label">Topics</div><div class="metric-value">19</div></div>
+      <div class="metric"><div class="metric-label">Companies</div><div class="metric-value">15</div></div>
+      <div class="metric"><div class="metric-label">Categories</div><div class="metric-value">7</div></div>
+      <div class="metric wide"><div class="metric-label">Source Types</div><div class="metric-value small">tech, official, market-data</div></div>
+    </section>
+  
     <section class="highlights">
       <div class="highlights-header">
         <h2>Current Highlights</h2>

@@ -69,6 +69,22 @@
       box-shadow: 0 20px 60px rgba(0,0,0,.18);
       backdrop-filter: blur(8px);
     }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin: 0 0 1.2rem;
+    }
+    .metric {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .metric.wide { grid-column: span 2; }
+    .metric-label { color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+    .metric-value { color: #fff; font-size: 1.8rem; font-weight: 700; margin-top: .35rem; }
+    .metric-value.small { font-size: 1rem; font-weight: 600; line-height: 1.4; }
     .highlights {
       margin: 0 0 1.2rem;
       background: var(--panel-2);
