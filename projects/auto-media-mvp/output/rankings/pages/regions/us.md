@@ -1,11 +1,11 @@
 # us
 - key: region:us
 - kind: region
-- mentions: 40
-- sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 7
+- mentions: 60
+- sources: 4
+- delta vs prev: +20
+- delta ratio: 0.5
+- streak days: 9
 - regions: us
 - categories: general, ai, policy, startups, crypto, macro
 ## Sample item IDs

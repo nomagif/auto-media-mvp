@@ -75,8 +75,18 @@ function extractUrlEntries(xml) {
     });
 }
 
+function extractSitemapEntries(xml) {
+  return [...String(xml).matchAll(/<sitemap>([\s\S]*?)<\/sitemap>/g)]
+    .map((m) => m[1])
+    .map((entry) => {
+      const loc = (entry.match(/<loc>([\s\S]*?)<\/loc>/i) || [])[1] || '';
+      return decodeXml(loc.trim());
+    })
+    .filter(Boolean);
+}
+
 function isAnnouncementUrl(url) {
-  return /openai\.com\/(news|index|research|product|blog)\//i.test(url) || /openai\.com\/index\//i.test(url);
+  return /openai\.com\/(index|research|product|release|publication|safety|security|engineering)\//i.test(url);
 }
 
 function titleFromUrl(url) {
@@ -123,7 +133,22 @@ async function main() {
   const rawName = `${isoSafe(new Date())}-openai-sitemap.xml`;
   fs.writeFileSync(path.join(RAW_DIR, rawName), rawXml, 'utf8');
 
-  const entries = extractUrlEntries(rawXml)
+  const childSitemaps = extractSitemapEntries(rawXml)
+    .filter((url) => /openai\.com\/sitemap\.xml\/(index|research|product|release|publication|safety|security|engineering)\//i.test(url))
+    .slice(0, 10);
+
+  const childXmlResults = await Promise.all(childSitemaps.map(async (url) => ({
+    url,
+    xml: await fetchText(url)
+  })));
+
+  for (const result of childXmlResults) {
+    const childName = `${isoSafe(new Date())}-${result.url.replace(/^https?:\/\//, '').replace(/[^a-z0-9]+/gi, '-').slice(0, 80)}.xml`;
+    fs.writeFileSync(path.join(RAW_DIR, childName), result.xml, 'utf8');
+  }
+
+  const entries = childXmlResults
+    .flatMap((result) => extractUrlEntries(result.xml))
     .filter((entry) => entry.loc)
     .filter((entry) => isAnnouncementUrl(entry.loc))
     .slice(0, 20);

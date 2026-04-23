@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 22
 - sources: 2
-- delta vs prev: +20
-- delta ratio: 10
-- streak days: 3
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 5
 - regions: us, global
 - categories: macro, crypto, general
 ## Sample item IDs
