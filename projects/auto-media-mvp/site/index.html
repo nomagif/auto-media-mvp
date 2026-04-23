@@ -69,6 +69,26 @@
       box-shadow: 0 20px 60px rgba(0,0,0,.18);
       backdrop-filter: blur(8px);
     }
+    .highlights {
+      margin: 0 0 1.2rem;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+    .highlights-header p, .meta { color: var(--muted); font-size: .95rem; }
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .highlight-block {
+      background: rgba(17,24,39,.5);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .highlight-block h3 { margin-top: 0; }
     .footer {
       color: var(--muted);
       margin-top: 1rem;
@@ -90,6 +110,37 @@
       <a href="/pages/categories/macro.html">Macro</a>
       <a href="/pages/topics/market-move.html">Market Move</a>
     </div>
+    
+    <section class="highlights">
+      <div class="highlights-header">
+        <h2>Current Highlights</h2>
+        <p>Generated at 2026-04-23T12:57:26.706Z</p>
+      </div>
+      <div class="highlight-grid">
+        
+    <div class="highlight-block">
+      <h3>Top Topics</h3>
+      <ul>
+        <li><a href="/pages/topics/general.html">general</a> <span class="meta">41 mentions</span></li><li><a href="/pages/topics/market-move.html">market-move</a> <span class="meta">25 mentions</span></li><li><a href="/pages/topics/product-launch.html">product-launch</a> <span class="meta">23 mentions</span></li>
+      </ul>
+    </div>
+        
+    <div class="highlight-block">
+      <h3>Top Companies</h3>
+      <ul>
+        <li><a href="/pages/companies/anthropic.html">Anthropic</a> <span class="meta">22 mentions</span></li><li><a href="/pages/companies/openai.html">OpenAI</a> <span class="meta">22 mentions</span></li><li><a href="/pages/companies/claude.html">Claude</a> <span class="meta">8 mentions</span></li>
+      </ul>
+    </div>
+        
+    <div class="highlight-block">
+      <h3>Top Categories</h3>
+      <ul>
+        <li><a href="/pages/categories/ai.html">ai</a> <span class="meta">56 mentions</span></li><li><a href="/pages/categories/macro.html">macro</a> <span class="meta">22 mentions</span></li><li><a href="/pages/categories/general.html">general</a> <span class="meta">18 mentions</span></li>
+      </ul>
+    </div>
+      </div>
+    </section>
+  
     <div class="card">
 <h1>News Trend Observatory</h1>
 <p>Auto-generated landing page for the ranking outputs.</p>
