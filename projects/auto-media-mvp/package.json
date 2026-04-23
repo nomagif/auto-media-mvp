@@ -10,6 +10,7 @@
     "test": "node --test tests/publish/lib_publish_adapters.test.js",
     "collect:techcrunch": "node scripts/collect/techcrunch_rss.js",
     "collect:hackernews": "node scripts/collect/hackernews_topstories.js",
+    "rank:generate": "node scripts/rank/generate_rankings.js",
     "generate:drafts": "node scripts/generate/normalize_to_draft.js",
     "generate:enrich": "node scripts/generate/enrich_from_sources.js",
     "title:build-requests": "node scripts/generate/build_title_requests.js",
