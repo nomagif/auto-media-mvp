@@ -28,10 +28,15 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function escapeHtmlAttr(value) {
+  return escapeHtml(value);
+}
+
 function markdownToHtml(markdown) {
   const lines = String(markdown || '').split('\n');
   const html = [];
   let paragraph = [];
+  let listItems = [];
 
   function flushParagraph() {
     if (paragraph.length === 0) return;
@@ -39,45 +44,55 @@ function markdownToHtml(markdown) {
     paragraph = [];
   }
 
+  function flushList() {
+    if (listItems.length === 0) return;
+    html.push(`<ul>\n${listItems.map((item) => `  <li>${escapeHtml(item)}</li>`).join('\n')}\n</ul>`);
+    listItems = [];
+  }
+
   for (const rawLine of lines) {
     const line = rawLine.trim();
 
     if (!line) {
       flushParagraph();
+      flushList();
       continue;
     }
 
     if (line.startsWith('# ')) {
       flushParagraph();
+      flushList();
       continue;
     }
 
     if (line.startsWith('## ')) {
       flushParagraph();
+      flushList();
       html.push(`<h2>${escapeHtml(line.replace(/^##\s+/, ''))}</h2>`);
       continue;
     }
 
     if (line.startsWith('### ')) {
       flushParagraph();
+      flushList();
       html.push(`<h3>${escapeHtml(line.replace(/^###\s+/, ''))}</h3>`);
       continue;
     }
 
     if (line.startsWith('- ')) {
       flushParagraph();
-      html.push(`<li>${escapeHtml(line.replace(/^-\s+/, ''))}</li>`);
+      listItems.push(line.replace(/^-\s+/, ''));
       continue;
     }
 
+    flushList();
     paragraph.push(line);
   }
 
   flushParagraph();
+  flushList();
 
-  return html
-    .join('\n')
-    .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>\n${match.trim()}\n</ul>`);
+  return html.join('\n');
 }
 
 function guessWordPressCategoryId(queueItem, markdown) {
@@ -112,9 +127,26 @@ function guessWordPressTagIds(queueItem, markdown) {
   return Array.from(tagIds);
 }
 
-function appendSourceHtml(contentHtml, queueItem) {
-  if (!queueItem?.source_url) return contentHtml;
-  return `${contentHtml}\n<hr />\n<p><strong>Source:</strong> <a href="${escapeHtml(queueItem.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(queueItem.source_url)}</a></p>`;
+function wrapWordPressArticleHtml(markdown, contentHtml, queueItem) {
+  const title = extractMarkdownTitle(markdown);
+  const excerpt = extractExcerpt(markdown, 180);
+  const lead = excerpt ? `<p><strong>要点:</strong> ${escapeHtml(excerpt)}</p>` : '';
+  const sourceBlock = queueItem?.source_url
+    ? `<div class="source-link"><strong>原文:</strong> <a href="${escapeHtmlAttr(queueItem.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(queueItem.source_url)}</a></div>`
+    : '';
+
+  return [
+    `<article class="auto-media-article">`,
+    `  <header>`,
+    `    <h1>${escapeHtml(title)}</h1>`,
+    lead ? `    ${lead}` : '',
+    `  </header>`,
+    `  <section class="article-body">`,
+    contentHtml,
+    `  </section>`,
+    sourceBlock ? `  <footer>${sourceBlock}</footer>` : '',
+    `</article>`
+  ].filter(Boolean).join('\n');
 }
 
 function extractExcerpt(markdown, maxLength = 140) {
@@ -347,7 +379,8 @@ function buildXPublishInput(queueItem) {
 
 function buildWordPressPublishInput(queueItem) {
   const content = readText(queueItem.draft_file);
-  const contentHtml = appendSourceHtml(markdownToHtml(content), queueItem);
+  const bodyHtml = markdownToHtml(content);
+  const contentHtml = wrapWordPressArticleHtml(content, bodyHtml, queueItem);
   return {
     item_id: queueItem.item_id,
     platform: 'wordpress',
