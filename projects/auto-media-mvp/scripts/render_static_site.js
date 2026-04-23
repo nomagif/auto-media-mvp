@@ -7,6 +7,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SRC_DIR = path.join(ROOT, 'output', 'rankings');
 const RANKINGS_FILE = path.join(ROOT, 'data', 'rankings', 'latest.json');
 const DIST_DIR = path.join(ROOT, 'site');
+const BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || '');
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -22,6 +23,17 @@ function listMarkdownFiles(dir) {
   return out;
 }
 
+function normalizeBasePath(value) {
+  const cleaned = String(value || '').trim();
+  if (!cleaned || cleaned === '/') return '';
+  return `/${cleaned.replace(/^\/+|\/+$/g, '')}`;
+}
+
+function sitePath(targetPath) {
+  const normalized = String(targetPath || '').startsWith('/') ? String(targetPath) : `/${String(targetPath || '')}`;
+  return `${BASE_PATH}${normalized}`;
+}
+
 function escapeHtml(value) {
   return String(value || '')
     .replace(/&/g, '&amp;')
@@ -35,7 +47,8 @@ function inlineFormat(text) {
   out = out.replace(/`([^`]+)`/g, '<code>$1</code>');
   out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, href) => {
     const normalized = href.endsWith('.md') ? href.replace(/\.md$/i, '.html') : href;
-    return `<a href="${normalized}">${escapeHtml(label)}</a>`;
+    const linked = normalized.startsWith('/') ? sitePath(normalized) : normalized;
+    return `<a href="${linked}">${escapeHtml(label)}</a>`;
   });
   return out;
 }
@@ -125,7 +138,7 @@ function renderHighlights(rankings) {
     <div class="highlight-block">
       <h3>${escapeHtml(title)}</h3>
       <ul>
-        ${rows.map((row) => `<li><a href="/pages/${kind}/${row.label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}.html">${escapeHtml(row.label)}</a> <span class="meta">${row.mention_count} mentions</span></li>`).join('')}
+        ${rows.map((row) => `<li><a href="${sitePath(`/pages/${kind}/${row.label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}.html`)}">${escapeHtml(row.label)}</a> <span class="meta">${row.mention_count} mentions</span></li>`).join('')}
       </ul>
     </div>`;
 
@@ -154,7 +167,7 @@ function slugify(value) {
 function renderListPage(title, rows, kind) {
   const items = (rows || []).map((row) => `
     <li>
-      <a href="/pages/${kind}/${slugify(row.label)}.html">${escapeHtml(row.label)}</a>
+      <a href="${sitePath(`/pages/${kind}/${slugify(row.label)}.html`)}">${escapeHtml(row.label)}</a>
       <span class="meta">${row.mention_count} mentions · ${row.source_count} sources</span>
     </li>`).join('');
 
@@ -170,7 +183,7 @@ function renderSourceTypePage(rankings) {
     const relatedTopics = (rankings.rankings?.topics || [])
       .filter((row) => (row.category_mix || []).length > 0)
       .slice(0, 5)
-      .map((row) => `<li><a href="/pages/topics/${slugify(row.label)}.html">${escapeHtml(row.label)}</a> <span class="meta">${row.mention_count}</span></li>`)
+      .map((row) => `<li><a href="${sitePath(`/pages/topics/${slugify(row.label)}.html`)}">${escapeHtml(row.label)}</a> <span class="meta">${row.mention_count}</span></li>`)
       .join('');
 
     return `
@@ -311,14 +324,14 @@ function wrapHtml(title, body, options = {}) {
       <p class="subtitle">A minimal static view of signals, counts, rankings, and changes for AI / Technology and Finance / Economics.</p>
     </div>
     <div class="nav">
-      <a href="/index.html">Home</a>
-      <a href="/latest.html">Latest</a>
-      <a href="/pages/categories/ai.html">AI</a>
-      <a href="/pages/categories/macro.html">Macro</a>
-      <a href="/pages/topics/market-move.html">Market Move</a>
-      <a href="/browse/topics.html">Browse Topics</a>
-      <a href="/browse/companies.html">Browse Companies</a>
-      <a href="/browse/source-types.html">Source Types</a>
+      <a href="${sitePath('/index.html')}">Home</a>
+      <a href="${sitePath('/latest.html')}">Latest</a>
+      <a href="${sitePath('/pages/categories/ai.html')}">AI</a>
+      <a href="${sitePath('/pages/categories/macro.html')}">Macro</a>
+      <a href="${sitePath('/pages/topics/market-move.html')}">Market Move</a>
+      <a href="${sitePath('/browse/topics.html')}">Browse Topics</a>
+      <a href="${sitePath('/browse/companies.html')}">Browse Companies</a>
+      <a href="${sitePath('/browse/source-types.html')}">Source Types</a>
     </div>
     ${options.highlights || ''}
     <div class="card">
@@ -363,6 +376,7 @@ function main() {
     ok: true,
     source_dir: 'output/rankings',
     output_dir: 'site',
+    base_path: BASE_PATH || '/',
     files: files.length
   }, null, 2));
 }

@@ -131,6 +131,20 @@
 - `fixtures/image-prompt-responses/`: image prompt worker 用 fixture
 - `package.json`: 最低限の実行スクリプト
 
+## 静的公開の最短導線
+公開を前提にするなら、まず observatory 面を静的配信する。
+
+```bash
+cd projects/auto-media-mvp
+npm run site:build
+npm run site:serve
+```
+
+- `site:build` は ranking markdown / entity pages / static HTML をまとめて生成する
+- `site:serve` は `site/` をローカル確認する
+- GitHub Pages workflow は `.github/workflows/deploy-static-site.yml`
+- 詳細は `DEPLOY_STATIC_SITE.md`
+
 ## 実行例
 ```bash
 cd projects/auto-media-mvp
@@ -179,6 +193,12 @@ npm run run:mvp
 - 政治的・戦争ニュースを断定口調で発信しない
 - 複数国の価値観を混在させない
 - **ニュースを語らない。数字だけを出す**
+
+## 公開方針
+- まずは **静的 observatory site** を公開面の主役にする
+- deploy 導線は summary / article / prose を前提にしない
+- GitHub Pages のような軽量 hosting で出せる形を優先する
+- 将来 WordPress や digest を足しても、公開の一次面は metrics-first を保つ
 
 ## 方針転換メモ
 - 旧方針の「日本語記事化・WordPress/note/X 自動投稿」は補助機能へ後退

@@ -79,6 +79,13 @@
 - WordPress は主戦場ではなく補助面
 - 必要なら digest / recap 用に使う
 
+### 優先6
+deploy 前提の静的配信導線
+- rankings / browse / entity pages をまとめて build する入口を固定する
+- GitHub Pages などの静的 hosting へそのまま乗せる
+- project subpath でも壊れない base path 対応を保つ
+- 公開面に summary / prose ルートを混ぜない
+
 ---
 
 ## 5. 実装の次ステップ
