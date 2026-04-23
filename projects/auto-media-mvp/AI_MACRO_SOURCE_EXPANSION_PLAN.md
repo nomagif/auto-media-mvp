@@ -86,3 +86,7 @@ AI・テクノロジー / 金融・経済（投資・マクロ）軸で observat
 - いま macro 側は Fed と CoinGecko で足場ができた
 - AI 側も official / primary source を入れるとバランスが良くなる
 - observatory の柱がより明確になる
+
+現時点の最有力:
+- **OpenAI announcements / news**
+- 次点: Anthropic announcements
