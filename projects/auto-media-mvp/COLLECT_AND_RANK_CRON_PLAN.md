@@ -20,6 +20,7 @@ ranking refresh と collect を別ジョブに分ける。
 ### 2. collect refresh
 - collect:techcrunch
 - collect:hackernews
+- collect:fed
 - 必要なら将来他ソース追加
 
 ## 将来の拡張
