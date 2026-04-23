@@ -143,6 +143,7 @@ npm run site:serve
 - `site:build` は ranking markdown / entity pages / static HTML をまとめて生成する
 - `site:serve` は `site/` をローカル確認する
 - GitHub Pages workflow は `.github/workflows/deploy-static-site.yml`
+- 現在の想定公開URLは <https://nomagif.github.io/auto-media-mvp/>
 - 詳細は `DEPLOY_STATIC_SITE.md`
 
 ## 実行例

@@ -39,6 +39,9 @@ SITE_BASE_PATH=/auto-media-mvp npm run site:render
 ## GitHub Pages
 workflow: `.github/workflows/deploy-static-site.yml`
 
+想定公開URL:
+- <https://nomagif.github.io/auto-media-mvp/>
+
 挙動:
 - `main` push で deploy
 - `workflow_dispatch` でも手動実行可能
@@ -47,7 +50,8 @@ workflow: `.github/workflows/deploy-static-site.yml`
 
 ### 推奨設定
 - GitHub repo の Pages source は `GitHub Actions`
-- project site として使う場合は workflow 側の `SITE_BASE_PATH` を repo 名に合わせる
+- この repo (`nomagif/auto-media-mvp`) は project site 想定なので `SITE_BASE_PATH=/auto-media-mvp`
+- 公開URLは <https://nomagif.github.io/auto-media-mvp/>
 - 独自ドメインへ寄せる場合は `SITE_BASE_PATH` を空にする
 
 ## 今の立ち位置
