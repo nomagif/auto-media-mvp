@@ -1,0 +1,24 @@
+[
+  {
+    "id": "bls-2026-04-23-001",
+    "source_type": "official",
+    "source_name": "BLS",
+    "source_url": "https://www.bls.gov/bls/",
+    "title": "Major Economic Indicators Latest Numbers",
+    "body": "Consumer Price Index (CPI): +0.9% in Mar 2026 News Release Historical Data Unemployment Rate: 4.3% in Mar 2026 News Release Historical Data Payroll Employment: +178,000(p) in Mar 2026 News Release Historical Data Average Hourly Earnings: +$0.09(p) in Mar 2026 News Release Historical Data Producer Price Index - Final Demand: +0.5%(p) in Mar 2026 News Release Historical Data Employment Cost Index (ECI): +0.7% in 4th Qtr of 2025 News Release Historical Data Productivity: +1.8%(r) in 4th Qtr of 2025 News Release Historical Data U.S. Import Price Index: +0.8% in Mar 2026 News Release Historical Data U.S. Export Price Index: +1.6% in Mar 2026 News Release Historical Data p - preliminary",
+    "author": null,
+    "published_at": "2026-04-22T14:01:30.000Z",
+    "collected_at": "2026-04-23T11:48:26.648Z",
+    "language": "en",
+    "tags": [
+      "macro",
+      "official",
+      "bls"
+    ],
+    "metrics": {
+      "rank": 1,
+      "score": null,
+      "price_change_24h": null
+    }
+  }
+]
