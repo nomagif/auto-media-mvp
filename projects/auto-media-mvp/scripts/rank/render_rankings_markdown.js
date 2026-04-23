@@ -65,6 +65,20 @@ function renderSection(title, rows, limit = 10) {
   return `## ${title}\n\n${selected.map((row, index) => formatRow(row, index)).join('\n\n')}`;
 }
 
+function filterRowsByLabels(rows, labels = []) {
+  const labelSet = new Set(labels.map((label) => String(label || '').toLowerCase()));
+  return (rows || []).filter((row) => labelSet.has(String(row.label || '').toLowerCase()));
+}
+
+function renderFocusSection(title, rows, labels, limit = 10) {
+  const selected = filterRowsByLabels(rows, labels).slice(0, limit);
+  if (selected.length === 0) {
+    return `## ${title}\n\n(no data)`;
+  }
+
+  return `## ${title}\n\n${selected.map((row, index) => formatRow(row, index)).join('\n\n')}`;
+}
+
 function pickRisingRows(rows, limit = 5) {
   return (rows || [])
     .filter((row) => (row.delta_vs_prev || 0) > 0)
@@ -95,6 +109,19 @@ function main() {
     `Generated at: ${rankings.generated_at}`,
     '',
     `Inputs: ${(rankings.inputs || []).join(', ')}`,
+    '',
+    `Source types: ${(rankings.source_types || []).join(', ')}`,
+    '',
+    '## Focus',
+    '',
+    '- Primary genres: AI / Technology, Finance / Economics (Investing / Macro)',
+    '- Preferred lenses: AI, semiconductors, security, macro, policy, crypto',
+    '',
+    renderFocusSection('AI / Technology Focus', rankings.rankings?.categories, ['ai', 'semiconductors', 'security', 'startups'], 10),
+    '',
+    renderFocusSection('Finance / Macro Focus', rankings.rankings?.categories, ['macro', 'policy', 'crypto'], 10),
+    '',
+    renderFocusSection('Market / Policy Topics', rankings.rankings?.topics, ['market-move', 'policy-announcement', 'regulation', 'earnings', 'funding', 'infrastructure'], 10),
     '',
     renderSection('Top Topics', rankings.rankings?.topics, 10),
     '',

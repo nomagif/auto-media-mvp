@@ -4,6 +4,161 @@ Generated at: 2026-04-23T11:23:12.654Z
 
 Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, data/normalized/2026-04-18T12-36-26-085Z-hackernews-normalized.json, data/normalized/2026-04-23T10-54-05-127Z-fed-normalized.json, data/normalized/2026-04-23T11-09-09-015Z-coingecko-normalized.json
 
+Source types: tech, official, market-data
+
+## Focus
+
+- Primary genres: AI / Technology, Finance / Economics (Investing / Macro)
+- Preferred lenses: AI, semiconductors, security, macro, policy, crypto
+
+## AI / Technology Focus
+
+### 1. ai
+- mentions: 16
+- sources: 2
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 7
+- regions: us, global
+- categories: ai
+- details: pages/categories/ai.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
+  - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
+
+### 2. security
+- mentions: 14
+- sources: 1
+- delta vs prev: +1
+- delta ratio: 0.077
+- streak days: 7
+- regions: global
+- categories: security
+- details: pages/categories/security.md
+- sample links:
+  - https://abuseofnotation.github.io/category-theory-illustrated/04_order/
+  - https://en.wikipedia.org/wiki/Michael_O._Rabin
+
+### 3. startups
+- mentions: 1
+- sources: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 6
+- regions: us
+- categories: startups
+- details: pages/categories/startups.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
+
+## Finance / Macro Focus
+
+### 1. macro
+- mentions: 21
+- sources: 2
+- delta vs prev: +9
+- delta ratio: 0.75
+- streak days: 3
+- regions: global, us, china
+- categories: macro
+- details: pages/categories/macro.md
+- sample links:
+  - https://victorpoughon.github.io/interval-calculator/
+  - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260422a.htm
+
+### 2. crypto
+- mentions: 7
+- sources: 2
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 7
+- regions: us, global
+- categories: crypto
+- details: pages/categories/crypto.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
+  - https://www.coingecko.com/en/coins/bitcoin
+
+### 3. policy
+- mentions: 3
+- sources: 1
+- delta vs prev: -8
+- delta ratio: -0.727
+- streak days: 7
+- regions: us
+- categories: policy
+- details: pages/categories/policy.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/man-who-hacked-us-supreme-court-filing-system-sentenced-to-probation/
+  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
+
+## Market / Policy Topics
+
+### 1. market-move
+- mentions: 22
+- sources: 2
+- delta vs prev: +20
+- delta ratio: 10
+- streak days: 3
+- regions: us, global
+- categories: macro, crypto, general
+- details: pages/topics/market-move.md
+- sample links:
+  - https://www.federalreserve.gov/newsevents/pressreleases/monetary20260408a.htm
+  - https://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm
+
+### 2. policy-announcement
+- mentions: 17
+- sources: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 3
+- regions: us, china
+- categories: macro
+- details: pages/topics/policy-announcement.md
+- sample links:
+  - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260422a.htm
+  - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm
+
+### 3. regulation
+- mentions: 10
+- sources: 2
+- delta vs prev: +7
+- delta ratio: 2.333
+- streak days: 7
+- regions: us, china
+- categories: policy, macro
+- details: pages/topics/regulation.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
+  - https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/
+
+### 4. funding
+- mentions: 5
+- sources: 2
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 7
+- regions: us
+- categories: general, startups, ai, macro
+- details: pages/topics/funding.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
+  - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
+
+### 5. infrastructure
+- mentions: 3
+- sources: 2
+- delta vs prev: +3
+- delta ratio: 1
+- streak days: 1
+- regions: us, global
+- categories: ai, security
+- details: pages/topics/infrastructure.md
+- sample links:
+  - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
+  - https://lindbakk.com/blog/introducing-brunost
+
 ## Top Topics
 
 ### 1. general
