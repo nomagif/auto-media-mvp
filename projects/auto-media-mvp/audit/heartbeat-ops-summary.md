@@ -31,3 +31,4 @@ The raw transcript preserved the failure chain, but the simplified history view 
 - `projects/auto-media-mvp/logs/2026-04-22-2200-plus-human-log.md`
 - `projects/auto-media-mvp/audit/2026-04-22-2200-plus-audit-log.md`
 - `projects/auto-media-mvp/audit/heartbeat-failure-prevention.md`
+- `projects/auto-media-mvp/audit/heartbeat-cron-alternative.md`
