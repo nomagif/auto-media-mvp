@@ -13,6 +13,7 @@
     "collect:fed": "node scripts/collect/fed_press_releases.js",
     "collect:coingecko": "node scripts/collect/coingecko_markets.js",
     "collect:openai": "node scripts/collect/openai_announcements.js",
+    "collect:bls": "node scripts/collect/bls_releases.js",
     "rank:generate": "node scripts/rank/generate_rankings.js",
     "rank:render": "node scripts/rank/render_rankings_markdown.js",
     "rank:pages": "node scripts/rank/render_entity_pages.js",
