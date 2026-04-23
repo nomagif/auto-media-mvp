@@ -1,50 +1,169 @@
 # auto-media-mvp
 
-Operational workspace for the auto-media MVP.
+海外テックニュース・仮想通貨・SNSトレンドを収集し、日本語要約・記事下書き・SNS投稿案へ変換するためのMVPプロジェクト。
 
-## Structure
+## 目的
+- 情報収集を自動化する
+- 日本語で価値ある形に再構成する
+- 投稿前の下書き生成までを安定化する
 
-### Prompts
-- `prompts/image_prompt.md`
-- `prompts/summarize.md`
-- `prompts/summary_worker_task.md`
-- `prompts/title_candidates.md`
-- `prompts/x_post.md`
+## MVPスコープ
+- 収集: TechCrunch RSS / Hacker News / CoinGecko / Product Hunt
+- 生成: 日本語要約 / 記事下書き / X投稿案 / 画像生成プロンプト
+- 運用: 収集・生成・レビュー通知を分離
 
-### Logs and audit notes
+## ディレクトリ概要
+- `config/`: ソースや閾値設定
+- `prompts/`: 生成プロンプト
+- `data/`: raw / normalized / candidates / processed / published
+- `drafts/`: note / wordpress / x 向け下書き
+- `state/`: 重複防止・キュー・最終実行状態
+- `logs/`: 実行ログ
+- `scripts/`: collect / normalize / generate / publish
+- `audit/`: 運用監査メモ・障害メモ
+
+## 基本フロー
+1. collect: 新規データを取得して raw / normalized に保存
+2. generate: 候補抽出し、要約・下書き・X文・画像プロンプトを生成
+3. review: pending を人が確認しやすくまとめる
+
+## いま入っている雛形
+- `scripts/collect/techcrunch_rss.js`: TechCrunch RSS を取得して raw / normalized 保存
+- `scripts/collect/hackernews_topstories.js`: Hacker News Top Stories を取得して raw / normalized 保存
+- `scripts/generate/normalize_to_draft.js`: 未処理の normalized JSON 複数ファイルから draft Markdown を生成し、publish queue を更新
+- `scripts/generate/enrich_from_sources.js`: manifest + normalized + draft を束ねて enrich し、summary は生成アダプタ経由で出力
+- `scripts/generate/lib_summary.js`: summary 生成アダプタ。将来のLLM呼び出し差し替えポイント
+- `state/seen_urls.json`: URL重複除外に使用
+- `state/last_run.json`: 実行状態の記録に使用
+- `state/publish_queue.json`: 承認待ち候補のキューに使用
+- `state/generated_manifests.json`: draft 化済み normalized ファイルの記録に使用
+- `state/enriched_manifests.json`: enrich 済み manifest の記録に使用
+- `state/summary_queue.json`: summary request の処理状態管理に使用
+- `SUMMARY_IO_SPEC.md`: OpenClaw / Codex に summary 生成を委譲するための入出力仕様
+- `OPENCLAW_SUMMARY_WORKER_SPEC.md`: OpenClaw worker turn 側の処理仕様
+- `DATA_POLICY.md`: 実行生成物・state・サンプルデータの運用方針
+- `OPENCLAW_SUMMARY_SUBAGENT_PROMPT.md`: OpenClaw worker が subagent に渡す task テンプレ
+- `prompts/summary_worker_task.md`: subagent 実行時の厳格な JSON-only 指示
+- `SUMMARY_RESPONSE_NORMALIZATION.md`: summary 応答を spec 形式へ正規化するルール
+- `scripts/generate/lib_summary_response.js`: summary 応答の parse / normalize helper
+- `WORKER_INTEGRATION_PLAN.md`: worker に正規化アダプタを組み込む実装計画
+- `PHASE_A_WORKER_FIXTURE_PLAN.md`: raw response fixture を使った疑似統合計画
+- `MANUAL_SUMMARY_WORKER_RUNBOOK.md`: summary worker の手動運用手順
+- `ROADMAP.md`: 現状整理と今後の優先順位
+- `PUBLISH_PLAN.md`: WordPress / note / X への配信設計
+- `PUBLISH_IO_SPEC.md`: publish queue と投稿結果の最小スキーマ
+- `X_PUBLISH_INTERFACE.md`: X 実投稿 interface の I/O と責務
+- `PUBLISH_ENTRYPOINTS.md`: WordPress / note 用 publish 入口設計
+- `PUBLISH_ENV_SPEC.md`: 実 API 連携時の env / secret interface
+- `X_AUTH_PLAN.md`: X 実投稿 adapter の認証方針
+- `X_OAUTH_LIBRARY_PLAN.md`: OAuth 1.0a helper の導入方針
+- `X_ENV_SETUP.md`: X 実投稿 adapter 用の env 設定手順
+- `WORDPRESS_API_PLAN.md`: WordPress draft 作成 API 化の設計
+- `WORDPRESS_ENV_SETUP.md`: WordPress adapter 用の env 設定手順
+- `PUBLISH_PRECHECKLIST.md`: 実送信前の最小チェックリスト
+- `scripts/publish/build_publish_queue.js`: enriched data から publish queue と platform 別 draft を作る scaffold
+- `scripts/publish/approve_publish_items.js`: publish queue の pending_review を approved にする最小承認フロー
+- `scripts/publish/list_publish_ready.js`: approved 済み投稿候補の一覧を出す
+- `scripts/publish/lib_publish_queue.js`: publish queue 更新の共通関数
+- `scripts/publish/lib_publish_adapters.js`: x / wordpress / note の publish adapter
+- `scripts/publish/run_publish_ready.js`: approved item を platform adapter 経由で処理する runner
+- `TITLE_XPOST_IO_SPEC.md`: title candidates / X post 生成の入出力仕様
+- `prompts/title_candidates.md`: title candidates 生成用プロンプト
+- `scripts/generate/lib_title.js`: title request/response helper
+- `scripts/generate/lib_title_response.js`: title 応答の parse / normalize helper
+- `scripts/generate/build_title_requests.js`: enriched summary から title request を作る scaffold
+- `scripts/generate/run_title_worker.js`: title worker の最小版
+- `scripts/generate/apply_title_response.js`: title response を enriched に反映
+- `scripts/generate/lib_xpost.js`: X post request/response helper
+- `scripts/generate/lib_xpost_response.js`: X post 応答の parse / normalize helper
+- `scripts/generate/build_xpost_requests.js`: enriched summary から X post request を作る scaffold
+- `scripts/generate/run_xpost_worker.js`: X post worker の最小版
+- `scripts/generate/apply_xpost_response.js`: X post response を enriched に反映
+- `TITLE_RESPONSE_NORMALIZATION.md`: title 応答正規化ルール
+- `XPOST_RESPONSE_NORMALIZATION.md`: X post 応答正規化ルール
+- `fixtures/summary-responses/`: worker 正規化テスト用 fixture
+- `fixtures/title-responses/`: title worker 用 fixture
+- `fixtures/publish/`: X / WordPress / note publish input fixture（正常系 + 一部失敗系）
+- `fixtures/publish/expected/`: publish output の期待形サンプル
+- `scripts/publish/check_publish_fixture.js`: fixture input と expected output の簡易照合スクリプト
+- `logs/publish_results.jsonl`: publish result の append-only ログ
+- `ARTICLE_IO_SPEC.md`: article generation の入出力仕様
+- `scripts/generate/lib_article.js`: article request/response helper
+- `scripts/generate/build_article_requests.js`: enriched summary から article request を作る scaffold
+- `scripts/generate/lib_article_response.js`: article 応答の parse / normalize helper
+- `scripts/generate/run_article_worker.js`: article worker の最小版
+- `scripts/generate/apply_article_response.js`: article response を enriched に反映
+- `ARTICLE_RESPONSE_NORMALIZATION.md`: article 応答正規化ルール
+- `fixtures/xpost-responses/`: X post worker 用 fixture
+- `IMAGE_PROMPT_IO_SPEC.md`: image prompt generation の入出力仕様
+- `scripts/generate/lib_image_prompt.js`: image prompt request/response helper
+- `scripts/generate/build_image_prompt_requests.js`: enriched data から image prompt request を作る scaffold
+- `scripts/generate/lib_image_prompt_response.js`: image prompt 応答の parse / normalize helper
+- `scripts/generate/run_image_prompt_worker.js`: image prompt worker の最小版
+- `scripts/generate/apply_image_prompt_response.js`: image prompt response を enriched に反映
+- `IMAGE_PROMPT_RESPONSE_NORMALIZATION.md`: image prompt 応答正規化ルール
+- `fixtures/article-responses/`: article worker 用 fixture
+- `fixtures/image-prompt-responses/`: image prompt worker 用 fixture
+- `package.json`: 最低限の実行スクリプト
+
+## 実行例
+```bash
+cd projects/auto-media-mvp
+npm run collect:techcrunch
+npm run collect:hackernews
+npm run generate:drafts
+npm run generate:enrich
+npm run summary:enqueue
+npm run summary:worker
+npm run summary:apply
+npm run generate:review-digest
+```
+
+または一括実行:
+```bash
+cd projects/auto-media-mvp
+npm run run:mvp
+```
+
+## 動作確認ポイント
+- `data/raw/tech/` に TechCrunch / Hacker News の取得結果が保存される
+- `data/normalized/` に共通スキーマJSONが保存される
+- `drafts/markdown/` に下書きMarkdownが生成される
+- `data/processed/` に draft manifest と enriched JSON が生成される
+- `data/processed/requests/` と `data/processed/responses/` に summary request/response JSON が保存される
+- `output/daily/` に review digest が生成される
+- `state/seen_urls.json` `state/publish_queue.json` `state/last_run.json` `state/enriched_manifests.json` `state/summary_queue.json` が更新される
+
+## 失敗しやすいポイント
+- ネットワーク到達性がないと collect が失敗する
+- 同じURLが既出なら normalized の新規件数は 0 になる
+- `generate:drafts` は未処理 normalized がないと新規draftを作らない
+- `summary:worker` は Phase A として `--raw-file` で raw response fixture を読める。次に OpenClaw isolated 実行へ差し替える前提
+- `summary:apply` は success response を enriched JSON に反映する
+- `generate:enrich` は現時点ではプレースホルダ生成だが、summary request/response を保存するので、本番LLM連携時の監査や再処理に繋げやすい
+- 将来的には API rate limit と retry 方針を入れる
+
+## 運用方針
+- まずは投稿自動化しない
+- rawデータを必ず残す
+- URLとトピックの重複を避ける
+- 投資助言に見える表現は避ける
+
+## Heartbeat / incident ops notes
+今回の heartbeat 障害調査と再発防止メモは以下を参照。
+
 - `logs/2026-04-22-2200-plus-human-log.md`
-  - Human-readable timeline of the session activity after 2026-04-22 22:00 JST
+  - 2026-04-22 22:00 JST 以降の人間向け整形ログ
 - `audit/2026-04-22-2200-plus-audit-log.md`
-  - Audit view split into successful outcomes, failed outcomes, and internal hidden errors
+  - 成功 / 失敗 / 内部エラーを分けた監査ログ
 - `audit/heartbeat-failure-prevention.md`
-  - Immediate prevention guidance after the heartbeat incident
+  - すぐ効く再発防止策
 - `audit/heartbeat-ops-summary.md`
-  - Short incident summary for operators
+  - オペレーター向け短縮版まとめ
 - `audit/heartbeat-cron-alternative.md`
-  - Guidance on when this project should prefer cron over heartbeat
+  - heartbeat の代わりに cron を使うべき場面の整理
 
-## Operational guidance
-
-### Heartbeat
-Use heartbeat only for:
-- tiny best-effort checks
-- lightweight low-risk maintenance
-- conversational nudges where occasional failure is acceptable
-
-Do not rely on heartbeat for:
-- exact-time reminders
-- must-succeed scheduled jobs
-- tasks that need strong auditability
-
-### Cron
-Prefer cron for:
-- deterministic schedules
-- important reminders
-- routine background checks
-- tasks where a missing final reply would be operationally confusing
-
-## Incident-review rule
-If chat history appears incomplete, treat the raw session JSONL transcript as the source of truth before concluding that logs were lost.
-
-## Current takeaway
-The recent heartbeat issue was not primarily transcript loss. The raw transcript preserved internal timeout and quota-failure events, while the simplified history made the run look incomplete.
+### 運用ルール（追加）
+- heartbeat には長い workflow を入れない
+- 正確な時刻実行や取りこぼしたくない処理は cron を使う
+- 履歴が欠けて見えたら、まず session JSONL を正として確認する
