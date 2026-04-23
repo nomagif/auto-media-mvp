@@ -58,7 +58,8 @@ function guessCategory(item) {
   if (/startup|funding|seed|series a|series b|venture|valuation|raises \$|raised \$/.test(text)) return 'startups';
   if (/breach|hack|security flaw|vulnerability|cyber|exploit|malware|patched windows/.test(text)) return 'security';
   if (/semiconductor|chip|tsmc|nvidia|intel|gpu/.test(text)) return 'semiconductors';
-  if (/x\.com|twitter|reddit|tiktok|instagram|youtube|social|meeting|video feed/.test(text)) return 'social';
+  if (/x\.com|twitter|reddit|tiktok|instagram|youtube|social|meeting|video feed|dating app|music archive/.test(text)) return 'social';
+  if (/uber|airwallex|stripe|fintech|payments|meeting|consumer|app|platform/.test(text)) return 'general';
   if (isForumItem(item)) return 'general';
   return 'general';
 }
@@ -92,6 +93,9 @@ function guessTopics(item) {
   if (/research|paper|study/.test(text) && !isForumItem(item)) topics.push('research');
   if (/chip|gpu|semiconductor/.test(text)) topics.push('chips');
   if (/layoff|laid off|job cuts/.test(text)) topics.push('layoffs');
+  if (/competition|compete|rival|going after each other/.test(text)) topics.push('competition');
+  if (/verification|identity|human verification|orb/.test(text)) topics.push('identity');
+  if (/recommendation|discovery|feed|archive/.test(text)) topics.push('consumer-apps');
   return topics.length > 0 ? topics : ['general'];
 }
 
@@ -207,6 +211,7 @@ function main() {
 
   const output = {
     generated_at: updatedAt,
+    source_types: [...new Set(items.map((item) => item.source_type).filter(Boolean))],
     inputs: files.map((file) => path.relative(ROOT, file)),
     counts: {
       items: items.length,
