@@ -5,26 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OpenAI</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; background: #0b1020; color: #e5e7eb; }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
-    a { color: #7dd3fc; }
-    h1, h2, h3 { color: #fff; }
-    h1 { font-size: 2rem; margin-top: 0; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #243041; padding-bottom: .4rem; }
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(17, 24, 39, 0.88);
+      --panel-2: rgba(15, 23, 42, 0.9);
+      --line: #243041;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --link: #7dd3fc;
+      --accent: #8b5cf6;
+      --accent-2: #22c55e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.14), transparent 24%),
+        var(--bg);
+      color: var(--text);
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 32px 20px 72px; }
+    a { color: var(--link); }
+    h1, h2, h3 { color: #fff; line-height: 1.2; }
+    h1 { font-size: 2.3rem; margin-top: 0; margin-bottom: .4rem; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid var(--line); padding-bottom: .5rem; }
     h3 { margin-top: 1.4rem; }
-    p, li { line-height: 1.65; }
-    code { background: #111827; padding: .1rem .35rem; border-radius: 6px; }
+    p, li { line-height: 1.7; }
+    p { color: var(--text); }
+    code { background: #111827; padding: .1rem .35rem; border-radius: 6px; color: #c4b5fd; }
     ul { padding-left: 1.2rem; }
-    .nav { margin-bottom: 1.5rem; }
-    .nav a { margin-right: 1rem; }
-    .card { background: #111827; border: 1px solid #243041; border-radius: 12px; padding: 20px; }
+    .hero {
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, rgba(17,24,39,.92), rgba(15,23,42,.96));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    .eyebrow { color: var(--accent-2); font-size: .9rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .subtitle { color: var(--muted); margin: 0; }
+    .nav {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+    .nav a {
+      margin-right: 0;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(17,24,39,.78);
+      border: 1px solid var(--line);
+      padding: .55rem .8rem;
+      border-radius: 999px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+      backdrop-filter: blur(8px);
+    }
+    .footer {
+      color: var(--muted);
+      margin-top: 1rem;
+      font-size: .95rem;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">AI / Macro Observatory</div>
+      <h1>OpenAI</h1>
+      <p class="subtitle">A minimal static view of the ranking outputs for AI / Technology and Finance / Economics.</p>
+    </div>
     <div class="nav">
       <a href="/index.html">Home</a>
       <a href="/latest.html">Latest</a>
+      <a href="/pages/categories/ai.html">AI</a>
+      <a href="/pages/categories/macro.html">Macro</a>
+      <a href="/pages/topics/market-move.html">Market Move</a>
     </div>
     <div class="card">
 <h1>OpenAI</h1>
@@ -52,6 +116,7 @@
 <li>https://openai.com/index/speeding-up-agentic-workflows-with-websockets/</li>
 </ul>
     </div>
+    <div class="footer">Generated from <code>output/rankings</code> via the minimal static renderer.</div>
   </div>
 </body>
 </html>
