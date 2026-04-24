@@ -143,7 +143,7 @@ npm run site:build
 npm run site:serve
 ```
 
-- `site:build` は ranking markdown / entity pages / static HTML をまとめて生成する
+- `site:build` は ranking markdown / entity pages / static HTML / premium weekly artifacts をまとめて生成する
 - `site:serve` は `site/` をローカル確認する
 - Cloudflare Pages を主導線として運用する
 - Cloudflare Pages 設定は `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`
@@ -177,6 +177,9 @@ npm run rank:generate
 npm run site:build
 npm run site:serve
 ```
+
+補足:
+- `site:build` の中で `premium:build` も走るため、weekly JSON / weekly CSV artifacts も同時に更新される
 
 補助資産の collect は引き続き利用可能。
 
