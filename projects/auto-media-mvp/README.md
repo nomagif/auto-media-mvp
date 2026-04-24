@@ -245,9 +245,19 @@ npm run collect:coingecko
 - アフィリエイトは observatory のトーンを壊さない範囲に限定する
 
 当面の free / paid 分離イメージ:
-- Free: public rankings / browse / 一部履歴
-- Paid: 全件データ / CSV / JSON export / premium dataset snapshots
+- Free: public rankings / browse / latest snapshot / 一部履歴 / 少量サンプルリンク
+- Paid: 全件データ / CSV / JSON export / historical exports / premium dataset snapshots
 - Later: API / automated premium feeds
+
+推奨の境界:
+- Free は「見るための surface」
+- Paid は「使うための data」
+
+当面の paid 商品たたき台:
+- Weekly CSV pack
+- Weekly JSON snapshot
+- 30-day archive pack
+- Full ranking dataset pack
 
 ## 方針転換メモ
 - 旧方針の「日本語記事化・WordPress/note/X 自動投稿」は補助機能へ後退

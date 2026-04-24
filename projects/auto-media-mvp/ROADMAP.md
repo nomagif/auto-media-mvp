@@ -95,6 +95,7 @@ deploy 前提の静的配信導線
 - API / automated premium feeds を後続候補として設計する
 - ads / affiliate は補助に留め、初期の主役にしない
 - 問い合わせ依存の導線は置かず、完全自動化を優先する
+- free は閲覧 surface、paid は再利用できる data という境界で設計する
 
 ---
 
@@ -106,6 +107,7 @@ deploy 前提の静的配信導線
 5. その後に軽い UI / 配信面を考える
 6. free / paid の境界を作る（上位のみ公開、履歴や全件は制限）
 7. premium dataset / historical exports CTA を置く
+8. weekly CSV / weekly JSON / 30-day archive の最小商品を設計する
 
 ---
 
