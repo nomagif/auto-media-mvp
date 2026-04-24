@@ -1,6 +1,6 @@
 # Trend Rankings
 
-Generated at: 2026-04-23T22:51:49.600Z
+Generated at: 2026-04-24T02:43:19.199Z
 
 Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, data/normalized/2026-04-18T12-36-26-085Z-hackernews-normalized.json, data/normalized/2026-04-23T10-54-05-127Z-fed-normalized.json, data/normalized/2026-04-23T11-09-09-015Z-coingecko-normalized.json, data/normalized/2026-04-23T11-37-55-061Z-openai-normalized.json, data/normalized/2026-04-23T11-48-27-016Z-bls-normalized.json, data/normalized/2026-04-23T12-57-26-531Z-anthropic-normalized.json
 
@@ -18,7 +18,7 @@ Source types: tech, official, market-data
 - sources: 4
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, global
 - categories: ai
 - details: pages/categories/ai.md
@@ -31,7 +31,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: global
 - categories: security
 - details: pages/categories/security.md
@@ -44,7 +44,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 14
+- streak days: 15
 - regions: us
 - categories: startups
 - details: pages/categories/startups.md
@@ -58,7 +58,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 11
+- streak days: 12
 - regions: global, us, china
 - categories: macro
 - details: pages/categories/macro.md
@@ -71,7 +71,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, global
 - categories: crypto
 - details: pages/categories/crypto.md
@@ -84,7 +84,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: policy
 - details: pages/categories/policy.md
@@ -99,7 +99,7 @@ Source types: tech, official, market-data
 - sources: 5
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 11
+- streak days: 12
 - regions: us, global
 - categories: crypto, ai, macro, general
 - details: pages/topics/market-move.md
@@ -112,7 +112,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 11
+- streak days: 12
 - regions: us, china
 - categories: macro
 - details: pages/topics/policy-announcement.md
@@ -125,7 +125,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, china
 - categories: policy, macro
 - details: pages/topics/regulation.md
@@ -138,7 +138,7 @@ Source types: tech, official, market-data
 - sources: 4
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 9
+- streak days: 10
 - regions: us, global
 - categories: ai, security
 - details: pages/topics/infrastructure.md
@@ -151,7 +151,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: general, startups, ai, macro
 - details: pages/topics/funding.md
@@ -164,7 +164,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 5
+- streak days: 6
 - regions: us
 - categories: macro
 - details: pages/topics/earnings.md
@@ -178,7 +178,7 @@ Source types: tech, official, market-data
 - sources: 5
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, global
 - categories: ai, general, security, macro
 - details: pages/topics/general.md
@@ -191,7 +191,7 @@ Source types: tech, official, market-data
 - sources: 5
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 11
+- streak days: 12
 - regions: us, global
 - categories: crypto, ai, macro, general
 - details: pages/topics/market-move.md
@@ -204,7 +204,7 @@ Source types: tech, official, market-data
 - sources: 6
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: ai, macro
 - details: pages/topics/product-launch.md
@@ -217,7 +217,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 11
+- streak days: 12
 - regions: us, china
 - categories: macro
 - details: pages/topics/policy-announcement.md
@@ -230,7 +230,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, china
 - categories: policy, macro
 - details: pages/topics/regulation.md
@@ -243,7 +243,7 @@ Source types: tech, official, market-data
 - sources: 4
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 9
+- streak days: 10
 - regions: us, global
 - categories: ai, security
 - details: pages/topics/infrastructure.md
@@ -256,7 +256,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: general, startups, ai, macro
 - details: pages/topics/funding.md
@@ -269,7 +269,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 13
+- streak days: 14
 - regions: us
 - categories: ai
 - details: pages/topics/consumer-apps.md
@@ -282,7 +282,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, global
 - categories: policy, macro, ai
 - details: pages/topics/research.md
@@ -295,7 +295,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: policy, ai
 - details: pages/topics/security-incident.md
@@ -314,7 +314,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: ai
 - details: pages/companies/anthropic.md
@@ -327,7 +327,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: ai
 - details: pages/companies/openai.md
@@ -340,7 +340,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 4
+- streak days: 5
 - regions: us, global
 - categories: ai
 - details: pages/companies/claude.md
@@ -353,7 +353,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 6
+- streak days: 7
 - regions: us
 - categories: ai
 - details: pages/companies/chatgpt.md
@@ -366,7 +366,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: general, ai
 - details: pages/companies/world.md
@@ -379,7 +379,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 10
+- streak days: 11
 - regions: global
 - categories: crypto
 - details: pages/companies/bitcoin.md
@@ -392,7 +392,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 6
+- streak days: 7
 - regions: us
 - categories: ai
 - details: pages/companies/sora.md
@@ -405,7 +405,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: general
 - details: pages/companies/airwallex.md
@@ -417,7 +417,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 9
+- streak days: 10
 - regions: global
 - categories: general
 - details: pages/companies/bnb.md
@@ -429,7 +429,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 10
+- streak days: 11
 - regions: global
 - categories: crypto
 - details: pages/companies/ethereum.md
@@ -447,7 +447,7 @@ Source types: tech, official, market-data
 - sources: 6
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: general, ai, policy, startups, crypto, macro
 - details: pages/regions/us.md
@@ -460,7 +460,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: global
 - categories: security, macro, ai, crypto, general
 - details: pages/regions/global.md
@@ -473,7 +473,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 12
+- streak days: 13
 - regions: china
 - categories: macro
 - details: pages/regions/china.md
@@ -487,7 +487,7 @@ Source types: tech, official, market-data
 - sources: 4
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, global
 - categories: ai
 - details: pages/categories/ai.md
@@ -500,7 +500,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 11
+- streak days: 12
 - regions: global, us, china
 - categories: macro
 - details: pages/categories/macro.md
@@ -513,7 +513,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, global
 - categories: general
 - details: pages/categories/general.md
@@ -526,7 +526,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: global
 - categories: security
 - details: pages/categories/security.md
@@ -539,7 +539,7 @@ Source types: tech, official, market-data
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us, global
 - categories: crypto
 - details: pages/categories/crypto.md
@@ -552,7 +552,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: policy
 - details: pages/categories/policy.md
@@ -565,7 +565,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 14
+- streak days: 15
 - regions: us
 - categories: startups
 - details: pages/categories/startups.md

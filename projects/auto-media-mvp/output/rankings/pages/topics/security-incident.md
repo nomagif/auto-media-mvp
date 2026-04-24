@@ -5,9 +5,10 @@
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 15
+- streak days: 16
 - regions: us
 - categories: policy, ai
+- public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-004
 - techcrunch-2026-04-18-007

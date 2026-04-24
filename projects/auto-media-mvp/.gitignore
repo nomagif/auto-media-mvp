@@ -33,3 +33,5 @@
 
 # Keep selected seed state examples only when explicitly added
 !/state/.gitkeep
+.env
+.env.*
