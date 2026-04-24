@@ -36,6 +36,30 @@ npm run site:serve
 SITE_BASE_PATH=/auto-media-mvp npm run site:render
 ```
 
+## Cloudflare Pages
+現時点の第一推奨。GitHub Pages が UI / 権限都合で詰まる場合でも、そのまま静的配信しやすい。
+
+### Cloudflare Pages 設定値
+- Framework preset: `None`
+- Production branch: `main`
+- Build command:
+  ```bash
+  cd projects/auto-media-mvp && npm ci && npm run site:build
+  ```
+- Build output directory:
+  ```bash
+  projects/auto-media-mvp/site
+  ```
+- Environment variable:
+  - `SITE_BASE_PATH` は未設定でよい（または空文字）
+
+### 公開手順
+1. Cloudflare Dashboard → Pages → Create application
+2. Connect to Git
+3. GitHub の `nomagif/auto-media-mvp` を選ぶ
+4. 上記 build settings を入力
+5. Deploy
+
 ## GitHub Pages
 workflow: `.github/workflows/deploy-static-site.yml`
 

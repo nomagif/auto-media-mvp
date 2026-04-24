@@ -142,8 +142,9 @@ npm run site:serve
 
 - `site:build` は ranking markdown / entity pages / static HTML をまとめて生成する
 - `site:serve` は `site/` をローカル確認する
-- GitHub Pages workflow は `.github/workflows/deploy-static-site.yml`
-- 現在の想定公開URLは <https://nomagif.github.io/auto-media-mvp/>
+- Cloudflare Pages なら `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`
+- GitHub Pages workflow は `.github/workflows/deploy-static-site.yml`（ただし GitHub UI 都合で詰まる場合あり）
+- GitHub Pages の想定公開URLは <https://nomagif.github.io/auto-media-mvp/>
 - 詳細は `DEPLOY_STATIC_SITE.md`
 
 ## 封じている将来ルート
@@ -219,7 +220,7 @@ npm run collect:coingecko
 ## 公開方針
 - まずは **静的 observatory site** を公開面の主役にする
 - deploy 導線は summary / article / prose を前提にしない
-- GitHub Pages のような軽量 hosting で出せる形を優先する
+- Cloudflare Pages や GitHub Pages のような軽量 hosting で出せる形を優先する
 - 将来 WordPress や digest を足しても、公開の一次面は metrics-first を保つ
 - summary / article / xpost / image prompt / publish 系の npm scripts は、現フェーズでは **guard で明示ブロック** する
 - どうしても内部検証で使う場合だけ `ALLOW_PROSE_ROUTES=1` を明示して override する
