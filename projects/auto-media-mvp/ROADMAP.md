@@ -91,9 +91,10 @@ deploy 前提の静的配信導線
 ### 優先7
 収益化導線の導入
 - public observatory を free layer として維持する
-- full dataset / history / premium brief を paid layer 候補として整理する
-- custom monitoring / team brief / dashboard inquiry を lead gen 導線として置く
+- full dataset / history / premium snapshots を paid layer 候補として整理する
+- API / automated premium feeds を後続候補として設計する
 - ads / affiliate は補助に留め、初期の主役にしない
+- 問い合わせ依存の導線は置かず、完全自動化を優先する
 
 ---
 
@@ -104,7 +105,7 @@ deploy 前提の静的配信導線
 4. markdown / json どちらでも読めるランキング出力を作る
 5. その後に軽い UI / 配信面を考える
 6. free / paid の境界を作る（上位のみ公開、履歴や全件は制限）
-7. inquiry / premium access CTA を置く
+7. premium dataset / historical exports CTA を置く
 
 ---
 

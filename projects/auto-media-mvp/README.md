@@ -232,21 +232,22 @@ npm run collect:coingecko
 ## 収益化方針
 優先順位は以下。
 
-1. **リード獲得**
-2. **データ販売**
-3. **広告**
-4. **アフィリエイト**
+1. **データ販売**
+2. **広告**
+3. **アフィリエイト**
+4. **API**
 
 考え方:
 - public site は信頼形成とサンプル提示のための observatory 面
-- 収益の本体は full dataset / historical exports / premium brief / custom monitoring
+- 収益の本体は full dataset / historical exports / premium packaged snapshots
+- 完全自動化を維持するため、問い合わせ依存の導線は置かない
 - 広告は初期の補助であり、主役にしない
 - アフィリエイトは observatory のトーンを壊さない範囲に限定する
 
 当面の free / paid 分離イメージ:
 - Free: public rankings / browse / 一部履歴
-- Paid: 全件データ / CSV / JSON export / weekly brief / custom watchlist
-- Lead gen: custom dashboard / tracked topic feed / team brief への問い合わせ導線
+- Paid: 全件データ / CSV / JSON export / premium dataset snapshots
+- Later: API / automated premium feeds
 
 ## 方針転換メモ
 - 旧方針の「日本語記事化・WordPress/note/X 自動投稿」は補助機能へ後退
