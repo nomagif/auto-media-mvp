@@ -18,6 +18,7 @@
     "rank:generate": "node scripts/rank/generate_rankings.js",
     "rank:render": "node scripts/rank/render_rankings_markdown.js",
     "rank:pages": "node scripts/rank/render_entity_pages.js",
+    "premium:weekly-json": "node scripts/premium/build_weekly_json_snapshot.js",
     "site:render": "node scripts/render_static_site.js",
     "site:build": "npm run rank:render && npm run rank:pages && npm run site:render",
     "site:serve": "python3 -m http.server 4173 --directory site",
