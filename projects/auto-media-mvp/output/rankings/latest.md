@@ -1,8 +1,8 @@
 # Trend Rankings
 
-Generated at: 2026-04-24T13:05:08.982Z
+Generated at: 2026-04-24T22:00:18.085Z
 
-Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, data/normalized/2026-04-18T12-36-26-085Z-hackernews-normalized.json, data/normalized/2026-04-23T10-54-05-127Z-fed-normalized.json, data/normalized/2026-04-23T11-09-09-015Z-coingecko-normalized.json, data/normalized/2026-04-23T11-37-55-061Z-openai-normalized.json, data/normalized/2026-04-23T11-48-27-016Z-bls-normalized.json, data/normalized/2026-04-23T12-57-26-531Z-anthropic-normalized.json, data/normalized/2026-04-24T04-27-24-934Z-techcrunch-normalized.json, data/normalized/2026-04-24T04-27-29-165Z-hackernews-normalized.json, data/normalized/2026-04-24T04-27-29-687Z-fed-normalized.json, data/normalized/2026-04-24T04-27-30-904Z-openai-normalized.json, data/normalized/2026-04-24T10-35-33-786Z-hackernews-normalized.json, data/normalized/2026-04-24T10-35-34-553Z-coingecko-normalized.json, data/normalized/2026-04-24T13-04-57-986Z-techcrunch-normalized.json, data/normalized/2026-04-24T13-05-02-198Z-hackernews-normalized.json, data/normalized/2026-04-24T13-05-03-273Z-openai-normalized.json, data/normalized/2026-04-24T13-05-08-797Z-coingecko-normalized.json
+Inputs: data/normalized/2026-04-18T12-36-21-574Z-techcrunch-normalized.json, data/normalized/2026-04-18T12-36-26-085Z-hackernews-normalized.json, data/normalized/2026-04-23T10-54-05-127Z-fed-normalized.json, data/normalized/2026-04-23T11-09-09-015Z-coingecko-normalized.json, data/normalized/2026-04-23T11-37-55-061Z-openai-normalized.json, data/normalized/2026-04-23T11-48-27-016Z-bls-normalized.json, data/normalized/2026-04-23T12-57-26-531Z-anthropic-normalized.json, data/normalized/2026-04-24T04-27-24-934Z-techcrunch-normalized.json, data/normalized/2026-04-24T04-27-29-165Z-hackernews-normalized.json, data/normalized/2026-04-24T04-27-29-687Z-fed-normalized.json, data/normalized/2026-04-24T04-27-30-904Z-openai-normalized.json, data/normalized/2026-04-24T10-35-33-786Z-hackernews-normalized.json, data/normalized/2026-04-24T10-35-34-553Z-coingecko-normalized.json, data/normalized/2026-04-24T13-04-57-986Z-techcrunch-normalized.json, data/normalized/2026-04-24T13-05-02-198Z-hackernews-normalized.json, data/normalized/2026-04-24T13-05-03-273Z-openai-normalized.json, data/normalized/2026-04-24T13-05-08-797Z-coingecko-normalized.json, data/normalized/2026-04-24T16-27-26-002Z-techcrunch-normalized.json, data/normalized/2026-04-24T16-27-30-082Z-hackernews-normalized.json, data/normalized/2026-04-24T22-00-06-010Z-techcrunch-normalized.json, data/normalized/2026-04-24T22-00-10-319Z-hackernews-normalized.json, data/normalized/2026-04-24T22-00-10-763Z-fed-normalized.json, data/normalized/2026-04-24T22-00-11-708Z-openai-normalized.json
 
 Source types: tech, official, market-data
 
@@ -14,11 +14,11 @@ Source types: tech, official, market-data
 ## AI / Technology Focus
 
 ### 1. ai
-- mentions: 77
+- mentions: 92
 - sources: 4
-- delta vs prev: +2
-- delta ratio: 0.027
-- streak days: 19
+- delta vs prev: +10
+- delta ratio: 0.122
+- streak days: 22
 - regions: us, global, asia
 - categories: ai
 - details: pages/categories/ai.md
@@ -27,11 +27,11 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
 
 ### 2. security
-- mentions: 42
+- mentions: 61
 - sources: 2
-- delta vs prev: +6
-- delta ratio: 0.167
-- streak days: 19
+- delta vs prev: +11
+- delta ratio: 0.22
+- streak days: 22
 - regions: global, us
 - categories: security
 - details: pages/categories/security.md
@@ -40,11 +40,11 @@ Source types: tech, official, market-data
   - https://en.wikipedia.org/wiki/Michael_O._Rabin
 
 ### 3. startups
-- mentions: 3
+- mentions: 5
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 18
+- delta vs prev: +1
+- delta ratio: 0.25
+- streak days: 21
 - regions: us
 - categories: startups
 - details: pages/categories/startups.md
@@ -55,11 +55,11 @@ Source types: tech, official, market-data
 ## Finance / Macro Focus
 
 ### 1. macro
-- mentions: 25
+- mentions: 28
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 15
+- delta vs prev: +3
+- delta ratio: 0.12
+- streak days: 18
 - regions: global, us, china
 - categories: macro
 - details: pages/categories/macro.md
@@ -72,7 +72,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 19
+- streak days: 22
 - regions: us, global
 - categories: crypto
 - details: pages/categories/crypto.md
@@ -81,11 +81,11 @@ Source types: tech, official, market-data
   - https://www.coingecko.com/en/coins/bitcoin
 
 ### 3. policy
-- mentions: 4
+- mentions: 5
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 19
+- streak days: 22
 - regions: us
 - categories: policy
 - details: pages/categories/policy.md
@@ -96,11 +96,11 @@ Source types: tech, official, market-data
 ## Market / Policy Topics
 
 ### 1. market-move
-- mentions: 31
+- mentions: 32
 - sources: 5
-- delta vs prev: +1
-- delta ratio: 0.033
-- streak days: 15
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 18
 - regions: us, global
 - categories: crypto, ai, macro, general
 - details: pages/topics/market-move.md
@@ -109,11 +109,11 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
 
 ### 2. policy-announcement
-- mentions: 17
+- mentions: 19
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 15
+- delta vs prev: +2
+- delta ratio: 0.118
+- streak days: 18
 - regions: us, china
 - categories: macro
 - details: pages/topics/policy-announcement.md
@@ -122,11 +122,11 @@ Source types: tech, official, market-data
   - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm
 
 ### 3. infrastructure
-- mentions: 11
+- mentions: 13
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 13
+- delta vs prev: +2
+- delta ratio: 0.182
+- streak days: 16
 - regions: us, global
 - categories: ai, security
 - details: pages/topics/infrastructure.md
@@ -134,25 +134,12 @@ Source types: tech, official, market-data
   - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
   - https://lindbakk.com/blog/introducing-brunost
 
-### 4. regulation
-- mentions: 10
-- sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
-- regions: us, china
-- categories: policy, macro
-- details: pages/topics/regulation.md
-- sample links:
-  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
-  - https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/
-
-### 5. funding
-- mentions: 8
+### 4. funding
+- mentions: 11
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
+- delta vs prev: +2
+- delta ratio: 0.222
+- streak days: 22
 - regions: us
 - categories: general, startups, ai, macro
 - details: pages/topics/funding.md
@@ -160,12 +147,25 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
   - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
 
+### 5. regulation
+- mentions: 10
+- sources: 2
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 22
+- regions: us, china
+- categories: policy, macro
+- details: pages/topics/regulation.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
+  - https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/
+
 ### 6. earnings
 - mentions: 4
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 9
+- streak days: 12
 - regions: us, global
 - categories: macro, crypto, security, ai
 - details: pages/topics/earnings.md
@@ -176,37 +176,37 @@ Source types: tech, official, market-data
 ## Top Topics
 
 ### 1. general
-- mentions: 79
+- mentions: 108
 - sources: 5
-- delta vs prev: +5
-- delta ratio: 0.068
-- streak days: 19
+- delta vs prev: +18
+- delta ratio: 0.2
+- streak days: 22
 - regions: us, global, asia
-- categories: ai, general, security, macro, policy, social
+- categories: ai, general, security, macro, policy, social, defense, startups
 - details: pages/topics/general.md
 - sample links:
   - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
   - https://techcrunch.com/2026/04/17/chef-robotics-escaped-the-robot-cooking-graveyard-and-says-its-thriving-heres-why/
 
 ### 2. product-launch
-- mentions: 36
+- mentions: 43
 - sources: 6
-- delta vs prev: +1
-- delta ratio: 0.029
-- streak days: 19
+- delta vs prev: +6
+- delta ratio: 0.162
+- streak days: 22
 - regions: us, global
-- categories: ai, macro
+- categories: ai, macro, general, security
 - details: pages/topics/product-launch.md
 - sample links:
   - https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
 
 ### 3. market-move
-- mentions: 31
+- mentions: 32
 - sources: 5
-- delta vs prev: +1
-- delta ratio: 0.033
-- streak days: 15
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 18
 - regions: us, global
 - categories: crypto, ai, macro, general
 - details: pages/topics/market-move.md
@@ -215,11 +215,11 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
 
 ### 4. policy-announcement
-- mentions: 17
+- mentions: 19
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 15
+- delta vs prev: +2
+- delta ratio: 0.118
+- streak days: 18
 - regions: us, china
 - categories: macro
 - details: pages/topics/policy-announcement.md
@@ -228,11 +228,11 @@ Source types: tech, official, market-data
   - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm
 
 ### 5. infrastructure
-- mentions: 11
+- mentions: 13
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 13
+- delta vs prev: +2
+- delta ratio: 0.182
+- streak days: 16
 - regions: us, global
 - categories: ai, security
 - details: pages/topics/infrastructure.md
@@ -240,25 +240,12 @@ Source types: tech, official, market-data
   - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
   - https://lindbakk.com/blog/introducing-brunost
 
-### 6. regulation
-- mentions: 10
-- sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
-- regions: us, china
-- categories: policy, macro
-- details: pages/topics/regulation.md
-- sample links:
-  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
-  - https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/
-
-### 7. funding
-- mentions: 8
+### 6. funding
+- mentions: 11
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
+- delta vs prev: +2
+- delta ratio: 0.222
+- streak days: 22
 - regions: us
 - categories: general, startups, ai, macro
 - details: pages/topics/funding.md
@@ -266,12 +253,25 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
   - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
 
-### 8. security-incident
-- mentions: 7
+### 7. regulation
+- mentions: 10
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 19
+- streak days: 22
+- regions: us, china
+- categories: policy, macro
+- details: pages/topics/regulation.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
+  - https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/
+
+### 8. security-incident
+- mentions: 8
+- sources: 2
+- delta vs prev: +1
+- delta ratio: 0.143
+- streak days: 22
 - regions: us, global
 - categories: policy, ai, security
 - details: pages/topics/security-incident.md
@@ -282,9 +282,9 @@ Source types: tech, official, market-data
 ### 9. consumer-apps
 - mentions: 5
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 0.25
-- streak days: 17
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 20
 - regions: us, global
 - categories: ai, security
 - details: pages/topics/consumer-apps.md
@@ -292,94 +292,94 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
 
-### 10. earnings
-- mentions: 4
+### 10. research
+- mentions: 5
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 9
+- streak days: 22
 - regions: us, global
-- categories: macro, crypto, security, ai
-- details: pages/topics/earnings.md
+- categories: policy, macro, ai, security
+- details: pages/topics/research.md
 - sample links:
-  - https://www.bls.gov/bls/
-  - https://www.cnn.com/2026/04/23/politics/us-special-forces-soldier-arrested-maduro-raid-trade
+  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
+  - https://victorpoughon.github.io/interval-calculator/
 
 ## Rising Topics
 
 ### 1. general
-- mentions: 79
+- mentions: 108
 - sources: 5
-- delta vs prev: +5
-- delta ratio: 0.068
-- streak days: 19
+- delta vs prev: +18
+- delta ratio: 0.2
+- streak days: 22
 - regions: us, global, asia
-- categories: ai, general, security, macro, policy, social
+- categories: ai, general, security, macro, policy, social, defense, startups
 - details: pages/topics/general.md
 - sample links:
   - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
   - https://techcrunch.com/2026/04/17/chef-robotics-escaped-the-robot-cooking-graveyard-and-says-its-thriving-heres-why/
 
-### 2. chips
-- mentions: 2
-- sources: 2
-- delta vs prev: +1
-- delta ratio: 1
-- streak days: 19
-- regions: us
-- categories: ai
-- details: pages/topics/chips.md
-- sample links:
-  - https://news.ycombinator.com/item?id=47814832
-  - https://techcrunch.com/2026/04/24/in-another-wild-turn-for-ai-chips-meta-signs-deal-for-millions-of-amazon-ai-cpus/
-
-### 3. consumer-apps
-- mentions: 5
-- sources: 2
-- delta vs prev: +1
-- delta ratio: 0.25
-- streak days: 17
-- regions: us, global
-- categories: ai, security
-- details: pages/topics/consumer-apps.md
-- sample links:
-  - https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/
-  - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
-
-### 4. market-move
-- mentions: 31
-- sources: 5
-- delta vs prev: +1
-- delta ratio: 0.033
-- streak days: 15
-- regions: us, global
-- categories: crypto, ai, macro, general
-- details: pages/topics/market-move.md
-- sample links:
-  - https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
-  - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
-
-### 5. product-launch
-- mentions: 36
+### 2. product-launch
+- mentions: 43
 - sources: 6
-- delta vs prev: +1
-- delta ratio: 0.029
-- streak days: 19
+- delta vs prev: +6
+- delta ratio: 0.162
+- streak days: 22
 - regions: us, global
-- categories: ai, macro
+- categories: ai, macro, general, security
 - details: pages/topics/product-launch.md
 - sample links:
   - https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/
   - https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/
 
+### 3. funding
+- mentions: 11
+- sources: 3
+- delta vs prev: +2
+- delta ratio: 0.222
+- streak days: 22
+- regions: us
+- categories: general, startups, ai, macro
+- details: pages/topics/funding.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
+  - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
+
+### 4. infrastructure
+- mentions: 13
+- sources: 4
+- delta vs prev: +2
+- delta ratio: 0.182
+- streak days: 16
+- regions: us, global
+- categories: ai, security
+- details: pages/topics/infrastructure.md
+- sample links:
+  - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
+  - https://lindbakk.com/blog/introducing-brunost
+
+### 5. policy-announcement
+- mentions: 19
+- sources: 1
+- delta vs prev: +2
+- delta ratio: 0.118
+- streak days: 18
+- regions: us, china
+- categories: macro
+- details: pages/topics/policy-announcement.md
+- sample links:
+  - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260422a.htm
+  - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm
+
 ## Top Companies
 
 ### 1. OpenAI
-- mentions: 32
-- sources: 2
-- delta vs prev: +1
-- delta ratio: 0.032
-- streak days: 19
+- mentions: 34
+- sources: 3
+- delta vs prev: +2
+- delta ratio: 0.063
+- streak days: 22
 - regions: us
 - categories: ai
 - details: pages/companies/openai.md
@@ -388,11 +388,11 @@ Source types: tech, official, market-data
   - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
 
 ### 2. Anthropic
-- mentions: 23
+- mentions: 26
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
+- delta vs prev: +3
+- delta ratio: 0.13
+- streak days: 22
 - regions: us, global
 - categories: ai
 - details: pages/companies/anthropic.md
@@ -401,11 +401,11 @@ Source types: tech, official, market-data
   - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
 
 ### 3. Claude
-- mentions: 10
+- mentions: 13
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 8
+- delta vs prev: +2
+- delta ratio: 0.182
+- streak days: 11
 - regions: us, global
 - categories: ai
 - details: pages/companies/claude.md
@@ -414,11 +414,11 @@ Source types: tech, official, market-data
   - https://www.anthropic.com/news/claude-design-anthropic-labs
 
 ### 4. ChatGPT
-- mentions: 7
+- mentions: 8
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 10
+- delta vs prev: +1
+- delta ratio: 0.143
+- streak days: 13
 - regions: us
 - categories: ai
 - details: pages/companies/chatgpt.md
@@ -427,11 +427,11 @@ Source types: tech, official, market-data
   - https://openai.com/index/introducing-workspace-agents-in-chatgpt/
 
 ### 5. Meta
-- mentions: 4
+- mentions: 5
 - sources: 2
 - delta vs prev: +1
-- delta ratio: 0.333
-- streak days: 3
+- delta ratio: 0.25
+- streak days: 6
 - regions: us
 - categories: macro, general, ai
 - details: pages/companies/meta.md
@@ -439,38 +439,12 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/23/meta-job-cuts-10-percent-8000-employees/
   - https://techcrunch.com/2026/04/23/meta-is-revamping-its-cross-app-management-system/
 
-### 6. World
+### 6. Google
 - mentions: 4
-- sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
-- regions: us, global
-- categories: general, ai, security
-- details: pages/companies/world.md
-- sample links:
-  - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
-  - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
-
-### 7. Bitcoin
-- mentions: 2
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 14
-- regions: global
-- categories: crypto
-- details: pages/companies/bitcoin.md
-- sample links:
-  - https://www.coingecko.com/en/coins/bitcoin
-  - https://www.coingecko.com/en/coins/bitcoin-cash
-
-### 8. Google
-- mentions: 2
 - sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
+- delta vs prev: +2
+- delta ratio: 1
+- streak days: 22
 - regions: us, global
 - categories: ai, security
 - details: pages/companies/google.md
@@ -478,64 +452,118 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/googles-ai-mode-can-now-help-you-find-products-in-stock-nearby/
   - https://developers.googleblog.com/torchtpu-running-pytorch-natively-on-tpus-at-google-scale/
 
-### 9. Sora
-- mentions: 2
-- sources: 2
+### 7. World
+- mentions: 4
+- sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 10
-- regions: us
-- categories: ai
-- details: pages/companies/sora.md
+- streak days: 22
+- regions: us, global
+- categories: general, ai, security
+- details: pages/companies/world.md
 - sample links:
-  - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
-  - https://openai.com/index/shipping-sora-for-android-with-codex/
+  - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
+  - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
 
-### 10. Amazon
-- mentions: 1
+### 8. Apple
+- mentions: 2
 - sources: 1
-- delta vs prev: +1
+- delta vs prev: +2
 - delta ratio: 1
 - streak days: 1
 - regions: us
-- categories: ai
+- categories: ai, macro
+- details: pages/companies/apple.md
+- sample links:
+  - https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/
+  - https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now/
+
+### 9. Amazon
+- mentions: 2
+- sources: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 4
+- regions: us
+- categories: ai, startups
 - details: pages/companies/amazon.md
 - sample links:
   - https://techcrunch.com/2026/04/24/in-another-wild-turn-for-ai-chips-meta-signs-deal-for-millions-of-amazon-ai-cpus/
+  - https://techcrunch.com/2026/04/24/nuclear-startup-x-energy-raises-1b-in-data-center-driven-ipo/
+
+### 10. Bitcoin
+- mentions: 2
+- sources: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 17
+- regions: global
+- categories: crypto
+- details: pages/companies/bitcoin.md
+- sample links:
+  - https://www.coingecko.com/en/coins/bitcoin
+  - https://www.coingecko.com/en/coins/bitcoin-cash
 
 ## Rising Companies
 
-### 1. Amazon
-- mentions: 1
+### 1. Anthropic
+- mentions: 26
+- sources: 3
+- delta vs prev: +3
+- delta ratio: 0.13
+- streak days: 22
+- regions: us, global
+- categories: ai
+- details: pages/companies/anthropic.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/
+  - https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/
+
+### 2. Google
+- mentions: 4
+- sources: 2
+- delta vs prev: +2
+- delta ratio: 1
+- streak days: 22
+- regions: us, global
+- categories: ai, security
+- details: pages/companies/google.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/googles-ai-mode-can-now-help-you-find-products-in-stock-nearby/
+  - https://developers.googleblog.com/torchtpu-running-pytorch-natively-on-tpus-at-google-scale/
+
+### 3. Apple
+- mentions: 2
 - sources: 1
-- delta vs prev: +1
+- delta vs prev: +2
 - delta ratio: 1
 - streak days: 1
 - regions: us
+- categories: ai, macro
+- details: pages/companies/apple.md
+- sample links:
+  - https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/
+  - https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now/
+
+### 4. Claude
+- mentions: 13
+- sources: 3
+- delta vs prev: +2
+- delta ratio: 0.182
+- streak days: 11
+- regions: us, global
 - categories: ai
-- details: pages/companies/amazon.md
+- details: pages/companies/claude.md
 - sample links:
-  - https://techcrunch.com/2026/04/24/in-another-wild-turn-for-ai-chips-meta-signs-deal-for-millions-of-amazon-ai-cpus/
+  - https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/
+  - https://www.anthropic.com/news/claude-design-anthropic-labs
 
-### 2. Meta
-- mentions: 4
-- sources: 2
-- delta vs prev: +1
-- delta ratio: 0.333
-- streak days: 3
-- regions: us
-- categories: macro, general, ai
-- details: pages/companies/meta.md
-- sample links:
-  - https://techcrunch.com/2026/04/23/meta-job-cuts-10-percent-8000-employees/
-  - https://techcrunch.com/2026/04/23/meta-is-revamping-its-cross-app-management-system/
-
-### 3. OpenAI
-- mentions: 32
-- sources: 2
-- delta vs prev: +1
-- delta ratio: 0.032
-- streak days: 19
+### 5. OpenAI
+- mentions: 34
+- sources: 3
+- delta vs prev: +2
+- delta ratio: 0.063
+- streak days: 22
 - regions: us
 - categories: ai
 - details: pages/companies/openai.md
@@ -546,24 +574,24 @@ Source types: tech, official, market-data
 ## Top Regions
 
 ### 1. us
-- mentions: 116
+- mentions: 137
 - sources: 6
-- delta vs prev: +2
-- delta ratio: 0.018
-- streak days: 19
+- delta vs prev: +16
+- delta ratio: 0.132
+- streak days: 22
 - regions: us
-- categories: general, ai, policy, startups, crypto, macro, security, social
+- categories: general, ai, policy, startups, crypto, macro, security, social, defense
 - details: pages/regions/us.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
 
 ### 2. global
-- mentions: 70
+- mentions: 92
 - sources: 2
-- delta vs prev: +7
-- delta ratio: 0.111
-- streak days: 19
+- delta vs prev: +12
+- delta ratio: 0.15
+- streak days: 22
 - regions: global
 - categories: security, macro, ai, crypto, general
 - details: pages/regions/global.md
@@ -576,7 +604,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 2
+- streak days: 5
 - regions: asia
 - categories: ai
 - details: pages/regions/asia.md
@@ -588,7 +616,7 @@ Source types: tech, official, market-data
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 16
+- streak days: 19
 - regions: china
 - categories: macro
 - details: pages/regions/china.md
@@ -598,11 +626,11 @@ Source types: tech, official, market-data
 ## Top Categories
 
 ### 1. ai
-- mentions: 77
+- mentions: 92
 - sources: 4
-- delta vs prev: +2
-- delta ratio: 0.027
-- streak days: 19
+- delta vs prev: +10
+- delta ratio: 0.122
+- streak days: 22
 - regions: us, global, asia
 - categories: ai
 - details: pages/categories/ai.md
@@ -611,11 +639,11 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
 
 ### 2. security
-- mentions: 42
+- mentions: 61
 - sources: 2
-- delta vs prev: +6
-- delta ratio: 0.167
-- streak days: 19
+- delta vs prev: +11
+- delta ratio: 0.22
+- streak days: 22
 - regions: global, us
 - categories: security
 - details: pages/categories/security.md
@@ -624,11 +652,11 @@ Source types: tech, official, market-data
   - https://en.wikipedia.org/wiki/Michael_O._Rabin
 
 ### 3. general
-- mentions: 28
+- mentions: 30
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 0.037
-- streak days: 19
+- delta vs prev: +2
+- delta ratio: 0.071
+- streak days: 22
 - regions: us, global
 - categories: general
 - details: pages/categories/general.md
@@ -637,11 +665,11 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
 
 ### 4. macro
-- mentions: 25
+- mentions: 28
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 15
+- delta vs prev: +3
+- delta ratio: 0.12
+- streak days: 18
 - regions: global, us, china
 - categories: macro
 - details: pages/categories/macro.md
@@ -654,7 +682,7 @@ Source types: tech, official, market-data
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 19
+- streak days: 22
 - regions: us, global
 - categories: crypto
 - details: pages/categories/crypto.md
@@ -662,25 +690,12 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/tokenmaxxing-is-making-developers-less-productive-than-they-think/
   - https://www.coingecko.com/en/coins/bitcoin
 
-### 6. policy
-- mentions: 4
+### 6. startups
+- mentions: 5
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 19
-- regions: us
-- categories: policy
-- details: pages/categories/policy.md
-- sample links:
-  - https://techcrunch.com/2026/04/17/man-who-hacked-us-supreme-court-filing-system-sentenced-to-probation/
-  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
-
-### 7. startups
-- mentions: 3
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 18
+- delta vs prev: +1
+- delta ratio: 0.25
+- streak days: 21
 - regions: us
 - categories: startups
 - details: pages/categories/startups.md
@@ -688,12 +703,37 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/
   - https://techcrunch.com/2026/04/23/bob-iger-rejoins-thrive-capital-as-advisor-after-disney-exit/
 
-### 8. social
+### 7. policy
+- mentions: 5
+- sources: 1
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 22
+- regions: us
+- categories: policy
+- details: pages/categories/policy.md
+- sample links:
+  - https://techcrunch.com/2026/04/17/man-who-hacked-us-supreme-court-filing-system-sentenced-to-probation/
+  - https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/
+
+### 8. defense
+- mentions: 1
+- sources: 1
+- delta vs prev: +1
+- delta ratio: 1
+- streak days: 1
+- regions: us
+- categories: defense
+- details: pages/categories/defense.md
+- sample links:
+  - https://techcrunch.com/2026/04/24/palantir-is-reportedly-helping-the-irs-investigate-financial-crimes/
+
+### 9. social
 - mentions: 1
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 3
+- streak days: 6
 - regions: us
 - categories: social
 - details: pages/categories/social.md
@@ -703,11 +743,11 @@ Source types: tech, official, market-data
 ## Rising Categories
 
 ### 1. security
-- mentions: 42
+- mentions: 61
 - sources: 2
-- delta vs prev: +6
-- delta ratio: 0.167
-- streak days: 19
+- delta vs prev: +11
+- delta ratio: 0.22
+- streak days: 22
 - regions: global, us
 - categories: security
 - details: pages/categories/security.md
@@ -716,11 +756,11 @@ Source types: tech, official, market-data
   - https://en.wikipedia.org/wiki/Michael_O._Rabin
 
 ### 2. ai
-- mentions: 77
+- mentions: 92
 - sources: 4
-- delta vs prev: +2
-- delta ratio: 0.027
-- streak days: 19
+- delta vs prev: +10
+- delta ratio: 0.122
+- streak days: 22
 - regions: us, global, asia
 - categories: ai
 - details: pages/categories/ai.md
@@ -728,15 +768,40 @@ Source types: tech, official, market-data
   - https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/
   - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
 
-### 3. general
+### 3. macro
 - mentions: 28
+- sources: 4
+- delta vs prev: +3
+- delta ratio: 0.12
+- streak days: 18
+- regions: global, us, china
+- categories: macro
+- details: pages/categories/macro.md
+- sample links:
+  - https://victorpoughon.github.io/interval-calculator/
+  - https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260422a.htm
+
+### 4. general
+- mentions: 30
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 0.037
-- streak days: 19
+- delta vs prev: +2
+- delta ratio: 0.071
+- streak days: 22
 - regions: us, global
 - categories: general
 - details: pages/categories/general.md
 - sample links:
   - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
   - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
+
+### 5. defense
+- mentions: 1
+- sources: 1
+- delta vs prev: +1
+- delta ratio: 1
+- streak days: 1
+- regions: us
+- categories: defense
+- details: pages/categories/defense.md
+- sample links:
+  - https://techcrunch.com/2026/04/24/palantir-is-reportedly-helping-the-irs-investigate-financial-crimes/

@@ -3,7 +3,7 @@
   "kind": "topic",
   "label": "product-launch",
   "window": "all",
-  "mention_count": 36,
+  "mention_count": 43,
   "source_count": 6,
   "region_mix": [
     "us",
@@ -11,11 +11,13 @@
   ],
   "category_mix": [
     "ai",
-    "macro"
+    "macro",
+    "general",
+    "security"
   ],
-  "delta_vs_prev": 1,
-  "delta_ratio": 0.029,
-  "streak_days": 19,
+  "delta_vs_prev": 6,
+  "delta_ratio": 0.162,
+  "streak_days": 22,
   "sample_item_ids": [
     "techcrunch-2026-04-18-012",
     "techcrunch-2026-04-18-016",
@@ -26,5 +28,5 @@
     "https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/",
     "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

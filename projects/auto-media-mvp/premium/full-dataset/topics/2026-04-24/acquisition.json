@@ -3,7 +3,7 @@
   "kind": "topic",
   "label": "acquisition",
   "window": "all",
-  "mention_count": 2,
+  "mention_count": 3,
   "source_count": 1,
   "region_mix": [
     "us"
@@ -12,16 +12,18 @@
     "general",
     "ai"
   ],
-  "delta_vs_prev": 0,
-  "delta_ratio": 0,
-  "streak_days": 19,
+  "delta_vs_prev": 1,
+  "delta_ratio": 0.5,
+  "streak_days": 22,
   "sample_item_ids": [
     "techcrunch-2026-04-18-001",
-    "techcrunch-2026-04-24-006"
+    "techcrunch-2026-04-24-006",
+    "techcrunch-2026-04-24-002"
   ],
   "sample_urls": [
     "https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/",
-    "https://techcrunch.com/2026/04/23/bret-taylors-sierra-buys-yc-backed-ai-startup-fragment/"
+    "https://techcrunch.com/2026/04/23/bret-taylors-sierra-buys-yc-backed-ai-startup-fragment/",
+    "https://techcrunch.com/2026/04/24/cohere-acquires-merges-with-german-based-startup-to-create-a-transatlantic-ai-powerhouse/"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

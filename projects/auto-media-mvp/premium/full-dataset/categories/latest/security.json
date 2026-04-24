@@ -3,7 +3,7 @@
   "kind": "category",
   "label": "security",
   "window": "all",
-  "mention_count": 42,
+  "mention_count": 61,
   "source_count": 2,
   "region_mix": [
     "global",
@@ -12,9 +12,9 @@
   "category_mix": [
     "security"
   ],
-  "delta_vs_prev": 6,
-  "delta_ratio": 0.167,
-  "streak_days": 19,
+  "delta_vs_prev": 11,
+  "delta_ratio": 0.22,
+  "streak_days": 22,
   "sample_item_ids": [
     "hn-2026-04-18-001",
     "hn-2026-04-18-002",
@@ -25,5 +25,5 @@
     "https://en.wikipedia.org/wiki/Michael_O._Rabin",
     "https://kdenlive.org/news/2026/state-2026/"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

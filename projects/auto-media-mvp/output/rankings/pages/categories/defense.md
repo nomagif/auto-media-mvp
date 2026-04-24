@@ -1,16 +1,15 @@
 # defense
 - key: category:defense
 - kind: category
-- mentions: 2
+- mentions: 1
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 6
-- regions: global
+- delta vs prev: +1
+- delta ratio: 1
+- streak days: 1
+- regions: us
 - categories: defense
+- public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
-- hn-2026-04-18-007
-- hn-2026-04-18-009
+- techcrunch-2026-04-24-001
 ## Sample links
-- https://victorpoughon.github.io/interval-calculator/
-- https://eshelyaron.com/posts/2026-04-15-towards-trust-in-emacs.html
+- https://techcrunch.com/2026/04/24/palantir-is-reportedly-helping-the-irs-investigate-financial-crimes/

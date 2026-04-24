@@ -3,7 +3,7 @@
   "kind": "region",
   "label": "us",
   "window": "all",
-  "mention_count": 116,
+  "mention_count": 137,
   "source_count": 6,
   "region_mix": [
     "us"
@@ -16,11 +16,12 @@
     "crypto",
     "macro",
     "security",
-    "social"
+    "social",
+    "defense"
   ],
-  "delta_vs_prev": 2,
-  "delta_ratio": 0.018,
-  "streak_days": 19,
+  "delta_vs_prev": 16,
+  "delta_ratio": 0.132,
+  "streak_days": 22,
   "sample_item_ids": [
     "techcrunch-2026-04-18-001",
     "techcrunch-2026-04-18-002",
@@ -31,5 +32,5 @@
     "https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/",
     "https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

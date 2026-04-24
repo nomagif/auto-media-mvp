@@ -1,0 +1,27 @@
+{
+  "key": "company:apple",
+  "kind": "company",
+  "label": "Apple",
+  "window": "all",
+  "mention_count": 2,
+  "source_count": 1,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "ai",
+    "macro"
+  ],
+  "delta_vs_prev": 2,
+  "delta_ratio": 1,
+  "streak_days": 1,
+  "sample_item_ids": [
+    "techcrunch-2026-04-24-009",
+    "techcrunch-2026-04-24-010"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/",
+    "https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now/"
+  ],
+  "updated_at": "2026-04-24T22:00:18.085Z"
+}

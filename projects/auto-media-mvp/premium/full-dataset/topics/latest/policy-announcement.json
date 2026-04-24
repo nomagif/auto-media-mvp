@@ -3,7 +3,7 @@
   "kind": "topic",
   "label": "policy-announcement",
   "window": "all",
-  "mention_count": 17,
+  "mention_count": 19,
   "source_count": 1,
   "region_mix": [
     "us",
@@ -12,9 +12,9 @@
   "category_mix": [
     "macro"
   ],
-  "delta_vs_prev": 0,
-  "delta_ratio": 0,
-  "streak_days": 15,
+  "delta_vs_prev": 2,
+  "delta_ratio": 0.118,
+  "streak_days": 18,
   "sample_item_ids": [
     "fed-2026-04-23-001",
     "fed-2026-04-23-002",
@@ -25,5 +25,5 @@
     "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm",
     "https://www.federalreserve.gov/newsevents/pressreleases/orders20260410a.htm"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

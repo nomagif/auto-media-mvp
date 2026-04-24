@@ -1,7 +1,7 @@
 {
   "product": "30-day-archive-pack",
   "version": "v1",
-  "generated_at": "2026-04-24T13:05:10.044Z",
+  "generated_at": "2026-04-24T22:00:19.116Z",
   "window": {
     "kind": "30-day",
     "from": "2026-03-26",
@@ -10,7 +10,7 @@
   "snapshot_count": 1,
   "snapshots": [
     {
-      "generated_at": "2026-04-24T13:05:08.982Z",
+      "generated_at": "2026-04-24T22:00:18.085Z",
       "window": {
         "kind": "weekly",
         "label": "2026-W17",
@@ -19,11 +19,11 @@
       },
       "source_file": "premium/weekly/2026-04-24-weekly-snapshot.json",
       "counts": {
-        "items": 188,
+        "items": 231,
         "topics": 20,
-        "companies": 18,
+        "companies": 19,
         "regions": 4,
-        "categories": 8
+        "categories": 9
       },
       "source_types": [
         "tech",

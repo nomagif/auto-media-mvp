@@ -3,7 +3,7 @@
   "kind": "company",
   "label": "Anthropic",
   "window": "all",
-  "mention_count": 23,
+  "mention_count": 26,
   "source_count": 3,
   "region_mix": [
     "us",
@@ -12,9 +12,9 @@
   "category_mix": [
     "ai"
   ],
-  "delta_vs_prev": 0,
-  "delta_ratio": 0,
-  "streak_days": 19,
+  "delta_vs_prev": 3,
+  "delta_ratio": 0.13,
+  "streak_days": 22,
   "sample_item_ids": [
     "techcrunch-2026-04-18-012",
     "techcrunch-2026-04-18-019",
@@ -25,5 +25,5 @@
     "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/",
     "https://www.anthropic.com/claude/haiku"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

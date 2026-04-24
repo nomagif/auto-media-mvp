@@ -3,17 +3,17 @@
   "kind": "company",
   "label": "OpenAI",
   "window": "all",
-  "mention_count": 32,
-  "source_count": 2,
+  "mention_count": 34,
+  "source_count": 3,
   "region_mix": [
     "us"
   ],
   "category_mix": [
     "ai"
   ],
-  "delta_vs_prev": 1,
-  "delta_ratio": 0.032,
-  "streak_days": 19,
+  "delta_vs_prev": 2,
+  "delta_ratio": 0.063,
+  "streak_days": 22,
   "sample_item_ids": [
     "techcrunch-2026-04-18-003",
     "techcrunch-2026-04-18-019",
@@ -24,5 +24,5 @@
     "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/",
     "https://openai.com/index/speeding-up-agentic-workflows-with-websockets/"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

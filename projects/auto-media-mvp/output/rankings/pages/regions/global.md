@@ -1,11 +1,11 @@
 # global
 - key: region:global
 - kind: region
-- mentions: 70
+- mentions: 92
 - sources: 2
-- delta vs prev: +7
-- delta ratio: 0.111
-- streak days: 19
+- delta vs prev: +12
+- delta ratio: 0.15
+- streak days: 22
 - regions: global
 - categories: security, macro, ai, crypto, general
 ## Sample item IDs

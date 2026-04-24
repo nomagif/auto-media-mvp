@@ -3,7 +3,7 @@
   "kind": "company",
   "label": "Claude",
   "window": "all",
-  "mention_count": 10,
+  "mention_count": 13,
   "source_count": 3,
   "region_mix": [
     "us",
@@ -12,9 +12,9 @@
   "category_mix": [
     "ai"
   ],
-  "delta_vs_prev": 0,
-  "delta_ratio": 0,
-  "streak_days": 8,
+  "delta_vs_prev": 2,
+  "delta_ratio": 0.182,
+  "streak_days": 11,
   "sample_item_ids": [
     "techcrunch-2026-04-18-012",
     "hn-2026-04-18-006",
@@ -25,5 +25,5 @@
     "https://www.anthropic.com/news/claude-design-anthropic-labs",
     "https://www.claudecodecamp.com/p/i-measured-claude-4-7-s-new-tokenizer-here-s-what-it-costs-you"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

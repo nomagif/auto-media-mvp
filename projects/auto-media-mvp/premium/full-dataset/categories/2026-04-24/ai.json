@@ -3,7 +3,7 @@
   "kind": "category",
   "label": "ai",
   "window": "all",
-  "mention_count": 77,
+  "mention_count": 92,
   "source_count": 4,
   "region_mix": [
     "us",
@@ -13,9 +13,9 @@
   "category_mix": [
     "ai"
   ],
-  "delta_vs_prev": 2,
-  "delta_ratio": 0.027,
-  "streak_days": 19,
+  "delta_vs_prev": 10,
+  "delta_ratio": 0.122,
+  "streak_days": 22,
   "sample_item_ids": [
     "techcrunch-2026-04-18-003",
     "techcrunch-2026-04-18-008",
@@ -26,5 +26,5 @@
     "https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/",
     "https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }

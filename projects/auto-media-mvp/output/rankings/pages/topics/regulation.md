@@ -5,7 +5,7 @@
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 19
+- streak days: 22
 - regions: us, china
 - categories: policy, macro
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

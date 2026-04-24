@@ -3,7 +3,7 @@
   "kind": "topic",
   "label": "research",
   "window": "all",
-  "mention_count": 4,
+  "mention_count": 5,
   "source_count": 3,
   "region_mix": [
     "us",
@@ -17,7 +17,7 @@
   ],
   "delta_vs_prev": 0,
   "delta_ratio": 0,
-  "streak_days": 19,
+  "streak_days": 22,
   "sample_item_ids": [
     "techcrunch-2026-04-18-007",
     "hn-2026-04-18-007",
@@ -28,5 +28,5 @@
     "https://victorpoughon.github.io/interval-calculator/",
     "https://www.anthropic.com/engineering/AI-resistant-technical-evaluations"
   ],
-  "updated_at": "2026-04-24T13:05:08.982Z"
+  "updated_at": "2026-04-24T22:00:18.085Z"
 }
