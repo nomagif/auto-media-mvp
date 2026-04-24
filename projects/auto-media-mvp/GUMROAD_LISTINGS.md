@@ -40,6 +40,7 @@ The product is intentionally built as a structured data package.
 - Topics / companies / regions / categories
 - Counts, deltas, streaks, source mix
 - Analyst / automation-friendly format
+- Access via the buyer self-serve page: `/premium-access.html`
 
 ### Suggested slug
 - `weekly-json-snapshot`
@@ -84,6 +85,7 @@ The product is intentionally distributed as structured data.
 - Regions CSV
 - Categories CSV
 - Metadata JSON
+- Access via the buyer self-serve page: `/premium-access.html`
 
 ### Suggested slug
 - `weekly-csv-pack`

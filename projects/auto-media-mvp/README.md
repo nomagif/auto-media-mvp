@@ -145,6 +145,7 @@ npm run site:serve
 
 - `site:build` は ranking markdown / entity pages / static HTML / premium weekly artifacts をまとめて生成する
 - premium 配布の自動化は `PREMIUM_DELIVERY_AUTOMATION.md` を参照（Gumroad verify + Cloudflare R2 + signed links）
+- Cloudflare 側の設定手順は `CLOUDFLARE_PAGES_PREMIUM_SETUP.md` を参照
 - `site:serve` は `site/` をローカル確認する
 - Cloudflare Pages を主導線として運用する
 - Cloudflare Pages 設定は `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`

@@ -1,0 +1,8 @@
+name = "auto-media-mvp"
+compatibility_date = "2026-04-25"
+pages_build_output_dir = "site"
+
+[[r2_buckets]]
+binding = "PREMIUM_BUCKET"
+bucket_name = "auto-media-mvp-premium"
+preview_bucket_name = "auto-media-mvp-premium-preview"
