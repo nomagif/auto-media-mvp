@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Data Access</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(17, 24, 39, 0.88);
+      --line: #243041;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --link: #7dd3fc;
+      --accent: #22c55e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 72px; }
+    .hero, .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+    .eyebrow { color: var(--accent); font-size: .9rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    h1, h2, h3 { color: #fff; }
+    p, li { line-height: 1.7; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    a { color: var(--link); }
+    .nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .nav a {
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .55rem .8rem;
+      background: rgba(17,24,39,.78);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">Premium Data</div>
+      <h1>Premium Data Access</h1>
+      <p class="meta">Automation-first monetization. No manual inquiry flow. Paid value is packaged as reusable data.</p>
+    </div>
+
+    <div class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/latest.html">Latest</a>
+      <a href="/browse/topics.html">Browse Topics</a>
+    </div>
+
+    <div class="card">
+      <h2>Free vs Paid</h2>
+      <ul>
+        <li><strong>Free:</strong> public observatory, top rankings, latest snapshot, browse pages, sample links</li>
+        <li><strong>Paid:</strong> full datasets, CSV / JSON exports, historical packs, packaged premium snapshots</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Planned Premium Packs</h2>
+      <div class="grid">
+        <div>
+          <h3>Weekly CSV Pack</h3>
+          <p class="meta">Topics, companies, regions, and categories as spreadsheet-friendly files.</p>
+        </div>
+        <div>
+          <h3>Weekly JSON Snapshot</h3>
+          <p class="meta">Machine-readable weekly ranking artifact for analysts and automation.</p>
+        </div>
+        <div>
+          <h3>30-Day Archive Pack</h3>
+          <p class="meta">Historical snapshots for trend comparison and persistence analysis.</p>
+        </div>
+        <div>
+          <h3>Full Ranking Dataset Pack</h3>
+          <p class="meta">Full ranking coverage for deeper reuse and custom visualization.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Status</h2>
+      <p>Premium data products are being structured now. Public observatory first, premium dataset distribution next.</p>
+      <p class="meta">Suggested future delivery: Stripe / Gumroad / Lemon Squeezy + automated file delivery.</p>
+    </div>
+  </div>
+</body>
+</html>

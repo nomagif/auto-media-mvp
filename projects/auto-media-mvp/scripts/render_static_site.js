@@ -362,6 +362,7 @@ function wrapHtml(title, body, options = {}) {
       <a href="${sitePath('/browse/topics.html')}">Browse Topics</a>
       <a href="${sitePath('/browse/companies.html')}">Browse Companies</a>
       <a href="${sitePath('/browse/source-types.html')}">Source Types</a>
+      <a href="${sitePath('/premium.html')}">Premium</a>
     </div>
     ${options.highlights || ''}
     <div class="card">
