@@ -144,6 +144,7 @@ npm run site:serve
 ```
 
 - `site:build` は ranking markdown / entity pages / static HTML / premium weekly artifacts をまとめて生成する
+- premium 配布の自動化は `PREMIUM_DELIVERY_AUTOMATION.md` を参照（Gumroad verify + Cloudflare R2 + signed links）
 - `site:serve` は `site/` をローカル確認する
 - Cloudflare Pages を主導線として運用する
 - Cloudflare Pages 設定は `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`
@@ -180,6 +181,7 @@ npm run site:serve
 
 補足:
 - `site:build` の中で `premium:build` も走るため、weekly JSON / weekly CSV artifacts も同時に更新される
+- premium artifact を Cloudflare R2 へ upload する入口は `npm run premium:publish`
 - OpenClaw cron 用の一発入口は `npm run run:observatory`
 - build 後に自動 commit / push まで行う入口は `npm run run:observatory:push`
 
@@ -245,6 +247,7 @@ npm run collect:coingecko
 考え方:
 - public site は信頼形成とサンプル提示のための observatory 面
 - 収益の本体は full dataset / historical exports / premium packaged snapshots
+- premium artifact は public repo ではなく Cloudflare R2 などの外部 storage で配布する
 - 完全自動化を維持するため、問い合わせ依存の導線は置かない
 - 広告は初期の補助であり、主役にしない
 - アフィリエイトは observatory のトーンを壊さない範囲に限定する

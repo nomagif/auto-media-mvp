@@ -4,8 +4,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
+if [[ "${PREMIUM_PUBLISH_ENABLED:-0}" == "1" ]]; then
+  npm run premium:publish
+fi
+
 if [[ -n "$(git status --porcelain)" ]]; then
-  git add data/rankings premium site output/rankings README.md ROADMAP.md package.json scripts || true
+  git add data/rankings site output/rankings README.md ROADMAP.md package.json scripts functions config *.md .gitignore || true
   if [[ -n "$(git status --porcelain)" ]]; then
     git commit -m "Refresh observatory outputs"
     git push origin main

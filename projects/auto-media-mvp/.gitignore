@@ -12,6 +12,7 @@
 /output/**
 /outputs/*
 /logs/**
+/premium/**
 
 # State files
 /state/*.json
@@ -34,6 +35,9 @@
 /outputs/note/*.md
 !/outputs/note/.gitkeep
 !/logs/.gitkeep
+
+# Premium artifacts are distributed out-of-repo
+!/premium/.gitkeep
 
 # Keep selected seed state examples only when explicitly added
 !/state/.gitkeep

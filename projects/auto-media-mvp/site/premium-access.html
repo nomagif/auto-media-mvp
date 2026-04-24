@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Access</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(17, 24, 39, 0.88);
+      --line: #243041;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --link: #7dd3fc;
+      --accent: #22c55e;
+      --danger: #fb7185;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 72px; }
+    .hero, .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+    .eyebrow { color: var(--accent); font-size: .9rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    h1, h2 { color: #fff; }
+    p, li, label { line-height: 1.7; }
+    .meta { color: var(--muted); }
+    a { color: var(--link); }
+    .nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .nav a {
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .55rem .8rem;
+      background: rgba(17,24,39,.78);
+    }
+    .field { margin-bottom: 14px; }
+    input, select, button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.92);
+      color: #fff;
+      padding: .8rem .9rem;
+      font: inherit;
+    }
+    button {
+      cursor: pointer;
+      background: rgba(34, 197, 94, .18);
+      font-weight: 700;
+    }
+    .error {
+      color: var(--danger);
+      margin-top: 10px;
+    }
+    .downloads li { margin-bottom: 10px; }
+    code {
+      background: #111827;
+      padding: .1rem .35rem;
+      border-radius: 6px;
+      color: #c4b5fd;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">Premium Data</div>
+      <h1>Premium Access</h1>
+      <p class="meta">Enter your Gumroad license key to fetch fresh download links for the latest premium artifact.</p>
+    </div>
+
+    <div class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/premium.html">Premium</a>
+      <a href="/latest.html">Latest</a>
+    </div>
+
+    <div class="card">
+      <h2>Access downloads</h2>
+      <form id="access-form">
+        <div class="field">
+          <label for="product">Product</label>
+          <select id="product" name="product">
+            <option value="weekly-json-snapshot">Weekly JSON Snapshot</option>
+            <option value="weekly-csv-pack">Weekly CSV Pack</option>
+            <option value="30-day-archive-pack">30-Day Archive Pack</option>
+            <option value="full-ranking-dataset-pack">Full Ranking Dataset Pack</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="email">Purchase email (recommended)</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="license_key">Gumroad license key</label>
+          <input id="license_key" name="license_key" type="text" autocomplete="off" placeholder="XXXX-XXXX-XXXX-XXXX" required />
+        </div>
+        <button type="submit">Get latest download links</button>
+      </form>
+      <p class="meta">Links expire after 15 minutes. You can always come back here and issue fresh ones.</p>
+      <div id="status" class="meta"></div>
+      <div id="error" class="error"></div>
+      <ul id="downloads" class="downloads"></ul>
+    </div>
+
+    <div class="card">
+      <h2>How this works</h2>
+      <ul>
+        <li>The access form verifies your Gumroad license key server-side.</li>
+        <li>If the license is valid, the site generates short-lived signed links for the latest files.</li>
+        <li>Premium files are expected to live in Cloudflare R2, not in the public Git repo.</li>
+      </ul>
+      <p class="meta">If you lost your license key, use Gumroad’s receipt email or account page first.</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('access-form');
+    const statusEl = document.getElementById('status');
+    const errorEl = document.getElementById('error');
+    const downloadsEl = document.getElementById('downloads');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusEl.textContent = 'Verifying license…';
+      errorEl.textContent = '';
+      downloadsEl.innerHTML = '';
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const response = await fetch('/api/premium/auth', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok) {
+          throw new Error(data.error || 'Failed to verify license');
+        }
+
+        statusEl.textContent = `Verified. Links valid until ${new Date(data.expires_at).toLocaleString()}.`;
+        downloadsEl.innerHTML = data.downloads.map((item) => (
+          `<li><a href="${item.url}">${item.label}</a><br /><span class="meta"><code>${item.filename}</code></span></li>`
+        )).join('');
+      } catch (error) {
+        statusEl.textContent = '';
+        errorEl.textContent = error.message || String(error);
+      }
+    });
+  </script>
+</body>
+</html>
