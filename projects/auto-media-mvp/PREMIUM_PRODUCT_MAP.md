@@ -29,10 +29,13 @@ premium artifacts と販売商品の対応表。
 ## Product 3: 30-Day Archive Pack
 - Product name: `AI / Macro Observatory — 30-Day Archive Pack`
 - Slug: `30-day-archive-pack`
-- Status: not yet implemented
-- Planned outputs:
+- Status: manifest v1 implemented
+- Current outputs:
   - `premium/archive/30-day/latest-manifest.json`
+  - `premium/archive/30-day/YYYY-MM-DD-manifest.json`
+- Planned next outputs:
   - historical snapshot bundle
+  - packaged downloadable archive
 
 ## Initial publish order
 1. Weekly JSON Snapshot

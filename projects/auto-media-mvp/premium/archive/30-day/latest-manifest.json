@@ -1,0 +1,40 @@
+{
+  "product": "30-day-archive-pack",
+  "version": "v1",
+  "generated_at": "2026-04-24T10:54:19.776Z",
+  "window": {
+    "kind": "30-day",
+    "from": "2026-03-26",
+    "to": "2026-04-24"
+  },
+  "snapshot_count": 1,
+  "snapshots": [
+    {
+      "generated_at": "2026-04-24T10:43:18.451Z",
+      "window": {
+        "kind": "weekly",
+        "label": "2026-W17",
+        "from": "2026-04-18T00:00:00.000Z",
+        "to": "2026-04-24T23:59:59.999Z"
+      },
+      "source_file": "premium/weekly/2026-04-24-weekly-snapshot.json",
+      "counts": {
+        "items": 179,
+        "topics": 20,
+        "companies": 17,
+        "regions": 4,
+        "categories": 8
+      },
+      "source_types": [
+        "tech",
+        "official",
+        "market-data"
+      ]
+    }
+  ],
+  "notes": {
+    "bundle_format": "manifest-only-v1",
+    "intended_next_step": "attach referenced weekly snapshots as downloadable bundle",
+    "sensitive_rows_included": true
+  }
+}
