@@ -88,6 +88,13 @@ deploy 前提の静的配信導線
 - project subpath でも壊れない base path 対応を保つ
 - 公開面に summary / prose ルートを混ぜない
 
+### 優先7
+収益化導線の導入
+- public observatory を free layer として維持する
+- full dataset / history / premium brief を paid layer 候補として整理する
+- custom monitoring / team brief / dashboard inquiry を lead gen 導線として置く
+- ads / affiliate は補助に留め、初期の主役にしない
+
 ---
 
 ## 5. 実装の次ステップ
@@ -96,6 +103,8 @@ deploy 前提の静的配信導線
 3. topic / company / region の集計スクリプトを作る
 4. markdown / json どちらでも読めるランキング出力を作る
 5. その後に軽い UI / 配信面を考える
+6. free / paid の境界を作る（上位のみ公開、履歴や全件は制限）
+7. inquiry / premium access CTA を置く
 
 ---
 
