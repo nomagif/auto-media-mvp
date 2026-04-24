@@ -98,3 +98,6 @@ Paid:
 3. 30-Day Archive Pack
 4. Full Ranking Dataset Pack
 5. API
+
+関連仕様:
+- `WEEKLY_JSON_SNAPSHOT_SPEC.md`

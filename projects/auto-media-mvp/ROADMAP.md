@@ -109,6 +109,7 @@ deploy 前提の静的配信導線
 7. premium dataset / historical exports CTA を置く
 8. weekly CSV / weekly JSON / 30-day archive の最小商品を設計する
 9. premium packs の出力スキーマと配布方法を固める
+10. Weekly JSON Snapshot v1 を最初の premium artifact として実装する
 
 ---
 
