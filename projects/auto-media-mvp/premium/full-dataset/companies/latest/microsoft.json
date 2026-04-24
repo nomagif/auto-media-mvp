@@ -1,0 +1,24 @@
+{
+  "key": "company:microsoft",
+  "kind": "company",
+  "label": "Microsoft",
+  "window": "all",
+  "mention_count": 1,
+  "source_count": 1,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "general"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 2,
+  "sample_item_ids": [
+    "techcrunch-2026-04-24-014"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/23/microsoft-offers-buyout-for-up-to-7-of-u-s-employees/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

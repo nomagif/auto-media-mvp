@@ -1,0 +1,29 @@
+{
+  "key": "category:security",
+  "kind": "category",
+  "label": "security",
+  "window": "all",
+  "mention_count": 36,
+  "source_count": 2,
+  "region_mix": [
+    "global",
+    "us"
+  ],
+  "category_mix": [
+    "security"
+  ],
+  "delta_vs_prev": 6,
+  "delta_ratio": 0.2,
+  "streak_days": 18,
+  "sample_item_ids": [
+    "hn-2026-04-18-001",
+    "hn-2026-04-18-002",
+    "hn-2026-04-18-003"
+  ],
+  "sample_urls": [
+    "https://abuseofnotation.github.io/category-theory-illustrated/04_order/",
+    "https://en.wikipedia.org/wiki/Michael_O._Rabin",
+    "https://kdenlive.org/news/2026/state-2026/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

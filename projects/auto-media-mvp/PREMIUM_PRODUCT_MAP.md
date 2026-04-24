@@ -37,7 +37,23 @@ premium artifacts と販売商品の対応表。
   - historical snapshot bundle
   - packaged downloadable archive
 
+## Product 4: Full Ranking Dataset Pack
+- Product name: `AI / Macro Observatory — Full Ranking Dataset Pack`
+- Slug: `full-ranking-dataset-pack`
+- Status: v1 implemented
+- Current outputs:
+  - `premium/full-dataset/latest.json`
+  - `premium/full-dataset/latest-manifest.json`
+  - `premium/full-dataset/topics/latest/*.json`
+  - `premium/full-dataset/companies/latest/*.json`
+  - `premium/full-dataset/regions/latest/*.json`
+  - `premium/full-dataset/categories/latest/*.json`
+- Dated outputs:
+  - `premium/full-dataset/YYYY-MM-DD-full-ranking-dataset.json`
+  - `premium/full-dataset/YYYY-MM-DD-manifest.json`
+
 ## Initial publish order
 1. Weekly JSON Snapshot
 2. Weekly CSV Pack
 3. 30-Day Archive Pack
+4. Full Ranking Dataset Pack

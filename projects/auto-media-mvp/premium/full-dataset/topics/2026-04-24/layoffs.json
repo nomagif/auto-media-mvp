@@ -1,0 +1,27 @@
+{
+  "key": "topic:layoffs",
+  "kind": "topic",
+  "label": "layoffs",
+  "window": "all",
+  "mention_count": 2,
+  "source_count": 1,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "general",
+    "macro"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 2,
+  "sample_item_ids": [
+    "techcrunch-2026-04-24-004",
+    "techcrunch-2026-04-24-012"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/23/redwood-materials-loses-coo-amid-layoffs-restructuring/",
+    "https://techcrunch.com/2026/04/23/meta-job-cuts-10-percent-8000-employees/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

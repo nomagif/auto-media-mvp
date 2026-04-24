@@ -1,0 +1,29 @@
+{
+  "key": "company:meta",
+  "kind": "company",
+  "label": "Meta",
+  "window": "all",
+  "mention_count": 3,
+  "source_count": 2,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "macro",
+    "general"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 2,
+  "sample_item_ids": [
+    "techcrunch-2026-04-24-012",
+    "techcrunch-2026-04-24-016",
+    "hn-2026-04-24-005"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/23/meta-job-cuts-10-percent-8000-employees/",
+    "https://techcrunch.com/2026/04/23/meta-is-revamping-its-cross-app-management-system/",
+    "https://www.bloomberg.com/news/articles/2026-04-23/meta-tells-staff-it-will-cut-10-of-jobs-in-push-for-efficiency"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

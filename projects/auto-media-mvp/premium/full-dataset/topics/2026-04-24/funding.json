@@ -1,0 +1,31 @@
+{
+  "key": "topic:funding",
+  "kind": "topic",
+  "label": "funding",
+  "window": "all",
+  "mention_count": 8,
+  "source_count": 3,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "general",
+    "startups",
+    "ai",
+    "macro"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 18,
+  "sample_item_ids": [
+    "techcrunch-2026-04-18-002",
+    "techcrunch-2026-04-18-005",
+    "techcrunch-2026-04-18-018"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/",
+    "https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/",
+    "https://techcrunch.com/2026/04/17/loop-raises-95m-to-build-supply-chain-ai-that-predicts-disruptions/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

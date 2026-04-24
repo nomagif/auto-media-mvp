@@ -1,0 +1,30 @@
+{
+  "key": "topic:product-launch",
+  "kind": "topic",
+  "label": "product-launch",
+  "window": "all",
+  "mention_count": 35,
+  "source_count": 6,
+  "region_mix": [
+    "us",
+    "global"
+  ],
+  "category_mix": [
+    "ai",
+    "macro"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 18,
+  "sample_item_ids": [
+    "techcrunch-2026-04-18-012",
+    "techcrunch-2026-04-18-016",
+    "techcrunch-2026-04-18-019"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/",
+    "https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/",
+    "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

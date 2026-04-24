@@ -1,0 +1,24 @@
+{
+  "key": "topic:inflation",
+  "kind": "topic",
+  "label": "inflation",
+  "window": "all",
+  "mention_count": 1,
+  "source_count": 1,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "macro"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 7,
+  "sample_item_ids": [
+    "bls-2026-04-23-001"
+  ],
+  "sample_urls": [
+    "https://www.bls.gov/bls/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

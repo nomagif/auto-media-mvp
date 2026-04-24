@@ -1,0 +1,35 @@
+{
+  "key": "region:us",
+  "kind": "region",
+  "label": "us",
+  "window": "all",
+  "mention_count": 114,
+  "source_count": 6,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "general",
+    "ai",
+    "policy",
+    "startups",
+    "crypto",
+    "macro",
+    "security",
+    "social"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 18,
+  "sample_item_ids": [
+    "techcrunch-2026-04-18-001",
+    "techcrunch-2026-04-18-002",
+    "techcrunch-2026-04-18-003"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/",
+    "https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/",
+    "https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

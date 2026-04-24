@@ -1,0 +1,24 @@
+{
+  "key": "company:tinder",
+  "kind": "company",
+  "label": "Tinder",
+  "window": "all",
+  "mention_count": 1,
+  "source_count": 1,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "general"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 18,
+  "sample_item_ids": [
+    "techcrunch-2026-04-18-002"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}

@@ -1,0 +1,24 @@
+{
+  "key": "company:solana",
+  "kind": "company",
+  "label": "Solana",
+  "window": "all",
+  "mention_count": 1,
+  "source_count": 1,
+  "region_mix": [
+    "global"
+  ],
+  "category_mix": [
+    "crypto"
+  ],
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 12,
+  "sample_item_ids": [
+    "coingecko-2026-04-23-007"
+  ],
+  "sample_urls": [
+    "https://www.coingecko.com/en/coins/solana"
+  ],
+  "updated_at": "2026-04-24T10:43:18.451Z"
+}
