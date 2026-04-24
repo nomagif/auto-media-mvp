@@ -108,6 +108,7 @@ deploy 前提の静的配信導線
 6. free / paid の境界を作る（上位のみ公開、履歴や全件は制限）
 7. premium dataset / historical exports CTA を置く
 8. weekly CSV / weekly JSON / 30-day archive の最小商品を設計する
+9. premium packs の出力スキーマと配布方法を固める
 
 ---
 

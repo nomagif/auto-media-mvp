@@ -149,7 +149,7 @@ npm run site:serve
 - Cloudflare Pages 設定は `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`
 - GitHub Pages workflow は `.github/workflows/deploy-static-site.yml` に残すが、現時点では補助扱い
 - GitHub Pages の想定公開URLは <https://nomagif.github.io/auto-media-mvp/>
-- 詳細は `DEPLOY_STATIC_SITE.md`, `POSTLAUNCH_CHECKLIST.md`, `CUSTOM_DOMAIN_SETUP.md`
+- 詳細は `DEPLOY_STATIC_SITE.md`, `POSTLAUNCH_CHECKLIST.md`, `CUSTOM_DOMAIN_SETUP.md`, `PREMIUM_PACKS.md`
 
 ## 封じている将来ルート
 現フェーズでは、以下は **公開導線から外した上で npm script レベルでもブロック** している。
