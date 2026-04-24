@@ -1,0 +1,24 @@
+{
+  "key": "company:amazon",
+  "kind": "company",
+  "label": "Amazon",
+  "window": "all",
+  "mention_count": 1,
+  "source_count": 1,
+  "region_mix": [
+    "us"
+  ],
+  "category_mix": [
+    "ai"
+  ],
+  "delta_vs_prev": 1,
+  "delta_ratio": 1,
+  "streak_days": 1,
+  "sample_item_ids": [
+    "techcrunch-2026-04-24-001"
+  ],
+  "sample_urls": [
+    "https://techcrunch.com/2026/04/24/in-another-wild-turn-for-ai-chips-meta-signs-deal-for-millions-of-amazon-ai-cpus/"
+  ],
+  "updated_at": "2026-04-24T13:05:08.982Z"
+}

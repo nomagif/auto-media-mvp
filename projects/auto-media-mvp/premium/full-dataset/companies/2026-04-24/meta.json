@@ -3,18 +3,19 @@
   "kind": "company",
   "label": "Meta",
   "window": "all",
-  "mention_count": 3,
+  "mention_count": 4,
   "source_count": 2,
   "region_mix": [
     "us"
   ],
   "category_mix": [
     "macro",
-    "general"
+    "general",
+    "ai"
   ],
-  "delta_vs_prev": 0,
-  "delta_ratio": 0,
-  "streak_days": 2,
+  "delta_vs_prev": 1,
+  "delta_ratio": 0.333,
+  "streak_days": 3,
   "sample_item_ids": [
     "techcrunch-2026-04-24-012",
     "techcrunch-2026-04-24-016",
@@ -25,5 +26,5 @@
     "https://techcrunch.com/2026/04/23/meta-is-revamping-its-cross-app-management-system/",
     "https://www.bloomberg.com/news/articles/2026-04-23/meta-tells-staff-it-will-cut-10-of-jobs-in-push-for-efficiency"
   ],
-  "updated_at": "2026-04-24T10:43:18.451Z"
+  "updated_at": "2026-04-24T13:05:08.982Z"
 }

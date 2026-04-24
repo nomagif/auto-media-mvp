@@ -15,7 +15,7 @@
   ],
   "delta_vs_prev": 0,
   "delta_ratio": 0,
-  "streak_days": 14,
+  "streak_days": 15,
   "sample_item_ids": [
     "hn-2026-04-18-007",
     "fed-2026-04-23-001",
@@ -26,5 +26,5 @@
     "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260422a.htm",
     "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm"
   ],
-  "updated_at": "2026-04-24T10:43:18.451Z"
+  "updated_at": "2026-04-24T13:05:08.982Z"
 }

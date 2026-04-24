@@ -3,7 +3,7 @@
   "kind": "region",
   "label": "global",
   "window": "all",
-  "mention_count": 63,
+  "mention_count": 70,
   "source_count": 2,
   "region_mix": [
     "global"
@@ -15,9 +15,9 @@
     "crypto",
     "general"
   ],
-  "delta_vs_prev": 8,
-  "delta_ratio": 0.145,
-  "streak_days": 18,
+  "delta_vs_prev": 7,
+  "delta_ratio": 0.111,
+  "streak_days": 19,
   "sample_item_ids": [
     "hn-2026-04-18-001",
     "hn-2026-04-18-002",
@@ -28,5 +28,5 @@
     "https://en.wikipedia.org/wiki/Michael_O._Rabin",
     "https://kdenlive.org/news/2026/state-2026/"
   ],
-  "updated_at": "2026-04-24T10:43:18.451Z"
+  "updated_at": "2026-04-24T13:05:08.982Z"
 }

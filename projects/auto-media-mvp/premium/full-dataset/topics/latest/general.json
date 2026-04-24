@@ -3,7 +3,7 @@
   "kind": "topic",
   "label": "general",
   "window": "all",
-  "mention_count": 74,
+  "mention_count": 79,
   "source_count": 5,
   "region_mix": [
     "us",
@@ -18,9 +18,9 @@
     "policy",
     "social"
   ],
-  "delta_vs_prev": 7,
-  "delta_ratio": 0.104,
-  "streak_days": 18,
+  "delta_vs_prev": 5,
+  "delta_ratio": 0.068,
+  "streak_days": 19,
   "sample_item_ids": [
     "techcrunch-2026-04-18-003",
     "techcrunch-2026-04-18-010",
@@ -31,5 +31,5 @@
     "https://techcrunch.com/2026/04/17/chef-robotics-escaped-the-robot-cooking-graveyard-and-says-its-thriving-heres-why/",
     "https://techcrunch.com/2026/04/17/uber-will-now-pick-up-your-returns-from-your-doorstep/"
   ],
-  "updated_at": "2026-04-24T10:43:18.451Z"
+  "updated_at": "2026-04-24T13:05:08.982Z"
 }

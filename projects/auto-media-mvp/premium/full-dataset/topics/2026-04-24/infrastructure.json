@@ -13,9 +13,9 @@
     "ai",
     "security"
   ],
-  "delta_vs_prev": 1,
-  "delta_ratio": 0.1,
-  "streak_days": 12,
+  "delta_vs_prev": 0,
+  "delta_ratio": 0,
+  "streak_days": 13,
   "sample_item_ids": [
     "techcrunch-2026-04-18-019",
     "hn-2026-04-18-013",
@@ -26,5 +26,5 @@
     "https://lindbakk.com/blog/introducing-brunost",
     "https://amitlimaye1.substack.com/p/rewriting-every-syscall-in-a-linux"
   ],
-  "updated_at": "2026-04-24T10:43:18.451Z"
+  "updated_at": "2026-04-24T13:05:08.982Z"
 }

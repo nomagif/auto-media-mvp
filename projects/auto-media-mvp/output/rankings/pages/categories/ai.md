@@ -1,12 +1,12 @@
 # ai
 - key: category:ai
 - kind: category
-- mentions: 56
+- mentions: 77
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 16
-- regions: us, global
+- delta vs prev: +2
+- delta ratio: 0.027
+- streak days: 19
+- regions: us, global, asia
 - categories: ai
 ## Sample item IDs
 - techcrunch-2026-04-18-003

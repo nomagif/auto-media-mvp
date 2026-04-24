@@ -14,7 +14,7 @@
   ],
   "delta_vs_prev": 0,
   "delta_ratio": 0,
-  "streak_days": 18,
+  "streak_days": 19,
   "sample_item_ids": [
     "techcrunch-2026-04-18-012",
     "techcrunch-2026-04-18-019",
@@ -25,5 +25,5 @@
     "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/",
     "https://www.anthropic.com/claude/haiku"
   ],
-  "updated_at": "2026-04-24T10:43:18.451Z"
+  "updated_at": "2026-04-24T13:05:08.982Z"
 }

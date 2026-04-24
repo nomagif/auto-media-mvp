@@ -1,12 +1,12 @@
 # security
 - key: category:security
 - kind: category
-- mentions: 14
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 16
-- regions: global
+- mentions: 42
+- sources: 2
+- delta vs prev: +6
+- delta ratio: 0.167
+- streak days: 19
+- regions: global, us
 - categories: security
 ## Sample item IDs
 - hn-2026-04-18-001

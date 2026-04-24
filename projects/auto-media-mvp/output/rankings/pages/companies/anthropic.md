@@ -1,12 +1,12 @@
 # Anthropic
 - key: company:anthropic
 - kind: company
-- mentions: 22
-- sources: 2
+- mentions: 23
+- sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 16
-- regions: us
+- streak days: 19
+- regions: us, global
 - categories: ai
 ## Sample item IDs
 - techcrunch-2026-04-18-012
