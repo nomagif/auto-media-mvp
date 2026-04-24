@@ -149,7 +149,7 @@ npm run site:serve
 - Cloudflare Pages 設定は `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`
 - GitHub Pages workflow は `.github/workflows/deploy-static-site.yml` に残すが、現時点では補助扱い
 - GitHub Pages の想定公開URLは <https://nomagif.github.io/auto-media-mvp/>
-- 詳細は `DEPLOY_STATIC_SITE.md`, `POSTLAUNCH_CHECKLIST.md`, `CUSTOM_DOMAIN_SETUP.md`, `PREMIUM_PACKS.md`
+- 詳細は `DEPLOY_STATIC_SITE.md`, `POSTLAUNCH_CHECKLIST.md`, `CUSTOM_DOMAIN_SETUP.md`, `PREMIUM_PACKS.md`, `OPENCLAW_CRON_PLAN.md`
 
 ## 封じている将来ルート
 現フェーズでは、以下は **公開導線から外した上で npm script レベルでもブロック** している。
@@ -180,6 +180,8 @@ npm run site:serve
 
 補足:
 - `site:build` の中で `premium:build` も走るため、weekly JSON / weekly CSV artifacts も同時に更新される
+- OpenClaw cron 用の一発入口は `npm run run:observatory`
+- build 後に自動 commit / push まで行う入口は `npm run run:observatory:push`
 
 補助資産の collect は引き続き利用可能。
 
