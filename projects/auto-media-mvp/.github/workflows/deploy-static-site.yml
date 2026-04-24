@@ -1,3 +1,4 @@
+# touch for GitHub Actions recognition
 name: Deploy static observatory site
 
 on:
