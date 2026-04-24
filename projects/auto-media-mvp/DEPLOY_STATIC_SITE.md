@@ -39,6 +39,9 @@ SITE_BASE_PATH=/auto-media-mvp npm run site:render
 ## Cloudflare Pages
 現時点の第一推奨。GitHub Pages が UI / 権限都合で詰まる場合でも、そのまま静的配信しやすい。
 
+現在の公開URL:
+- <https://auto-media-mvp.pages.dev>
+
 ### Cloudflare Pages 設定値
 - Framework preset: `None`
 - Production branch: `main`
@@ -65,6 +68,10 @@ workflow: `.github/workflows/deploy-static-site.yml`
 
 想定公開URL:
 - <https://nomagif.github.io/auto-media-mvp/>
+
+注記:
+- 実装は残しているが、現時点の主導線は Cloudflare Pages
+- GitHub UI / Actions 認識の詰まりがあったため、公開運用は Cloudflare を優先
 
 挙動:
 - `main` push で deploy

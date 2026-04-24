@@ -134,6 +134,9 @@
 ## 静的公開の最短導線
 公開を前提にするなら、まず observatory 面を静的配信する。
 
+現在の本番公開URL:
+- <https://auto-media-mvp.pages.dev>
+
 ```bash
 cd projects/auto-media-mvp
 npm run site:build
@@ -142,10 +145,11 @@ npm run site:serve
 
 - `site:build` は ranking markdown / entity pages / static HTML をまとめて生成する
 - `site:serve` は `site/` をローカル確認する
-- Cloudflare Pages なら `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`
-- GitHub Pages workflow は `.github/workflows/deploy-static-site.yml`（ただし GitHub UI 都合で詰まる場合あり）
+- Cloudflare Pages を主導線として運用する
+- Cloudflare Pages 設定は `Framework preset: None` / `Build command: cd projects/auto-media-mvp && npm ci && npm run site:build` / `Build output directory: projects/auto-media-mvp/site`
+- GitHub Pages workflow は `.github/workflows/deploy-static-site.yml` に残すが、現時点では補助扱い
 - GitHub Pages の想定公開URLは <https://nomagif.github.io/auto-media-mvp/>
-- 詳細は `DEPLOY_STATIC_SITE.md`
+- 詳細は `DEPLOY_STATIC_SITE.md`, `POSTLAUNCH_CHECKLIST.md`, `CUSTOM_DOMAIN_SETUP.md`
 
 ## 封じている将来ルート
 現フェーズでは、以下は **公開導線から外した上で npm script レベルでもブロック** している。
