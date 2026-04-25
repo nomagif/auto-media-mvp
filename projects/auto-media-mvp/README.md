@@ -171,6 +171,14 @@ npm run site:serve
 ALLOW_PROSE_ROUTES=1 npm run summary:worker
 ```
 
+内部自動化の一発入口:
+
+```bash
+npm run generate:prose:auto
+# 例: まずは1件だけ
+node scripts/generate/run_prose_pipeline.js --limit 1
+```
+
 fallback retry の回帰確認は guard を通さずにこれで実行できる。
 
 ```bash

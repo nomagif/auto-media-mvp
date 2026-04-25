@@ -34,6 +34,7 @@
     "guard:prose-routes": "node scripts/guardrails/block_public_prose_routes.js",
     "generate:drafts": "npm run guard:prose-routes && node scripts/generate/normalize_to_draft.js",
     "generate:enrich": "npm run guard:prose-routes && node scripts/generate/enrich_from_sources.js",
+    "generate:prose:auto": "ALLOW_PROSE_ROUTES=1 node scripts/generate/run_prose_pipeline.js",
     "title:build-requests": "npm run guard:prose-routes && node scripts/generate/build_title_requests.js",
     "title:worker": "npm run guard:prose-routes && node scripts/generate/run_title_worker.js",
     "title:apply": "npm run guard:prose-routes && node scripts/generate/apply_title_response.js",
