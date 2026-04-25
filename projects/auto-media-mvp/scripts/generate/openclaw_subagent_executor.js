@@ -1,13 +1,37 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..', '..');
+const DEFAULT_OPENCLAW_CONFIG = path.join(process.env.HOME || '', '.openclaw', 'openclaw.json');
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+function writeJson(file, value) {
+  fs.writeFileSync(file, JSON.stringify(value, null, 2) + '\n', 'utf8');
+}
+
+function buildTempConfig(requestedModel) {
+  const basePath = process.env.OPENCLAW_CONFIG_PATH || DEFAULT_OPENCLAW_CONFIG;
+  const base = readJson(basePath);
+  const config = JSON.parse(JSON.stringify(base));
+  config.agents = config.agents || {};
+  config.agents.defaults = config.agents.defaults || {};
+  config.agents.defaults.models = config.agents.defaults.models || {};
+  if (!config.agents.defaults.models[requestedModel]) {
+    config.agents.defaults.models[requestedModel] = {};
+  }
+  config.agents.defaults.model = config.agents.defaults.model || {};
+  config.agents.defaults.model.primary = requestedModel;
+
+  const file = path.join(os.tmpdir(), `openclaw-worker-config-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`);
+  writeJson(file, config);
+  return file;
 }
 
 function getPayloadText(cliJson) {
@@ -204,40 +228,48 @@ function main() {
   const request = readJson(path.resolve(requestFile));
   const prompt = buildPrompt(taskName, request, requestedModel);
   const sessionId = `worker-${taskName}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  const tempConfigPath = buildTempConfig(requestedModel);
 
-  const result = spawnSync('openclaw', [
-    'agent',
-    '--local',
-    '--agent',
-    'main',
-    '--session-id',
-    sessionId,
-    '--json',
-    '--thinking',
-    thinking,
-    '--timeout',
-    process.env.OPENCLAW_WORKER_TIMEOUT_SECONDS || '180',
-    '--message',
-    prompt
-  ], {
-    cwd: ROOT,
-    encoding: 'utf8',
-    maxBuffer: 10 * 1024 * 1024,
-    env: process.env
-  });
+  try {
+    const result = spawnSync('openclaw', [
+      'agent',
+      '--local',
+      '--agent',
+      'main',
+      '--session-id',
+      sessionId,
+      '--json',
+      '--thinking',
+      thinking,
+      '--timeout',
+      process.env.OPENCLAW_WORKER_TIMEOUT_SECONDS || '180',
+      '--message',
+      prompt
+    ], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      maxBuffer: 10 * 1024 * 1024,
+      env: {
+        ...process.env,
+        OPENCLAW_CONFIG_PATH: tempConfigPath
+      }
+    });
 
-  if (result.status !== 0) {
-    throw new Error((result.stderr || result.stdout || `openclaw exited with status ${result.status}`).trim());
+    if (result.status !== 0) {
+      throw new Error((result.stderr || result.stdout || `openclaw exited with status ${result.status}`).trim());
+    }
+
+    const rawCliJson = (result.stdout || result.stderr || '').trim();
+    if (!rawCliJson) {
+      throw new Error('OpenClaw returned no JSON envelope');
+    }
+
+    const cliJson = JSON.parse(rawCliJson);
+    const text = normalizePayloadText(getPayloadText(cliJson), cliJson, requestedModel);
+    process.stdout.write(text);
+  } finally {
+    try { fs.unlinkSync(tempConfigPath); } catch {}
   }
-
-  const rawCliJson = (result.stdout || result.stderr || '').trim();
-  if (!rawCliJson) {
-    throw new Error('OpenClaw returned no JSON envelope');
-  }
-
-  const cliJson = JSON.parse(rawCliJson);
-  const text = normalizePayloadText(getPayloadText(cliJson), cliJson, requestedModel);
-  process.stdout.write(text);
 }
 
 main();

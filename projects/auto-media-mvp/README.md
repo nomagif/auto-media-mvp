@@ -214,6 +214,7 @@ npm run collect:coingecko
 - 同じURLが既出なら normalized の新規件数は 0 になる
 - `generate:drafts` は未処理 normalized がないと新規draftを作らない
 - `summary:worker` などの prose worker は、デフォルトで `node scripts/generate/openclaw_subagent_executor.js` を呼んで OpenClaw local agent 実行を使う
+- executor は各試行ごとに一時 OpenClaw config を作り、`requested_model` を allowed / primary に差し込んで実行する
 - 必要なら `WORKER_EXECUTOR_CMD` / `WORKER_<TASK>_EXECUTOR_CMD` で executor を差し替えられる
 - `OPENCLAW_WORKER_TIMEOUT_SECONDS` で 1 実行ごとの OpenClaw timeout を調整できる
 - `summary:apply` は success response を enriched JSON に反映する
