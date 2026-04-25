@@ -184,6 +184,10 @@ function buildPrompt(taskName, request, requestedModel) {
 Read the request JSON and return JSON only.
 Do not include markdown fences.
 Do not include explanations, notes, greetings, or commentary.
+Do not call tools.
+Do not edit files.
+Do not use apply_patch, read, write, edit, exec, or any other tool.
+Answer directly in plain JSON in the assistant message.
 Preserve item_id and version from the request.
 Use natural Japanese where applicable.
 Requested model label: ${requestedModel}

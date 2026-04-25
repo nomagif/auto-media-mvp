@@ -23,6 +23,20 @@ function mapRetryReason(response) {
   return null;
 }
 
+function looksLikeJsonContractFailure(text) {
+  const value = String(text || '');
+  if (!value) return false;
+  return [
+    'is not valid JSON',
+    'Unexpected token',
+    'Unexpected end of JSON input',
+    'Failed to parse',
+    '[tools]',
+    'apply_patch failed',
+    'Do not include markdown fences'
+  ].some((needle) => value.includes(needle));
+}
+
 function shouldRetry(response, request, attemptIndex, models) {
   if (response?.ok) return false;
   if (attemptIndex >= models.length - 1) return false;
@@ -126,7 +140,18 @@ function runModelPlanTask({
       if (result.error) {
         response = buildErrorResponse(attemptRequest, 'EXECUTION_FAILED', result.error.message, stderr || null, true);
       } else if (result.status !== 0) {
-        response = buildErrorResponse(attemptRequest, 'EXECUTION_FAILED', stderr || `Executor exited with status ${result.status}`, rawText || stderr || null, true);
+        const combined = [stderr, rawText].filter(Boolean).join('\n').trim();
+        if (looksLikeJsonContractFailure(combined)) {
+          response = buildErrorResponse(
+            attemptRequest,
+            'INVALID_RESPONSE_JSON',
+            'Executor returned non-JSON output',
+            combined || null,
+            true
+          );
+        } else {
+          response = buildErrorResponse(attemptRequest, 'EXECUTION_FAILED', stderr || `Executor exited with status ${result.status}`, rawText || stderr || null, true);
+        }
       } else if (!rawText) {
         response = buildErrorResponse(attemptRequest, 'EMPTY_RESPONSE', 'Executor returned empty stdout', stderr || null, true);
       } else {
