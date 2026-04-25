@@ -1,16 +1,18 @@
 # identity
 - key: topic:identity
 - kind: topic
-- mentions: 2
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 20
-- regions: us
+- mentions: 3
+- sources: 2
+- delta vs prev: +1
+- delta ratio: 0.5
+- streak days: 24
+- regions: us, global
 - categories: general, ai
 ## Sample item IDs
 - techcrunch-2026-04-18-002
 - techcrunch-2026-04-18-008
+- hn-2026-04-25-002
 ## Sample links
 - https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/
 - https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/
+- https://github.com/nex-crm/wuphf

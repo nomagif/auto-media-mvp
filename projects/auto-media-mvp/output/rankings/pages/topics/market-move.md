@@ -5,7 +5,7 @@
 - sources: 5
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 18
+- streak days: 22
 - regions: us, global
 - categories: crypto, ai, macro, general
 ## Sample item IDs

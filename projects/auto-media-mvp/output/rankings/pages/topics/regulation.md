@@ -1,13 +1,13 @@
 # regulation
 - key: topic:regulation
 - kind: topic
-- mentions: 10
-- sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 22
-- regions: us, china
-- categories: policy, macro
+- mentions: 11
+- sources: 3
+- delta vs prev: +1
+- delta ratio: 0.1
+- streak days: 26
+- regions: us, china, global
+- categories: policy, macro, ai
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-007

@@ -1,11 +1,11 @@
 # Google
 - key: company:google
 - kind: company
-- mentions: 4
+- mentions: 5
 - sources: 2
-- delta vs prev: +2
-- delta ratio: 1
-- streak days: 22
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 26
 - regions: us, global
 - categories: ai, security
 ## Sample item IDs
