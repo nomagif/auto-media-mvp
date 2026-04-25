@@ -92,43 +92,8 @@ The product is intentionally distributed as structured data.
 
 ---
 
-## 3. 30-Day Archive Pack
-### Title
-AI / Macro Observatory — 30-Day Archive Pack
-
-### Subtitle
-Historical ranking snapshots for trend comparison and signal persistence.
-
-### Price
-- $15
-
-### Short description
-A historical observatory archive for AI / technology and finance / macro monitoring.
-Built for comparing signal changes over time.
-
-### Long description
-This product is part of the AI / Macro Observatory project.
-
-It provides historical snapshot files for:
-- trend comparison
-- persistence analysis
-- ranking change review
-- lightweight historical research workflows
-
-This is designed for:
-- analysts
-- researchers
-- archive-oriented workflows
-- users who need more than a single weekly snapshot
-
-It is **not** a narrative report and **not** investment advice.
-The product is intentionally distributed as structured historical data.
-
-### What’s included
-- 30-day ranking archive
-- Historical snapshots
-- Archive manifest
-- Trend comparison-ready files
-
-### Suggested slug
-- `30-day-archive-pack`
+## Current lineup note
+- Active sellable products are currently limited to:
+  - Weekly JSON Snapshot
+  - Weekly CSV Pack
+- Historical archive / full dataset ideas are deferred until the 2-product flow is proven end-to-end.

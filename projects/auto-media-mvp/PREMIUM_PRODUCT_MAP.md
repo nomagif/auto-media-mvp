@@ -26,34 +26,10 @@ premium artifacts と販売商品の対応表。
   - `premium/weekly/2026-04-24-categories.csv`
   - `premium/weekly/2026-04-24-csv-pack-metadata.json`
 
-## Product 3: 30-Day Archive Pack
-- Product name: `AI / Macro Observatory — 30-Day Archive Pack`
-- Slug: `30-day-archive-pack`
-- Status: manifest v1 implemented
-- Current outputs:
-  - `premium/archive/30-day/latest-manifest.json`
-  - `premium/archive/30-day/YYYY-MM-DD-manifest.json`
-- Planned next outputs:
-  - historical snapshot bundle
-  - packaged downloadable archive
-
-## Product 4: Full Ranking Dataset Pack
-- Product name: `AI / Macro Observatory — Full Ranking Dataset Pack`
-- Slug: `full-ranking-dataset-pack`
-- Status: v1 implemented
-- Current outputs:
-  - `premium/full-dataset/latest.json`
-  - `premium/full-dataset/latest-manifest.json`
-  - `premium/full-dataset/topics/latest/*.json`
-  - `premium/full-dataset/companies/latest/*.json`
-  - `premium/full-dataset/regions/latest/*.json`
-  - `premium/full-dataset/categories/latest/*.json`
-- Dated outputs:
-  - `premium/full-dataset/YYYY-MM-DD-full-ranking-dataset.json`
-  - `premium/full-dataset/YYYY-MM-DD-manifest.json`
-
-## Initial publish order
+## Current commercial lineup
 1. Weekly JSON Snapshot
 2. Weekly CSV Pack
-3. 30-Day Archive Pack
-4. Full Ranking Dataset Pack
+
+## Deferred ideas (not currently sold)
+- 30-Day Archive Pack
+- Full Ranking Dataset Pack

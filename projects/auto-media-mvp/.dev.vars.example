@@ -2,10 +2,6 @@
 DOWNLOAD_SIGNING_SECRET=replace-with-long-random-secret
 GUMROAD_PRODUCT_ID_WEEKLY_JSON=replace-with-gumroad-product-id
 GUMROAD_PRODUCT_ID_WEEKLY_CSV=replace-with-gumroad-product-id
-GUMROAD_PRODUCT_ID_30_DAY_ARCHIVE=replace-with-gumroad-product-id
-GUMROAD_PRODUCT_ID_FULL_DATASET=replace-with-gumroad-product-id
 # Legacy fallback for older products only:
 # GUMROAD_PRODUCT_WEEKLY_JSON=snkcjg
 # GUMROAD_PRODUCT_WEEKLY_CSV=weekly-csv-pack-v1
-# GUMROAD_PRODUCT_30_DAY_ARCHIVE=30-day-archive-pack
-# GUMROAD_PRODUCT_FULL_DATASET=full-ranking-dataset-pack

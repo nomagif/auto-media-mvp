@@ -42,35 +42,6 @@ const PRODUCTS = {
         contentType: 'application/json; charset=utf-8'
       }
     }
-  },
-  '30-day-archive-pack': {
-    title: '30-Day Archive Pack',
-    gumroadProductIdEnv: 'GUMROAD_PRODUCT_ID_30_DAY_ARCHIVE',
-    gumroadLegacyPermalinkEnv: 'GUMROAD_PRODUCT_30_DAY_ARCHIVE',
-    files: {
-      'premium/archive/30-day/latest-manifest.json': {
-        label: '30-day archive manifest',
-        filename: 'ai-macro-observatory-30-day-archive-manifest.json',
-        contentType: 'application/json; charset=utf-8'
-      }
-    }
-  },
-  'full-ranking-dataset-pack': {
-    title: 'Full Ranking Dataset Pack',
-    gumroadProductIdEnv: 'GUMROAD_PRODUCT_ID_FULL_DATASET',
-    gumroadLegacyPermalinkEnv: 'GUMROAD_PRODUCT_FULL_DATASET',
-    files: {
-      'premium/full-dataset/latest.json': {
-        label: 'Full ranking dataset',
-        filename: 'ai-macro-observatory-full-ranking-dataset.json',
-        contentType: 'application/json; charset=utf-8'
-      },
-      'premium/full-dataset/latest-manifest.json': {
-        label: 'Dataset manifest',
-        filename: 'ai-macro-observatory-full-ranking-dataset-manifest.json',
-        contentType: 'application/json; charset=utf-8'
-      }
-    }
   }
 };
 

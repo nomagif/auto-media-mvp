@@ -30,26 +30,6 @@ const PRODUCTS = {
         contentType: 'application/json; charset=utf-8'
       }
     }
-  },
-  '30-day-archive-pack': {
-    files: {
-      'premium/archive/30-day/latest-manifest.json': {
-        filename: 'ai-macro-observatory-30-day-archive-manifest.json',
-        contentType: 'application/json; charset=utf-8'
-      }
-    }
-  },
-  'full-ranking-dataset-pack': {
-    files: {
-      'premium/full-dataset/latest.json': {
-        filename: 'ai-macro-observatory-full-ranking-dataset.json',
-        contentType: 'application/json; charset=utf-8'
-      },
-      'premium/full-dataset/latest-manifest.json': {
-        filename: 'ai-macro-observatory-full-ranking-dataset-manifest.json',
-        contentType: 'application/json; charset=utf-8'
-      }
-    }
   }
 };
 

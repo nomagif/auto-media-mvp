@@ -29,8 +29,6 @@ Pages project → Settings → Environment variables
   - 長いランダム文字列
 - `GUMROAD_PRODUCT_ID_WEEKLY_JSON`
 - `GUMROAD_PRODUCT_ID_WEEKLY_CSV`
-- `GUMROAD_PRODUCT_ID_30_DAY_ARCHIVE`
-- `GUMROAD_PRODUCT_ID_FULL_DATASET`
 
 補足:
 - `GUMROAD_PRODUCT_ID_*` には Gumroad license verify で使う `product_id` を入れる

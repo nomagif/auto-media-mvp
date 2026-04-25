@@ -22,7 +22,7 @@
     "premium:weekly-csv": "node scripts/premium/build_weekly_csv_pack.js",
     "premium:30-day-archive": "node scripts/premium/build_30_day_archive_pack.js",
     "premium:full-dataset": "node scripts/premium/build_full_ranking_dataset_pack.js",
-    "premium:build": "npm run premium:weekly-json && npm run premium:weekly-csv && npm run premium:30-day-archive && npm run premium:full-dataset",
+    "premium:build": "npm run premium:weekly-json && npm run premium:weekly-csv",
     "premium:publish": "node scripts/premium/publish_premium_to_r2.js",
     "premium:test-link": "node scripts/premium/generate_test_download_url.js",
     "site:render": "node scripts/render_static_site.js",

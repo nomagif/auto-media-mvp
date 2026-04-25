@@ -10,14 +10,6 @@ const PRODUCTS = {
   'weekly-csv-pack': {
     file: 'premium/weekly/latest-topics.csv',
     filename: 'ai-macro-observatory-topics.csv'
-  },
-  '30-day-archive-pack': {
-    file: 'premium/archive/30-day/latest-manifest.json',
-    filename: 'ai-macro-observatory-30-day-archive-manifest.json'
-  },
-  'full-ranking-dataset-pack': {
-    file: 'premium/full-dataset/latest.json',
-    filename: 'ai-macro-observatory-full-ranking-dataset.json'
   }
 };
 
