@@ -15,6 +15,21 @@ function readJson(file, fallback) {
   }
 }
 
+function parseArgs(argv) {
+  const args = { itemIds: [] };
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--item-id' && argv[i + 1]) {
+      args.itemIds.push(argv[i + 1]);
+      i += 1;
+    } else if (argv[i] === '--items-file' && argv[i + 1]) {
+      const items = readJson(path.resolve(argv[i + 1]), []);
+      if (Array.isArray(items)) args.itemIds.push(...items.filter(Boolean));
+      i += 1;
+    }
+  }
+  return args;
+}
+
 function listXPostResponses() {
   if (!fs.existsSync(RESPONSES_DIR)) return [];
   return fs.readdirSync(RESPONSES_DIR)
@@ -32,6 +47,8 @@ function listEnrichedFiles() {
 }
 
 function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const targetIds = new Set(args.itemIds);
   const responses = listXPostResponses();
   const enrichedFiles = listEnrichedFiles();
   const applied = [];
@@ -39,6 +56,7 @@ function main() {
   for (const responseFile of responses) {
     const response = readJson(responseFile, null);
     if (!response?.ok || !response?.item_id || !response?.social?.x_post) continue;
+    if (targetIds.size > 0 && !targetIds.has(response.item_id)) continue;
 
     for (const enrichedFile of enrichedFiles) {
       const entries = readJson(enrichedFile, []);

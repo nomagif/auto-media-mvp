@@ -31,6 +31,12 @@ function runNodeScript(script, args = [], env = {}) {
   return text ? JSON.parse(text) : null;
 }
 
+function writeTempItemsFile(items) {
+  const file = path.join(ROOT, `.tmp-apply-items-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`);
+  fs.writeFileSync(file, JSON.stringify(items, null, 2) + '\n', 'utf8');
+  return file;
+}
+
 function listRequestFiles(suffix) {
   if (!fs.existsSync(REQUESTS_DIR)) return [];
   return fs.readdirSync(REQUESTS_DIR)
@@ -73,15 +79,20 @@ function runRequestWorkers({ requestSuffix, responseSuffix, workerScript, applyS
     const result = runNodeScript(workerScript, ['--request-file', requestFile]);
     processed.push(result?.item_id || path.basename(requestFile));
   }
-  const applied = runNodeScript(applyScript);
-  const appliedItems = (applied?.applied_items || []).filter((item) => processed.includes(item));
+  let applied = { applied_count: 0, applied_items: [] };
+  if (processed.length > 0) {
+    const itemsFile = writeTempItemsFile(processed);
+    try {
+      applied = runNodeScript(applyScript, ['--items-file', itemsFile]);
+    } finally {
+      try { fs.unlinkSync(itemsFile); } catch {}
+    }
+  }
   return {
     processed_count: processed.length,
     processed_items: processed,
-    applied_count: appliedItems.length,
-    applied_items: appliedItems,
-    apply_reported_count: applied?.applied_count || 0,
-    apply_reported_items: applied?.applied_items || []
+    applied_count: applied?.applied_count || 0,
+    applied_items: applied?.applied_items || []
   };
 }
 
@@ -100,16 +111,21 @@ function runSummaryFlow(limit, force) {
     const result = runNodeScript('scripts/generate/run_summary_worker.js');
     if (result?.processed_item) processed.push(result.processed_item);
   }
-  const applied = runNodeScript('scripts/generate/apply_summary_response.js');
-  const appliedItems = (applied?.applied_items || []).filter((item) => processed.includes(item));
+  let applied = { applied_count: 0, applied_items: [] };
+  if (processed.length > 0) {
+    const itemsFile = writeTempItemsFile(processed);
+    try {
+      applied = runNodeScript('scripts/generate/apply_summary_response.js', ['--items-file', itemsFile]);
+    } finally {
+      try { fs.unlinkSync(itemsFile); } catch {}
+    }
+  }
 
   return {
     processed_count: processed.length,
     processed_items: processed,
-    applied_count: appliedItems.length,
-    applied_items: appliedItems,
-    apply_reported_count: applied?.applied_count || 0,
-    apply_reported_items: applied?.applied_items || []
+    applied_count: applied?.applied_count || 0,
+    applied_items: applied?.applied_items || []
   };
 }
 

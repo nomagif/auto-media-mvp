@@ -21,6 +21,21 @@ function writeJson(file, value) {
   fs.writeFileSync(file, JSON.stringify(value, null, 2) + '\n', 'utf8');
 }
 
+function parseArgs(argv) {
+  const args = { itemIds: [] };
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--item-id' && argv[i + 1]) {
+      args.itemIds.push(argv[i + 1]);
+      i += 1;
+    } else if (argv[i] === '--items-file' && argv[i + 1]) {
+      const items = readJson(path.resolve(argv[i + 1]), []);
+      if (Array.isArray(items)) args.itemIds.push(...items.filter(Boolean));
+      i += 1;
+    }
+  }
+  return args;
+}
+
 function now() {
   return new Date().toISOString();
 }
@@ -33,9 +48,11 @@ function listEnrichedFiles() {
 }
 
 function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const targetIds = new Set(args.itemIds);
   const queue = readJson(QUEUE_FILE, []);
   const lastRun = readJson(LAST_RUN_FILE, {});
-  const targets = queue.filter((item) => item.status === 'success' && !item.applied_at && item.response_file);
+  const targets = queue.filter((item) => item.status === 'success' && !item.applied_at && item.response_file && (targetIds.size === 0 || targetIds.has(item.item_id)));
 
   if (targets.length === 0) {
     writeJson(LAST_RUN_FILE, {

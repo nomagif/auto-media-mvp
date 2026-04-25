@@ -8,6 +8,18 @@ const PROCESSED_DIR = path.join(ROOT, 'data', 'processed');
 const RESPONSES_DIR = path.join(PROCESSED_DIR, 'responses');
 
 function readJson(file, fallback) { try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; } }
+function parseArgs(argv) {
+  const args = { itemIds: [] };
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--item-id' && argv[i + 1]) { args.itemIds.push(argv[i + 1]); i += 1; }
+    else if (argv[i] === '--items-file' && argv[i + 1]) {
+      const items = readJson(path.resolve(argv[i + 1]), []);
+      if (Array.isArray(items)) args.itemIds.push(...items.filter(Boolean));
+      i += 1;
+    }
+  }
+  return args;
+}
 function listArticleResponses() {
   if (!fs.existsSync(RESPONSES_DIR)) return [];
   return fs.readdirSync(RESPONSES_DIR).filter((name) => name.endsWith('-article-response.json')).sort().map((name) => path.join(RESPONSES_DIR, name));
@@ -18,6 +30,8 @@ function listEnrichedFiles() {
 }
 
 function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const targetIds = new Set(args.itemIds);
   const responses = listArticleResponses();
   const enrichedFiles = listEnrichedFiles();
   const applied = [];
@@ -25,6 +39,7 @@ function main() {
   for (const responseFile of responses) {
     const response = readJson(responseFile, null);
     if (!response?.ok || !response?.item_id || !response?.article) continue;
+    if (targetIds.size > 0 && !targetIds.has(response.item_id)) continue;
 
     for (const enrichedFile of enrichedFiles) {
       const entries = readJson(enrichedFile, []);
