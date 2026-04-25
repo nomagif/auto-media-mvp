@@ -39,6 +39,7 @@
     "title:apply": "npm run guard:prose-routes && node scripts/generate/apply_title_response.js",
     "test:worker:fallback": "node scripts/generate/test_worker_fallback.js",
     "test:worker:fallback:summary": "node scripts/generate/test_summary_worker_fallback.js",
+    "test:worker:fallback:all": "npm run test:worker:fallback && npm run test:worker:fallback:summary",
     "xpost:build-requests": "npm run guard:prose-routes && node scripts/generate/build_xpost_requests.js",
     "xpost:worker": "npm run guard:prose-routes && node scripts/generate/run_xpost_worker.js",
     "xpost:apply": "npm run guard:prose-routes && node scripts/generate/apply_xpost_response.js",
