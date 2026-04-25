@@ -3,14 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const { normalizeTitleResponse, buildTitleErrorResponse } = require('./lib_title_response');
+const { ensureDir, runModelPlanTask } = require('./lib_worker_runtime');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const REQUESTS_DIR = path.join(ROOT, 'data', 'processed', 'requests');
 const RESPONSES_DIR = path.join(ROOT, 'data', 'processed', 'responses');
-
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true });
-}
 
 function readJson(file, fallback) {
   try {
@@ -47,19 +44,14 @@ function main() {
   const itemId = request?.item?.id || 'unknown-item';
   const responsePath = path.join(RESPONSES_DIR, `${itemId}-title-response.json`);
 
-  let response;
-  if (args.rawFile) {
-    const rawText = fs.readFileSync(path.resolve(args.rawFile), 'utf8');
-    response = normalizeTitleResponse(rawText, request);
-  } else {
-    response = buildTitleErrorResponse(
-      request,
-      'NOT_IMPLEMENTED',
-      'Title subagent execution is not wired yet and no --raw-file was provided.',
-      null,
-      true
-    );
-  }
+  const response = runModelPlanTask({
+    taskName: 'title',
+    request,
+    rawFile: args.rawFile,
+    normalizeResponse: normalizeTitleResponse,
+    buildErrorResponse: buildTitleErrorResponse,
+    notImplementedMessage: 'Title executor is not configured and no --raw-file was provided.'
+  });
 
   if (request?.model_plan && response?.meta) {
     response.meta.model_plan = request.model_plan;

@@ -3,11 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const { normalizeArticleResponse, buildArticleErrorResponse } = require('./lib_article_response');
+const { ensureDir, runModelPlanTask } = require('./lib_worker_runtime');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const RESPONSES_DIR = path.join(ROOT, 'data', 'processed', 'responses');
 
-function ensureDir(dir) { fs.mkdirSync(dir, { recursive: true }); }
 function readJson(file, fallback) { try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; } }
 function parseArgs(argv) {
   const args = { requestFile: null, rawFile: null };
@@ -27,13 +27,14 @@ function main() {
   const itemId = request?.item?.id || 'unknown-item';
   const responsePath = path.join(RESPONSES_DIR, `${itemId}-article-response.json`);
 
-  let response;
-  if (args.rawFile) {
-    const rawText = fs.readFileSync(path.resolve(args.rawFile), 'utf8');
-    response = normalizeArticleResponse(rawText, request);
-  } else {
-    response = buildArticleErrorResponse(request, 'NOT_IMPLEMENTED', 'Article subagent execution is not wired yet and no --raw-file was provided.', null, true);
-  }
+  const response = runModelPlanTask({
+    taskName: 'article',
+    request,
+    rawFile: args.rawFile,
+    normalizeResponse: normalizeArticleResponse,
+    buildErrorResponse: buildArticleErrorResponse,
+    notImplementedMessage: 'Article executor is not configured and no --raw-file was provided.'
+  });
 
   if (request?.model_plan && response?.meta) {
     response.meta.model_plan = request.model_plan;

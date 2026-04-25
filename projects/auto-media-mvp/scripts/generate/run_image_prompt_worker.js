@@ -3,11 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const { normalizeImagePromptResponse, buildImagePromptErrorResponse } = require('./lib_image_prompt_response');
+const { ensureDir, runModelPlanTask } = require('./lib_worker_runtime');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const RESPONSES_DIR = path.join(ROOT, 'data', 'processed', 'responses');
 
-function ensureDir(dir) { fs.mkdirSync(dir, { recursive: true }); }
 function readJson(file, fallback) { try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; } }
 function parseArgs(argv) {
   const args = { requestFile: null, rawFile: null };
@@ -27,13 +27,14 @@ function main() {
   const itemId = request?.item?.id || 'unknown-item';
   const responsePath = path.join(RESPONSES_DIR, `${itemId}-image-prompt-response.json`);
 
-  let response;
-  if (args.rawFile) {
-    const rawText = fs.readFileSync(path.resolve(args.rawFile), 'utf8');
-    response = normalizeImagePromptResponse(rawText, request);
-  } else {
-    response = buildImagePromptErrorResponse(request, 'NOT_IMPLEMENTED', 'Image prompt subagent execution is not wired yet and no --raw-file was provided.', null, true);
-  }
+  const response = runModelPlanTask({
+    taskName: 'image_prompt',
+    request,
+    rawFile: args.rawFile,
+    normalizeResponse: normalizeImagePromptResponse,
+    buildErrorResponse: buildImagePromptErrorResponse,
+    notImplementedMessage: 'Image prompt executor is not configured and no --raw-file was provided.'
+  });
 
   if (request?.model_plan && response?.meta) {
     response.meta.model_plan = request.model_plan;

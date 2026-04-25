@@ -3,13 +3,10 @@
 const fs = require('fs');
 const path = require('path');
 const { normalizeXPostResponse, buildXPostErrorResponse } = require('./lib_xpost_response');
+const { ensureDir, runModelPlanTask } = require('./lib_worker_runtime');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const RESPONSES_DIR = path.join(ROOT, 'data', 'processed', 'responses');
-
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true });
-}
 
 function readJson(file, fallback) {
   try {
@@ -43,13 +40,14 @@ function main() {
   const itemId = request?.item?.id || 'unknown-item';
   const responsePath = path.join(RESPONSES_DIR, `${itemId}-xpost-response.json`);
 
-  let response;
-  if (args.rawFile) {
-    const rawText = fs.readFileSync(path.resolve(args.rawFile), 'utf8');
-    response = normalizeXPostResponse(rawText, request);
-  } else {
-    response = buildXPostErrorResponse(request, 'NOT_IMPLEMENTED', 'X post subagent execution is not wired yet and no --raw-file was provided.', null, true);
-  }
+  const response = runModelPlanTask({
+    taskName: 'xpost',
+    request,
+    rawFile: args.rawFile,
+    normalizeResponse: normalizeXPostResponse,
+    buildErrorResponse: buildXPostErrorResponse,
+    notImplementedMessage: 'X post executor is not configured and no --raw-file was provided.'
+  });
 
   if (request?.model_plan && response?.meta) {
     response.meta.model_plan = request.model_plan;

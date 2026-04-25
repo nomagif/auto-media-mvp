@@ -9,10 +9,7 @@ const QUEUE_FILE = path.join(STATE_DIR, 'summary_queue.json');
 const LAST_RUN_FILE = path.join(STATE_DIR, 'last_run.json');
 const RESPONSES_DIR = path.join(ROOT, 'data', 'processed', 'responses');
 const { normalizeSummaryResponse, buildSummaryErrorResponse } = require('./lib_summary_response');
-
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true });
-}
+const { ensureDir, runModelPlanTask } = require('./lib_worker_runtime');
 
 function readJson(file, fallback) {
   try {
@@ -76,18 +73,14 @@ function main() {
     const request = readJson(requestPath, null);
     let response;
 
-    if (args.rawFile) {
-      const rawText = fs.readFileSync(path.resolve(args.rawFile), 'utf8');
-      response = normalizeSummaryResponse(rawText, request);
-    } else {
-      response = buildSummaryErrorResponse(
-        request,
-        'NOT_IMPLEMENTED',
-        'OpenClaw isolated execution is not wired yet and no --raw-file was provided.',
-        null,
-        true
-      );
-    }
+    response = runModelPlanTask({
+      taskName: 'summary',
+      request,
+      rawFile: args.rawFile,
+      normalizeResponse: normalizeSummaryResponse,
+      buildErrorResponse: buildSummaryErrorResponse,
+      notImplementedMessage: 'Summary executor is not configured and no --raw-file was provided.'
+    });
 
     if (request?.model_plan && response?.meta) {
       response.meta.model_plan = request.model_plan;
