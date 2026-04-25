@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Premium Access</title>
+  <title>Premium Access | AI / Macro Observatory</title>
+  <meta name="description" content="Verify your Gumroad license key and fetch fresh signed download links for the latest AI / Macro Observatory premium data files." />
   <style>
     :root {
       --bg: #0b1020;
@@ -77,7 +78,7 @@
     <div class="hero">
       <div class="eyebrow">Premium Data</div>
       <h1>Premium Access</h1>
-      <p class="meta">Enter your Gumroad license key to fetch fresh download links for the latest premium artifact.</p>
+      <p class="meta">Enter your Gumroad license key to fetch fresh signed links for the latest premium data exports. This page is built for self-serve buyer access after purchase.</p>
     </div>
 
     <div class="nav">
@@ -107,6 +108,7 @@
         <button type="submit">Get latest download links</button>
       </form>
       <p class="meta">Links expire after 15 minutes. You can always come back here and issue fresh ones.</p>
+      <p class="meta">Success means: your license verifies, signed links appear below, and the linked file downloads from Cloudflare R2.</p>
       <p class="meta">If the premium API is hosted on a separate Worker, set its base URL here once and the page will remember it in this browser.</p>
       <div class="field">
         <label for="api_base">Premium API base URL (optional)</label>
@@ -125,6 +127,17 @@
         <li>Premium files are expected to live in Cloudflare R2, not in the public Git repo.</li>
       </ul>
       <p class="meta">If you lost your license key, use Gumroad’s receipt email or account page first.</p>
+    </div>
+
+    <div class="card">
+      <h2>Buyer checklist</h2>
+      <ul>
+        <li>Buy on Gumroad and copy the license key from your receipt or library.</li>
+        <li>Pick the matching product on this page.</li>
+        <li>Paste the same purchase email if available.</li>
+        <li>Confirm that download links appear and that at least one file opens successfully.</li>
+      </ul>
+      <p class="meta">If Gumroad purchase succeeds but this page fails, that means the commerce flow works and the self-serve license verification flow still needs debugging.</p>
     </div>
   </div>
 
