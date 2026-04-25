@@ -13,6 +13,7 @@ const STATE_DIR = path.join(ROOT, 'state');
 const LAST_RUN_FILE = path.join(STATE_DIR, 'last_run.json');
 const ENRICHED_MANIFESTS_FILE = path.join(STATE_DIR, 'enriched_manifests.json');
 const { buildSummaryInput, buildSummaryRequest, generateSummary } = require('./lib_summary');
+const { buildModelPlan } = require('./lib_model_routing');
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -130,14 +131,18 @@ async function buildEnrichedEntry(bundle) {
       }
     },
     model_plan: {
-      target_model: 'GPT',
+      summary: buildModelPlan('summary'),
+      title: buildModelPlan('title'),
+      article: buildModelPlan('article'),
+      x_post: buildModelPlan('xpost'),
+      image_prompt: buildModelPlan('image_prompt'),
       prompt_files: {
         summarize: 'prompts/summarize.md',
         article: 'prompts/article.md',
         x_post: 'prompts/x_post.md',
         image_prompt: 'prompts/image_prompt.md'
       },
-      status: 'placeholder-summary-adapter'
+      status: 'env-driven-cheap-first-routing'
     }
   };
 }

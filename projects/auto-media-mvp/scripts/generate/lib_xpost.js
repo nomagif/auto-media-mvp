@@ -1,4 +1,5 @@
 const XPOST_PROMPT_VERSION = 'v0.1';
+const { attachModelPlan } = require('./lib_model_routing');
 
 function buildXPostInput(item) {
   return {
@@ -13,14 +14,13 @@ function buildXPostInput(item) {
 }
 
 function buildXPostRequest(input) {
-  return {
+  return attachModelPlan({
     job_type: 'x_post_generation',
     version: XPOST_PROMPT_VERSION,
     requested_at: new Date().toISOString(),
-    target_model: 'GPT',
     prompt_file: 'prompts/x_post.md',
     item: input
-  };
+  }, 'xpost');
 }
 
 async function generateXPost(request) {

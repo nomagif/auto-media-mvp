@@ -1,4 +1,5 @@
 const TITLE_PROMPT_VERSION = 'v0.1';
+const { attachModelPlan } = require('./lib_model_routing');
 
 function buildTitleInput(item) {
   return {
@@ -14,14 +15,13 @@ function buildTitleInput(item) {
 }
 
 function buildTitleRequest(input) {
-  return {
+  return attachModelPlan({
     job_type: 'title_generation',
     version: TITLE_PROMPT_VERSION,
     requested_at: new Date().toISOString(),
-    target_model: 'GPT',
     prompt_file: 'prompts/title_candidates.md',
     item: input
-  };
+  }, 'title');
 }
 
 async function generateTitleCandidates(request) {

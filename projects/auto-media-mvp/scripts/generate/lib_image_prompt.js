@@ -1,4 +1,5 @@
 const IMAGE_PROMPT_VERSION = 'v0.1';
+const { attachModelPlan } = require('./lib_model_routing');
 
 function buildImagePromptInput(item) {
   return {
@@ -14,14 +15,13 @@ function buildImagePromptInput(item) {
 }
 
 function buildImagePromptRequest(input) {
-  return {
+  return attachModelPlan({
     job_type: 'image_prompt_generation',
     version: IMAGE_PROMPT_VERSION,
     requested_at: new Date().toISOString(),
-    target_model: 'GPT',
     prompt_file: 'prompts/image_prompt.md',
     item: input
-  };
+  }, 'image_prompt');
 }
 
 async function generateImagePrompt(request) {

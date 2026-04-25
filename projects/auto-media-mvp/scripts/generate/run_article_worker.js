@@ -35,6 +35,10 @@ function main() {
     response = buildArticleErrorResponse(request, 'NOT_IMPLEMENTED', 'Article subagent execution is not wired yet and no --raw-file was provided.', null, true);
   }
 
+  if (request?.model_plan && response?.meta) {
+    response.meta.model_plan = request.model_plan;
+  }
+
   fs.writeFileSync(responsePath, JSON.stringify(response, null, 2) + '\n', 'utf8');
   console.log(JSON.stringify({ ok: true, item_id: itemId, response_file: path.join('data', 'processed', 'responses', `${itemId}-article-response.json`), status: response.ok ? 'success' : 'error' }, null, 2));
 }

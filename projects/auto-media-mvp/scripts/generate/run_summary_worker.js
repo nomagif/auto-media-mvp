@@ -89,6 +89,10 @@ function main() {
       );
     }
 
+    if (request?.model_plan && response?.meta) {
+      response.meta.model_plan = request.model_plan;
+    }
+
     fs.writeFileSync(responsePath, JSON.stringify(response, null, 2) + '\n', 'utf8');
 
     target.status = response.ok ? 'success' : 'error';

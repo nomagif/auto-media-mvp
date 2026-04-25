@@ -1,4 +1,5 @@
 const SUMMARY_PROMPT_VERSION = 'v0.1';
+const { attachModelPlan } = require('./lib_model_routing');
 
 function buildSummaryInput(bundle) {
   return {
@@ -15,14 +16,13 @@ function buildSummaryInput(bundle) {
 }
 
 function buildSummaryRequest(input) {
-  return {
+  return attachModelPlan({
     job_type: 'summary_generation',
     version: SUMMARY_PROMPT_VERSION,
     requested_at: new Date().toISOString(),
-    target_model: 'GPT',
     prompt_file: 'prompts/summarize.md',
     item: input
-  };
+  }, 'summary');
 }
 
 async function generateSummary(request) {

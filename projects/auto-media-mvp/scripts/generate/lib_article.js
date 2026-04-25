@@ -1,4 +1,5 @@
 const ARTICLE_PROMPT_VERSION = 'v0.1';
+const { attachModelPlan } = require('./lib_model_routing');
 
 function buildArticleInput(item) {
   return {
@@ -14,14 +15,13 @@ function buildArticleInput(item) {
 }
 
 function buildArticleRequest(input) {
-  return {
+  return attachModelPlan({
     job_type: 'article_generation',
     version: ARTICLE_PROMPT_VERSION,
     requested_at: new Date().toISOString(),
-    target_model: 'GPT',
     prompt_file: 'prompts/article.md',
     item: input
-  };
+  }, 'article');
 }
 
 async function generateArticleDraft(request) {
