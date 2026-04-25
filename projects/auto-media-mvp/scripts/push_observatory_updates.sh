@@ -4,6 +4,39 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
+PROJECT_PREFIX="$(python3 - <<'PY'
+import os
+print(os.path.relpath(os.getcwd(), os.popen('git rev-parse --show-toplevel').read().strip()))
+PY
+)"
+
+project_pathspecs() {
+  local paths=(
+    data/rankings
+    site
+    output/rankings
+    README.md
+    ROADMAP.md
+    package.json
+    scripts
+    functions
+    config
+    .gitignore
+  )
+
+  local prefixed=()
+  local p
+  for p in "${paths[@]}"; do
+    if [[ "$PROJECT_PREFIX" == "." ]]; then
+      prefixed+=(":(top)$p")
+    else
+      prefixed+=(":(top)$PROJECT_PREFIX/$p")
+    fi
+  done
+
+  printf '%s\n' "${prefixed[@]}"
+}
+
 should_publish_premium() {
   local mode="${PREMIUM_PUBLISH_ENABLED:-auto}"
 
@@ -28,9 +61,14 @@ else
   printf '[observatory-push] premium publish skipped (disabled or R2 env missing)\n'
 fi
 
-if [[ -n "$(git status --porcelain)" ]]; then
-  git add data/rankings site output/rankings README.md ROADMAP.md package.json scripts functions config *.md .gitignore || true
-  if [[ -n "$(git status --porcelain)" ]]; then
+PROJECT_PATHS=()
+while IFS= read -r path; do
+  PROJECT_PATHS+=("$path")
+done < <(project_pathspecs)
+
+if [[ -n "$(git status --porcelain -- "${PROJECT_PATHS[@]}")" ]]; then
+  git add -- "${PROJECT_PATHS[@]}" || true
+  if [[ -n "$(git diff --cached --name-only -- "${PROJECT_PATHS[@]}")" ]]; then
     git commit -m "Refresh observatory outputs"
     git push origin main
     printf '[observatory-push] committed and pushed updates\n'
