@@ -42,12 +42,14 @@ Pages project に R2 binding を追加:
 ### Secrets
 Pages project に secrets を追加:
 - `DOWNLOAD_SIGNING_SECRET`
-- `GUMROAD_PRODUCT_WEEKLY_JSON`
-- `GUMROAD_PRODUCT_WEEKLY_CSV`
-- `GUMROAD_PRODUCT_30_DAY_ARCHIVE`
-- `GUMROAD_PRODUCT_FULL_DATASET`
+- `GUMROAD_PRODUCT_ID_WEEKLY_JSON`
+- `GUMROAD_PRODUCT_ID_WEEKLY_CSV`
+- `GUMROAD_PRODUCT_ID_30_DAY_ARCHIVE`
+- `GUMROAD_PRODUCT_ID_FULL_DATASET`
 
-`GUMROAD_PRODUCT_*` には Gumroad license verify で使う `product_permalink` を入れる。
+`GUMROAD_PRODUCT_ID_*` には Gumroad license verify で使う `product_id` を入れる。
+これは product content page の License key module を開くと確認できる。
+`GUMROAD_PRODUCT_*` permalink は旧商品向け fallback としてのみ扱う。
 
 ## cron / build 側で必要な env
 premium artifact upload 用:

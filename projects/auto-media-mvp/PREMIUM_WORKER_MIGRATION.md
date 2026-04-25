@@ -18,10 +18,14 @@ Cloudflare Pages Functions + R2 binding で `binding PREMIUM_BUCKET of type r2_b
 
 ### Secrets
 - `DOWNLOAD_SIGNING_SECRET`
-- `GUMROAD_PRODUCT_WEEKLY_JSON`
-- `GUMROAD_PRODUCT_WEEKLY_CSV`
-- `GUMROAD_PRODUCT_30_DAY_ARCHIVE`
-- `GUMROAD_PRODUCT_FULL_DATASET`
+- `GUMROAD_PRODUCT_ID_WEEKLY_JSON`
+- `GUMROAD_PRODUCT_ID_WEEKLY_CSV`
+- `GUMROAD_PRODUCT_ID_30_DAY_ARCHIVE`
+- `GUMROAD_PRODUCT_ID_FULL_DATASET`
+
+新しめの Gumroad 商品では `product_permalink` ではなく `product_id` が必要。
+`product_id` は product content page の License key module を開くと確認できる。
+旧商品向けの `GUMROAD_PRODUCT_*` permalink secrets は legacy fallback としてだけ残す。
 
 ### R2 binding
 - `PREMIUM_BUCKET`

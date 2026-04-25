@@ -27,14 +27,15 @@ Pages project → Settings → Environment variables
 ### Secrets
 - `DOWNLOAD_SIGNING_SECRET`
   - 長いランダム文字列
-- `GUMROAD_PRODUCT_WEEKLY_JSON`
-- `GUMROAD_PRODUCT_WEEKLY_CSV`
-- `GUMROAD_PRODUCT_30_DAY_ARCHIVE`
-- `GUMROAD_PRODUCT_FULL_DATASET`
+- `GUMROAD_PRODUCT_ID_WEEKLY_JSON`
+- `GUMROAD_PRODUCT_ID_WEEKLY_CSV`
+- `GUMROAD_PRODUCT_ID_30_DAY_ARCHIVE`
+- `GUMROAD_PRODUCT_ID_FULL_DATASET`
 
 補足:
-- `GUMROAD_PRODUCT_*` には Gumroad license verify で使う `product_permalink` を入れる
-- 例: product URL が `https://starbound17.gumroad.com/l/snkcjg` なら permalink は通常 `snkcjg`
+- `GUMROAD_PRODUCT_ID_*` には Gumroad license verify で使う `product_id` を入れる
+- `product_id` は Gumroad product content page の License key module を開くと取得できる
+- `GUMROAD_PRODUCT_*` permalink は旧商品向け fallback にだけ使う
 
 ## 5. observatory 実行環境に upload 用 env を入れる
 cron / ローカル / CI のどこで `npm run premium:publish` を回すかに応じて設定:

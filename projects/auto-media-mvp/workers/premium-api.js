@@ -1,7 +1,8 @@
 const PRODUCTS = {
   'weekly-json-snapshot': {
     title: 'Weekly JSON Snapshot',
-    gumroadEnv: 'GUMROAD_PRODUCT_WEEKLY_JSON',
+    gumroadProductIdEnv: 'GUMROAD_PRODUCT_ID_WEEKLY_JSON',
+    gumroadLegacyPermalinkEnv: 'GUMROAD_PRODUCT_WEEKLY_JSON',
     files: {
       'premium/weekly/latest.json': {
         label: 'Latest weekly JSON snapshot',
@@ -12,7 +13,8 @@ const PRODUCTS = {
   },
   'weekly-csv-pack': {
     title: 'Weekly CSV Pack',
-    gumroadEnv: 'GUMROAD_PRODUCT_WEEKLY_CSV',
+    gumroadProductIdEnv: 'GUMROAD_PRODUCT_ID_WEEKLY_CSV',
+    gumroadLegacyPermalinkEnv: 'GUMROAD_PRODUCT_WEEKLY_CSV',
     files: {
       'premium/weekly/latest-topics.csv': {
         label: 'Topics CSV',
@@ -43,7 +45,8 @@ const PRODUCTS = {
   },
   '30-day-archive-pack': {
     title: '30-Day Archive Pack',
-    gumroadEnv: 'GUMROAD_PRODUCT_30_DAY_ARCHIVE',
+    gumroadProductIdEnv: 'GUMROAD_PRODUCT_ID_30_DAY_ARCHIVE',
+    gumroadLegacyPermalinkEnv: 'GUMROAD_PRODUCT_30_DAY_ARCHIVE',
     files: {
       'premium/archive/30-day/latest-manifest.json': {
         label: '30-day archive manifest',
@@ -54,7 +57,8 @@ const PRODUCTS = {
   },
   'full-ranking-dataset-pack': {
     title: 'Full Ranking Dataset Pack',
-    gumroadEnv: 'GUMROAD_PRODUCT_FULL_DATASET',
+    gumroadProductIdEnv: 'GUMROAD_PRODUCT_ID_FULL_DATASET',
+    gumroadLegacyPermalinkEnv: 'GUMROAD_PRODUCT_FULL_DATASET',
     files: {
       'premium/full-dataset/latest.json': {
         label: 'Full ranking dataset',
@@ -114,11 +118,18 @@ async function signDownload(secret, product, fileKey, expires) {
 }
 
 async function verifyGumroadLicense(env, product, licenseKey, email) {
-  const productPermalink = env[product.gumroadEnv];
-  if (!productPermalink) throw new Error(`Missing Worker secret: ${product.gumroadEnv}`);
+  const productId = String(env[product.gumroadProductIdEnv] || '').trim();
+  const legacyPermalink = String(env[product.gumroadLegacyPermalinkEnv] || '').trim();
+  if (!productId && !legacyPermalink) {
+    throw new Error(`Missing Worker secret: ${product.gumroadProductIdEnv} (preferred) or ${product.gumroadLegacyPermalinkEnv} (legacy)`);
+  }
 
   const params = new URLSearchParams();
-  params.set('product_permalink', productPermalink);
+  if (productId) {
+    params.set('product_id', productId);
+  } else {
+    params.set('product_permalink', legacyPermalink);
+  }
   params.set('license_key', licenseKey);
   params.set('increment_uses_count', 'false');
   if (email) params.set('email', email);
