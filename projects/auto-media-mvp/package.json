@@ -37,6 +37,7 @@
     "title:build-requests": "npm run guard:prose-routes && node scripts/generate/build_title_requests.js",
     "title:worker": "npm run guard:prose-routes && node scripts/generate/run_title_worker.js",
     "title:apply": "npm run guard:prose-routes && node scripts/generate/apply_title_response.js",
+    "test:worker:fallback": "node scripts/generate/test_worker_fallback.js",
     "xpost:build-requests": "npm run guard:prose-routes && node scripts/generate/build_xpost_requests.js",
     "xpost:worker": "npm run guard:prose-routes && node scripts/generate/run_xpost_worker.js",
     "xpost:apply": "npm run guard:prose-routes && node scripts/generate/apply_xpost_response.js",

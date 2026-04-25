@@ -171,6 +171,12 @@ npm run site:serve
 ALLOW_PROSE_ROUTES=1 npm run summary:worker
 ```
 
+fallback retry の回帰確認は guard を通さずにこれで実行できる。
+
+```bash
+npm run test:worker:fallback
+```
+
 ## 実行例
 公開面として想定する基本操作はこれ。
 
