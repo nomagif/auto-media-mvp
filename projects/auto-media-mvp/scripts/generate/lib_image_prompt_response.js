@@ -27,6 +27,12 @@ function pickFirst(...values) {
   return null;
 }
 
+function extraMeta(parsed) {
+  const meta = parsed?.meta && typeof parsed.meta === 'object' ? parsed.meta : {};
+  const { prompt_file, raw_response, status, ...rest } = meta;
+  return rest;
+}
+
 function normalizeParsedImagePromptResponse(parsed, request, rawText) {
   if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
     return buildImagePromptErrorResponse(request, 'INVALID_RESPONSE_SHAPE', 'Parsed response is not a JSON object', rawText, true);
@@ -52,7 +58,8 @@ function normalizeParsedImagePromptResponse(parsed, request, rawText) {
       meta: {
         prompt_file: promptFile,
         raw_response: rawText,
-        status: 'success'
+        status: 'success',
+        ...extraMeta(parsed)
       }
     };
   }
@@ -71,7 +78,8 @@ function normalizeParsedImagePromptResponse(parsed, request, rawText) {
       meta: {
         prompt_file: promptFile,
         raw_response: rawText,
-        status: 'error'
+        status: 'error',
+        ...extraMeta(parsed)
       }
     };
   }

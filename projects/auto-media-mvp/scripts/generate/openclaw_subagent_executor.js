@@ -216,6 +216,18 @@ ${JSON.stringify(request, null, 2)}
 `;
 }
 
+function maybeInjectTestFailure(requestedModel) {
+  const failModels = String(process.env.OPENCLAW_WORKER_TEST_FAIL_MODELS || '')
+    .split(',')
+    .map((value) => value.trim())
+    .filter(Boolean);
+
+  if (failModels.includes(requestedModel)) {
+    process.stdout.write('not json');
+    process.exit(0);
+  }
+}
+
 function main() {
   const requestFile = process.env.WORKER_REQUEST_FILE;
   const taskName = process.env.WORKER_TASK;
@@ -226,6 +238,7 @@ function main() {
   if (!taskName) throw new Error('Missing WORKER_TASK');
 
   const request = readJson(path.resolve(requestFile));
+  maybeInjectTestFailure(requestedModel);
   const prompt = buildPrompt(taskName, request, requestedModel);
   const sessionId = `worker-${taskName}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const tempConfigPath = buildTempConfig(requestedModel);

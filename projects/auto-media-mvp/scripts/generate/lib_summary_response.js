@@ -42,6 +42,12 @@ function pickFirst(...values) {
   return null;
 }
 
+function extraMeta(parsed) {
+  const meta = parsed?.meta && typeof parsed.meta === 'object' ? parsed.meta : {};
+  const { prompt_file, raw_response, status, ...rest } = meta;
+  return rest;
+}
+
 function normalizeParsedSummaryResponse(parsed, request, rawText) {
   if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
     return buildSummaryErrorResponse(
@@ -79,7 +85,8 @@ function normalizeParsedSummaryResponse(parsed, request, rawText) {
       meta: {
         prompt_file: promptFile,
         raw_response: rawText,
-        status: 'success'
+        status: 'success',
+        ...extraMeta(parsed)
       }
     };
   }
@@ -98,7 +105,8 @@ function normalizeParsedSummaryResponse(parsed, request, rawText) {
       meta: {
         prompt_file: promptFile,
         raw_response: rawText,
-        status: 'error'
+        status: 'error',
+        ...extraMeta(parsed)
       }
     };
   }
