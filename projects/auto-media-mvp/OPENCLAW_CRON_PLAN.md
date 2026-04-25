@@ -34,6 +34,22 @@ cd projects/auto-media-mvp
 npm run run:observatory:push
 ```
 
+### 3. prose 自動化（内部用）
+```bash
+cd projects/auto-media-mvp
+npm run generate:prose:auto:cron
+```
+
+内容:
+- `run_prose_pipeline.js --limit 3`
+- summary/title/xpost/article/image prompt を OpenClaw worker で内部処理
+- 既存 response をむやみに apply せず、その回で処理した item のみ apply
+
+意図:
+- いきなり大量処理しない
+- cron 1回あたりの負荷とコストを抑える
+- stuck item が出ても blast radius を小さくする
+
 内容:
 - `run:observatory`
 - `push:observatory`
@@ -47,11 +63,32 @@ npm run run:observatory:push
 ## 推奨 cron 方針
 ### 安全寄り
 - まずは `run:observatory` を cron 化
+- prose は別 job として `generate:prose:auto:cron` を小さめ頻度で追加
 - push は人手確認
 
 ### 完全自動寄り
 - 慣れたら `run:observatory:push` を cron 化
+- prose も段階的に `generate:prose:auto:cron` を定期実行
 - Cloudflare Pages の自動 deploy とつなぐ
+
+## cron 追加例
+まずは 1日2回くらいから始めるのが無難。
+
+```bash
+openclaw cron add \
+  --name "auto-media-mvp prose automation" \
+  --description "Run internal OpenClaw prose worker pipeline with a small batch" \
+  --agent main \
+  --session isolated \
+  --cron "15 10,22 * * *" \
+  --tz "Asia/Tokyo" \
+  --expect-final \
+  --light-context \
+  --timeout-seconds 1800 \
+  --message "cd /Users/noma/.openclaw/workspace/projects/auto-media-mvp && npm run generate:prose:auto:cron"
+```
+
+※ 実際に cron を作る前に、まず手動で `npm run generate:prose:auto:cron` が安定することを確認する。
 
 ## 例: 1日2回更新イメージ
 - 午前

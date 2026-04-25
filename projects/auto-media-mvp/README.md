@@ -175,6 +175,7 @@ ALLOW_PROSE_ROUTES=1 npm run summary:worker
 
 ```bash
 npm run generate:prose:auto
+npm run generate:prose:auto:cron
 # 例: まずは1件だけ
 node scripts/generate/run_prose_pipeline.js --limit 1
 ```
