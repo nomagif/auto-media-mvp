@@ -12,7 +12,7 @@ function taskEnvKey(taskName) {
 }
 
 function resolveExecutorCommand(taskName) {
-  return process.env[taskEnvKey(taskName)] || process.env.WORKER_EXECUTOR_CMD || '';
+  return process.env[taskEnvKey(taskName)] || process.env.WORKER_EXECUTOR_CMD || 'node scripts/generate/openclaw_subagent_executor.js';
 }
 
 function mapRetryReason(response) {
@@ -113,6 +113,7 @@ function runModelPlanTask({
       const result = executeCommand(command, {
         WORKER_TASK: taskName,
         WORKER_MODEL: model,
+        WORKER_THINKING: request?.model_plan?.thinking || 'low',
         WORKER_REQUEST_FILE: tempRequestFile,
         WORKER_ATTEMPT_INDEX: String(attemptIndex),
         WORKER_ATTEMPT_COUNT: String(models.length)

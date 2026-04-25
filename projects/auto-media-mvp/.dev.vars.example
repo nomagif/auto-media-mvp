@@ -5,3 +5,8 @@ GUMROAD_PRODUCT_ID_WEEKLY_CSV=replace-with-gumroad-product-id
 # Legacy fallback for older products only:
 # GUMROAD_PRODUCT_WEEKLY_JSON=snkcjg
 # GUMROAD_PRODUCT_WEEKLY_CSV=weekly-csv-pack-v1
+
+# Optional: override LLM worker executor command.
+# Default is: node scripts/generate/openclaw_subagent_executor.js
+# WORKER_EXECUTOR_CMD=node scripts/generate/openclaw_subagent_executor.js
+# OPENCLAW_WORKER_TIMEOUT_SECONDS=180

@@ -213,7 +213,9 @@ npm run collect:coingecko
 - ネットワーク到達性がないと collect が失敗する
 - 同じURLが既出なら normalized の新規件数は 0 になる
 - `generate:drafts` は未処理 normalized がないと新規draftを作らない
-- `summary:worker` は Phase A として `--raw-file` で raw response fixture を読める。次に OpenClaw isolated 実行へ差し替える前提
+- `summary:worker` などの prose worker は、デフォルトで `node scripts/generate/openclaw_subagent_executor.js` を呼んで OpenClaw local agent 実行を使う
+- 必要なら `WORKER_EXECUTOR_CMD` / `WORKER_<TASK>_EXECUTOR_CMD` で executor を差し替えられる
+- `OPENCLAW_WORKER_TIMEOUT_SECONDS` で 1 実行ごとの OpenClaw timeout を調整できる
 - `summary:apply` は success response を enriched JSON に反映する
 - `generate:enrich` は現時点ではプレースホルダ生成だが、summary request/response を保存するので、本番LLM連携時の監査や再処理に繋げやすい
 - 将来的には API rate limit と retry 方針を入れる
