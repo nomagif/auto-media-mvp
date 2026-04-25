@@ -1,0 +1,19 @@
+name = "auto-media-mvp-premium-api"
+main = "workers/premium-api.js"
+compatibility_date = "2026-04-25"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "PREMIUM_BUCKET"
+bucket_name = "auto-media-mvp-premium"
+
+[vars]
+ALLOWED_ORIGIN = "https://auto-media-mvp.pages.dev"
+PUBLIC_API_BASE_URL = "https://auto-media-mvp-premium-api.<your-subdomain>.workers.dev"
+
+# Secrets via wrangler secret put:
+# - DOWNLOAD_SIGNING_SECRET
+# - GUMROAD_PRODUCT_WEEKLY_JSON
+# - GUMROAD_PRODUCT_WEEKLY_CSV
+# - GUMROAD_PRODUCT_30_DAY_ARCHIVE
+# - GUMROAD_PRODUCT_FULL_DATASET

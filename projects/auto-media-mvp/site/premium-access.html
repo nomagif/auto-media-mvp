@@ -109,6 +109,11 @@
         <button type="submit">Get latest download links</button>
       </form>
       <p class="meta">Links expire after 15 minutes. You can always come back here and issue fresh ones.</p>
+      <p class="meta">If the premium API is hosted on a separate Worker, set its base URL here once and the page will remember it in this browser.</p>
+      <div class="field">
+        <label for="api_base">Premium API base URL (optional)</label>
+        <input id="api_base" name="api_base" type="url" placeholder="https://auto-media-mvp-premium-api.<subdomain>.workers.dev" />
+      </div>
       <div id="status" class="meta"></div>
       <div id="error" class="error"></div>
       <ul id="downloads" class="downloads"></ul>
@@ -130,6 +135,16 @@
     const statusEl = document.getElementById('status');
     const errorEl = document.getElementById('error');
     const downloadsEl = document.getElementById('downloads');
+    const apiBaseInput = document.getElementById('api_base');
+    const storedApiBase = localStorage.getItem('premium_api_base') || '';
+    if (storedApiBase) apiBaseInput.value = storedApiBase;
+
+    function resolveApiBase() {
+      const raw = (apiBaseInput.value || '').trim();
+      if (!raw) return '';
+      localStorage.setItem('premium_api_base', raw.replace(/\/$/, ''));
+      return raw.replace(/\/$/, '');
+    }
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -138,9 +153,12 @@
       downloadsEl.innerHTML = '';
 
       const payload = Object.fromEntries(new FormData(form).entries());
+      delete payload.api_base;
+      const apiBase = resolveApiBase();
+      const authUrl = `${apiBase || ''}/api/premium/auth`;
 
       try {
-        const response = await fetch('/api/premium/auth', {
+        const response = await fetch(authUrl, {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(payload)

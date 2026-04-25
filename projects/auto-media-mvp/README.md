@@ -145,6 +145,7 @@ npm run site:serve
 
 - `site:build` は ranking markdown / entity pages / static HTML / premium weekly artifacts をまとめて生成する
 - premium 配布の自動化は `PREMIUM_DELIVERY_AUTOMATION.md` を参照（Gumroad verify + Cloudflare R2 + signed links）
+- Cloudflare Pages で R2 binding が失敗する場合の切り替え先は `PREMIUM_WORKER_MIGRATION.md` を参照
 - Cloudflare 側の設定手順は `CLOUDFLARE_PAGES_PREMIUM_SETUP.md` を参照
 - `site:serve` は `site/` をローカル確認する
 - Cloudflare Pages を主導線として運用する
