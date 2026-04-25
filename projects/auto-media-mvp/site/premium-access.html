@@ -112,7 +112,7 @@
       <p class="meta">If the premium API is hosted on a separate Worker, set its base URL here once and the page will remember it in this browser.</p>
       <div class="field">
         <label for="api_base">Premium API base URL (optional)</label>
-        <input id="api_base" name="api_base" type="url" placeholder="https://auto-media-mvp-premium-api.<subdomain>.workers.dev" />
+        <input id="api_base" name="api_base" type="url" placeholder="https://auto-media-mvp-premium-api.iba-star-9929.workers.dev" />
       </div>
       <div id="status" class="meta"></div>
       <div id="error" class="error"></div>
@@ -135,9 +135,10 @@
     const statusEl = document.getElementById('status');
     const errorEl = document.getElementById('error');
     const downloadsEl = document.getElementById('downloads');
+    const DEFAULT_API_BASE = 'https://auto-media-mvp-premium-api.iba-star-9929.workers.dev';
     const apiBaseInput = document.getElementById('api_base');
     const storedApiBase = localStorage.getItem('premium_api_base') || '';
-    if (storedApiBase) apiBaseInput.value = storedApiBase;
+    apiBaseInput.value = storedApiBase || DEFAULT_API_BASE;
 
     function resolveApiBase() {
       const raw = (apiBaseInput.value || '').trim();
