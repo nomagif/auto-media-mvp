@@ -112,7 +112,7 @@
       <p class="meta">If the premium API is hosted on a separate Worker, set its base URL here once and the page will remember it in this browser.</p>
       <div class="field">
         <label for="api_base">Premium API base URL (optional)</label>
-        <input id="api_base" name="api_base" type="url" placeholder="https://auto-media-mvp-premium-api.iba-star-9929.workers.dev" />
+        <input id="api_base" name="api_base" type="text" inputmode="url" placeholder="https://auto-media-mvp-premium-api.iba-star-9929.workers.dev" />
       </div>
       <div id="status" class="meta"></div>
       <div id="error" class="error"></div>
@@ -164,9 +164,21 @@
 
     function resolveApiBase() {
       const raw = (apiBaseInput.value || '').trim();
-      if (!raw) return '';
-      localStorage.setItem('premium_api_base', raw.replace(/\/$/, ''));
-      return raw.replace(/\/$/, '');
+      if (!raw) {
+        localStorage.removeItem('premium_api_base');
+        return DEFAULT_API_BASE;
+      }
+
+      const normalized = raw.replace(/\/$/, '');
+
+      try {
+        const url = new URL(normalized);
+        localStorage.setItem('premium_api_base', url.origin);
+        apiBaseInput.value = url.origin;
+        return url.origin;
+      } catch (_) {
+        throw new Error(`Premium API base URL is invalid. Use: ${DEFAULT_API_BASE}`);
+      }
     }
 
     form.addEventListener('submit', async (event) => {
@@ -178,7 +190,7 @@
       const payload = Object.fromEntries(new FormData(form).entries());
       delete payload.api_base;
       const apiBase = resolveApiBase();
-      const authUrl = `${apiBase || ''}/api/premium/auth`;
+      const authUrl = new URL('/api/premium/auth', apiBase).toString();
 
       try {
         const response = await fetch(authUrl, {
