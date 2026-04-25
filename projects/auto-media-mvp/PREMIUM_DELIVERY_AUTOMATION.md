@@ -62,7 +62,11 @@ premium artifact upload 用:
   - `premium/` 配下を R2 に upload
 
 ## push 自動化との接続
-`PREMIUM_PUBLISH_ENABLED=1` のときだけ `push_observatory_updates.sh` から `npm run premium:publish` を呼ぶ。
+`push_observatory_updates.sh` は以下の挙動にした。
+
+- `PREMIUM_PUBLISH_ENABLED=0|false|off` → premium publish しない
+- `PREMIUM_PUBLISH_ENABLED=1|true|on` → premium publish する
+- 未設定 or `auto` → `R2_ACCOUNT_ID`, `R2_BUCKET`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` が全部あるときだけ premium publish する
 
 つまり cron 側では:
 - collect

@@ -201,6 +201,7 @@ npm run site:serve
 補足:
 - `site:build` の中で `premium:build` も走るため、weekly JSON / weekly CSV artifacts も同時に更新される
 - premium artifact を Cloudflare R2 へ upload する入口は `npm run premium:publish`
+- `push:observatory` は `PREMIUM_PUBLISH_ENABLED=auto` 相当で動き、R2 env が揃っていれば premium upload まで自動で実行する
 - OpenClaw cron 用の一発入口は `npm run run:observatory`
 - build 後に自動 commit / push まで行う入口は `npm run run:observatory:push`
 
