@@ -78,3 +78,4 @@ PREMIUM_PUBLISH_ENABLED=1 npm run run:observatory:push
 - `premium/` はもう public repo で持たない前提
 - buyer delivery は `premium-access.html` 経由に寄せる
 - まず Weekly JSON / Weekly CSV の2商品だけ本番化するのが安全
+- standalone Worker を使う現構成では、Cloudflare Pages に live な `/functions` ディレクトリを見せないこと。legacy 実装は `archive/legacy-pages-functions/` に退避しておく。

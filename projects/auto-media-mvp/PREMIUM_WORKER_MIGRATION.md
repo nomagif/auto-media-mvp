@@ -44,3 +44,7 @@ Cloudflare Pages Functions + R2 binding で `binding PREMIUM_BUCKET of type r2_b
 ## 方針
 Pages は静的配信だけに寄せる。
 R2 binding が必要な premium API は Worker 側で受ける。
+
+## 運用メモ
+- Legacy の Pages Functions 実装は `archive/legacy-pages-functions/` に退避した。
+- これは Cloudflare Pages が `/functions` を自動検出して、`binding PREMIUM_BUCKET of type r2_bucket contains an invalid jurisdiction` で deploy を壊すのを避けるため。
