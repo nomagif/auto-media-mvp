@@ -17,6 +17,28 @@ function getPayloadText(cliJson) {
   return text;
 }
 
+function normalizePayloadText(text, cliJson, requestedModel) {
+  try {
+    const parsed = JSON.parse(text);
+    const actualModel = cliJson?.meta?.agentMeta?.model || cliJson?.meta?.executionTrace?.winnerModel || null;
+    const meta = parsed?.meta && typeof parsed.meta === 'object' ? parsed.meta : {};
+    parsed.meta = {
+      ...meta,
+      openclaw: {
+        requested_model: requestedModel,
+        actual_model: actualModel,
+        session_id: cliJson?.meta?.agentMeta?.sessionId || null,
+        provider: cliJson?.meta?.agentMeta?.provider || null,
+        runner: cliJson?.meta?.executionTrace?.runner || 'embedded'
+      }
+    };
+    if (actualModel) parsed.model = actualModel;
+    return JSON.stringify(parsed);
+  } catch {
+    return text;
+  }
+}
+
 function buildTaskRules(taskName) {
   switch (taskName) {
     case 'summary':
@@ -214,7 +236,7 @@ function main() {
   }
 
   const cliJson = JSON.parse(rawCliJson);
-  const text = getPayloadText(cliJson);
+  const text = normalizePayloadText(getPayloadText(cliJson), cliJson, requestedModel);
   process.stdout.write(text);
 }
 
