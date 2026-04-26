@@ -3,9 +3,9 @@
 - kind: category
 - mentions: 8
 - sources: 1
-- delta vs prev: +2
-- delta ratio: 0.333
-- streak days: 27
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 28
 - regions: us
 - categories: startups
 ## Sample item IDs
