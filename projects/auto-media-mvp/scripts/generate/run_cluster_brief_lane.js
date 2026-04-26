@@ -162,6 +162,22 @@ function renderMarkdown(brief) {
   return lines.join('\n');
 }
 
+function buildXPostText(brief) {
+  const cluster = brief.cluster;
+  const summary = brief.summary?.summary?.summary_ja || '';
+  const delta = Number(cluster.delta_vs_prev || 0);
+  const deltaLabel = delta > 0 ? `Δ+${delta}` : delta < 0 ? `Δ${delta}` : 'Δ0';
+  const windowLabel = brief.windowLabel || 'weekly';
+  const sampleUrl = 'https://auto-media-mvp.pages.dev/premium';
+  const variants = [
+    `${cluster.label}: ${summary} ${deltaLabel} / ${cluster.source_count} sources / ${windowLabel}. ${sampleUrl}`,
+    `${windowLabel} observatory: ${cluster.label} は ${cluster.mention_count} mentions、${cluster.source_count} sources。${deltaLabel}。 ${sampleUrl}`,
+    `${cluster.label} cluster update — ${cluster.mention_count} mentions, ${cluster.source_count} sources, ${deltaLabel}. ${sampleUrl}`
+  ];
+  const variantIndex = parseInt(brief.fingerprint.slice(0, 2), 16) % variants.length;
+  return variants[variantIndex].replace(/\s+/g, ' ').trim().slice(0, 278);
+}
+
 function writeBriefArtifacts(brief) {
   ensureDir(OUTPUT_DIR);
   ensureDir(path.join(DRAFTS_DIR, 'markdown'));
@@ -179,7 +195,7 @@ function writeBriefArtifacts(brief) {
   fs.writeFileSync(path.join(ROOT, markdownRel), markdown, 'utf8');
   fs.writeFileSync(path.join(ROOT, wpRel), markdown, 'utf8');
   fs.writeFileSync(path.join(ROOT, noteRel), markdown, 'utf8');
-  const xText = `${brief.cluster.label}: ${brief.summary.summary.summary_ja}`.slice(0, 260);
+  const xText = buildXPostText(brief);
   fs.writeFileSync(path.join(ROOT, xRel), xText, 'utf8');
 
   return { markdownRel, xRel, wpRel, noteRel };
@@ -292,7 +308,7 @@ function main() {
       }
     }
 
-    const brief = { slug, cluster, fingerprint, cache_hit: cacheHit, summary };
+    const brief = { slug, cluster, fingerprint, cache_hit: cacheHit, summary, windowLabel: rankings?.window?.label || rankings?.generated_at?.slice(0, 10) || 'weekly' };
     const draftFiles = writeBriefArtifacts(brief);
     brief.files = draftFiles;
     briefs.push(brief);
