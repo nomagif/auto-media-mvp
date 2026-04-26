@@ -19,7 +19,6 @@ project_pathspecs() {
     ROADMAP.md
     package.json
     scripts
-    functions
     config
     .gitignore
   )
@@ -27,6 +26,8 @@ project_pathspecs() {
   local prefixed=()
   local p
   for p in "${paths[@]}"; do
+    [[ -e "$p" ]] || continue
+
     if [[ "$PROJECT_PREFIX" == "." ]]; then
       prefixed+=(":(top)$p")
     else

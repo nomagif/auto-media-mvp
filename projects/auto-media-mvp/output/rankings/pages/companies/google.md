@@ -5,7 +5,7 @@
 - sources: 2
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 27
+- streak days: 28
 - regions: us, global
 - categories: ai, security
 ## Sample item IDs

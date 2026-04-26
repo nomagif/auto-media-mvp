@@ -3,9 +3,9 @@
 - kind: company
 - mentions: 15
 - sources: 3
-- delta vs prev: +1
-- delta ratio: 0.071
-- streak days: 16
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 17
 - regions: us, global
 - categories: ai
 ## Sample item IDs

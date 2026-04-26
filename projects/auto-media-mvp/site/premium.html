@@ -47,9 +47,15 @@
       color: #fff;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: .55rem .85rem;
-      background: rgba(34, 197, 94, .18);
+      padding: .72rem 1rem;
+      background: rgba(34, 197, 94, .22);
+      font-weight: 700;
     }
+    .button.primary { background: rgba(34, 197, 94, .34); border-color: rgba(34, 197, 94, .62); }
+    .price { color: #bbf7d0; font-size: 1.35rem; font-weight: 800; margin: .25rem 0; }
+    .sample { border-left: 3px solid rgba(125, 211, 252, .7); padding-left: 12px; }
+    .proof { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: .35rem .6rem; color: var(--muted); background: rgba(15, 23, 42, .72); }
     .nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
     .nav a {
       text-decoration: none;
@@ -67,6 +73,12 @@
       <div class="eyebrow">Premium Data</div>
       <h1>Premium media trend data for analysts and research teams</h1>
       <p class="meta">Track what global media is talking about through structured exports instead of manual scraping. Built for analysts, investors, strategy teams, and monitoring workflows.</p>
+      <div class="proof">
+        <span class="pill">Updated automatically</span>
+        <span class="pill">JSON + CSV exports</span>
+        <span class="pill">Self-serve licensed downloads</span>
+      </div>
+      <a class="button primary" data-track="premium_hero_access" href="/premium-access.html">Already bought? Access downloads</a>
     </div>
 
     <div class="nav">
@@ -77,10 +89,22 @@
     </div>
 
     <div class="card">
-      <h2>Free vs Paid</h2>
+      <h2>What you get</h2>
       <ul>
         <li><strong>Free:</strong> public observatory, top rankings, latest snapshot, browse pages, and trend monitoring surface</li>
-        <li><strong>Paid:</strong> weekly JSON and weekly CSV exports for reuse in internal dashboards, spreadsheets, BI tools, alerts, and automation</li>
+        <li><strong>Paid:</strong> reusable weekly JSON/CSV exports for dashboards, spreadsheets, BI tools, alerts, and automation</li>
+        <li><strong>Delivery:</strong> buy on Gumroad, verify your license, then download fresh signed files from Cloudflare R2</li>
+      </ul>
+    </div>
+
+    <div class="card sample">
+      <h2>Built for repeatable monitoring</h2>
+      <p class="meta">Instead of reading dozens of sites manually, use weekly structured exports to spot which topics, companies, regions, and categories are gaining attention.</p>
+      <ul>
+        <li>Topics CSV for trend dashboards</li>
+        <li>Companies CSV for watchlists and competitive monitoring</li>
+        <li>Regions and categories CSVs for reporting slices</li>
+        <li>JSON snapshot for programmatic pipelines</li>
       </ul>
     </div>
 
@@ -107,17 +131,19 @@
       <div class="grid">
         <div>
           <h3>Weekly JSON Snapshot</h3>
-          <p class="meta">Status: implemented · recommended first product</p>
+          <p class="meta">Status: implemented · recommended for automation</p>
+          <p class="price">Weekly export</p>
           <p class="meta">Machine-readable weekly ranking artifact for analysts and automation.</p>
           <p class="meta">Best for programmatic ingestion, internal tools, and trend pipelines.</p>
-          <a class="button" href="https://starbound17.gumroad.com/l/snkcjg">Get on Gumroad</a>
+          <a class="button primary" data-track="premium_buy_json" href="https://starbound17.gumroad.com/l/snkcjg">Buy Weekly JSON Snapshot</a>
         </div>
         <div>
           <h3>Weekly CSV Pack</h3>
-          <p class="meta">Status: implemented</p>
+          <p class="meta">Status: implemented · easiest to inspect</p>
+          <p class="price">Weekly export</p>
           <p class="meta">Topics, companies, regions, and categories as spreadsheet-friendly files.</p>
           <p class="meta">Best for spreadsheet workflows, quick reporting, and non-engineering teams.</p>
-          <a class="button" href="https://starbound17.gumroad.com/l/weekly-csv-pack-v1">Get on Gumroad</a>
+          <a class="button primary" data-track="premium_buy_csv" href="https://starbound17.gumroad.com/l/weekly-csv-pack-v1">Buy Weekly CSV Pack</a>
         </div>
       </div>
     </div>
@@ -135,8 +161,20 @@
     <div class="card">
       <h2>Status</h2>
       <p>Premium data products now have automation-first artifact generation in place, plus a self-serve premium access path for buyers.</p>
-      <p class="meta">Current delivery model: buy on Gumroad, then verify your license at <a href="/premium-access.html">Premium Access</a> to receive fresh signed download links. Files live in Cloudflare R2 rather than the public repo.</p>
+      <p class="meta">Current delivery model: buy on Gumroad, then verify your license at <a data-track="premium_status_access" href="/premium-access.html">Premium Access</a> to receive fresh signed download links. Files live in Cloudflare R2 rather than the public repo.</p>
     </div>
   </div>
+  <script>
+    const PREMIUM_API_BASE = 'https://auto-media-mvp-premium-api.iba-star-9929.workers.dev';
+    function track(eventName) {
+      try {
+        const payload = JSON.stringify({ event: eventName, page: location.pathname, ts: new Date().toISOString() });
+        navigator.sendBeacon?.(`${PREMIUM_API_BASE}/api/premium/event`, new Blob([payload], { type: 'application/json' }));
+      } catch (_) {}
+    }
+    document.querySelectorAll('[data-track]').forEach((el) => {
+      el.addEventListener('click', () => track(el.dataset.track));
+    });
+  </script>
 </body>
 </html>

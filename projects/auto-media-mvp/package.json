@@ -25,6 +25,7 @@
     "premium:build": "npm run premium:weekly-json && npm run premium:weekly-csv",
     "premium:publish": "node scripts/premium/publish_premium_to_r2.js",
     "premium:test-link": "node scripts/premium/generate_test_download_url.js",
+    "premium:smoke": "node scripts/premium/smoke_test_premium_flow.js",
     "site:render": "node scripts/render_static_site.js",
     "site:build": "npm run rank:render && npm run rank:pages && npm run site:render && npm run premium:build",
     "site:serve": "python3 -m http.server 4173 --directory site",
