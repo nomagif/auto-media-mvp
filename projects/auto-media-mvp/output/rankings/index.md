@@ -39,8 +39,8 @@ Auto-generated landing page for the ranking outputs.
 This is an MVP observatory surface.
 
 The project is now intentionally centered on:
-- AI・テクノロジー
-- 金融・経済（投資・マクロ）
+- AI / Technology
+- Finance / Economics (Investing / Macro)
 
 This surface is designed to show signals, counts, rankings, and changes — not strong narrative commentary.
 
