@@ -57,6 +57,10 @@
     .proof { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
     .pill { border: 1px solid var(--line); border-radius: 999px; padding: .35rem .6rem; color: var(--muted); background: rgba(15, 23, 42, .72); }
     .nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .quote { font-size: 1.08rem; color: #dbeafe; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+    .actions .button { margin-top: 0; }
+    code { background: rgba(15,23,42,.9); padding: .15rem .4rem; border-radius: 6px; color: #bfdbfe; }
     .nav a {
       text-decoration: none;
       color: #fff;
@@ -72,13 +76,20 @@
     <div class="hero">
       <div class="eyebrow">Premium Data</div>
       <h1>Premium media trend data for analysts and research teams</h1>
+      <p class="quote">Get weekly AI / tech / macro trend data in reusable CSV and JSON instead of rebuilding the same monitoring workflow by hand.</p>
       <p class="meta">Track what global media is talking about through structured exports instead of manual scraping. Built for analysts, investors, strategy teams, and monitoring workflows.</p>
       <div class="proof">
         <span class="pill">Updated automatically</span>
         <span class="pill">JSON + CSV exports</span>
         <span class="pill">Self-serve licensed downloads</span>
       </div>
-      <a class="button primary" data-track="premium_hero_access" href="/premium-access.html">Already bought? Access downloads</a>
+      <div class="actions">
+        <a class="button primary" data-track="premium_buy_json_hero" href="https://starbound17.gumroad.com/l/snkcjg">Buy JSON</a>
+        <a class="button primary" data-track="premium_buy_csv_hero" href="https://starbound17.gumroad.com/l/weekly-csv-pack-v1">Buy CSV</a>
+        <a class="button" data-track="premium_sample_json" href="/samples/weekly-json-sample.json">View JSON sample</a>
+        <a class="button" data-track="premium_sample_csv" href="/samples/weekly-topics-sample.csv">Download CSV sample</a>
+        <a class="button" data-track="premium_hero_access" href="/premium-access.html">Already bought? Access downloads</a>
+      </div>
     </div>
 
     <div class="nav">
@@ -106,6 +117,7 @@
         <li>Regions and categories CSVs for reporting slices</li>
         <li>JSON snapshot for programmatic pipelines</li>
       </ul>
+      <p class="meta">Try the public samples first: <a data-track="premium_inline_sample_json" href="/samples/weekly-json-sample.json"><code>weekly-json-sample.json</code></a> and <a data-track="premium_inline_sample_csv" href="/samples/weekly-topics-sample.csv"><code>weekly-topics-sample.csv</code></a>.</p>
     </div>
 
     <div class="card">
@@ -146,6 +158,15 @@
           <a class="button primary" data-track="premium_buy_csv" href="https://starbound17.gumroad.com/l/weekly-csv-pack-v1">Buy Weekly CSV Pack</a>
         </div>
       </div>
+    </div>
+
+    <div class="card">
+      <h2>Why people pay for this</h2>
+      <ul>
+        <li>Skip manual news triage and start from structured weekly rankings</li>
+        <li>Feed watchlists, internal dashboards, spreadsheets, and weekly memos directly</li>
+        <li>Use one compact data pack instead of collecting links from multiple sources yourself</li>
+      </ul>
     </div>
 
     <div class="card">
