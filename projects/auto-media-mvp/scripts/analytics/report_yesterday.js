@@ -145,9 +145,9 @@ async function main() {
   const bucket = requiredEnv('R2_BUCKET');
   const accessKeyId = requiredEnv('R2_ACCESS_KEY_ID');
   const secretAccessKey = requiredEnv('R2_SECRET_ACCESS_KEY');
-  const prefixBase = env('R2_PREMIUM_PREFIX', 'premium').replace(/^\/+|\/+$/g, '');
+  const analyticsPrefix = env('ANALYTICS_R2_PREFIX', 'analytics/events').replace(/^\/+|\/+$/g, '');
   const day = process.argv[2] || tokyoDayOffset(1);
-  const prefix = `${prefixBase}/analytics/events/${day}/`;
+  const prefix = `${analyticsPrefix}/${day}/`;
 
   const keys = await listKeys({ accountId, bucket, accessKeyId, secretAccessKey, prefix });
   const events = [];

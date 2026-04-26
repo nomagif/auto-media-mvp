@@ -204,7 +204,7 @@ npm run site:serve
 - `push:observatory` は `PREMIUM_PUBLISH_ENABLED=auto` 相当で動き、R2 env が揃っていれば premium upload まで自動で実行する
 - OpenClaw cron 用の一発入口は `npm run run:observatory`
 - build 後に自動 commit / push まで行う入口は `npm run run:observatory:push`
-- 昨日の流入数 / premiumクリック数の集計は `npm run analytics:yesterday`（R2上の analytics event を読む）
+- 昨日の流入数 / premiumクリック数の集計は `npm run analytics:yesterday`（R2上の `analytics/events/` を読む）
 - 低頻度の cluster LLM lane は `npm run cluster:briefs`。既定では top 3 topic clusters を 24 時間に 1 回だけ要約し、fingerprint が同じなら再生成を skip、失敗時は template fallback に落として継続運転する
 - 構文確認用の template-only 実行は `npm run cluster:briefs:template`
 
