@@ -169,19 +169,32 @@ async function handleEvent(request, env) {
   const event = String(payload.event || '').slice(0, 80);
   const page = String(payload.page || '').slice(0, 160);
   const ts = String(payload.ts || new Date().toISOString()).slice(0, 40);
+  const clientId = String(payload.client_id || '').slice(0, 80);
+  const referrer = String(payload.referrer || '').slice(0, 300);
 
   if (!event) return json({ ok: false, error: 'event is required' }, 400, origin);
+  if (!env.PREMIUM_BUCKET) return json({ ok: false, error: 'PREMIUM_BUCKET binding is not configured' }, 503, origin);
 
-  console.log(JSON.stringify({
+  const receivedAt = new Date().toISOString();
+  const day = receivedAt.slice(0, 10);
+  const eventId = `${Date.now()}-${crypto.randomUUID()}`;
+  const key = `analytics/events/${day}/${eventId}.json`;
+  const record = {
     type: 'premium_event',
     event,
     page,
     ts,
+    client_id: clientId || null,
+    referrer: referrer || null,
+    received_at: receivedAt,
     user_agent: request.headers.get('user-agent') || null,
     cf_country: request.cf?.country || null
-  }));
+  };
 
-  return json({ ok: true }, 200, origin);
+  await env.PREMIUM_BUCKET.put(key, JSON.stringify(record));
+  console.log(JSON.stringify({ ...record, key }));
+
+  return json({ ok: true, stored: true }, 200, origin);
 }
 
 async function handleDownload(request, env) {

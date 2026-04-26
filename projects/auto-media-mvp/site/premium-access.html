@@ -158,9 +158,37 @@
     const errorEl = document.getElementById('error');
     const downloadsEl = document.getElementById('downloads');
     const DEFAULT_API_BASE = 'https://auto-media-mvp-premium-api.iba-star-9929.workers.dev';
+    const PREMIUM_CLIENT_ID_KEY = 'auto_media_mvp_client_id';
     const apiBaseInput = document.getElementById('api_base');
     const storedApiBase = localStorage.getItem('premium_api_base') || '';
     apiBaseInput.value = storedApiBase || DEFAULT_API_BASE;
+
+    function getClientId() {
+      try {
+        let value = localStorage.getItem(PREMIUM_CLIENT_ID_KEY);
+        if (!value) {
+          value = crypto?.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+          localStorage.setItem(PREMIUM_CLIENT_ID_KEY, value);
+        }
+        return value;
+      } catch (_) {
+        return 'anon';
+      }
+    }
+
+    function track(eventName) {
+      try {
+        const apiBase = resolveApiBase();
+        const payload = JSON.stringify({
+          event: eventName,
+          page: location.pathname,
+          ts: new Date().toISOString(),
+          client_id: getClientId(),
+          referrer: document.referrer || ''
+        });
+        navigator.sendBeacon?.(`${apiBase}/api/premium/event`, new Blob([payload], { type: 'application/json' }));
+      } catch (_) {}
+    }
 
     function resolveApiBase() {
       const raw = (apiBaseInput.value || '').trim();
@@ -181,8 +209,15 @@
       }
     }
 
+    track('page_view');
+    document.addEventListener('click', (event) => {
+      const target = event.target.closest?.('[data-track]');
+      if (target?.dataset?.track) track(target.dataset.track);
+    });
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      track('premium_access_submit');
       statusEl.textContent = 'Verifying license…';
       errorEl.textContent = '';
       downloadsEl.innerHTML = '';
@@ -204,8 +239,9 @@
         }
 
         statusEl.textContent = `Verified. Links valid until ${new Date(data.expires_at).toLocaleString()}.`;
+        track('premium_access_verified');
         downloadsEl.innerHTML = data.downloads.map((item) => (
-          `<li><a href="${item.url}">${item.label}</a><br /><span class="meta"><code>${item.filename}</code></span></li>`
+          `<li><a data-track="premium_download_link" href="${item.url}">${item.label}</a><br /><span class="meta"><code>${item.filename}</code></span></li>`
         )).join('');
       } catch (error) {
         statusEl.textContent = '';

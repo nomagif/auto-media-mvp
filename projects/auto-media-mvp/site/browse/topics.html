@@ -201,5 +201,41 @@
     </div>
     <div class="footer">Generated from <code>output/rankings</code> via the minimal static renderer. This surface is intended to show metrics and observed changes, not narrative analysis. Premium monetization should stay automation-first: weekly CSV / JSON snapshots, historical exports, packaged feeds, and later API access.</div>
   </div>
+
+  <script>
+    (() => {
+      const API_BASE = 'https://auto-media-mvp-premium-api.iba-star-9929.workers.dev';
+      const STORAGE_KEY = 'auto_media_mvp_client_id';
+      function getClientId() {
+        try {
+          let value = localStorage.getItem(STORAGE_KEY);
+          if (!value) {
+            value = (crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(16).slice(2));
+            localStorage.setItem(STORAGE_KEY, value);
+          }
+          return value;
+        } catch (_) {
+          return 'anon';
+        }
+      }
+      function track(eventName) {
+        try {
+          const payload = JSON.stringify({
+            event: eventName,
+            page: location.pathname,
+            ts: new Date().toISOString(),
+            client_id: getClientId(),
+            referrer: document.referrer || ''
+          });
+          navigator.sendBeacon?.(API_BASE + '/api/premium/event', new Blob([payload], { type: 'application/json' }));
+        } catch (_) {}
+      }
+      track('page_view');
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest?.('[data-track]');
+        if (target?.dataset?.track) track(target.dataset.track);
+      });
+    })();
+  </script>
 </body>
 </html>

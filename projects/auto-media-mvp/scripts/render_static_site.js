@@ -8,6 +8,7 @@ const SRC_DIR = path.join(ROOT, 'output', 'rankings');
 const RANKINGS_FILE = path.join(ROOT, 'data', 'rankings', 'latest.json');
 const DIST_DIR = path.join(ROOT, 'site');
 const BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || '');
+const PREMIUM_API_BASE = (process.env.PREMIUM_API_BASE || 'https://auto-media-mvp-premium-api.iba-star-9929.workers.dev').replace(/\/$/, '');
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -230,6 +231,45 @@ function renderSourceTypePage(rankings) {
   `;
 }
 
+function analyticsSnippet() {
+  return `
+  <script>
+    (() => {
+      const API_BASE = '${escapeHtml(PREMIUM_API_BASE)}';
+      const STORAGE_KEY = 'auto_media_mvp_client_id';
+      function getClientId() {
+        try {
+          let value = localStorage.getItem(STORAGE_KEY);
+          if (!value) {
+            value = (crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(16).slice(2));
+            localStorage.setItem(STORAGE_KEY, value);
+          }
+          return value;
+        } catch (_) {
+          return 'anon';
+        }
+      }
+      function track(eventName) {
+        try {
+          const payload = JSON.stringify({
+            event: eventName,
+            page: location.pathname,
+            ts: new Date().toISOString(),
+            client_id: getClientId(),
+            referrer: document.referrer || ''
+          });
+          navigator.sendBeacon?.(API_BASE + '/api/premium/event', new Blob([payload], { type: 'application/json' }));
+        } catch (_) {}
+      }
+      track('page_view');
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest?.('[data-track]');
+        if (target?.dataset?.track) track(target.dataset.track);
+      });
+    })();
+  </script>`;
+}
+
 function wrapHtml(title, body, options = {}) {
   return `<!doctype html>
 <html lang="en">
@@ -370,6 +410,7 @@ ${body}
     </div>
     <div class="footer">Generated from <code>output/rankings</code> via the minimal static renderer. This surface is intended to show metrics and observed changes, not narrative analysis. Premium monetization should stay automation-first: weekly CSV / JSON snapshots, historical exports, packaged feeds, and later API access.</div>
   </div>
+${analyticsSnippet()}
 </body>
 </html>
 `;
