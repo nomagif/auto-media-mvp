@@ -73,6 +73,13 @@ if [[ -n "$(git status --porcelain -- "${PROJECT_PATHS[@]}")" ]]; then
     git commit -m "Refresh observatory outputs"
     git push origin main
     printf '[observatory-push] committed and pushed updates\n'
+
+    if [[ "${OBSERVATORY_X_AUTOPUBLISH:-1}" != "0" ]]; then
+      printf '[observatory-push] publishing observatory X update\n'
+      ALLOW_PROSE_ROUTES=1 node scripts/publish/publish_observatory_x_update.js
+    else
+      printf '[observatory-push] observatory X update skipped (disabled)\n'
+    fi
   else
     printf '[observatory-push] no commit after staged selection\n'
   fi
