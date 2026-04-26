@@ -1,11 +1,11 @@
 # Anthropic
 - key: company:anthropic
 - kind: company
-- mentions: 27
+- mentions: 28
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 29
+- delta vs prev: +1
+- delta ratio: 0.037
+- streak days: 30
 - regions: us, global
 - categories: ai
 ## Sample item IDs
