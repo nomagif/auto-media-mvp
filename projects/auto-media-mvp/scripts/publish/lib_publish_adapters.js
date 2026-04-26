@@ -370,7 +370,6 @@ function buildXPublishInput(queueItem) {
     platform: 'x',
     text: readText(queueItem.draft_file),
     idempotency_key: `${queueItem.item_id}:x`,
-    dry_run: true,
     meta: {
       draft_file: queueItem.draft_file
     }
