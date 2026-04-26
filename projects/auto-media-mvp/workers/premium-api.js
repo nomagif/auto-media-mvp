@@ -64,6 +64,15 @@ function corsHeaders(origin, headers = {}) {
   };
 }
 
+function formatTokyoDay(value = new Date()) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(value);
+}
+
 function resolveAllowedOrigin(request, env) {
   const requestOrigin = request.headers.get('origin') || '';
   const allowed = String(env.ALLOWED_ORIGIN || '').trim();
@@ -175,8 +184,9 @@ async function handleEvent(request, env) {
   if (!event) return json({ ok: false, error: 'event is required' }, 400, origin);
   if (!env.PREMIUM_BUCKET) return json({ ok: false, error: 'PREMIUM_BUCKET binding is not configured' }, 503, origin);
 
-  const receivedAt = new Date().toISOString();
-  const day = receivedAt.slice(0, 10);
+  const now = new Date();
+  const receivedAt = now.toISOString();
+  const day = formatTokyoDay(now);
   const eventId = `${Date.now()}-${crypto.randomUUID()}`;
   const key = `analytics/events/${day}/${eventId}.json`;
   const record = {
