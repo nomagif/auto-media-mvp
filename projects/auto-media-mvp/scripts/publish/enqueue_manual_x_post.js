@@ -46,6 +46,8 @@ function parseArgs(argv) {
 
 function normalizeText(text) {
   return String(text || '')
+    .replace(/\\r\\n/g, '\n')
+    .replace(/\\n/g, '\n')
     .replace(/\r\n/g, '\n')
     .split('\n')
     .map((line) => line.trimEnd())
