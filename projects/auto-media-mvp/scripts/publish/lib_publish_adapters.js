@@ -249,6 +249,12 @@ function sanitizeRequestForLogs(request) {
   };
 }
 
+function isDuplicateXPostError(responseStatus, payload) {
+  if (responseStatus !== 403) return false;
+  const detail = String(payload?.detail || payload?.title || '').toLowerCase();
+  return detail.includes('duplicate content');
+}
+
 async function createXPostRequest(input, auth) {
   const request = {
     url: auth.baseUrl,
@@ -306,6 +312,25 @@ async function sendXPost(input, auth) {
     }
 
     if (!response.ok) {
+      if (isDuplicateXPostError(response.status, json || rawText)) {
+        return {
+          ok: true,
+          item_id: input.item_id,
+          platform: 'x',
+          status: 'skipped_duplicate',
+          published_at: null,
+          external_post_id: null,
+          error: null,
+          meta: {
+            dry_run: false,
+            raw_status: response.status,
+            duplicate_blocked: true,
+            request: requestForLogs,
+            response: json || rawText
+          }
+        };
+      }
+
       return {
         ok: false,
         item_id: input.item_id,
