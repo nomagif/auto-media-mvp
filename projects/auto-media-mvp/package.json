@@ -61,6 +61,8 @@
     "summary:worker": "npm run guard:prose-routes && node scripts/generate/run_summary_worker.js",
     "summary:apply": "npm run guard:prose-routes && node scripts/generate/apply_summary_response.js",
     "generate:review-digest": "npm run guard:prose-routes && node scripts/generate/review_digest.js",
+    "cluster:briefs": "node scripts/generate/run_cluster_brief_lane.js",
+    "cluster:briefs:template": "node scripts/generate/run_cluster_brief_lane.js --template-only --no-publish --force",
     "run:mvp": "bash scripts/run_mvp.sh"
   }
 }

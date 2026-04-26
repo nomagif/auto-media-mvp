@@ -32,6 +32,10 @@ main() {
   npm run rank:generate
   log "site:build"
   npm run site:build
+  log "cluster:briefs"
+  if ! npm run cluster:briefs; then
+    log "cluster:briefs failed; continuing with observatory outputs intact"
+  fi
   log "cycle complete"
 }
 
