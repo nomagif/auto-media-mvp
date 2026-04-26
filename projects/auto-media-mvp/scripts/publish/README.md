@@ -7,6 +7,7 @@ MVP段階では本番投稿より、投稿フォーマットの整形と publish
 ## いまあるもの
 - `build_publish_queue.js`: enriched data から platform 別 queue を作る
 - `approve_publish_items.js`: `pending_review -> approved` の最小承認
+- `enqueue_manual_x_post.js`: 任意テキストを X 用 queue item として追加
 - `list_publish_ready.js`: `approved` 一覧を出す
 - `lib_publish_queue.js`: queue 読み書きと publish result 反映の共通関数
 - `lib_publish_adapters.js`: x / wordpress / note の publish input/output adapter
@@ -25,6 +26,7 @@ MVP段階では本番投稿より、投稿フォーマットの整形と publish
 
 ## 例
 ```bash
+npm run publish:enqueue-manual-x -- --item-id onepage-worldmeeting-2026-04-26 --text "World Meeting Time Finder\nhttps://worldmeetingtimefinder.com" --approve
 npm run publish:list-ready
 npm run publish:run -- --dry-run
 npm run publish:run -- --item-id hn-2026-04-18-002 --platform x
