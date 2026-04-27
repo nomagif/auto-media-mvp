@@ -30,6 +30,36 @@ function formatRatio(row) {
   return `${Math.round(ratio * 100)}%`;
 }
 
+function entitySlug(row) {
+  return String(row?.key || row?.label || '')
+    .replace(/^[^:]+:/, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function entityUrl(row) {
+  const kind = String(row?.kind || '').toLowerCase();
+  const slug = entitySlug(row);
+  if (!kind || !slug) return SITE_URL;
+  const group = kind === 'category' ? 'categories' : kind === 'company' ? 'companies' : `${kind}s`;
+  return `${SITE_URL}/pages/${group}/${slug}.html`;
+}
+
+function sampleUrl() {
+  return `${SITE_URL}/samples/weekly-json-sample.json`;
+}
+
+function hashtags(rows = []) {
+  const base = ['#AI', '#TechNews', '#MarketSignals'];
+  const labels = rows.map((row) => String(row?.label || '').toLowerCase()).join(' ');
+  if (/openai|anthropic|claude|chatgpt|sora|ai/.test(labels)) base.push('#AITrends');
+  if (/market|macro|rates|inflation|jobs/.test(labels)) base.push('#Macro');
+  if (/crypto|bitcoin|ethereum|solana|xrp|bnb/.test(labels)) base.push('#Crypto');
+  if (/security|policy|regulation/.test(labels)) base.push('#CyberSecurity');
+  return [...new Set(base)].slice(0, 4).join(' ');
+}
+
 function isNewEntry(row) {
   return Number(row?.streak_days || 0) <= 1 || (Number(row?.delta_ratio || 0) >= 1 && Number(row?.delta_vs_prev || 0) === Number(row?.mention_count || 0));
 }
@@ -67,41 +97,54 @@ function buildSummary(rankings) {
   const counts = rankings.counts || {};
   const { risingTopic, longestTopic, newEntry, risingCompany, risingCategory } = buildLeadSignals(rankings);
   const templates = [
-    ({ counts, risingTopic, longestTopic }) => [
-      risingTopic ? `${risingTopic.label} jumped ${formatDelta(risingTopic)} mentions (${formatRatio(risingTopic)}) in the latest observatory refresh.` : `Observatory refreshed: ${counts.items || '?'} ranked items across ${counts.topics || '?'} topics.`,
+    ({ risingTopic, risingCompany }) => [
+      risingTopic ? `Ranking move: ${risingTopic.label} ${formatDelta(risingTopic)} mentions (${formatRatio(risingTopic)}).` : `Fresh AI / macro ranking refresh is live.`,
+      risingCompany ? `Company signal: ${risingCompany.label} ${formatDelta(risingCompany)}.` : null,
+      `Sample JSON: ${sampleUrl()}`,
+      risingTopic ? entityUrl(risingTopic) : SITE_URL,
+      hashtags([risingTopic, risingCompany])
+    ],
+    ({ newEntry, risingCompany }) => [
+      newEntry ? `New trend to watch: ${newEntry.label} entered with ${newEntry.mention_count} mentions.` : `${risingCompany?.label || 'AI / macro'} is moving in today’s rankings.`,
+      risingCompany ? `${risingCompany.label}: ${formatDelta(risingCompany)} mentions vs previous run.` : null,
+      `Open the ranking page + sample data:`,
+      entityUrl(newEntry || risingCompany),
+      hashtags([newEntry, risingCompany])
+    ],
+    ({ risingCategory, longestTopic }) => [
+      risingCategory ? `Category momentum: ${risingCategory.label} grew ${formatRatio(risingCategory)}.` : `Overseas news momentum board updated.`,
       longestTopic ? `${longestTopic.label} is on a ${longestTopic.streak_days}-day streak.` : null,
-      '',
-      SITE_URL
+      `Sample JSON: ${sampleUrl()}`,
+      risingCategory ? entityUrl(risingCategory) : SITE_URL,
+      hashtags([risingCategory, longestTopic])
     ],
-    ({ counts, newEntry, risingCompany }) => [
-      newEntry
-        ? `New entry signal: ${newEntry.label} entered with ${newEntry.mention_count} mentions in this refresh.`
-        : risingCompany
-          ? `${risingCompany.label} rose ${formatDelta(risingCompany)} mentions (${formatRatio(risingCompany)}).`
-          : `Fresh observatory update is live.`,
-      risingCompany && !newEntry ? `${counts.items || '?'} items / ${counts.companies || '?'} companies / ${counts.regions || '?'} regions tracked.` : risingCompany ? `${risingCompany.label} rose ${formatDelta(risingCompany)} mentions (${formatRatio(risingCompany)}).` : `${counts.items || '?'} items / ${counts.companies || '?'} companies / ${counts.regions || '?'} regions tracked.`,
-      '',
-      SITE_URL
-    ],
-    ({ counts, risingCategory, longestTopic }) => [
-      `Updated the overseas news rankings and trend view.`,
-      risingCategory ? `${risingCategory.label} led category momentum at ${formatRatio(risingCategory)} growth.` : null,
-      longestTopic ? `${longestTopic.label} kept its streak alive for ${longestTopic.streak_days} days.` : `${counts.items || '?'} ranked items in the latest refresh.`,
-      '',
-      SITE_URL
-    ],
-    ({ counts, risingTopic, risingCompany }) => [
-      risingTopic ? `${risingTopic.label} is the clearest mover in the latest refresh.` : `Latest observatory refresh is live.`,
+    ({ risingTopic, risingCompany }) => [
+      risingTopic ? `${risingTopic.label} is today’s clearest signal.` : `Today’s AI / macro signal board is live.`,
       risingTopic ? `${formatDelta(risingTopic)} mentions / ${formatRatio(risingTopic)} growth.` : null,
-      risingCompany ? `Company move: ${risingCompany.label} ${formatDelta(risingCompany)}.` : `${counts.items || '?'} ranked items tracked.`,
-      '',
-      SITE_URL
+      risingCompany ? `Related company move: ${risingCompany.label} ${formatDelta(risingCompany)}.` : null,
+      entityUrl(risingTopic || risingCompany),
+      hashtags([risingTopic, risingCompany])
     ],
-    ({ longestTopic, newEntry, counts }) => [
-      longestTopic ? `${longestTopic.label} now has a ${longestTopic.streak_days}-day streak.` : `Fresh observatory update is live.`,
-      newEntry ? `New entry to watch: ${newEntry.label}.` : `${counts.topics || '?'} topics in the current rankings.`,
-      '',
-      SITE_URL
+    ({ longestTopic, newEntry }) => [
+      longestTopic ? `Streak watch: ${longestTopic.label} has held for ${longestTopic.streak_days} days.` : `Trend board refreshed.`,
+      newEntry ? `New entry: ${newEntry.label}.` : null,
+      `Sample JSON: ${sampleUrl()}`,
+      entityUrl(longestTopic || newEntry),
+      hashtags([longestTopic, newEntry])
+    ],
+    ({ counts, risingCompany }) => [
+      `Tracked ${counts.items || '?'} overseas news items across ${counts.companies || '?'} companies / ${counts.topics || '?'} topics.`,
+      risingCompany ? `Biggest company move: ${risingCompany.label} ${formatDelta(risingCompany)}.` : null,
+      `Sample → ${sampleUrl()}`,
+      `${SITE_URL}/latest.html`,
+      hashtags([risingCompany])
+    ],
+    ({ risingTopic }) => [
+      risingTopic ? `If you track AI / macro news, ${risingTopic.label} is the mover to inspect today.` : `AI / macro trend rankings updated.`,
+      risingTopic ? `Mentions: ${risingTopic.mention_count} (${formatDelta(risingTopic)} vs previous).` : null,
+      entityUrl(risingTopic),
+      `Sample data: ${sampleUrl()}`,
+      hashtags([risingTopic])
     ]
   ];
 
