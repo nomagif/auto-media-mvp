@@ -89,6 +89,19 @@ function buildSummary(rankings) {
       longestTopic ? `${longestTopic.label} kept its streak alive for ${longestTopic.streak_days} days.` : `${counts.items || '?'} ranked items in the latest refresh.`,
       '',
       SITE_URL
+    ],
+    ({ counts, risingTopic, risingCompany }) => [
+      risingTopic ? `${risingTopic.label} is the clearest mover in the latest refresh.` : `Latest observatory refresh is live.`,
+      risingTopic ? `${formatDelta(risingTopic)} mentions / ${formatRatio(risingTopic)} growth.` : null,
+      risingCompany ? `Company move: ${risingCompany.label} ${formatDelta(risingCompany)}.` : `${counts.items || '?'} ranked items tracked.`,
+      '',
+      SITE_URL
+    ],
+    ({ longestTopic, newEntry, counts }) => [
+      longestTopic ? `${longestTopic.label} now has a ${longestTopic.streak_days}-day streak.` : `Fresh observatory update is live.`,
+      newEntry ? `New entry to watch: ${newEntry.label}.` : `${counts.topics || '?'} topics in the current rankings.`,
+      '',
+      SITE_URL
     ]
   ];
 

@@ -169,10 +169,11 @@ function buildXPostText(brief) {
   const windowLabel = brief.windowLabel || 'weekly';
   const sampleUrl = 'https://auto-media-mvp.pages.dev/premium';
   const isNewEntry = Number(cluster.streak_days || 0) <= 1 || (Number(cluster.delta_ratio || 0) >= 1 && delta === Number(cluster.mention_count || 0));
+  const safeRatio = Number.isFinite(ratio) ? ratio : 0;
   const growthLead = isNewEntry
     ? `New entry: ${cluster.label} landed with ${cluster.mention_count} mentions.`
     : delta > 0
-      ? `${cluster.label} rose ${delta > 0 ? `+${delta}` : delta} mentions (${ratio}% vs prev).`
+      ? `${cluster.label} rose ${delta > 0 ? `+${delta}` : delta} mentions (${safeRatio}% vs prev).`
       : `${cluster.label} held ${cluster.mention_count} mentions this ${windowLabel} window.`;
   const streakLead = Number(cluster.streak_days || 0) > 1
     ? `${cluster.streak_days}-day streak.`
@@ -181,7 +182,10 @@ function buildXPostText(brief) {
   const variants = [
     [growthLead, streakLead, sourceLead, sampleUrl].filter(Boolean).join(' '),
     [`${windowLabel} observatory:`, growthLead, streakLead, sourceLead, sampleUrl].filter(Boolean).join(' '),
-    [isNewEntry ? `${cluster.label} is a fresh cluster in the rankings.` : `${cluster.label} kept showing up in the observatory.`, delta > 0 ? `Up ${delta > 0 ? `+${delta}` : delta} mentions.` : null, streakLead, sampleUrl].filter(Boolean).join(' ')
+    [isNewEntry ? `${cluster.label} is a fresh cluster in the rankings.` : `${cluster.label} kept showing up in the observatory.`, delta > 0 ? `Up ${delta > 0 ? `+${delta}` : delta} mentions.` : null, streakLead, sampleUrl].filter(Boolean).join(' '),
+    [`Signal check:`, cluster.label, delta > 0 ? `up ${delta > 0 ? `+${delta}` : delta} mentions` : `${cluster.mention_count} mentions`, streakLead, sourceLead, sampleUrl].filter(Boolean).join(' '),
+    [delta > 0 ? `${cluster.label} kept climbing.` : `${cluster.label} stayed active.`, delta > 0 ? `${safeRatio}% growth vs prev.` : null, streakLead, sampleUrl].filter(Boolean).join(' '),
+    [isNewEntry ? `Watching a new cluster:` : `Still worth watching:`, cluster.label + '.', sourceLead, streakLead, sampleUrl].filter(Boolean).join(' ')
   ];
   const variantIndex = parseInt(brief.fingerprint.slice(0, 2), 16) % variants.length;
   return variants[variantIndex].replace(/\s+/g, ' ').trim().slice(0, 278);
