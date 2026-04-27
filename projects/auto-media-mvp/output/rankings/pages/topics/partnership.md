@@ -1,12 +1,12 @@
 # partnership
 - key: topic:partnership
 - kind: topic
-- mentions: 3
-- sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 31
-- regions: us
+- mentions: 4
+- sources: 2
+- delta vs prev: +1
+- delta ratio: 0.333
+- streak days: 32
+- regions: us, global
 - categories: general, ai, startups
 ## Sample item IDs
 - techcrunch-2026-04-18-002

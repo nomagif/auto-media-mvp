@@ -1,12 +1,12 @@
 # World
 - key: company:world
 - kind: company
-- mentions: 5
+- mentions: 6
 - sources: 3
 - delta vs prev: +1
-- delta ratio: 0.25
-- streak days: 31
-- regions: us, global
+- delta ratio: 0.2
+- streak days: 32
+- regions: us, global, china
 - categories: general, ai, security
 ## Sample item IDs
 - techcrunch-2026-04-18-002
