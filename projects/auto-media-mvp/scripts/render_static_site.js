@@ -270,6 +270,23 @@ function analyticsSnippet() {
   </script>`;
 }
 
+function premiumCtaSection() {
+  return `
+    <section class="premium-cta">
+      <div class="premium-cta-copy">
+        <div class="eyebrow">Premium data</div>
+        <h2>Need reusable data instead of manual checking?</h2>
+        <p class="meta">Get the weekly JSON / CSV exports when you want to feed dashboards, spreadsheets, watchlists, or internal briefs without rebuilding this workflow by hand.</p>
+      </div>
+      <div class="premium-cta-actions">
+        <a href="${sitePath('/premium.html')}" data-track="premium_cta_view_offer">View premium packs</a>
+        <a href="${sitePath('/samples/weekly-json-sample.json')}" data-track="premium_cta_sample_json">See JSON sample</a>
+        <a href="${sitePath('/samples/weekly-topics-sample.csv')}" data-track="premium_cta_sample_csv">See CSV sample</a>
+      </div>
+    </section>
+  `;
+}
+
 function wrapHtml(title, body, options = {}) {
   return `<!doctype html>
 <html lang="en">
@@ -383,6 +400,34 @@ function wrapHtml(title, body, options = {}) {
       margin-top: 1rem;
       font-size: .95rem;
     }
+    .premium-cta {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, rgba(34, 197, 94, .12), rgba(125, 211, 252, .08));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+    .premium-cta h2 {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-top: .25rem;
+      margin-bottom: .55rem;
+    }
+    .premium-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .premium-cta-actions a {
+      text-decoration: none;
+      color: #fff;
+      background: rgba(17,24,39,.78);
+      border: 1px solid var(--line);
+      padding: .65rem .9rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -408,6 +453,7 @@ function wrapHtml(title, body, options = {}) {
     <div class="card">
 ${body}
     </div>
+    ${options.premiumCta || ''}
     <div class="footer">Generated from <code>output/rankings</code> via the minimal static renderer. This surface is intended to show metrics and observed changes, not narrative analysis. Premium monetization should stay automation-first: weekly CSV / JSON snapshots, historical exports, packaged feeds, and later API access.</div>
   </div>
 ${analyticsSnippet()}
@@ -439,7 +485,8 @@ function main() {
     const firstHeading = (markdown.match(/^#\s+(.+)$/m) || [])[1] || 'Observatory';
     const isLanding = rel === 'index.md' || rel === 'latest.md';
     const html = wrapHtml(firstHeading, markdownToHtml(markdown), {
-      highlights: isLanding ? `${renderDashboard(rankings)}${renderHighlights(rankings)}` : ''
+      highlights: isLanding ? `${renderDashboard(rankings)}${renderHighlights(rankings)}` : '',
+      premiumCta: premiumCtaSection()
     });
     fs.writeFileSync(dest, html, 'utf8');
   }
