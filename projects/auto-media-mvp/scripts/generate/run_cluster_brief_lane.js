@@ -164,15 +164,24 @@ function renderMarkdown(brief) {
 
 function buildXPostText(brief) {
   const cluster = brief.cluster;
-  const summary = brief.summary?.summary?.summary_ja || '';
   const delta = Number(cluster.delta_vs_prev || 0);
-  const deltaLabel = delta > 0 ? `Δ+${delta}` : delta < 0 ? `Δ${delta}` : 'Δ0';
+  const ratio = Math.round(Number(cluster.delta_ratio || 0) * 100);
   const windowLabel = brief.windowLabel || 'weekly';
   const sampleUrl = 'https://auto-media-mvp.pages.dev/premium';
+  const isNewEntry = Number(cluster.streak_days || 0) <= 1 || (Number(cluster.delta_ratio || 0) >= 1 && delta === Number(cluster.mention_count || 0));
+  const growthLead = isNewEntry
+    ? `New entry: ${cluster.label} landed with ${cluster.mention_count} mentions.`
+    : delta > 0
+      ? `${cluster.label} rose ${delta > 0 ? `+${delta}` : delta} mentions (${ratio}% vs prev).`
+      : `${cluster.label} held ${cluster.mention_count} mentions this ${windowLabel} window.`;
+  const streakLead = Number(cluster.streak_days || 0) > 1
+    ? `${cluster.streak_days}-day streak.`
+    : null;
+  const sourceLead = `${cluster.source_count} sources.`;
   const variants = [
-    `${cluster.label}: ${summary} ${deltaLabel} / ${cluster.source_count} sources / ${windowLabel}. ${sampleUrl}`,
-    `${windowLabel} observatory: ${cluster.label} は ${cluster.mention_count} mentions、${cluster.source_count} sources。${deltaLabel}。 ${sampleUrl}`,
-    `${cluster.label} cluster update — ${cluster.mention_count} mentions, ${cluster.source_count} sources, ${deltaLabel}. ${sampleUrl}`
+    [growthLead, streakLead, sourceLead, sampleUrl].filter(Boolean).join(' '),
+    [`${windowLabel} observatory:`, growthLead, streakLead, sourceLead, sampleUrl].filter(Boolean).join(' '),
+    [isNewEntry ? `${cluster.label} is a fresh cluster in the rankings.` : `${cluster.label} kept showing up in the observatory.`, delta > 0 ? `Up ${delta > 0 ? `+${delta}` : delta} mentions.` : null, streakLead, sampleUrl].filter(Boolean).join(' ')
   ];
   const variantIndex = parseInt(brief.fingerprint.slice(0, 2), 16) % variants.length;
   return variants[variantIndex].replace(/\s+/g, ' ').trim().slice(0, 278);
