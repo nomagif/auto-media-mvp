@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 8
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 0.143
-- streak days: 28
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 29
 - regions: us, global, eu
 - categories: ai, security
 ## Sample item IDs

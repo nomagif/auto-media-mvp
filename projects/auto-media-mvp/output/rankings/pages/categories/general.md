@@ -1,11 +1,11 @@
 # general
 - key: category:general
 - kind: category
-- mentions: 36
+- mentions: 38
 - sources: 2
-- delta vs prev: +4
-- delta ratio: 0.125
-- streak days: 30
+- delta vs prev: +2
+- delta ratio: 0.056
+- streak days: 31
 - regions: us, global
 - categories: general
 ## Sample item IDs
