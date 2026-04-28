@@ -57,7 +57,7 @@ function hashtags(rows = []) {
   if (/market|macro|rates|inflation|jobs/.test(labels)) base.push('#Macro');
   if (/crypto|bitcoin|ethereum|solana|xrp|bnb/.test(labels)) base.push('#Crypto');
   if (/security|policy|regulation/.test(labels)) base.push('#CyberSecurity');
-  return [...new Set(base)].slice(0, 4).join(' ');
+  return [...new Set(base)].slice(0, 3).join(' ');
 }
 
 function isNewEntry(row) {
@@ -98,50 +98,45 @@ function buildSummary(rankings) {
   const { risingTopic, longestTopic, newEntry, risingCompany, risingCategory } = buildLeadSignals(rankings);
   const templates = [
     ({ risingTopic, risingCompany }) => [
-      risingTopic ? `Ranking move: ${risingTopic.label} ${formatDelta(risingTopic)} mentions (${formatRatio(risingTopic)}).` : `Fresh AI / macro ranking refresh is live.`,
-      risingCompany ? `Company signal: ${risingCompany.label} ${formatDelta(risingCompany)}.` : null,
-      `Sample JSON: ${sampleUrl()}`,
+      risingTopic ? `One thing stood out in today’s AI/macro scan: ${risingTopic.label} is picking up.` : `Fresh AI / macro ranking scan is live.`,
+      risingTopic ? `${formatDelta(risingTopic)} mentions vs the last refresh; ${risingCompany?.label || 'company momentum'} is worth a second look too.` : null,
       risingTopic ? entityUrl(risingTopic) : SITE_URL,
       hashtags([risingTopic, risingCompany])
     ],
     ({ newEntry, risingCompany }) => [
-      newEntry ? `New trend to watch: ${newEntry.label} entered with ${newEntry.mention_count} mentions.` : `${risingCompany?.label || 'AI / macro'} is moving in today’s rankings.`,
-      risingCompany ? `${risingCompany.label}: ${formatDelta(risingCompany)} mentions vs previous run.` : null,
-      `Open the ranking page + sample data:`,
+      newEntry ? `Small signal, but worth tracking: ${newEntry.label} just showed up with ${newEntry.mention_count} mentions.` : `${risingCompany?.label || 'AI / macro'} is moving in today’s rankings.`,
+      risingCompany ? `${risingCompany.label} also moved ${formatDelta(risingCompany)} vs the previous run.` : null,
       entityUrl(newEntry || risingCompany),
       hashtags([newEntry, risingCompany])
     ],
     ({ risingCategory, longestTopic }) => [
-      risingCategory ? `Category momentum: ${risingCategory.label} grew ${formatRatio(risingCategory)}.` : `Overseas news momentum board updated.`,
-      longestTopic ? `${longestTopic.label} is on a ${longestTopic.streak_days}-day streak.` : null,
-      `Sample JSON: ${sampleUrl()}`,
+      risingCategory ? `The interesting part of today’s scan: ${risingCategory.label} momentum is up ${formatRatio(risingCategory)}.` : `Overseas news momentum board updated.`,
+      longestTopic ? `${longestTopic.label} is still hanging around — ${longestTopic.streak_days} days now.` : null,
       risingCategory ? entityUrl(risingCategory) : SITE_URL,
       hashtags([risingCategory, longestTopic])
     ],
     ({ risingTopic, risingCompany }) => [
-      risingTopic ? `${risingTopic.label} is today’s clearest signal.` : `Today’s AI / macro signal board is live.`,
+      risingTopic ? `Not calling it a full trend yet, but ${risingTopic.label} is the clearest signal in today’s refresh.` : `Today’s AI / macro signal board is live.`,
       risingTopic ? `${formatDelta(risingTopic)} mentions / ${formatRatio(risingTopic)} growth.` : null,
       risingCompany ? `Related company move: ${risingCompany.label} ${formatDelta(risingCompany)}.` : null,
       entityUrl(risingTopic || risingCompany),
       hashtags([risingTopic, risingCompany])
     ],
     ({ longestTopic, newEntry }) => [
-      longestTopic ? `Streak watch: ${longestTopic.label} has held for ${longestTopic.streak_days} days.` : `Trend board refreshed.`,
-      newEntry ? `New entry: ${newEntry.label}.` : null,
-      `Sample JSON: ${sampleUrl()}`,
+      longestTopic ? `I keep seeing ${longestTopic.label} in the scan — the streak is now ${longestTopic.streak_days} days.` : `Trend board refreshed.`,
+      newEntry ? `New thing to watch: ${newEntry.label}.` : `Full sample data is here: ${sampleUrl()}`,
       entityUrl(longestTopic || newEntry),
       hashtags([longestTopic, newEntry])
     ],
     ({ counts, risingCompany }) => [
-      `Tracked ${counts.items || '?'} overseas news items across ${counts.companies || '?'} companies / ${counts.topics || '?'} topics.`,
-      risingCompany ? `Biggest company move: ${risingCompany.label} ${formatDelta(risingCompany)}.` : null,
-      `Sample → ${sampleUrl()}`,
+      `Today’s scan covered ${counts.items || '?'} overseas news items. The useful bit is not the volume — it’s what moved.`,
+      risingCompany ? `${risingCompany.label} was the biggest company move at ${formatDelta(risingCompany)}.` : null,
       `${SITE_URL}/latest.html`,
       hashtags([risingCompany])
     ],
     ({ risingTopic }) => [
-      risingTopic ? `If you track AI / macro news, ${risingTopic.label} is the mover to inspect today.` : `AI / macro trend rankings updated.`,
-      risingTopic ? `Mentions: ${risingTopic.mention_count} (${formatDelta(risingTopic)} vs previous).` : null,
+      risingTopic ? `If you only inspect one AI/macro signal today, I’d start with ${risingTopic.label}.` : `AI / macro trend rankings updated.`,
+      risingTopic ? `${risingTopic.mention_count} mentions, ${formatDelta(risingTopic)} vs previous.` : null,
       entityUrl(risingTopic),
       `Sample data: ${sampleUrl()}`,
       hashtags([risingTopic])
