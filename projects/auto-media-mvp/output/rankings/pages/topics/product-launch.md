@@ -1,13 +1,13 @@
 # product-launch
 - key: topic:product-launch
 - kind: topic
-- mentions: 55
+- mentions: 60
 - sources: 6
-- delta vs prev: +1
-- delta ratio: 0.019
-- streak days: 33
+- delta vs prev: +5
+- delta ratio: 0.091
+- streak days: 34
 - regions: us, global
-- categories: ai, macro, general, security, startups
+- categories: ai, macro, general, security, startups, social
 ## Sample item IDs
 - techcrunch-2026-04-18-012
 - techcrunch-2026-04-18-016

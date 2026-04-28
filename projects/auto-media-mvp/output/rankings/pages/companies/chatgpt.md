@@ -1,11 +1,11 @@
 # ChatGPT
 - key: company:chatgpt
 - kind: company
-- mentions: 11
+- mentions: 12
 - sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 24
+- delta vs prev: +1
+- delta ratio: 0.091
+- streak days: 25
 - regions: us, global
 - categories: ai, security
 ## Sample item IDs

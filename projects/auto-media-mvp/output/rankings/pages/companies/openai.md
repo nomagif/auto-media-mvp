@@ -1,11 +1,11 @@
 # OpenAI
 - key: company:openai
 - kind: company
-- mentions: 51
+- mentions: 55
 - sources: 3
-- delta vs prev: +3
-- delta ratio: 0.063
-- streak days: 33
+- delta vs prev: +4
+- delta ratio: 0.078
+- streak days: 34
 - regions: us, global
 - categories: ai
 ## Sample item IDs

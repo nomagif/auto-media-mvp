@@ -1,11 +1,11 @@
 # security
 - key: category:security
 - kind: category
-- mentions: 173
+- mentions: 191
 - sources: 2
-- delta vs prev: +10
-- delta ratio: 0.061
-- streak days: 33
+- delta vs prev: +18
+- delta ratio: 0.104
+- streak days: 34
 - regions: global, us, eu, uk, japan
 - categories: security
 ## Sample item IDs

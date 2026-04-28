@@ -1,13 +1,14 @@
 # market-move
 - key: topic:market-move
 - kind: topic
-- mentions: 36
+- mentions: 37
 - sources: 5
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 29
+- delta vs prev: +1
+- delta ratio: 0.028
+- streak days: 30
 - regions: us, global
-- categories: crypto, ai, macro, general
+- categories: crypto, ai, macro, general, policy
+- public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-006
 - techcrunch-2026-04-18-016
