@@ -1,11 +1,11 @@
 # funding
 - key: topic:funding
 - kind: topic
-- mentions: 15
+- mentions: 16
 - sources: 3
 - delta vs prev: +1
-- delta ratio: 0.071
-- streak days: 32
+- delta ratio: 0.067
+- streak days: 33
 - regions: us
 - categories: general, startups, ai, macro
 ## Sample item IDs

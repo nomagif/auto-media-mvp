@@ -1,11 +1,11 @@
 # ai
 - key: category:ai
 - kind: category
-- mentions: 127
+- mentions: 131
 - sources: 4
-- delta vs prev: +11
-- delta ratio: 0.095
-- streak days: 32
+- delta vs prev: +4
+- delta ratio: 0.031
+- streak days: 33
 - regions: us, global, asia, china
 - categories: ai
 ## Sample item IDs

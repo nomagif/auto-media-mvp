@@ -1,11 +1,11 @@
 # World
 - key: company:world
 - kind: company
-- mentions: 6
+- mentions: 7
 - sources: 3
 - delta vs prev: +1
-- delta ratio: 0.2
-- streak days: 32
+- delta ratio: 0.167
+- streak days: 33
 - regions: us, global, china
 - categories: general, ai, security
 ## Sample item IDs

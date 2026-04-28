@@ -1,11 +1,11 @@
 # consumer-apps
 - key: topic:consumer-apps
 - kind: topic
-- mentions: 8
-- sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 30
+- mentions: 9
+- sources: 3
+- delta vs prev: +1
+- delta ratio: 0.125
+- streak days: 31
 - regions: us, global, eu
 - categories: ai, security
 ## Sample item IDs

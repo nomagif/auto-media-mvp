@@ -3,9 +3,9 @@
 - kind: region
 - mentions: 2
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 1
-- streak days: 29
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 30
 - regions: china
 - categories: macro, ai
 ## Sample item IDs

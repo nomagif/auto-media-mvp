@@ -1,11 +1,11 @@
 # general
 - key: topic:general
 - kind: topic
-- mentions: 230
+- mentions: 244
 - sources: 5
-- delta vs prev: +19
-- delta ratio: 0.09
-- streak days: 32
+- delta vs prev: +14
+- delta ratio: 0.061
+- streak days: 33
 - regions: us, global, asia, uk, japan
 - categories: ai, general, security, macro, policy, social, defense, startups
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
