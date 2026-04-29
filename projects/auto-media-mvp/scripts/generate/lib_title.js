@@ -26,6 +26,9 @@ function buildTitleRequest(input) {
 
 async function generateTitleCandidates(request) {
   const original = request.item.title_original || request.item.id;
+  const summary = request.item.summary_ja || '';
+  const lead = summary.split(/。|\n/).find(Boolean) || original;
+  const originalShort = original.length > 28 ? `${original.slice(0, 28).trim()}…` : original;
   return {
     ok: true,
     version: TITLE_PROMPT_VERSION,
@@ -34,15 +37,15 @@ async function generateTitleCandidates(request) {
     generated_at: new Date().toISOString(),
     titles: {
       candidates: [
-        `${original} を3分で振り返る`,
-        `${original} の要点を整理`,
-        `${original} が意味するもの`
-      ]
+        `${lead.slice(0, 14)}…を整理`,
+        `${originalShort} の要点`,
+        `${originalShort} が示す動き`
+      ].map((s) => String(s).replace(/…+$/, ''))
     },
     meta: {
       prompt_file: request.prompt_file,
       raw_response: null,
-      status: 'placeholder'
+      status: 'heuristic'
     }
   };
 }
