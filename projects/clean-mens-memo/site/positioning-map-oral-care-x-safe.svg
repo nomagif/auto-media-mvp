@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="-80 -80 1360 1360">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="1200" height="1200" fill="#f8fafc"/>
+  <text x="80" y="90" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="42" font-weight="800" fill="#111827">口元清潔感アイテムの選び方</text>
+  <text x="80" y="132" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="24" fill="#64748b">まずは「毎日続けやすい × 基本ケア」から</text>
+
+  <line x1="170" y1="990" x2="1030" y2="990" stroke="#334155" stroke-width="4"/>
+  <line x1="170" y1="990" x2="170" y2="210" stroke="#334155" stroke-width="4"/>
+  <polygon points="1030,990 1008,978 1008,1002" fill="#334155"/>
+  <polygon points="170,210 158,232 182,232" fill="#334155"/>
+
+  <text x="910" y="1045" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155">しっかりケア</text>
+  <text x="110" y="1050" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155">手軽</text>
+  <text x="60" y="260" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155" transform="rotate(-90 60 260)">続けやすい</text>
+  <text x="60" y="900" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155" transform="rotate(-90 60 900)">気合いが必要</text>
+
+  <line x1="170" y1="600" x2="1030" y2="600" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="10 10"/>
+  <line x1="600" y1="210" x2="600" y2="990" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="10 10"/>
+
+  <g filter="url(#shadow)">
+    <rect x="245" y="315" width="270" height="116" rx="24" fill="#2563eb"/>
+    <text x="280" y="365" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="29" font-weight="800" fill="#fff">歯ブラシ</text>
+    <text x="280" y="402" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="20" fill="#dbeafe">最初に変える基本</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="615" y="350" width="280" height="116" rx="24" fill="#16a34a"/>
+    <text x="650" y="400" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="29" font-weight="800" fill="#fff">替えブラシ</text>
+    <text x="650" y="437" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="20" fill="#dcfce7">清潔感の維持</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="350" y="520" width="300" height="116" rx="24" fill="#0ea5e9"/>
+    <text x="385" y="570" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="29" font-weight="800" fill="#fff">歯みがき粉</text>
+    <text x="385" y="607" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="20" fill="#e0f2fe">外出前に足しやすい</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="690" y="665" width="270" height="116" rx="24" fill="#f59e0b"/>
+    <text x="725" y="715" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="29" font-weight="800" fill="#fff">フロス</text>
+    <text x="725" y="752" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="20" fill="#fffbeb">一段上の補助ケア</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="300" y="760" width="300" height="116" rx="24" fill="#64748b"/>
+    <text x="335" y="810" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="29" font-weight="800" fill="#fff">舌クリーナー</text>
+    <text x="335" y="847" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="20" fill="#f1f5f9">気になる時に追加</text>
+  </g>
+
+  <rect x="80" y="1080" width="1040" height="58" rx="29" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="115" y="1118" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="24" font-weight="800" fill="#1d4ed8">結論：迷ったら「歯ブラシ → 替えブラシ → 歯みがき粉」の順でOK</text>
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "clean-mens-memo",
+  "version": "1.0.0",
+  "description": "Static LP and content system for a Japanese men's grooming / clean-impression tips project.",
+  "main": "scripts-test-x-affiliate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "oauth-1.0a": "^2.2.6"
+  }
+}
