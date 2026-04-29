@@ -1,11 +1,11 @@
 # regulation
 - key: topic:regulation
 - kind: topic
-- mentions: 14
+- mentions: 15
 - sources: 3
-- delta vs prev: +2
-- delta ratio: 0.167
-- streak days: 34
+- delta vs prev: +1
+- delta ratio: 0.071
+- streak days: 35
 - regions: us, china, global
 - categories: policy, macro, ai
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

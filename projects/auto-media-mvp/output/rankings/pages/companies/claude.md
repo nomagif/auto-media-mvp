@@ -1,11 +1,11 @@
 # Claude
 - key: company:claude
 - kind: company
-- mentions: 16
+- mentions: 17
 - sources: 3
 - delta vs prev: +1
-- delta ratio: 0.067
-- streak days: 23
+- delta ratio: 0.063
+- streak days: 24
 - regions: us, global
 - categories: ai
 ## Sample item IDs

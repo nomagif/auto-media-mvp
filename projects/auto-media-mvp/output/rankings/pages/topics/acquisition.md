@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 6
 - sources: 2
-- delta vs prev: +1
-- delta ratio: 0.2
-- streak days: 34
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 35
 - regions: us, china
 - categories: general, ai, startups
 ## Sample item IDs
