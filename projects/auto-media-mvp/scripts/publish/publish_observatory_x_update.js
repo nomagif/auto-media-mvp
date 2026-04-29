@@ -25,6 +25,18 @@ function formatDelta(row) {
   return delta > 0 ? `+${delta}` : `${delta}`;
 }
 
+function formatMentionCount(count) {
+  const n = Number(count || 0);
+  return `${n} mention${n === 1 ? '' : 's'}`;
+}
+
+function formatDeltaPhrase(row) {
+  const delta = Number(row?.delta_vs_prev || 0);
+  if (delta > 0) return `up ${delta} mention${delta === 1 ? '' : 's'} since the previous run`;
+  if (delta < 0) return `down ${Math.abs(delta)} mention${Math.abs(delta) === 1 ? '' : 's'} since the previous run`;
+  return 'unchanged since the previous run';
+}
+
 function formatRatio(row) {
   const ratio = Number(row?.delta_ratio || 0);
   return `${Math.round(ratio * 100)}%`;
@@ -104,8 +116,8 @@ function buildSummary(rankings) {
       hashtags([risingTopic, risingCompany])
     ],
     ({ newEntry, risingCompany }) => [
-      newEntry ? `Small signal, but worth tracking: ${newEntry.label} just showed up with ${newEntry.mention_count} mentions.` : `${risingCompany?.label || 'AI / macro'} is moving in today’s rankings.`,
-      risingCompany ? `${risingCompany.label} also moved ${formatDelta(risingCompany)} vs the previous run.` : null,
+      newEntry ? `Small signal, but worth tracking: ${newEntry.label} just showed up with ${formatMentionCount(newEntry.mention_count)}.` : `${risingCompany?.label || 'AI / macro'} is moving in today’s rankings.`,
+      risingCompany ? `${risingCompany.label} is also ${formatDeltaPhrase(risingCompany)}.` : null,
       entityUrl(newEntry || risingCompany),
       hashtags([newEntry, risingCompany])
     ],
@@ -130,13 +142,13 @@ function buildSummary(rankings) {
     ],
     ({ counts, risingCompany }) => [
       `Today’s scan covered ${counts.items || '?'} overseas news items. The useful bit is not the volume — it’s what moved.`,
-      risingCompany ? `${risingCompany.label} was the biggest company move at ${formatDelta(risingCompany)}.` : null,
+      risingCompany ? `${risingCompany.label} had the biggest company move: ${formatDeltaPhrase(risingCompany)}.` : null,
       `${SITE_URL}/latest.html`,
       hashtags([risingCompany])
     ],
     ({ risingTopic }) => [
       risingTopic ? `If you only inspect one AI/macro signal today, I’d start with ${risingTopic.label}.` : `AI / macro trend rankings updated.`,
-      risingTopic ? `${risingTopic.mention_count} mentions, ${formatDelta(risingTopic)} vs previous.` : null,
+      risingTopic ? `${formatMentionCount(risingTopic.mention_count)}, ${formatDeltaPhrase(risingTopic)}.` : null,
       entityUrl(risingTopic),
       `Sample data: ${sampleUrl()}`,
       hashtags([risingTopic])
@@ -160,6 +172,11 @@ function main() {
   const rankings = readJson(RANKINGS_FILE);
   const itemId = `observatory-refresh-x-${formatGeneratedDay(rankings.generated_at)}`;
   const text = buildSummary(rankings);
+
+  if (process.argv.includes('--dry-run')) {
+    console.log(JSON.stringify({ ok: true, dry_run: true, item_id: itemId, text }, null, 2));
+    return;
+  }
 
   run('node', [
     path.join(ROOT, 'scripts', 'publish', 'enqueue_manual_x_post.js'),
