@@ -1,13 +1,13 @@
 # identity
 - key: topic:identity
 - kind: topic
-- mentions: 3
+- mentions: 4
 - sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 34
+- delta vs prev: +1
+- delta ratio: 0.333
+- streak days: 35
 - regions: us, global
-- categories: general, ai
+- categories: general, ai, security
 ## Sample item IDs
 - techcrunch-2026-04-18-002
 - techcrunch-2026-04-18-008

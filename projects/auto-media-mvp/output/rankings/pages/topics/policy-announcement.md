@@ -1,11 +1,11 @@
 # policy-announcement
 - key: topic:policy-announcement
 - kind: topic
-- mentions: 19
+- mentions: 20
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 32
+- delta vs prev: +1
+- delta ratio: 0.053
+- streak days: 33
 - regions: us, china
 - categories: macro
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
