@@ -59,3 +59,6 @@ Use it as a seed for:
 
 Sample + paid access:
 https://auto-media-mvp.pages.dev/premium
+
+## Posting rule
+All X posts should include hashtags. Default set: `#AI #TechNews #MarketSignals`; add topic-specific tags only when they fit.
