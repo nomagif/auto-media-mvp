@@ -1,0 +1,7 @@
+For builders/analysts: the weekly JSON snapshot is live.
+
+Use it as a seed for dashboards, watchlists, alerts, research workflows, and internal briefs.
+
+https://auto-media-mvp.pages.dev/premium
+
+#AI #JSON #TechNews

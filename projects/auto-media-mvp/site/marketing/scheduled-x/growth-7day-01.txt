@@ -1,0 +1,7 @@
+Most AI/news monitoring becomes copy-paste work.
+
+I built a small observatory that turns weekly signals into reusable CSV/JSON: topics, companies, categories, deltas, streaks.
+
+https://auto-media-mvp.pages.dev/premium
+
+#AI #TechNews #MarketSignals

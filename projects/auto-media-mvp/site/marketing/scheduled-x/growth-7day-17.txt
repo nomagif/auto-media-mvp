@@ -1,0 +1,12 @@
+The paid files are intentionally practical:
+
+- topics CSV
+- companies CSV
+- regions CSV
+- categories CSV
+- weekly JSON snapshot
+
+Samples before purchase:
+https://auto-media-mvp.pages.dev/premium
+
+#AI #CSV #MarketSignals

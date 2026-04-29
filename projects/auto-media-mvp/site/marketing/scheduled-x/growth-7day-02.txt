@@ -1,0 +1,7 @@
+If you maintain a market/AI watchlist, the annoying part is rebuilding the same weekly table.
+
+This is a lightweight data product for that: AI / tech / macro rankings as CSV or JSON.
+
+https://auto-media-mvp.pages.dev/premium
+
+#AI #TechNews #MarketSignals

@@ -1,0 +1,8 @@
+What changed this week?
+
+That is easier to answer when the data already has mention counts, deltas, source counts, and streaks.
+
+CSV + JSON packs:
+https://auto-media-mvp.pages.dev/premium
+
+#AI #TechNews #MarketSignals

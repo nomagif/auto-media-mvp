@@ -1,0 +1,9 @@
+Spreadsheet-first version is live.
+
+Weekly CSV pack includes topics, companies, regions, categories, and metadata.
+
+Built for quick reporting, not another newsletter.
+
+https://auto-media-mvp.pages.dev/premium
+
+#AI #CSV #MarketSignals

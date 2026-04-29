@@ -1,0 +1,7 @@
+A useful data product should be boring in the right way.
+
+Weekly rankings as CSV/JSON so you can reuse the data instead of rereading the same signals manually.
+
+https://auto-media-mvp.pages.dev/premium
+
+#AI #Data #MarketSignals

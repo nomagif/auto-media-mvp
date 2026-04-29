@@ -4,17 +4,17 @@ Gumroad に載せる最小 listing 文面。
 
 ## 1. Weekly JSON Snapshot
 ### Title
-AI / Macro Observatory — Weekly JSON Snapshot
+Stop rebuilding weekly AI / macro tracking tables — JSON Snapshot
 
 ### Subtitle
-Machine-readable weekly ranking data for AI, technology, and macro monitoring.
+Machine-readable weekly AI, tech, and macro trend data for dashboards, watchlists, and research workflows.
 
 ### Price
 - $7
 
 ### Short description
-A metrics-first observatory dataset for AI / technology and finance / macro monitoring.
-Built for people who want structured ranking data, not narrative commentary.
+Stop rebuilding the same weekly AI / tech / macro tracking spreadsheet by hand.
+Get reusable JSON ranking data for dashboards, watchlists, internal briefs, and automation.
 
 ### Long description
 This product is part of the AI / Macro Observatory project.
@@ -49,17 +49,17 @@ The product is intentionally built as a structured data package.
 
 ## 2. Weekly CSV Pack
 ### Title
-AI / Macro Observatory — Weekly CSV Pack
+Stop rebuilding weekly AI / macro tracking tables — CSV Pack
 
 ### Subtitle
-Spreadsheet-ready weekly rankings for AI, tech, and macro signals.
+Spreadsheet-ready weekly rankings for AI, tech, macro, companies, topics, regions, and categories.
 
 ### Price
 - $5
 
 ### Short description
-A spreadsheet-friendly observatory dataset for AI / technology and finance / macro monitoring.
-Built for people who want reusable ranking files instead of commentary.
+Stop rebuilding the same weekly AI / tech / macro tracking spreadsheet by hand.
+Get reusable CSV files for quick reporting, manual review, watchlists, and team updates.
 
 ### Long description
 This product is part of the AI / Macro Observatory project.

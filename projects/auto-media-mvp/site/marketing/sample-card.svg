@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1320" cy="120" r="260" fill="#0ea5e9" opacity="0.12"/>
+  <circle cx="240" cy="780" r="320" fill="#22c55e" opacity="0.10"/>
+  <text x="96" y="100" fill="#22c55e" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="34" font-weight="800" letter-spacing="4">AI / MACRO OBSERVATORY</text>
+  <text x="96" y="178" fill="#f8fafc" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="68" font-weight="850">Weekly trend data</text>
+  <text x="96" y="240" fill="#cbd5e1" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="36">Reusable CSV + JSON exports for analysts, dashboards, and watchlists.</text>
+  <g filter="url(#shadow)">
+    <rect x="96" y="315" width="1408" height="390" rx="28" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="96" y="315" width="1408" height="78" rx="28" fill="#172033"/>
+    <text x="135" y="365" fill="#93c5fd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="28" font-weight="700">topic</text>
+    <text x="540" y="365" fill="#93c5fd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="28" font-weight="700">mentions</text>
+    <text x="820" y="365" fill="#93c5fd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="28" font-weight="700">delta</text>
+    <text x="1060" y="365" fill="#93c5fd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="28" font-weight="700">streak</text>
+    <text x="1285" y="365" fill="#93c5fd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="28" font-weight="700">format</text>
+    <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="34" fill="#e5e7eb">
+      <text x="135" y="455">general</text><text x="570" y="455">268</text><text x="835" y="455" fill="#86efac">+24</text><text x="1080" y="455">34d</text><text x="1300" y="455">CSV/JSON</text>
+      <text x="135" y="535">product-launch</text><text x="570" y="535">60</text><text x="835" y="535" fill="#86efac">+5</text><text x="1080" y="535">34d</text><text x="1300" y="535">CSV/JSON</text>
+      <text x="135" y="615">OpenAI</text><text x="570" y="615">55</text><text x="835" y="615" fill="#86efac">+4</text><text x="1080" y="615">34d</text><text x="1300" y="615">CSV/JSON</text>
+    </g>
+  </g>
+  <rect x="96" y="750" width="390" height="62" rx="31" fill="#22c55e" opacity="0.95"/>
+  <text x="128" y="791" fill="#052e16" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="28" font-weight="850">Samples available</text>
+  <text x="530" y="790" fill="#e0f2fe" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="30" font-weight="700">auto-media-mvp.pages.dev/premium</text>
+  <text x="1185" y="790" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26">#AI #TechNews #MarketSignals</text>
+</svg>
