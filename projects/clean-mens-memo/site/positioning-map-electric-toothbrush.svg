@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="-80 -80 1360 1360">
+  <defs><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.18"/></filter></defs>
+  <rect x="-80" y="-80" width="1360" height="1360" fill="#f8fafc"/>
+  <text x="80" y="90" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="42" font-weight="800" fill="#111827">電動歯ブラシの選び方</text>
+  <text x="80" y="132" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="24" fill="#64748b">見た目で続けるか、実用性で選ぶか</text>
+  <line x1="170" y1="990" x2="1030" y2="990" stroke="#334155" stroke-width="4"/>
+  <line x1="170" y1="990" x2="170" y2="210" stroke="#334155" stroke-width="4"/>
+  <polygon points="1030,990 1008,978 1008,1002" fill="#334155"/><polygon points="170,210 158,232 182,232" fill="#334155"/>
+  <text x="850" y="1045" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155">プレミアム感</text>
+  <text x="120" y="1045" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155">コスパ</text>
+  <text x="55" y="300" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155" transform="rotate(-90 55 300)">見た目・習慣化</text>
+  <text x="55" y="930" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="25" font-weight="700" fill="#334155" transform="rotate(-90 55 930)">実用・比較しやすさ</text>
+  <line x1="170" y1="600" x2="1030" y2="600" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="10 10"/>
+  <line x1="600" y1="210" x2="600" y2="990" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="10 10"/>
+  <g filter="url(#shadow)">
+    <rect x="640" y="310" width="350" height="145" rx="26" fill="#111827"/>
+    <text x="680" y="365" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="31" font-weight="850" fill="#fff">クラプロックス</text>
+    <text x="680" y="408" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="21" fill="#e5e7eb">見た目も重視</text>
+    <text x="680" y="438" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="19" fill="#cbd5e1">粉歯みがき訴求</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="305" y="690" width="330" height="145" rx="26" fill="#2563eb"/>
+    <text x="345" y="745" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="31" font-weight="850" fill="#fff">EPEIOS</text>
+    <text x="345" y="788" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="21" fill="#dbeafe">実用コスパ寄り</text>
+    <text x="345" y="818" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="19" fill="#dbeafe">ベストバイ訴求</text>
+  </g>
+  <rect x="80" y="1080" width="1040" height="58" rx="29" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="115" y="1118" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Yu Gothic,Meiryo,sans-serif" font-size="24" font-weight="800" fill="#1d4ed8">結論：続けるきっかけ重視ならクラプロックス、実用重視ならEPEIOS</text>
+</svg>
