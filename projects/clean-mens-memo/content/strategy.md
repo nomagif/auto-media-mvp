@@ -69,3 +69,8 @@ Future automation goal:
 - Generate X post drafts.
 - Publish with image attachment through the affiliate X account.
 - Track clicks and iterate by product category.
+
+## Amazon Associates
+
+- Tracking ID: `cleanmensmemo-22`
+- Use this tag on Amazon.co.jp affiliate links.
