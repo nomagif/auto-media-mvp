@@ -3,9 +3,9 @@
 - kind: category
 - mentions: 10
 - sources: 2
-- delta vs prev: +2
-- delta ratio: 0.25
-- streak days: 35
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 36
 - regions: us, global
 - categories: policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

@@ -5,7 +5,7 @@
 - sources: 4
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 31
+- streak days: 32
 - regions: global, us, china
 - categories: macro
 ## Sample item IDs

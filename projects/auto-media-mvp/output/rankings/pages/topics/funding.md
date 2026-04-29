@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 18
 - sources: 4
-- delta vs prev: +2
-- delta ratio: 0.125
-- streak days: 35
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 36
 - regions: us
 - categories: general, startups, ai, macro, security
 ## Sample item IDs

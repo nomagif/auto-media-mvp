@@ -5,7 +5,7 @@
 - sources: 1
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 14
+- streak days: 15
 - regions: us
 - categories: defense
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
