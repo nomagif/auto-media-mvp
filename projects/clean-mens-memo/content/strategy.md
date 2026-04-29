@@ -74,3 +74,24 @@ Future automation goal:
 
 - Tracking ID: `cleanmensmemo-22`
 - Use this tag on Amazon.co.jp affiliate links.
+
+## 2026-04-29 standard X image format
+
+Use the cross-axis positioning map as the default format for product/category posts.
+
+Default map style:
+- Clear cross-axis chart, not a dense explanation diagram.
+- Put 4-6 products max.
+- Use intuitive axes such as:
+  - 手軽 ←→ プレミアム
+  - 初心者向け ←→ こだわり派
+- Avoid showing "A8" or "Amazon" labels in public-facing product cards.
+- Public copy should feel like genuine product guidance, not affiliate mechanics.
+- Mention affiliate source only in backend notes, never as the main user-facing framing.
+
+Default workflow:
+1. Collect A8 + Amazon candidate products.
+2. Pick 4-6 candidates with distinct positions.
+3. Create cross-axis map.
+4. Update matching LP section with natural recommendation copy.
+5. Post on X with image + short intuitive explanation.
