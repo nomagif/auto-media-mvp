@@ -1,13 +1,13 @@
 # infrastructure
 - key: topic:infrastructure
 - kind: topic
-- mentions: 24
+- mentions: 28
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 31
+- delta vs prev: +4
+- delta ratio: 0.167
+- streak days: 32
 - regions: us, global
-- categories: ai, security, policy
+- categories: ai, security, policy, general
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-019

@@ -1,13 +1,14 @@
 # Google
 - key: company:google
 - kind: company
-- mentions: 12
+- mentions: 14
 - sources: 2
-- delta vs prev: +4
-- delta ratio: 0.5
-- streak days: 37
+- delta vs prev: +2
+- delta ratio: 0.167
+- streak days: 38
 - regions: us, global
-- categories: ai, security, social, general
+- categories: ai, security, social, general, policy
+- public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-014
 - hn-2026-04-24-009

@@ -3,9 +3,9 @@
 - kind: category
 - mentions: 11
 - sources: 3
-- delta vs prev: +1
-- delta ratio: 0.1
-- streak days: 37
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 38
 - regions: us, global
 - categories: crypto
 ## Sample item IDs

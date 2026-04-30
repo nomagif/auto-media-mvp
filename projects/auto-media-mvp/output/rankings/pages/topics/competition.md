@@ -1,16 +1,19 @@
 # competition
 - key: topic:competition
 - kind: topic
-- mentions: 2
+- mentions: 3
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 35
+- delta vs prev: +1
+- delta ratio: 0.5
+- streak days: 36
 - regions: us
-- categories: general, ai
+- categories: general, ai, policy
+- public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-001
 - techcrunch-2026-04-24-008
+- techcrunch-2026-04-30-002
 ## Sample links
 - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
 - https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/
+- https://techcrunch.com/2026/04/29/amazon-meta-join-fight-to-end-google-pay-phonepe-dominance-in-india/
