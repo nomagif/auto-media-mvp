@@ -1,11 +1,11 @@
 # social
 - key: category:social
 - kind: category
-- mentions: 4
+- mentions: 6
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 22
+- delta vs prev: +2
+- delta ratio: 0.5
+- streak days: 23
 - regions: us
 - categories: social
 ## Sample item IDs

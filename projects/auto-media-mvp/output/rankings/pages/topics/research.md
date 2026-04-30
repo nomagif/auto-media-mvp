@@ -1,11 +1,11 @@
 # research
 - key: topic:research
 - kind: topic
-- mentions: 8
+- mentions: 9
 - sources: 4
 - delta vs prev: +1
-- delta ratio: 0.143
-- streak days: 38
+- delta ratio: 0.125
+- streak days: 39
 - regions: us, global
 - categories: policy, macro, ai, security
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

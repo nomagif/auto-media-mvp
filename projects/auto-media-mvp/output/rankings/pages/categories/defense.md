@@ -1,11 +1,11 @@
 # defense
 - key: category:defense
 - kind: category
-- mentions: 3
+- mentions: 4
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 17
+- delta vs prev: +1
+- delta ratio: 0.333
+- streak days: 18
 - regions: us
 - categories: defense
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

@@ -1,11 +1,11 @@
 # crypto
 - key: category:crypto
 - kind: category
-- mentions: 11
+- mentions: 12
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 38
+- delta vs prev: +1
+- delta ratio: 0.091
+- streak days: 39
 - regions: us, global
 - categories: crypto
 ## Sample item IDs

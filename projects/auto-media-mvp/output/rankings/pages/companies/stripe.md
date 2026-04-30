@@ -1,14 +1,16 @@
 # Stripe
 - key: company:stripe
 - kind: company
-- mentions: 1
+- mentions: 2
 - sources: 1
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 38
+- delta vs prev: +1
+- delta ratio: 1
+- streak days: 39
 - regions: us
-- categories: general
+- categories: general, ai
 ## Sample item IDs
 - techcrunch-2026-04-18-001
+- techcrunch-2026-04-30-011
 ## Sample links
 - https://techcrunch.com/2026/04/17/once-close-enough-for-an-acquisition-stripe-and-airwallex-are-now-going-after-each-other/
+- https://techcrunch.com/2026/04/30/stripe-link-digital-wallet-ai-agents-shopping/

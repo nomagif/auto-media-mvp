@@ -1,11 +1,11 @@
 # competition
 - key: topic:competition
 - kind: topic
-- mentions: 3
+- mentions: 4
 - sources: 1
 - delta vs prev: +1
-- delta ratio: 0.5
-- streak days: 36
+- delta ratio: 0.333
+- streak days: 37
 - regions: us
 - categories: general, ai, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

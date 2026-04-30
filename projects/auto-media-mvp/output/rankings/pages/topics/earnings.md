@@ -1,11 +1,11 @@
 # earnings
 - key: topic:earnings
 - kind: topic
-- mentions: 10
+- mentions: 12
 - sources: 4
 - delta vs prev: +2
-- delta ratio: 0.25
-- streak days: 28
+- delta ratio: 0.2
+- streak days: 29
 - regions: us, global
 - categories: macro, crypto, security, ai
 ## Sample item IDs
