@@ -3,6 +3,9 @@ const path = require('path');
 const crypto = require('crypto');
 const OAuth = require('oauth-1.0a');
 const { ROOT, now } = require('./lib_publish_queue');
+const { loadLocalEnv } = require('../lib/load_env');
+
+loadLocalEnv({ root: ROOT });
 
 const X_CREATE_POST_URL = 'https://api.twitter.com/2/tweets';
 
@@ -138,7 +141,7 @@ function wrapWordPressArticleHtml(markdown, contentHtml, queueItem) {
   return [
     `<article class="auto-media-article">`,
     `  <header>`,
-    `    <h1>${escapeHtml(title)}</h1>`,
+    `    <p class="article-title"><strong>${escapeHtml(title)}</strong></p>`,
     lead ? `    ${lead}` : '',
     `  </header>`,
     `  <section class="article-body">`,
