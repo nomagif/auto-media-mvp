@@ -1,11 +1,11 @@
 # global
 - key: region:global
 - kind: region
-- mentions: 301
+- mentions: 316
 - sources: 2
-- delta vs prev: +10
-- delta ratio: 0.034
-- streak days: 40
+- delta vs prev: +15
+- delta ratio: 0.05
+- streak days: 41
 - regions: global
 - categories: security, macro, ai, crypto, general, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

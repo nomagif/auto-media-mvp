@@ -1,11 +1,11 @@
 # security-incident
 - key: topic:security-incident
 - kind: topic
-- mentions: 22
+- mentions: 24
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 40
+- delta vs prev: +2
+- delta ratio: 0.091
+- streak days: 41
 - regions: us, global
 - categories: policy, ai, security, defense
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

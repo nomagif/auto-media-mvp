@@ -1,13 +1,14 @@
 # consumer-apps
 - key: topic:consumer-apps
 - kind: topic
-- mentions: 18
+- mentions: 20
 - sources: 3
-- delta vs prev: +1
-- delta ratio: 0.059
-- streak days: 38
+- delta vs prev: +2
+- delta ratio: 0.111
+- streak days: 39
 - regions: us, global, eu
-- categories: ai, security, general, social, crypto
+- categories: ai, security, general, social, crypto, policy
+- public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-009
 - techcrunch-2026-04-18-016

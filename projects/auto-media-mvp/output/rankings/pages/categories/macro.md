@@ -1,11 +1,11 @@
 # macro
 - key: category:macro
 - kind: category
-- mentions: 32
+- mentions: 33
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 36
+- delta vs prev: +1
+- delta ratio: 0.031
+- streak days: 37
 - regions: global, us, china
 - categories: macro
 ## Sample item IDs

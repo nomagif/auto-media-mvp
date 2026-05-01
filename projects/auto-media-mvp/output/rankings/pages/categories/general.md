@@ -3,9 +3,9 @@
 - kind: category
 - mentions: 53
 - sources: 2
-- delta vs prev: +2
-- delta ratio: 0.039
-- streak days: 40
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 41
 - regions: us, global
 - categories: general
 ## Sample item IDs

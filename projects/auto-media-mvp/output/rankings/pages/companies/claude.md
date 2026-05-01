@@ -1,12 +1,12 @@
 # Claude
 - key: company:claude
 - kind: company
-- mentions: 20
+- mentions: 21
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 29
-- regions: us, global
+- delta vs prev: +1
+- delta ratio: 0.05
+- streak days: 30
+- regions: us, global, asia
 - categories: ai
 ## Sample item IDs
 - techcrunch-2026-04-18-012

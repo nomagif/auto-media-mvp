@@ -2,7 +2,7 @@
 
 ## Post 1
 
-AI / tech / macro の週次トレンドを、読む用じゃなくて “再利用できるCSV/JSON” にした。今週サンプルで見えている上位 topic は general (353), product-launch (72), market-move (41)。
+AI / tech / macro の週次トレンドを、読む用じゃなくて “再利用できるCSV/JSON” にした。今週サンプルで見えている上位 topic は general (372), product-launch (73), market-move (42)。
 
 データをそのまま watchlist / dashboard / weekly memo に流し込みたい人向け。
 
