@@ -1,11 +1,11 @@
 # funding
 - key: topic:funding
 - kind: topic
-- mentions: 24
+- mentions: 26
 - sources: 4
 - delta vs prev: +2
-- delta ratio: 0.091
-- streak days: 39
+- delta ratio: 0.083
+- streak days: 40
 - regions: us
 - categories: general, startups, ai, macro, security, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

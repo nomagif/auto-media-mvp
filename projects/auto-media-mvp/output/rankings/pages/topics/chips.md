@@ -1,13 +1,13 @@
 # chips
 - key: topic:chips
 - kind: topic
-- mentions: 4
+- mentions: 5
 - sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 39
+- delta vs prev: +1
+- delta ratio: 0.25
+- streak days: 40
 - regions: us, global
-- categories: ai, security
+- categories: ai, security, semiconductors
 ## Sample item IDs
 - hn-2026-04-18-019
 - techcrunch-2026-04-24-001

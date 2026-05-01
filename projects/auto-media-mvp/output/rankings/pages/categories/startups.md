@@ -1,11 +1,11 @@
 # startups
 - key: category:startups
 - kind: category
-- mentions: 15
+- mentions: 16
 - sources: 1
-- delta vs prev: +2
-- delta ratio: 0.154
-- streak days: 38
+- delta vs prev: +1
+- delta ratio: 0.067
+- streak days: 39
 - regions: us
 - categories: startups
 ## Sample item IDs

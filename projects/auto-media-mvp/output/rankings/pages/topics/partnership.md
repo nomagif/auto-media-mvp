@@ -1,11 +1,11 @@
 # partnership
 - key: topic:partnership
 - kind: topic
-- mentions: 6
+- mentions: 7
 - sources: 2
-- delta vs prev: +2
-- delta ratio: 0.5
-- streak days: 39
+- delta vs prev: +1
+- delta ratio: 0.167
+- streak days: 40
 - regions: us, global
 - categories: general, ai, startups
 ## Sample item IDs
