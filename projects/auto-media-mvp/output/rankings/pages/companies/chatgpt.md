@@ -3,9 +3,9 @@
 - kind: company
 - mentions: 23
 - sources: 3
-- delta vs prev: +2
-- delta ratio: 0.095
-- streak days: 33
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 34
 - regions: us, global
 - categories: ai, security, general, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

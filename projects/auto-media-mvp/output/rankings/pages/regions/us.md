@@ -1,11 +1,11 @@
 # us
 - key: region:us
 - kind: region
-- mentions: 296
+- mentions: 301
 - sources: 6
-- delta vs prev: +11
-- delta ratio: 0.039
-- streak days: 42
+- delta vs prev: +5
+- delta ratio: 0.017
+- streak days: 43
 - regions: us
 - categories: general, ai, policy, startups, crypto, macro, security, social, defense, semiconductors
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

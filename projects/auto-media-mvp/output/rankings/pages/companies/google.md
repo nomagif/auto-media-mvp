@@ -1,11 +1,11 @@
 # Google
 - key: company:google
 - kind: company
-- mentions: 16
+- mentions: 17
 - sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 42
+- delta vs prev: +1
+- delta ratio: 0.063
+- streak days: 43
 - regions: us, global
 - categories: ai, security, social, general, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

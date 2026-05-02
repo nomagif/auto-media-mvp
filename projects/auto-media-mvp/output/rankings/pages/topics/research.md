@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 12
 - sources: 4
-- delta vs prev: +2
-- delta ratio: 0.2
-- streak days: 42
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 43
 - regions: us, global
 - categories: policy, macro, ai, security
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

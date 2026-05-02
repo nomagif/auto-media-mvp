@@ -1,13 +1,13 @@
 # security-incident
 - key: topic:security-incident
 - kind: topic
-- mentions: 24
+- mentions: 26
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 42
+- delta vs prev: +2
+- delta ratio: 0.083
+- streak days: 43
 - regions: us, global
-- categories: policy, ai, security, defense
+- categories: policy, ai, security, defense, crypto
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-004
