@@ -1,11 +1,11 @@
 # product-launch
 - key: topic:product-launch
 - kind: topic
-- mentions: 73
+- mentions: 79
 - sources: 6
-- delta vs prev: +1
-- delta ratio: 0.014
-- streak days: 41
+- delta vs prev: +6
+- delta ratio: 0.082
+- streak days: 42
 - regions: us, global
 - categories: ai, macro, general, security, startups, social, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

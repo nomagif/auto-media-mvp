@@ -3,9 +3,9 @@
 - kind: topic
 - mentions: 14
 - sources: 4
-- delta vs prev: +1
-- delta ratio: 0.077
-- streak days: 31
+- delta vs prev: 0
+- delta ratio: 0
+- streak days: 32
 - regions: us, global
 - categories: macro, crypto, security, ai
 ## Sample item IDs

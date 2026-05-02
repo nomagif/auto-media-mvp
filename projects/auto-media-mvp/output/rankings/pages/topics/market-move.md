@@ -1,11 +1,11 @@
 # market-move
 - key: topic:market-move
 - kind: topic
-- mentions: 42
+- mentions: 43
 - sources: 5
 - delta vs prev: +1
 - delta ratio: 0.024
-- streak days: 37
+- streak days: 38
 - regions: us, global
 - categories: crypto, ai, macro, general, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

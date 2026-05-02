@@ -1,11 +1,11 @@
 # acquisition
 - key: topic:acquisition
 - kind: topic
-- mentions: 6
+- mentions: 8
 - sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 41
+- delta vs prev: +2
+- delta ratio: 0.333
+- streak days: 42
 - regions: us, china
 - categories: general, ai, startups
 ## Sample item IDs

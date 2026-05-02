@@ -1,11 +1,11 @@
 # infrastructure
 - key: topic:infrastructure
 - kind: topic
-- mentions: 33
+- mentions: 34
 - sources: 4
-- delta vs prev: +2
-- delta ratio: 0.065
-- streak days: 35
+- delta vs prev: +1
+- delta ratio: 0.03
+- streak days: 36
 - regions: us, global
 - categories: ai, security, policy, general, crypto
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
