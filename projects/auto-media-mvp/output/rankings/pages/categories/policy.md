@@ -1,11 +1,11 @@
 # policy
 - key: category:policy
 - kind: category
-- mentions: 18
+- mentions: 19
 - sources: 2
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 44
+- delta vs prev: +1
+- delta ratio: 0.056
+- streak days: 45
 - regions: us, global
 - categories: policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

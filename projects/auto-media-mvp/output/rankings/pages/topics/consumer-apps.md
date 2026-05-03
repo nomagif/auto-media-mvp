@@ -1,11 +1,11 @@
 # consumer-apps
 - key: topic:consumer-apps
 - kind: topic
-- mentions: 23
+- mentions: 24
 - sources: 3
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 42
+- delta vs prev: +1
+- delta ratio: 0.043
+- streak days: 43
 - regions: us, global, eu
 - categories: ai, security, general, social, crypto, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
