@@ -5,7 +5,7 @@
 - sources: 3
 - delta vs prev: 0
 - delta ratio: 0
-- streak days: 34
+- streak days: 35
 - regions: us, global
 - categories: ai, security, general, policy
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first

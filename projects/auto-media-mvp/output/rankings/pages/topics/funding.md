@@ -1,13 +1,13 @@
 # funding
 - key: topic:funding
 - kind: topic
-- mentions: 27
+- mentions: 29
 - sources: 4
-- delta vs prev: 0
-- delta ratio: 0
-- streak days: 43
-- regions: us, eu
-- categories: general, startups, ai, macro, security, policy
+- delta vs prev: +2
+- delta ratio: 0.074
+- streak days: 44
+- regions: us, eu, global
+- categories: general, startups, ai, macro, security, policy, crypto
 - public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first
 ## Sample item IDs
 - techcrunch-2026-04-18-002

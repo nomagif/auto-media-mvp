@@ -1,12 +1,12 @@
 {
   "sample": true,
   "note": "Public sample of the premium weekly snapshot. Full product includes complete rankings and fresh licensed downloads.",
-  "generated_at": "2026-05-02T22:00:20.776Z",
+  "generated_at": "2026-05-03T10:00:23.963Z",
   "window": {
     "kind": "weekly",
     "label": "2026-W18",
-    "from": "2026-04-26T00:00:00.000Z",
-    "to": "2026-05-02T23:59:59.999Z"
+    "from": "2026-04-27T00:00:00.000Z",
+    "to": "2026-05-03T23:59:59.999Z"
   },
   "source_types": [
     "tech",
@@ -14,7 +14,7 @@
     "market-data"
   ],
   "counts": {
-    "items": 659,
+    "items": 670,
     "topics": 20,
     "companies": 21,
     "regions": 7,
@@ -27,7 +27,7 @@
         "kind": "topic",
         "label": "general",
         "window": "all",
-        "mention_count": 407,
+        "mention_count": 416,
         "source_count": 5,
         "region_mix": [
           "us",
@@ -46,9 +46,9 @@
           "defense",
           "startups"
         ],
-        "delta_vs_prev": 20,
-        "delta_ratio": 0.052,
-        "streak_days": 43,
+        "delta_vs_prev": 9,
+        "delta_ratio": 0.022,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-003",
           "techcrunch-2026-04-18-010",
@@ -59,7 +59,7 @@
           "https://techcrunch.com/2026/04/17/chef-robotics-escaped-the-robot-cooking-graveyard-and-says-its-thriving-heres-why/",
           "https://techcrunch.com/2026/04/17/uber-will-now-pick-up-your-returns-from-your-doorstep/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "topic:product-launch",
@@ -83,7 +83,7 @@
         ],
         "delta_vs_prev": 0,
         "delta_ratio": 0,
-        "streak_days": 43,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-012",
           "techcrunch-2026-04-18-016",
@@ -94,14 +94,14 @@
           "https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/",
           "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "topic:market-move",
         "kind": "topic",
         "label": "market-move",
         "window": "all",
-        "mention_count": 45,
+        "mention_count": 46,
         "source_count": 5,
         "region_mix": [
           "us",
@@ -114,9 +114,9 @@
           "general",
           "policy"
         ],
-        "delta_vs_prev": 2,
-        "delta_ratio": 0.047,
-        "streak_days": 39,
+        "delta_vs_prev": 1,
+        "delta_ratio": 0.022,
+        "streak_days": 40,
         "sample_item_ids": [
           "techcrunch-2026-04-18-006",
           "techcrunch-2026-04-18-016",
@@ -127,14 +127,14 @@
           "https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/",
           "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "topic:infrastructure",
         "kind": "topic",
         "label": "infrastructure",
         "window": "all",
-        "mention_count": 34,
+        "mention_count": 35,
         "source_count": 4,
         "region_mix": [
           "us",
@@ -147,9 +147,9 @@
           "general",
           "crypto"
         ],
-        "delta_vs_prev": 0,
-        "delta_ratio": 0,
-        "streak_days": 37,
+        "delta_vs_prev": 1,
+        "delta_ratio": 0.029,
+        "streak_days": 38,
         "sample_item_ids": [
           "techcrunch-2026-04-18-019",
           "hn-2026-04-18-013",
@@ -160,18 +160,19 @@
           "https://lindbakk.com/blog/introducing-brunost",
           "https://amitlimaye1.substack.com/p/rewriting-every-syscall-in-a-linux"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "topic:funding",
         "kind": "topic",
         "label": "funding",
         "window": "all",
-        "mention_count": 27,
+        "mention_count": 29,
         "source_count": 4,
         "region_mix": [
           "us",
-          "eu"
+          "eu",
+          "global"
         ],
         "category_mix": [
           "general",
@@ -179,11 +180,12 @@
           "ai",
           "macro",
           "security",
-          "policy"
+          "policy",
+          "crypto"
         ],
-        "delta_vs_prev": 0,
-        "delta_ratio": 0,
-        "streak_days": 43,
+        "delta_vs_prev": 2,
+        "delta_ratio": 0.074,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-002",
           "techcrunch-2026-04-18-005",
@@ -194,7 +196,7 @@
           "https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/",
           "https://techcrunch.com/2026/04/17/loop-raises-95m-to-build-supply-chain-ai-that-predicts-disruptions/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       }
     ],
     "companies": [
@@ -214,7 +216,7 @@
         ],
         "delta_vs_prev": 0,
         "delta_ratio": 0,
-        "streak_days": 43,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-003",
           "techcrunch-2026-04-18-019",
@@ -225,7 +227,7 @@
           "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/",
           "https://openai.com/index/speeding-up-agentic-workflows-with-websockets/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "company:anthropic",
@@ -243,7 +245,7 @@
         ],
         "delta_vs_prev": 0,
         "delta_ratio": 0,
-        "streak_days": 43,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-012",
           "techcrunch-2026-04-18-019",
@@ -254,7 +256,7 @@
           "https://techcrunch.com/video/are-we-tokenmaxxing-our-way-to-nowhere/",
           "https://www.anthropic.com/claude/haiku"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "company:chatgpt",
@@ -275,7 +277,7 @@
         ],
         "delta_vs_prev": 0,
         "delta_ratio": 0,
-        "streak_days": 34,
+        "streak_days": 35,
         "sample_item_ids": [
           "openai-2026-04-23-006",
           "openai-2026-04-23-011",
@@ -286,7 +288,7 @@
           "https://openai.com/index/introducing-workspace-agents-in-chatgpt/",
           "https://openai.com/index/making-chatgpt-better-for-clinicians/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "company:claude",
@@ -305,7 +307,7 @@
         ],
         "delta_vs_prev": 0,
         "delta_ratio": 0,
-        "streak_days": 32,
+        "streak_days": 33,
         "sample_item_ids": [
           "techcrunch-2026-04-18-012",
           "hn-2026-04-18-006",
@@ -316,7 +318,7 @@
           "https://www.anthropic.com/news/claude-design-anthropic-labs",
           "https://www.claudecodecamp.com/p/i-measured-claude-4-7-s-new-tokenizer-here-s-what-it-costs-you"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "company:google",
@@ -336,9 +338,9 @@
           "general",
           "policy"
         ],
-        "delta_vs_prev": 1,
-        "delta_ratio": 0.063,
-        "streak_days": 43,
+        "delta_vs_prev": 0,
+        "delta_ratio": 0,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-014",
           "hn-2026-04-24-009",
@@ -349,7 +351,7 @@
           "https://developers.googleblog.com/torchtpu-running-pytorch-natively-on-tpus-at-google-scale/",
           "https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       }
     ],
     "regions": [
@@ -358,7 +360,7 @@
         "kind": "region",
         "label": "global",
         "window": "all",
-        "mention_count": 349,
+        "mention_count": 359,
         "source_count": 2,
         "region_mix": [
           "global"
@@ -371,9 +373,9 @@
           "general",
           "policy"
         ],
-        "delta_vs_prev": 19,
-        "delta_ratio": 0.058,
-        "streak_days": 43,
+        "delta_vs_prev": 10,
+        "delta_ratio": 0.029,
+        "streak_days": 44,
         "sample_item_ids": [
           "hn-2026-04-18-001",
           "hn-2026-04-18-002",
@@ -384,7 +386,7 @@
           "https://en.wikipedia.org/wiki/Michael_O._Rabin",
           "https://kdenlive.org/news/2026/state-2026/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "region:us",
@@ -408,9 +410,9 @@
           "defense",
           "semiconductors"
         ],
-        "delta_vs_prev": 5,
-        "delta_ratio": 0.017,
-        "streak_days": 43,
+        "delta_vs_prev": 0,
+        "delta_ratio": 0,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-001",
           "techcrunch-2026-04-18-002",
@@ -421,7 +423,33 @@
           "https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/",
           "https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
+      },
+      {
+        "key": "region:japan",
+        "kind": "region",
+        "label": "japan",
+        "window": "all",
+        "mention_count": 2,
+        "source_count": 1,
+        "region_mix": [
+          "japan"
+        ],
+        "category_mix": [
+          "security"
+        ],
+        "delta_vs_prev": 1,
+        "delta_ratio": 1,
+        "streak_days": 15,
+        "sample_item_ids": [
+          "hn-2026-04-26-004",
+          "hn-2026-05-03-010"
+        ],
+        "sample_urls": [
+          "https://www.tokyodev.com/articles/how-magic-the-gathering-took-me-from-n2-to-japanese-fluency",
+          "https://www.newsonjapan.com/article/149075.php"
+        ],
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "region:asia",
@@ -438,7 +466,7 @@
         ],
         "delta_vs_prev": 0,
         "delta_ratio": 0,
-        "streak_days": 26,
+        "streak_days": 27,
         "sample_item_ids": [
           "hn-2026-04-24-001",
           "hn-2026-05-01-004"
@@ -447,34 +475,7 @@
           "https://www.bbc.com/news/articles/c4gx1n0dl9no",
           "https://github.com/xodn348/destiny"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
-      },
-      {
-        "key": "region:china",
-        "kind": "region",
-        "label": "china",
-        "window": "all",
-        "mention_count": 2,
-        "source_count": 2,
-        "region_mix": [
-          "china"
-        ],
-        "category_mix": [
-          "macro",
-          "ai"
-        ],
-        "delta_vs_prev": 0,
-        "delta_ratio": 0,
-        "streak_days": 40,
-        "sample_item_ids": [
-          "fed-2026-04-23-019",
-          "hn-2026-04-27-008"
-        ],
-        "sample_urls": [
-          "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260310a.htm",
-          "https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html"
-        ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       }
     ],
     "categories": [
@@ -483,7 +484,7 @@
         "kind": "category",
         "label": "security",
         "window": "all",
-        "mention_count": 290,
+        "mention_count": 299,
         "source_count": 2,
         "region_mix": [
           "global",
@@ -495,9 +496,9 @@
         "category_mix": [
           "security"
         ],
-        "delta_vs_prev": 14,
-        "delta_ratio": 0.051,
-        "streak_days": 43,
+        "delta_vs_prev": 9,
+        "delta_ratio": 0.031,
+        "streak_days": 44,
         "sample_item_ids": [
           "hn-2026-04-18-001",
           "hn-2026-04-18-002",
@@ -508,14 +509,14 @@
           "https://en.wikipedia.org/wiki/Michael_O._Rabin",
           "https://kdenlive.org/news/2026/state-2026/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "category:ai",
         "kind": "category",
         "label": "ai",
         "window": "all",
-        "mention_count": 218,
+        "mention_count": 219,
         "source_count": 4,
         "region_mix": [
           "us",
@@ -527,9 +528,9 @@
         "category_mix": [
           "ai"
         ],
-        "delta_vs_prev": 6,
-        "delta_ratio": 0.028,
-        "streak_days": 43,
+        "delta_vs_prev": 1,
+        "delta_ratio": 0.005,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-003",
           "techcrunch-2026-04-18-008",
@@ -540,7 +541,7 @@
           "https://techcrunch.com/2026/04/17/zoom-teams-up-with-world-to-verify-humans-in-meeting/",
           "https://techcrunch.com/2026/04/17/gigs-turns-your-concert-history-into-a-personal-live-music-archive/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "category:general",
@@ -556,9 +557,9 @@
         "category_mix": [
           "general"
         ],
-        "delta_vs_prev": 1,
-        "delta_ratio": 0.018,
-        "streak_days": 43,
+        "delta_vs_prev": 0,
+        "delta_ratio": 0,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-001",
           "techcrunch-2026-04-18-002",
@@ -569,7 +570,7 @@
           "https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/",
           "https://techcrunch.com/2026/04/17/uber-will-now-pick-up-your-returns-from-your-doorstep/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "category:macro",
@@ -588,7 +589,7 @@
         ],
         "delta_vs_prev": 0,
         "delta_ratio": 0,
-        "streak_days": 39,
+        "streak_days": 40,
         "sample_item_ids": [
           "hn-2026-04-18-007",
           "fed-2026-04-23-001",
@@ -599,7 +600,7 @@
           "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260422a.htm",
           "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260416a.htm"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       },
       {
         "key": "category:policy",
@@ -615,9 +616,9 @@
         "category_mix": [
           "policy"
         ],
-        "delta_vs_prev": 1,
-        "delta_ratio": 0.059,
-        "streak_days": 43,
+        "delta_vs_prev": 0,
+        "delta_ratio": 0,
+        "streak_days": 44,
         "sample_item_ids": [
           "techcrunch-2026-04-18-004",
           "techcrunch-2026-04-18-007",
@@ -628,7 +629,7 @@
           "https://techcrunch.com/2026/04/17/hackers-are-abusing-unpatched-windows-security-flaws-to-hack-into-organizations/",
           "https://techcrunch.com/2026/04/17/with-us-spy-laws-set-to-expire-lawmakers-are-split-over-protecting-americans-from-warrantless-surveillance/"
         ],
-        "updated_at": "2026-05-02T22:00:20.776Z"
+        "updated_at": "2026-05-03T10:00:23.963Z"
       }
     ]
   }

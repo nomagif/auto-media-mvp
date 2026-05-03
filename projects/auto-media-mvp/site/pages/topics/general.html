@@ -165,11 +165,11 @@
 <ul>
 <li>key: topic:general</li>
 <li>kind: topic</li>
-<li>mentions: 407</li>
+<li>mentions: 416</li>
 <li>sources: 5</li>
-<li>delta vs prev: +20</li>
-<li>delta ratio: 0.052</li>
-<li>streak days: 43</li>
+<li>delta vs prev: +9</li>
+<li>delta ratio: 0.022</li>
+<li>streak days: 44</li>
 <li>regions: us, global, asia, uk, japan</li>
 <li>categories: ai, general, security, macro, policy, social, defense, startups</li>
 <li>public note: sensitive policy / conflict-adjacent row; keep interpretation minimal and metrics-first</li>
@@ -229,7 +229,18 @@
             client_id: getClientId(),
             referrer: document.referrer || ''
           });
-          navigator.sendBeacon?.(API_BASE + '/api/premium/event', new Blob([payload], { type: 'application/json' }));
+          const url = API_BASE + '/api/premium/event';
+          const blob = new Blob([payload], { type: 'application/json' });
+          const sent = navigator.sendBeacon ? navigator.sendBeacon(url, blob) : false;
+          if (!sent && window.fetch) {
+            fetch(url, {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: payload,
+              mode: 'cors',
+              keepalive: true
+            }).catch(() => {});
+          }
         } catch (_) {}
       }
       track('page_view');

@@ -161,7 +161,7 @@
     </div>
     
     <section class="dashboard">
-      <div class="metric"><div class="metric-label">Items</div><div class="metric-value">659</div></div>
+      <div class="metric"><div class="metric-label">Items</div><div class="metric-value">670</div></div>
       <div class="metric"><div class="metric-label">Topics</div><div class="metric-value">20</div></div>
       <div class="metric"><div class="metric-label">Companies</div><div class="metric-value">21</div></div>
       <div class="metric"><div class="metric-label">Categories</div><div class="metric-value">10</div></div>
@@ -171,7 +171,7 @@
     <section class="highlights">
       <div class="highlights-header">
         <h2>Current Highlights</h2>
-        <p>Generated at 2026-05-02T22:00:20.776Z · metrics view only · sensitive policy / conflict-adjacent rows are de-emphasized on the public UI</p>
+        <p>Generated at 2026-05-03T10:00:23.963Z · metrics view only · sensitive policy / conflict-adjacent rows are de-emphasized on the public UI</p>
       </div>
       <div class="highlight-grid">
         
@@ -192,7 +192,7 @@
     <div class="highlight-block">
       <h3>Top Categories</h3>
       <ul>
-        <li><a href="/pages/categories/security.html">security</a> <span class="meta">290 mentions</span></li><li><a href="/pages/categories/ai.html">ai</a> <span class="meta">218 mentions</span></li><li><a href="/pages/categories/general.html">general</a> <span class="meta">57 mentions</span></li>
+        <li><a href="/pages/categories/security.html">security</a> <span class="meta">299 mentions</span></li><li><a href="/pages/categories/ai.html">ai</a> <span class="meta">219 mentions</span></li><li><a href="/pages/categories/general.html">general</a> <span class="meta">57 mentions</span></li>
       </ul>
     </div>
       </div>
@@ -299,7 +299,18 @@
             client_id: getClientId(),
             referrer: document.referrer || ''
           });
-          navigator.sendBeacon?.(API_BASE + '/api/premium/event', new Blob([payload], { type: 'application/json' }));
+          const url = API_BASE + '/api/premium/event';
+          const blob = new Blob([payload], { type: 'application/json' });
+          const sent = navigator.sendBeacon ? navigator.sendBeacon(url, blob) : false;
+          if (!sent && window.fetch) {
+            fetch(url, {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: payload,
+              mode: 'cors',
+              keepalive: true
+            }).catch(() => {});
+          }
         } catch (_) {}
       }
       track('page_view');
